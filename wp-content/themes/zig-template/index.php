@@ -89,14 +89,13 @@
 	  <?php if ( have_posts() ) : ?>
 		  <?php while ( have_posts() ) : the_post(); ?>
           <div class="announcements__card" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-              <div class="title"><a href="<?php the_permalink(); ?>" rel="bookmark"
-                                    title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-              </div>
-              <button class="read-more">Czytaj więcej</button>
+            <div class="title"><a href="<?php the_permalink(); ?>" rel="bookmark"
+                                  title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+            </div>
+            <button class="read-more">Czytaj więcej</button>
             <!--end entry-->
           </div><!--end post-->
 		  <?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
-        <button class="button">Zobacz Wszytskie</button>
 	  <?php else : ?>
 	  <?php endif; ?>
 
@@ -117,15 +116,43 @@
       CO ZYSKUJESZ?
     </div>
     <div class="profits__cards">
-      <div v-for="(card,index) in cards" :key="index" class="profits__card">
+      <div class="profits__card">
         <div class="title">
-          {{ card.title }}
+          WIEDZA I DOŚWIADCZENIE
         </div>
         <div class="text">
-          {{ card.text }}
+          Korzystaj z wiedzy innych, dziel
+          się własnymi doświadczeniami.
+          Razem budujmy wartość
         </div>
         <div class="arrow">
-          <img alt="" src="@/assets/arrow-right.svg">
+          <img alt="" src="./assets/arrow-right.svg">
+        </div>
+      </div>
+      <div class="profits__card">
+        <div class="title">
+          CENNE KONTAKTY
+        </div>
+        <div class="text">
+          CENNE
+          KONTAKTY
+          Dołącz do społeczności, która tworzy biznes na Śląsku i w agłębiu.
+          Zdobądź nowych klientów i poznaj dostawców rozwiązań dla Twojej firmy
+        </div>
+        <div class="arrow">
+          <img alt="" src="./assets/arrow-right.svg">
+        </div>
+      </div>
+      <div class="profits__card">
+        <div class="title">
+          INSPIRUJĄCE SPOTKANIA
+        </div>
+        <div class="text">
+          Szkolenia, warsztaty, spotkania, wspólne pasje. Tu znajdziesz inspiracje,
+          motywację i odpowiednich partnerów
+        </div>
+        <div class="arrow">
+          <img alt="" src="./assets/arrow-right.svg">
         </div>
       </div>
     </div>
@@ -133,7 +160,7 @@
   </div>
   <div class="relations">
     <div class="relations__image">
-      <img alt="laura" src="@/assets/laura.png">
+      <img alt="laura" src="/wp-content/themes/zig-template/assets/laura.png">
     </div>
     <div class="relations__content">
       <div class="relations__title main-title main-title--blue">
@@ -174,7 +201,7 @@
     Chcesz być na bieżąco? Zapisz się do newslettera
   </div>
   <input class="button light-blue" placeholder="Twój email" type="text">
-  <Button color="light-blue" text="zapisz"/>
+  <button class="button light-blue">Zapisz</button>
 </section>
 
 

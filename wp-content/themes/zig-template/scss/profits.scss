@@ -1,7 +1,7 @@
 // only bg in #
 
 #profits {
-  background-image: url('../assets/pattern.png');
+  background-image: url('assets/pattern.png');
   background-position: 0 0;
   background-repeat: no-repeat;
   position: relative;
@@ -42,6 +42,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 380px;
 
     .title {
       font-size: 32px;
