@@ -61,9 +61,7 @@
 				<?php if ( function_exists( 'add_theme_support' ) ) {
 					the_post_thumbnail();
 				} ?>
-
-				<?php edit_post_link(); ?>
-				<?php wp_link_pages(); ?> </div>
+            </div>
             <div class="description">
               <div class="date"><?php the_time( 'd.m.Y' ); ?></div>
               <div class="title"><a href="<?php the_permalink(); ?>" rel="bookmark"
@@ -126,7 +124,7 @@
           Razem budujmy wartość
         </div>
         <div class="arrow">
-          <img alt="" src="./assets/arrow-right.svg">
+          <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
         </div>
       </div>
       <div class="profits__card">
@@ -140,7 +138,7 @@
           Zdobądź nowych klientów i poznaj dostawców rozwiązań dla Twojej firmy
         </div>
         <div class="arrow">
-          <img alt="" src="./assets/arrow-right.svg">
+          <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
         </div>
       </div>
       <div class="profits__card">
@@ -152,8 +150,8 @@
           motywację i odpowiednich partnerów
         </div>
         <div class="arrow">
-          <img alt="" src="./assets/arrow-right.svg">
-        </div>
+          <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
+          </div>
       </div>
     </div>
 
@@ -203,6 +201,5 @@
   <input class="button light-blue" placeholder="Twój email" type="text">
   <button class="button light-blue">Zapisz</button>
 </section>
-
 
 <?php get_footer(); ?>

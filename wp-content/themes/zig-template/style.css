@@ -73,20 +73,9 @@ html {
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
+  list-style: none;
 }
-.header__link {
-  margin-right: 40px;
-  color: #343434;
-  text-decoration: none;
-  font-size: 16px;
-  font-family: "roboto";
-}
-.header__link--join {
-  background-color: #0028c8;
-  color: #ffffff;
-  padding: 10px 20px;
-}
-.header__link--phone {
+.header__phone {
   color: #0028c8;
   font-weight: bold;
   display: flex;
@@ -95,12 +84,46 @@ html {
   justify-content: center;
   flex-direction: row;
 }
-.header__link--phone img {
+.header__phone img {
   padding-right: 10px;
 }
-.header__link--phone a {
+.header__phone a {
   text-decoration: none;
   color: #0028c8;
+}
+.header li a {
+  text-decoration: none;
+  margin-right: 40px;
+  color: #343434;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "roboto";
+}
+.header li a .join {
+  background-color: #0028c8;
+  color: #ffffff;
+  padding: 10px 20px;
+}
+.header li a .phone {
+  color: #0028c8;
+  font-weight: bold;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.header li a .phone img {
+  padding-right: 10px;
+}
+.header li a .phone a {
+  text-decoration: none;
+  color: #0028c8;
+}
+.header li.join a {
+  background-color: #0028c8;
+  color: #ffffff;
+  padding: 10px 20px;
 }
 .header .hamburger {
   display: none;

@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="column">
     <div class="logo row">
-      <img alt="logo" src="wp-content/themes/zig-templategit /assets/zig-logo-white.svg">
+      <img alt="logo" src="wp-content/themes/zig-template/assets/zig-logo-white.svg">
     </div>
     <div class="row">
       <img alt="location" src="wp-content/themes/zig-template/assets/location.svg">
@@ -26,6 +26,8 @@
     <img alt="map" class="map" src="wp-content/themes/zig-template/assets/map.png">
   </div>
 </footer>
+
+<?php wp_footer() ?>
 
 </body>
 </html>

@@ -8,23 +8,40 @@
   height: 80px;
 
   &__nav {
-    @include flex(center)
+    @include flex(center);
+    list-style: none;
   }
 
-  &__link {
+  &__phone{
+    color: $blue;
+    font-weight: bold;
+    @include flex(center, center);
+
+    img {
+      padding-right: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+
+  li a{
+    text-decoration: none;
     margin-right: 40px;
     color: $black;
     text-decoration: none;
     font-size: 16px;
     font-family: 'roboto';
 
-    &--join {
+    .join {
       background-color: $blue;
       color: $white;
       padding: 10px 20px;
     }
 
-    &--phone {
+    .phone {
       color: $blue;
       font-weight: bold;
       @include flex(center, center);
@@ -38,6 +55,12 @@
         color: $blue;
       }
     }
+  }
+
+  li.join a{
+    background-color: $blue;
+    color: $white;
+    padding: 10px 20px;
   }
 
   .hamburger {
