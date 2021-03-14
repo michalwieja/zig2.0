@@ -1,0 +1,16 @@
+.read-more {
+  border: none;
+  color: $black;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+
+img{
+  padding-left: 20px;
+}
+
+  &.light-blue {
+    color: $light-blue;
+
+  }
+}

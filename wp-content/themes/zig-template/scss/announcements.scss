@@ -1,0 +1,47 @@
+.announcements {
+  background-color: $grey;
+  padding: 100px $content-padding-desktop;
+
+  &__cards {
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  &__card {
+    border-bottom: 1px solid $black;
+    border-top: 1px solid $black;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    width: 100%;
+    padding: 30px;
+    transition: .2s;
+
+    &:hover {
+      border: 1px solid $red;
+    }
+
+    .title {
+      font-size: 24px;
+      line-height: 32px;
+      padding-bottom: 20px;
+    }
+
+  }
+}
+
+@include respond-to($xxl) {
+  .announcements {
+    padding: 100px $content-padding-tablet;
+  }
+}
+
+@include respond-to($small) {
+  .announcements {
+    padding: 100px $content-padding-mobile;
+    &__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+}
