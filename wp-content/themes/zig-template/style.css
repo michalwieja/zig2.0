@@ -435,10 +435,14 @@ html {
   padding-bottom: 20px;
 }
 .news__card .description .title {
+  min-height: 160px;
+}
+.news__card .description .title a {
   font-size: 22px;
   font-weight: 500;
   padding-bottom: 30px;
-  min-height: 160px;
+  text-decoration: none;
+  color: #343434;
 }
 
 @media only screen and (max-width: 1680px) {
@@ -488,10 +492,13 @@ html {
 .announcements__card:hover {
   border: 1px solid #EB5757;
 }
-.announcements__card .title {
+.announcements__card .title a {
+  color: #343434;
+  text-decoration: none;
   font-size: 24px;
   line-height: 32px;
   padding-bottom: 20px;
+  display: block;
 }
 
 @media only screen and (max-width: 1680px) {

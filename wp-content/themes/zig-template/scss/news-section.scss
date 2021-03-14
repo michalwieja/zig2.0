@@ -22,7 +22,8 @@
     min-width: 405px;
     transition: .2s;
     overflow: hidden;
-    &:hover .image{
+
+    &:hover .image {
       transform: scale(1.05);
     }
 
@@ -49,10 +50,16 @@
       }
 
       .title {
-        font-size: 22px;
-        font-weight: 500;
-        padding-bottom: 30px;
         min-height: 160px;
+
+
+        a {
+          font-size: 22px;
+          font-weight: 500;
+          padding-bottom: 30px;
+          text-decoration: none;
+          color: $black;
+        }
       }
     }
   }

@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-
 <section class="hero">
   <div class="hero__content">
     <div class="hero__title main-title">TU SĄ
@@ -16,35 +15,35 @@
     </div>
   </div>
   <div class="hero__image">
-      <?php
+	  <?php
 
-      $args = array(
-          'posts_per_page' => 1,
-          'post__in' => get_option('sticky_posts'),
-          'ignore_sticky_posts' => 1
-      );
-      $my_query = new WP_Query($args);
+	  $args     = array(
+		  'posts_per_page'      => 1,
+		  'post__in'            => get_option( 'sticky_posts' ),
+		  'ignore_sticky_posts' => 1
+	  );
+	  $my_query = new WP_Query( $args );
 
-      $do_not_duplicate = array();
-      while ($my_query->have_posts()) : $my_query->the_post();
-          $do_not_duplicate[] = $post->ID; ?>
+	  $do_not_duplicate = array();
+	  while ( $my_query->have_posts() ) : $my_query->the_post();
+		  $do_not_duplicate[] = $post->ID; ?>
 
-        <div id="post-<?php the_ID(); ?>" <?php post_class(''); ?> >
-            <?php the_post_thumbnail('full'); ?>
+        <div id="post-<?php the_ID(); ?>" <?php post_class( '' ); ?> >
+			<?php the_post_thumbnail( 'full' ); ?>
 
         </div>
         <div class="hero__description">
           <div class="title">
-              <?php the_title() ?>
+			  <?php the_title() ?>
           </div>
           <div class="text">
-              <?php the_excerpt() ?>
+			  <?php the_excerpt() ?>
           </div>
           <button class="read-more">czytaj wiecej</button>
         </div>
 
-      <?php endwhile; ?>
-      <?php wp_reset_postdata(); //VERY VERY IMPORTANT?>
+	  <?php endwhile; ?>
+	  <?php wp_reset_postdata(); //VERY VERY IMPORTANT?>
 
   </div>
 </section>
@@ -52,69 +51,131 @@
   <div class="news__title sub-title">
     Sporo się u nas dzieje. Bądź zawsze na bieżąco
   </div>
-<!--  <div class="news__cards">-->
-<!--    <div v-for="post in posts" :key="post.id" class="news__card">-->
-<!--      <div class="image">-->
-<!--        <img alt="photo">-->
-<!--      </div>-->
-<!--      <div class="description">-->
-<!--        <div class="date">-->
-<!--          {{ post.date }}-->
-<!--        </div>-->
-<!--        <div class="title">-->
-<!--          {{ post.title.rendered }}-->
-<!---->
-<!--        </div>-->
-<!--        <ButtonReadMore/>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<div class="news__cards">
-    <?php if (have_posts()) : ?>
-        <?php while (have_posts()) : the_post(); ?>
-        <div class="news__card" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-          <div class="post-header">
-            <div class="date"><?php the_time('M j y'); ?></div>
-            <h2><a href="<?php the_permalink(); ?>" rel="bookmark"
-                   title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-            </h2>
-            <div class="author"><?php the_author(); ?></div>
-          </div><!--end post header-->
-          <div class="entry clear">
-              <?php if (function_exists('add_theme_support')) the_post_thumbnail(); ?>
-              <?php the_excerpt(); ?>
-              <?php edit_post_link(); ?>
-              <?php wp_link_pages(); ?> </div>
-          <!--end entry-->
-          <div class="post-footer">
-            <div
-              class="comments"><?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?></div>
-          </div><!--end post footer-->
-        </div><!--end post-->
-        <?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
-      <div class="navigation index">
-        <div class="alignleft"><?php next_posts_link('Older Entries'); ?></div>
-        <div class="alignright"><?php previous_posts_link('Newer Entries'); ?></div>
-      </div><!--end navigation-->
-    <?php else : ?>
-    <?php endif; ?>
-</div>
-  <Button text="zobacz wszystkie"/>
+  <div class="news__cards">
+	  <?php query_posts( 'posts_per_page=4' ); ?>
+
+	  <?php if ( have_posts() ) : ?>
+		  <?php while ( have_posts() ) : the_post(); ?>
+          <div class="news__card" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <div class="image">
+				<?php if ( function_exists( 'add_theme_support' ) ) {
+					the_post_thumbnail();
+				} ?>
+
+				<?php edit_post_link(); ?>
+				<?php wp_link_pages(); ?> </div>
+            <div class="description">
+              <div class="date"><?php the_time( 'd.m.Y' ); ?></div>
+              <div class="title"><a href="<?php the_permalink(); ?>" rel="bookmark"
+                                    title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+              </div>
+              <button class="read-more">Czytaj więcej</button>
+            </div><!--end post header-->
+            <!--end entry-->
+          </div><!--end post-->
+		  <?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
+        <button class="button">Zobacz Wszytskie</button>
+	  <?php else : ?>
+	  <?php endif; ?>
+  </div>
 
 </section>
-
 <section class="announcements">
   <div class="announcements__title sub-title">
     Najnowsze komunikaty
   </div>
   <div class="announcements__cards">
-    <div v-for="index in 4" :key="index" class="announcements__card">
-      <div class="title">
-        Zmiany przepisów dotyczących małego ZUSu Plus weszły w życie 1 lutego 2020r.
-      </div>
-      <ButtonReadMore/>
-    </div>
+	  <?php query_posts( 'posts_per_page=4' ); ?>
+	  <?php if ( have_posts() ) : ?>
+		  <?php while ( have_posts() ) : the_post(); ?>
+          <div class="announcements__card" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+              <div class="title"><a href="<?php the_permalink(); ?>" rel="bookmark"
+                                    title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+              </div>
+              <button class="read-more">Czytaj więcej</button>
+            <!--end entry-->
+          </div><!--end post-->
+		  <?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
+        <button class="button">Zobacz Wszytskie</button>
+	  <?php else : ?>
+	  <?php endif; ?>
+
   </div>
 </section>
+<section class="slogan">
+  <div class="slogan__title main-title main-title--blue">
+    Lepszy biznes, lepsze życie
+  </div>
+  <div class="slogan__text">
+    Jesteśmy tu, aby inspirować, wspierać i rozwijać się. Stwarzamy możliwości i potrafimy z nich
+    korzystać. Pamiętamy też, że za każdym biznesem stoi człowiek
+  </div>
+</section>
+<section id="profits">
+  <div class="profits">
+    <div class="profits__title main-title main-title--blue">
+      CO ZYSKUJESZ?
+    </div>
+    <div class="profits__cards">
+      <div v-for="(card,index) in cards" :key="index" class="profits__card">
+        <div class="title">
+          {{ card.title }}
+        </div>
+        <div class="text">
+          {{ card.text }}
+        </div>
+        <div class="arrow">
+          <img alt="" src="@/assets/arrow-right.svg">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="relations">
+    <div class="relations__image">
+      <img alt="laura" src="@/assets/laura.png">
+    </div>
+    <div class="relations__content">
+      <div class="relations__title main-title main-title--blue">
+        Relacje są najważniejsze
+
+      </div>
+      <div class="relations__text">
+        <p>Razem jesteśmy silniejsi i mamy większy wpływ nie tylko na świat biznesu. Wierzymy w
+          skuteczność efektu synergii wiedzy, doświadczenia i odpowiedzialnego podejścia. To na
+          nich budujemy przewagę naszych biznesów i Zagłębiowskiej Izby Gospodarczej.</p>
+        <p>Dbam o jakość relacji w Zagłębiowskiej Izbie Gospodarczej. Poznam Cię z odpowiednimi
+          ludźmi </p>
+        <p>Paulina Piętowska Relationship Menager</p>
+      </div>
+      <Button text="Połączmy siły"/>
+    </div>
+
+  </div>
+</section>
+<section class="motto">
+  <div class="motto__title">
+    Jesteśmy społecznością przedsiębiorców opartą o
+    wartości i
+    poczucie wpływu na nasze firmy, miasto, region i ich
+    mieszkańców.
+  </div>
+  <div class="motto__subtitle">
+    Wierzymy, że biznes to coś więcej niż pieniądze.
+    Bierzemy odpowiedzialność, chcemy się rozwijać, szukamy
+    inspiracji
+    i dajemy przykład. Dobrze wiemy, że razem jesteśmy silniejsi,
+    a nasz
+    wspólny głos ma znaczenie.
+  </div>
+</section>
+<section class="newsletter">
+  <div class="question">
+    Chcesz być na bieżąco? Zapisz się do newslettera
+  </div>
+  <input class="button light-blue" placeholder="Twój email" type="text">
+  <Button color="light-blue" text="zapisz"/>
+</section>
+
 
 <?php get_footer(); ?>
