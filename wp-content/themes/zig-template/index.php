@@ -39,7 +39,7 @@
           <div class="text">
 			  <?php the_excerpt() ?>
           </div>
-          <button class="read-more">czytaj wiecej</button>
+          <button class="read-more light-blue">czytaj wiecej</button>
         </div>
 
 	  <?php endwhile; ?>

@@ -5,12 +5,17 @@
   font-size: 18px;
   cursor: pointer;
 
-img{
-  padding-left: 20px;
-}
+  &::after {
+    content: url("/wp-content/themes/zig-template/assets/arrow-right.svg");
+    margin-left: 10px;
+  }
 
   &.light-blue {
     color: $light-blue;
 
+    &::after {
+      content: url("/wp-content/themes/zig-template/assets/arrow-right-light-blue.svg");
+      margin-left: 10px;
+    }
   }
 }

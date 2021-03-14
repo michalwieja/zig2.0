@@ -12,22 +12,7 @@
     list-style: none;
   }
 
-  &__phone{
-    color: $blue;
-    font-weight: bold;
-    @include flex(center, center);
-
-    img {
-      padding-right: 10px;
-    }
-
-    a {
-      text-decoration: none;
-      color: $blue;
-    }
-  }
-
-  li a{
+  li a {
     text-decoration: none;
     margin-right: 40px;
     color: $black;
@@ -40,27 +25,25 @@
       color: $white;
       padding: 10px 20px;
     }
-
-    .phone {
-      color: $blue;
-      font-weight: bold;
-      @include flex(center, center);
-
-      img {
-        padding-right: 10px;
-      }
-
-      a {
-        text-decoration: none;
-        color: $blue;
-      }
-    }
   }
 
-  li.join a{
+  li.join a {
     background-color: $blue;
     color: $white;
     padding: 10px 20px;
+  }
+
+  li.phone a {
+    color: $blue;
+    font-weight: bold;
+    @include flex(center, center);
+    position: relative;
+
+    &::before {
+      content: url("/wp-content/themes/zig-template/assets/phone-blue.svg");
+      position: relative;
+      margin-right: 5px;
+    }
   }
 
   .hamburger {

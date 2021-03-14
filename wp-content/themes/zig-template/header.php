@@ -26,10 +26,10 @@ the_custom_logo();
 		'items_wrap'     => '<ul class="header__nav">%3$s</ul>'
 	) )
 	?>
-  <div class="header__phone">
-    <img alt="phone" src="/wp-content/themes/zig-template/assets/phone-blue.svg">
-    <a href="tel:505582720">505 582 720</a>
-  </div>
+<!--  <div class="header__phone">-->
+<!--    <img alt="phone" src="/wp-content/themes/zig-template/assets/phone-blue.svg">-->
+<!--    <a href="tel:505582720">505 582 720</a>-->
+<!--  </div>-->
   <div class="hamburger">
     <div class="hamburger__icon">
       <div class="hamburger__line"></div>
