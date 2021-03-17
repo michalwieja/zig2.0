@@ -14,6 +14,10 @@ Author URI: https://michalwieja.pl
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 html {
   font-family: "Saira", sans-serif;
   overflow-x: hidden;
@@ -777,7 +781,6 @@ html {
 .footer {
   padding: 100px 320px;
   background-color: #000046;
-  color: white;
   display: flex;
   display: -webkit-flex;
   align-items: start;
@@ -801,10 +804,6 @@ html {
 }
 .footer .column .row .text {
   padding-left: 20px;
-}
-.footer .column .map {
-  width: 100%;
-  object-fit: cover;
 }
 
 @media only screen and (max-width: 1366px) {
@@ -852,10 +851,66 @@ html {
   background-color: #000046;
   display: flex;
   display: -webkit-flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: row;
   color: #85d4ff;
+  line-height: 47px;
+}
+.newsletter div {
+  width: auto;
+}
+.newsletter form {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding-left: 50px;
+}
+.newsletter form .tnp-privacy-field {
+  order: 3;
+  line-height: 20px;
+}
+.newsletter form .tnp-field-email {
+  margin-right: 20px;
+}
+.newsletter form .tnp-field-email input {
+  min-height: 47px;
+  background-color: transparent;
+  color: #ffffff;
+}
+.newsletter form .tnp-field-button input {
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 210px;
+  min-height: 44px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Saira", sans-serif;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.newsletter form .tnp-field-button input:hover {
+  color: #85d4ff;
+  border: 1px solid #85d4ff;
+}
+
+@media only screen and (max-width: 1152px) {
+  .newsletter {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .newsletter form {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+  .newsletter form .tnp-field-email {
+    margin-right: 0;
+  }
+  .newsletter form .tnp-privacy-field {
+    text-align: left;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

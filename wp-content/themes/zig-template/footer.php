@@ -23,7 +23,9 @@
     </a>
   </div>
   <div class="column">
-    <img alt="map" class="map" src="wp-content/themes/zig-template/assets/map.png">
+    <?php
+    dynamic_sidebar('footer_map')
+    ?>
   </div>
 </footer>
 

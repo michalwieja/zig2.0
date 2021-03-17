@@ -67,7 +67,8 @@
               <div class="title"><a href="<?php the_permalink(); ?>" rel="bookmark"
                                     title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
               </div>
-              <button class="read-more">Czytaj więcej</button>
+              <button class="read-more"><a href="<?php the_permalink(); ?>" rel="bookmark"
+                                           title="Permanent Link to <?php the_title_attribute(); ?>">Czytaj więcej</a></button>
             </div><!--end post header-->
             <!--end entry-->
           </div><!--end post-->
@@ -195,13 +196,6 @@
   </div>
 </section>
 <section class="newsletter">
-<!--  <div class="question">-->
-<!--    Chcesz być na bieżąco? Zapisz się do newslettera-->
-<!--  </div>-->
-<!--  <input class="button light-blue" placeholder="Twój email" type="text">-->
-<!--  <button class="button light-blue">Zapisz</button>-->
-
-
     <?php
     dynamic_sidebar('newsletter')
     ?>

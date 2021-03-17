@@ -44,14 +44,23 @@ add_action( 'wp_enqueue_scripts', 'load_custom_scripts', 100 );
 
 function custom_widget_areas() {
 	register_sidebar( array(
-		'before_title' => '',
-		'after_title' => '',
+		'before_title'  => '',
+		'after_title'   => '',
 		'before_widget' => '',
-		'after_widget' => '',
-		'name' => 'Newsletter Area',
-		'id' => 'newsletter',
-		'description' => 'Newsletter widget area'
+		'after_widget'  => '',
+		'name'          => 'Newsletter Area',
+		'id'            => 'newsletter',
+		'description'   => 'Newsletter widget area'
+	) );
+	register_sidebar( array(
+		'before_title'  => '',
+		'after_title'   => '',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'name'          => 'Footer Map Area',
+		'id'            => 'footer_map',
+		'description'   => 'Footer Map widget area'
 	) );
 }
 
-add_action('widgets_init', 'custom_widget_areas');
+add_action( 'widgets_init', 'custom_widget_areas' );
