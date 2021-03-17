@@ -195,11 +195,17 @@
   </div>
 </section>
 <section class="newsletter">
-  <div class="question">
-    Chcesz być na bieżąco? Zapisz się do newslettera
-  </div>
-  <input class="button light-blue" placeholder="Twój email" type="text">
-  <button class="button light-blue">Zapisz</button>
+<!--  <div class="question">-->
+<!--    Chcesz być na bieżąco? Zapisz się do newslettera-->
+<!--  </div>-->
+<!--  <input class="button light-blue" placeholder="Twój email" type="text">-->
+<!--  <button class="button light-blue">Zapisz</button>-->
+
+
+    <?php
+    dynamic_sidebar('newsletter')
+    ?>
+
 </section>
 
 <?php get_footer(); ?>
