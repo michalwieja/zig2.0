@@ -1,6 +1,5 @@
 .news {
   background-color: $grey;
-  padding: 0 $content-padding-desktop;
   padding-top: 200px;
 
   &__title {
@@ -50,7 +49,9 @@
 
       .title {
         min-height: 160px;
+      }
 
+      .title, button {
         a {
           font-size: 22px;
           font-weight: 500;
@@ -63,15 +64,10 @@
   }
 }
 
-@include respond-to($xxl) {
-  .news {
-    padding: 0 $content-padding-tablet;
-    padding-top: 200px;
-  }
-}
 
 @include respond-to($large) {
   .news {
+    padding-top: 300px;
 
     &__title {
       width: 90%;
@@ -81,7 +77,6 @@
 
 @include respond-to($small) {
   .news {
-    padding: 400px $content-padding-mobile 0;
 
     .button {
       width: 100%;

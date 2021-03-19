@@ -1,5 +1,6 @@
 .motto {
-  padding: 100px $content-padding-desktop;
+  padding-top: 100px;
+  padding-bottom: 100px;
 
   &__title {
     font-size: 64px;
@@ -16,9 +17,7 @@
 }
 
 @include respond-to($xl) {
-  .motto {
-    padding: 100px $content-padding-tablet;
-  }
+
 }
 
 @include respond-to($large) {
@@ -35,7 +34,8 @@
 }
 @include respond-to($small) {
   .motto {
-    padding: 50px $content-padding-mobile;
+    padding-top: 50px;
+    padding-bottom: 50px;
 
     &__title {
       font-size: 20px;

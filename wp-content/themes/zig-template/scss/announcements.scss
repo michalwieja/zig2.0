@@ -1,6 +1,7 @@
 .announcements {
   background-color: $grey;
-  padding: 100px $content-padding-desktop;
+  padding-top: 100px;
+  padding-bottom: 100px;
 
   &__cards {
     padding-top: 100px;
@@ -33,15 +34,8 @@
   }
 }
 
-@include respond-to($xxl) {
-  .announcements {
-    padding: 100px $content-padding-tablet;
-  }
-}
-
 @include respond-to($small) {
   .announcements {
-    padding: 100px $content-padding-mobile;
 
     &__cards {
       grid-template-columns: 1fr;

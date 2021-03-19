@@ -1,0 +1,36 @@
+.events{
+
+  background-color: $grey;
+  .slogan__title{
+    font-size: 48px;
+  }
+  .slogan__text{
+    font-size: 24px;
+    width: 400px;
+  }
+  .cards{
+    .card{
+      background-color: $white;
+      @include flex(center, space-between);
+      margin-bottom: 50px;
+      .content{
+        padding: 40px;
+        .title{
+          font-size: 36px;
+          line-height: 72px;
+          font-weight: bold;
+        }
+        .text{
+          font-size: 18px;
+          line-height: 26px;
+          padding: 20px 0;
+        }
+      }
+      .img{
+        img{
+          display: block;
+        }
+      }
+    }
+  }
+}

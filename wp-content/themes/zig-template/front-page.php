@@ -39,7 +39,8 @@
 				<div class="text">
 					<?php the_excerpt() ?>
 				</div>
-				<button class="read-more light-blue">czytaj wiecej</button>
+        <button class="read-more light-blue"><a href="<?php the_permalink(); ?>" rel="bookmark"
+                                     title="Permanent Link to <?php the_title_attribute(); ?>">Czytaj więcej</a></button>
 			</div>
 
 		<?php endwhile; ?>
@@ -47,7 +48,7 @@
 
 	</div>
 </section>
-<section class="news">
+<section class="news container">
 	<div class="news__title sub-title">
 		Sporo się u nas dzieje. Bądź zawsze na bieżąco
 	</div>
@@ -79,7 +80,7 @@
 	</div>
 
 </section>
-<section class="announcements">
+<section class="announcements container">
 	<div class="announcements__title sub-title">
 		Najnowsze komunikaty
 	</div>
@@ -100,7 +101,7 @@
 
 	</div>
 </section>
-<section class="slogan">
+<section class="slogan slogan--white-bg container">
 	<div class="slogan__title main-title main-title--blue">
 		Lepszy biznes, lepsze życie
 	</div>
@@ -110,7 +111,7 @@
 	</div>
 </section>
 <section id="profits">
-	<div class="profits">
+	<div class="profits container">
 		<div class="profits__title main-title main-title--blue">
 			CO ZYSKUJESZ?
 		</div>
@@ -179,7 +180,7 @@
 
 	</div>
 </section>
-<section class="motto">
+<section class="motto container">
 	<div class="motto__title">
 		Jesteśmy społecznością przedsiębiorców opartą o
 		wartości i
