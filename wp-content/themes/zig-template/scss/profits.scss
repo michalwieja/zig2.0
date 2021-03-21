@@ -1,11 +1,9 @@
 // only bg in #
-
 #profits {
   background-image: url('assets/pattern.png');
   background-position: 0 0;
   background-repeat: no-repeat;
   position: relative;
-
 
   &::before {
     content: '';
@@ -67,8 +65,10 @@
 
   &__image {
     width: 50%;
-    img{
-      display: block;}
+
+    img {
+      display: block;
+    }
   }
 
   &__content {
@@ -93,18 +93,38 @@
 
 @include respond-to($xxl) {
   .profits {
+    padding-top: 50px;
     &__cards {
       grid-gap: 30px;
+      padding-top: 50px;
     }
 
     &__card {
       padding: 25px;
     }
   }
+  .relations {
+    &__content {
+      padding-right: $content-padding-tablet;
+    }
+  }
 }
 
 @include respond-to($xl) {
+  .profits {
+    &__cards {
+      grid-gap: 15px;
+    }
 
+    &__card {
+      padding: 15px;
+      min-width: 330px;
+
+      .title {
+        font-size: 26px;
+      }
+    }
+  }
   .relations {
     &__image {
       align-self: flex-end;
@@ -119,14 +139,18 @@
 @include respond-to($large) {
   .profits {
     &__cards {
-      grid-gap: 20px;
+      grid-gap: 10px;
     }
 
     &__card {
-      padding: 20px;
+      padding: 10px;
+      min-width: 250px;
 
       .title {
-        font-size: 26px;
+        font-size: 18px;
+      }
+      .text{
+        font-size: 14px;
       }
     }
   }
@@ -150,7 +174,6 @@
 
       .title {
         font-size: 24px;
-
       }
 
       .text {
@@ -172,7 +195,6 @@
     }
 
     &__card {
-
       .title {
         font-size: 18px;
       }
@@ -183,7 +205,6 @@
         min-height: auto;
         color: $blue;
         padding-bottom: 20px;
-
       }
     }
   }
@@ -196,7 +217,8 @@
 
     &__content {
       width: 100%;
-      padding-right: 0;
+      padding: $content-padding-mobile
+
     }
   }
 }

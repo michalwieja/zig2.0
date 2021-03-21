@@ -36,9 +36,10 @@
 
 @include respond-to($small) {
   .announcements {
-
+    padding-top: 50px;
     &__cards {
       grid-template-columns: 1fr;
+      padding-top: 50px;
     }
   }
 }

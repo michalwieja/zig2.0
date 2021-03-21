@@ -29,12 +29,25 @@ Author URI: https://michalwieja.pl
 @import "scss/about";
 @import "scss/opportunities";
 @import "scss/perspectives";
+@import "scss/post-carousel";
 
-.padding-left{
+.padding-left {
   padding-left: $content-padding-desktop;
 
-  &.grenade{
+  &.grenade {
     background-color: $grenade;
+  }
+}
+
+@include respond-to($xxl) {
+  .padding-left {
+    padding-left: $content-padding-tablet;
+  }
+}
+
+@include respond-to($small) {
+  .padding-left {
+    padding-left: $content-padding-mobile;
   }
 }
 

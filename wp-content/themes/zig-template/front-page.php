@@ -53,7 +53,7 @@
   <div class="news__title sub-title">
     Sporo się u nas dzieje. Bądź zawsze na bieżąco
   </div>
-	<?php echo do_shortcode( '[psac_post_carousel design="design-2" show_author="false" show_tags="false" show_comments="false" show_category="false" media_size="thumbnail" sliderheight="230" slide_show="4" category="posty"]' ); ?>
+	<?php echo do_shortcode( '[psac_post_carousel design="design-2" show_author="false" show_tags="false" show_comments="false" show_category="false" media_size="medium" sliderheight="230" slide_show="4" category="posty"]' ); ?>
 
 </section>
 <section class="announcements container">

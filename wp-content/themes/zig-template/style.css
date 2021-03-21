@@ -58,6 +58,24 @@ html {
   line-height: 64px;
   font-weight: 500;
 }
+@media only screen and (max-width: 1366px) {
+  .sub-title {
+    font-size: 40px;
+    line-height: 60px;
+  }
+}
+@media only screen and (max-width: 1152px) {
+  .sub-title {
+    font-size: 32px;
+    line-height: 50px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .sub-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
 
 .header {
   display: flex;
@@ -265,6 +283,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .hero__description {
   background-color: #000046;
@@ -321,7 +340,7 @@ html {
 }
 @media only screen and (max-width: 800px) {
   .hero {
-    height: 100vh;
+    height: auto;
     width: 100vw;
     flex-direction: column;
   }
@@ -329,6 +348,7 @@ html {
     width: 100%;
     padding-left: 30px;
     padding-top: 50px;
+    padding-bottom: 50px;
   }
   .hero__text {
     font-size: 16px;
@@ -337,11 +357,14 @@ html {
   }
   .hero__image {
     width: 100%;
-    height: 100%;
+    height: auto;
+  }
+  .hero__image .post {
+    height: auto;
   }
   .hero__description {
+    top: 0;
     width: 100%;
-    top: 100%;
     padding: 30px 30px;
   }
 }
@@ -453,6 +476,9 @@ html {
   }
 }
 @media only screen and (max-width: 800px) {
+  .news {
+    padding-top: 50px;
+  }
   .news .button {
     width: 100%;
   }
@@ -522,8 +548,12 @@ html {
 }
 
 @media only screen and (max-width: 800px) {
+  .announcements {
+    padding-top: 50px;
+  }
   .announcements__cards {
     grid-template-columns: 1fr;
+    padding-top: 50px;
   }
 }
 .slogan {
@@ -654,14 +684,33 @@ html {
 }
 
 @media only screen and (max-width: 1680px) {
+  .profits {
+    padding-top: 50px;
+  }
   .profits__cards {
     grid-gap: 30px;
+    padding-top: 50px;
   }
   .profits__card {
     padding: 25px;
   }
+
+  .relations__content {
+    padding-right: 133px;
+  }
 }
 @media only screen and (max-width: 1366px) {
+  .profits__cards {
+    grid-gap: 15px;
+  }
+  .profits__card {
+    padding: 15px;
+    min-width: 330px;
+  }
+  .profits__card .title {
+    font-size: 26px;
+  }
+
   .relations__image {
     align-self: flex-end;
   }
@@ -671,13 +720,17 @@ html {
 }
 @media only screen and (max-width: 1152px) {
   .profits__cards {
-    grid-gap: 20px;
+    grid-gap: 10px;
   }
   .profits__card {
-    padding: 20px;
+    padding: 10px;
+    min-width: 250px;
   }
   .profits__card .title {
-    font-size: 26px;
+    font-size: 18px;
+  }
+  .profits__card .text {
+    font-size: 14px;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -727,7 +780,7 @@ html {
   }
   .relations__content {
     width: 100%;
-    padding-right: 0;
+    padding: 30px;
   }
 }
 .motto {
@@ -942,7 +995,7 @@ html {
 
 .about .slogan__title {
   font-size: 48px;
-  line-height: 72px;
+  line-height: 200%;
 }
 .about .slogan__title button {
   margin-top: 50px;
@@ -1047,6 +1100,55 @@ html {
   font-size: 36px;
 }
 
+@media only screen and (max-width: 1680px) {
+  .about .important .content .text {
+    padding: 0 133px 0 100px;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  .about .slogan__title {
+    font-size: 32px;
+  }
+  .about .slogan__text {
+    font-size: 20px;
+  }
+  .about .important .content .text {
+    padding: 0 133px 0 25px;
+  }
+  .about .important .content .text .title {
+    font-size: 16px;
+  }
+  .about .important .content .text p {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .about .slogan__title {
+    font-size: 24px;
+  }
+  .about .slogan__text {
+    font-size: 18px;
+  }
+  .about .important .content {
+    flex-direction: column;
+  }
+  .about .important .content .img {
+    width: 100%;
+  }
+  .about .important .content .text {
+    padding: 0 30px 0 25px;
+    width: 100%;
+  }
+  .about .documents .button-wrapper {
+    flex-direction: column;
+  }
+  .about .documents .button-wrapper .button {
+    margin-bottom: 10px;
+  }
+  .about .society .title {
+    width: 100%;
+  }
+}
 .opportunities .slogan__title {
   font-size: 48px;
   line-height: 72px;
@@ -1156,11 +1258,68 @@ html {
   font-weight: bold;
 }
 
+.post-carousel .title {
+  font-size: 48px;
+  line-height: 64px;
+  font-weight: 500;
+  padding-bottom: 50px;
+}
+
+.post-carousel .psac-post-carousel-content {
+  min-height: 460px;
+  background-color: #ffffff;
+  border: none;
+}
+
+.post-carousel .psac-post-margin-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-carousel .psac-post-title {
+  position: relative;
+  min-height: 60px;
+  order: 2;
+}
+
+.post-carousel .psac-post-meta {
+  position: relative;
+  order: 1;
+}
+
+.post-carousel .psac-post-content {
+  order: 3;
+}
+.post-carousel .psac-post-content .psac-readmorebtn {
+  border: none;
+  color: #343434;
+}
+.post-carousel .psac-post-content .psac-readmorebtn::after {
+  content: url("/wp-content/themes/zig-template/assets/arrow-right.svg");
+  padding-left: 30px;
+}
+
+.post-carousel .psac-post-short-content {
+  display: none;
+}
+
 .padding-left {
   padding-left: 320px;
 }
 .padding-left.grenade {
   background-color: #000046;
+}
+
+@media only screen and (max-width: 1680px) {
+  .padding-left {
+    padding-left: 133px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .padding-left {
+    padding-left: 30px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
