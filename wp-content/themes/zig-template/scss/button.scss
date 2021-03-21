@@ -12,6 +12,11 @@
   transition: .3s;
   cursor: pointer;
 
+  &.white{
+    border: 1px solid $white;
+    color: $white;
+  }
+
   &.light-blue {
     border: 1px solid $light-blue;
     color: $light-blue;
@@ -22,6 +27,11 @@
       background-color: $white;
 
     }
+  }
+  &.blue {
+    border: 1px solid $blue;
+    color: $blue;
+
   }
 }
 

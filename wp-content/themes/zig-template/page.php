@@ -1,12 +1,16 @@
 <?php
 get_header();
+the_content();
 
-if ( is_page( 'wydarzenia' ) ) {
-	get_template_part('pages/events');
-} else {
-	the_content();
-}
+?>
+<section class="newsletter">
+	<?php
+	dynamic_sidebar( 'newsletter' )
+	?>
 
+</section>
+
+<?php
 get_footer();
 
 ?>

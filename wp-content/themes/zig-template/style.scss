@@ -26,4 +26,15 @@ Author URI: https://michalwieja.pl
 @import "scss/social-wrapper";
 @import "scss/newsletter";
 @import "scss/events";
+@import "scss/about";
+@import "scss/opportunities";
+@import "scss/perspectives";
+
+.padding-left{
+  padding-left: $content-padding-desktop;
+
+  &.grenade{
+    background-color: $grenade;
+  }
+}
 
