@@ -30,6 +30,8 @@ setInterval(() => {
 const removeDefaultArrows = () => {
   const arrows = document.querySelectorAll('.owl-nav .owl-next span');
   arrows.forEach(arrow => arrow.innerText = '')
-}
-setTimeout(removeDefaultArrows, 1);
+};
 
+document.addEventListener("DOMContentLoaded", function () {
+  removeDefaultArrows();
+});
