@@ -2,8 +2,7 @@
 
 <section class="hero">
   <div class="hero__content">
-    <div class="hero__title main-title">TU SĄ
-      MOŻLIWOŚCI
+    <div class="hero__title main-title">TU SĄ MOŻLIWOŚCI
     </div>
     <div class="hero__text">Sukcesu w biznesie nie buduje się w pojedynkę, dlatego tworzymy
       społeczność, która daje wartość
@@ -13,6 +12,13 @@
       <button class="button light-blue"/>
       więcej</button>
     </div>
+    <div class="socials">
+		<?php
+		dynamic_sidebar( 'hero_social' )
+		?>
+    </div>
+
+
   </div>
   <div class="hero__image">
 	  <?php
@@ -53,8 +59,8 @@
   <div class="news__title sub-title">
     Sporo się u nas dzieje. Bądź zawsze na bieżąco
   </div>
-	<?php echo do_shortcode( '[psac_post_carousel design="design-2" show_author="false" show_tags="false" show_comments="false" show_category="false" media_size="medium" sliderheight="230" slide_show="4" category="posty"]' ); ?>
-
+	<?php echo do_shortcode( '[psac_post_carousel autoplay="false" design="design-2" arrows="true" dots="false" show_author="false" show_tags="false" show_comments="false" show_category="false" media_size="medium" sliderheight="230" slide_show="4" category="posty"]' ); ?>
+  <button class="button grenade">ZOBACZ WSZYSTKIE</button>
 </section>
 <section class="announcements container">
   <div class="announcements__title sub-title">
@@ -71,7 +77,7 @@
             <div class="title"><a href="<?php the_permalink(); ?>" rel="bookmark"
                                   title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
             </div>
-            <button class="read-more">Czytaj więcej</button>
+            <div class="read-more">Czytaj więcej</div>
             <!--end entry-->
           </div><!--end post-->
 		  <?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
@@ -95,27 +101,13 @@
       CO ZYSKUJESZ?
     </div>
     <div class="profits__cards">
-      <div class="profits__card">
-        <div class="title">
-          WIEDZA I DOŚWIADCZENIE
-        </div>
-        <div class="text">
-          Korzystaj z wiedzy innych, dziel
-          się własnymi doświadczeniami.
-          Razem budujmy wartość
-        </div>
-        <div class="arrow">
-          <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
-        </div>
-      </div>
+
       <div class="profits__card">
         <div class="title">
           CENNE KONTAKTY
         </div>
         <div class="text">
-          CENNE
-          KONTAKTY
-          Dołącz do społeczności, która tworzy biznes na Śląsku i w agłębiu.
+          Dołącz do społeczności, która tworzy biznes na Śląsku i w zagłębiu.
           Zdobądź nowych klientów i poznaj dostawców rozwiązań dla Twojej firmy
         </div>
         <div class="arrow">
@@ -129,6 +121,19 @@
         <div class="text">
           Szkolenia, warsztaty, spotkania, wspólne pasje. Tu znajdziesz inspiracje,
           motywację i odpowiednich partnerów
+        </div>
+        <div class="arrow">
+          <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
+        </div>
+      </div>
+      <div class="profits__card">
+        <div class="title">
+          WIEDZA I DOŚWIADCZENIE
+        </div>
+        <div class="text">
+          Korzystaj z wiedzy innych, dziel
+          się własnymi doświadczeniami.
+          Razem budujmy wartość
         </div>
         <div class="arrow">
           <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
@@ -154,7 +159,7 @@
           ludźmi </p>
         <p>Paulina Piętowska Relationship Menager</p>
       </div>
-      <Button text="Połączmy siły"/>
+      <div class="button">POŁĄCZMY SIŁY</div>
     </div>
 
   </div>
@@ -175,11 +180,16 @@
     wspólny głos ma znaczenie.
   </div>
 </section>
+<section class="full-width-carousel">
+	<?php echo do_shortcode( '[psac_post_carousel autoplay="false" design="design-2" show_date="false" show_author="false" show_tags="false" show_comments="false" show_category="false" sliderheight="750" slide_show="1" dots="false" category="posty"]' ); ?>
+
+</section>
 <section class="newsletter">
 	<?php
 	dynamic_sidebar( 'newsletter' )
 	?>
 
 </section>
+
 
 <?php get_footer(); ?>

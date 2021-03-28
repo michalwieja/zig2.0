@@ -6,8 +6,8 @@
     <div class="row">
       <img alt="location" src="/wp-content/themes/zig-template/assets/location.svg">
       <span class="text">
-          Sienkiewicza 6a, p.107, I piętro
-          41-300 Dąbrowa Górnicza
+         <p> Sienkiewicza 6a, p.107, I piętro</p>
+          <p>41-300 Dąbrowa Górnicza</p>
         </span>
     </div>
     <a class="row" href="mailto:biuro@zig.org.pl">
@@ -21,6 +21,12 @@
           505 582 720
         </span>
     </a>
+    <div class="socials">
+	    <?php
+	    dynamic_sidebar( 'footer_social' )
+	    ?>
+    </div>
+
   </div>
   <div class="column">
 	  <?php

@@ -1,14 +1,23 @@
 .news {
   background-color: $grey;
-  padding-top: 200px;
+  padding-top: 135px;
 
   &__title {
-    width: 45%;
-    padding-bottom: 50px;
+    width: 35%;
+    padding-bottom: 85px;
   }
 
+  button{
+    margin-top: 60px;
+    width: 240px;
+  }
+  .owl-prev{
+    display: none !important;
+  }
+  .psac-slider-and-carousel .owl-nav .owl-next{
+    right: 240px !important;
+  }
 }
-
 
 @include respond-to($large) {
   .news {
@@ -27,48 +36,5 @@
     .button {
       width: 100%;
     }
-  }
-}
-
-
-.post-carousel {
-
-  .title {
-    font-size: 48px;
-    line-height: 64px;
-    font-weight: 500;
-    padding-bottom: 50px;
-  }
-
-  .psac-post-carousel-content {
-    min-height: 460px;
-    background-color: $white;
-    border: none;
-  }
-
-  .psac-post-margin-content {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .psac-post-title {
-    position: relative;
-    min-height: 60px;
-    order: 2;
-  }
-
-  .psac-post-meta {
-    position: relative;
-    order: 1;
-  }
-
-  .psac-post-content {
-    order: 3;
-  }
-
-  .psac-post-short-content {
-    display: none;
-
   }
 }

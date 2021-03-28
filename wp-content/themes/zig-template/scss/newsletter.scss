@@ -1,9 +1,12 @@
 .newsletter {
-  padding: 50px;
+  padding: 40px;
   background-color: $grenade;
   @include flex(flex-start, center);
   color: $light-blue;
   line-height: 47px;
+  border-bottom: 1px solid $light-blue;
+  position: relative;
+  z-index: 3;
 
   div {
     width: auto;
@@ -29,15 +32,15 @@
       }
     }
 
-    .tnp-field-button {
+    .tnp-field-button, .tnp-field-email {
       input {
         font-size: 16px;
         font-weight: 700;
         min-width: 210px;
         min-height: 44px;
         background-color: transparent;
-        border: 1px solid $white;
-        color: $white;
+        border: 1px solid $light-blue;
+        color: $light-blue;
         text-transform: uppercase;
         font-family: $font-family;
         transition: .3s;

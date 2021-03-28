@@ -21,6 +21,7 @@
 
 .profits {
   padding-top: 100px;
+  padding-bottom: 50px;
 
   &__title {
     text-align: right;
@@ -35,12 +36,26 @@
 
   &__card {
     background-color: $white;
-    border: 10px solid $grenade;
-    padding: 50px;
+    padding: 60px 37px 84px 44px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 380px;
+    width: 350px;
+    height: 390px;
+    position: relative;
+    border-left: 10px solid $grenade;
+    border-bottom: 10px solid $grenade;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background-image: url("/wp-content/themes/zig-template/assets/01.svg");
+      background-size: cover;
+    }
 
     .title {
       font-size: 32px;
@@ -59,7 +74,7 @@
 }
 
 .relations {
-  @include flex();
+  @include flex(center);
   width: 100%;
   position: relative;
 
@@ -73,15 +88,21 @@
 
   &__content {
     width: 50%;
-    padding-top: 50px;
+    padding-top: 0;
     padding-right: $content-padding-desktop;
+    padding-left: 23px;
+
+    .button {
+      width: 240px;
+    }
   }
 
   &__title {
-    padding-bottom: 50px;
+    padding-bottom: 75px;
   }
 
   &__text {
+    width: 592px;
     font-size: 18px;
     padding-bottom: 30px;
 
@@ -92,10 +113,14 @@
 }
 
 @include respond-to($xxl) {
+  #profits {
+    background-position: -300px 0;
+  }
   .profits {
     padding-top: 50px;
+
     &__cards {
-      grid-gap: 30px;
+      //grid-gap: 25px;
       padding-top: 50px;
     }
 
@@ -118,7 +143,8 @@
 
     &__card {
       padding: 15px;
-      min-width: 330px;
+      width: 275px;
+      height: 307px;
 
       .title {
         font-size: 26px;
@@ -144,12 +170,15 @@
 
     &__card {
       padding: 10px;
-      min-width: 250px;
+      width: 225px;
+      height: 251px;
 
       .title {
         font-size: 18px;
       }
-      .text{
+
+      .text {
+        min-height: 150px;
         font-size: 14px;
       }
     }
@@ -166,18 +195,18 @@
     }
 
     &__cards {
-      grid-gap: 15px;
+      grid-gap: 10px;
     }
 
     &__card {
       padding: 15px;
 
       .title {
-        font-size: 24px;
+        font-size: 18px;
       }
 
       .text {
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }
@@ -192,9 +221,14 @@
 
     &__cards {
       grid-template-columns:  1fr;
+      grid-gap: 60px;
+      place-items: center;
     }
 
     &__card {
+      width: 261px;
+      height: 291px;
+
       .title {
         font-size: 18px;
       }
@@ -218,7 +252,6 @@
     &__content {
       width: 100%;
       padding: $content-padding-mobile
-
     }
   }
 }
