@@ -273,7 +273,8 @@
   .full-width-carousel {
     .psac-post-carousel-content {
       height: 720px;
-      .psac-post-margin-content{
+
+      .psac-post-margin-content {
         padding: 200px 0 50px 70px
       }
     }
@@ -281,6 +282,24 @@
   }
 }
 
+
+@include respond-to($large) {
+  .post-carousel {
+    .psac-slider-and-carousel .owl-nav .owl-next {
+      right: 520px !important;
+    }
+  }
+
+  .full-width-carousel {
+    .psac-post-carousel-content {
+      height: 600px;
+
+      .psac-post-margin-content {
+        padding: 150px $content-padding-tablet 50px 25px
+      }
+    }
+  }
+}
 
 
 

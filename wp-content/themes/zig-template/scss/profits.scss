@@ -43,8 +43,6 @@
     width: 350px;
     height: 390px;
     position: relative;
-    border-left: 10px solid $grenade;
-    border-bottom: 10px solid $grenade;
 
     &::before {
       content: '';
@@ -138,6 +136,7 @@
 @include respond-to($xl) {
   .profits {
     padding-top: 130px;
+
     &__cards {
       padding-top: 100px;
       grid-gap: 15px;
@@ -161,7 +160,8 @@
         width: 100%;
       }
     }
-    &__content{
+
+    &__content {
       padding-top: 180px;
       padding-bottom: 100px;
     }
@@ -170,14 +170,24 @@
 
 @include respond-to($large) {
   .profits {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
     &__cards {
       grid-gap: 10px;
     }
 
     &__card {
-      padding: 10px;
-      width: 225px;
-      height: 251px;
+      padding: 15px;
+      width: 260px;
+      height: 290px;
+
+      &::before {
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+      }
 
       .title {
         font-size: 18px;
@@ -187,6 +197,15 @@
         min-height: 150px;
         font-size: 14px;
       }
+    }
+  }
+  .relations{
+    &__content{
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    &__text{
+      width: auto;
     }
   }
 }

@@ -78,13 +78,16 @@
       }
     }
   }
-
+}
+@include respond-to($large){
+  .announcements{
+    padding-top: 50px;
+  }
 }
 
 
 @include respond-to($small) {
   .announcements {
-    padding-top: 50px;
 
     &__cards {
       grid-template-columns: 1fr;

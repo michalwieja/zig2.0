@@ -28,7 +28,8 @@
 @include respond-to($large) {
   .motto {
     &__title {
-      font-size: 48px;
+      font-size: 40px;
+      line-height: 60px;
     }
 
     &__subtitle {

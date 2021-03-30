@@ -21,13 +21,13 @@
 
 @include respond-to($large) {
   .news {
-    padding-top: 300px;
+    padding-top: 150px;
 
     &__title {
       width: 90%;
     }
   }
-}
+ }
 
 @include respond-to($small) {
   .news {

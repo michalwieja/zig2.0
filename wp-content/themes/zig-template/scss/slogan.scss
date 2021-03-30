@@ -36,12 +36,16 @@
     }
   }
 }
-
-@include respond-to($small){
+@include respond-to($large){
   .slogan{
     padding-top: 50px;
     padding-bottom: 50px;
 
+  }
+}
+
+@include respond-to($small){
+  .slogan{
     flex-direction: column;
 &__title{
   width: 100%;
