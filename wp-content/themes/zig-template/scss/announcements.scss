@@ -63,6 +63,24 @@
     }
   }
 }
+@include respond-to($xl){
+  .announcements{
+    padding-bottom: 120px;
+    &__cards{
+      padding-top: 36px;
+    }
+    &__card{
+      .title{
+        width: 95%;
+        a{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+}
+
 
 @include respond-to($small) {
   .announcements {

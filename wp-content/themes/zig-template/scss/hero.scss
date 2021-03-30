@@ -13,6 +13,7 @@
     .socials {
       opacity: 75%;
       padding-top: 50px;
+      padding-bottom: 50px;
 
       ul {
         li {
@@ -104,12 +105,28 @@
     height: 553px;
 
     &__content {
-      padding-top: 70px;
+      padding-top: 50px;
+    }
+
+    &__description {
+      width: 80%;
+      top: -148px;
+      height: 218px;
+      padding: 24px 40px;
+
+      & .title {
+        font-size: 20px;
+      }
+
+      & .text {
+        font-size: 14px;
+        padding: 14px 90px 0 0;
+      }
     }
 
     &__text {
       font-size: 20px;
-      padding: 30px 0;
+      padding: 20px 0;
     }
   }
 }

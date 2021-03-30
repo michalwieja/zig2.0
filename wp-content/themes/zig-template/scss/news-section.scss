@@ -4,18 +4,18 @@
 
   &__title {
     width: 35%;
-    padding-bottom: 85px;
+    padding-bottom: 50px;
   }
 
   button{
     margin-top: 60px;
     width: 240px;
   }
-  .owl-prev{
-    display: none !important;
-  }
-  .psac-slider-and-carousel .owl-nav .owl-next{
-    right: 240px !important;
+
+}
+@include respond-to($xl){
+  .news{
+    padding-top: 100px;
   }
 }
 

@@ -28,8 +28,10 @@ setInterval(() => {
 //carousel arrows
 
 const removeDefaultArrows = () => {
-  const arrows = document.querySelectorAll('.owl-nav .owl-next span');
-  arrows.forEach(arrow => arrow.innerText = '')
+  const rightArrows = document.querySelectorAll('.owl-nav .owl-next span');
+  rightArrows.forEach(arrow => arrow.remove())
+  const leftArrows = document.querySelectorAll('.owl-nav .owl-prev span');
+  leftArrows.forEach(arrow => arrow.remove())
 };
 
 document.addEventListener("DOMContentLoaded", function () {

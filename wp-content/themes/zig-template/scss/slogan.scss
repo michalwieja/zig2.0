@@ -27,6 +27,16 @@
   }
 }
 
+@include respond-to($xl){
+  .slogan{
+    padding-top: 135px;
+    padding-bottom: 135px;
+    &__text{
+      padding: 12px 0 0 60px;
+    }
+  }
+}
+
 @include respond-to($small){
   .slogan{
     padding-top: 50px;
