@@ -76,8 +76,8 @@ html {
 }
 @media only screen and (max-width: 800px) {
   .sub-title {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 18px;
+    line-height: 26px;
   }
 }
 
@@ -429,24 +429,41 @@ html {
     width: 100%;
     padding-left: 30px;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 0;
   }
   .hero__text {
     font-size: 16px;
     padding: 25px 0;
     width: 100%;
   }
+  .hero .socials {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .hero .socials .social-icon {
+    font-size: 16px !important;
+    padding: 6px !important;
+  }
   .hero__image {
     width: 100%;
-    height: auto;
+    height: 220px;
   }
   .hero__image .post {
-    height: auto;
+    height: 100%;
   }
   .hero__description {
     top: 0;
+    height: 260px;
     width: 100%;
-    padding: 30px 30px;
+    padding: 10px 30px;
+  }
+  .hero__description .title {
+    font-size: 18px;
+  }
+  .hero__description .text {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 13px;
   }
 }
 .container {
@@ -518,6 +535,11 @@ html {
     margin-right: 15px;
   }
 }
+@media only screen and (max-width: 800px) {
+  .button {
+    min-width: 118px;
+  }
+}
 .read-more {
   border: none;
   color: #343434;
@@ -572,7 +594,8 @@ html {
 }
 @media only screen and (max-width: 800px) {
   .news {
-    padding-top: 50px;
+    padding-top: 280px;
+    padding-right: 30px;
   }
   .news .button {
     width: 100%;
@@ -657,6 +680,16 @@ html {
     grid-template-columns: 1fr;
     padding-top: 50px;
   }
+  .announcements__card {
+    width: 100%;
+    padding: 10px;
+  }
+  .announcements__card .title a {
+    font-size: 14px;
+  }
+  .announcements__card .read-more {
+    font-size: 14px;
+  }
 }
 .slogan {
   padding-top: 140px;
@@ -710,10 +743,12 @@ html {
   .slogan__title {
     width: 100%;
     padding-bottom: 25px;
+    font-size: 33px;
   }
   .slogan__text {
     width: 100%;
     font-size: 16px;
+    padding: 0;
   }
 }
 #profits {
@@ -952,6 +987,12 @@ html {
     width: 100%;
     padding: 30px;
   }
+  .relations__content .button {
+    width: 100%;
+  }
+  .relations__text {
+    font-size: 14px;
+  }
 }
 .motto {
   padding-top: 130px;
@@ -994,6 +1035,7 @@ html {
   }
   .motto__title {
     font-size: 20px;
+    line-height: 32px;
   }
   .motto__subtitle {
     width: 100%;
@@ -1894,13 +1936,17 @@ html {
   .full-width-carousel {
     margin-bottom: -49px;
   }
+
+  .post-carousel .psac-post-carousel-wrp {
+    width: auto;
+  }
 }
 @media only screen and (max-width: 1366px) {
-  .post-carousel .psac-slider-and-carousel .owl-nav .owl-next {
-    right: 280px !important;
-  }
   .post-carousel .psac-post-carousel-wrp {
     width: 1480px !important;
+  }
+  .post-carousel .psac-slider-and-carousel .owl-nav .owl-next {
+    right: 280px !important;
   }
   .post-carousel .psac-post-carousel-content {
     height: 390px;
@@ -1932,6 +1978,9 @@ html {
   }
 }
 @media only screen and (max-width: 1152px) {
+  .post-carousel .psac-post-carousel-wrp {
+    width: auto !important;
+  }
   .post-carousel .psac-slider-and-carousel .owl-nav .owl-next {
     right: 520px !important;
   }
@@ -1941,6 +1990,38 @@ html {
   }
   .full-width-carousel .psac-post-carousel-content .psac-post-margin-content {
     padding: 150px 133px 50px 25px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .post-carousel .psac-slider-and-carousel .owl-nav .owl-next {
+    right: 5px !important;
+  }
+  .post-carousel .psac-post-carousel-content .psac-post-margin-content {
+    padding: 15px !important;
+  }
+  .post-carousel .psac-post-carousel-content .psac-post-title a {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .post-carousel .psac-post-carousel-content .psac-post-meta {
+    padding-top: 0px;
+  }
+  .post-carousel .psac-post-carousel-content .psac-post-meta span {
+    font-size: 12px;
+  }
+  .post-carousel .psac-post-carousel-content .psac-post-content {
+    order: 3;
+  }
+  .post-carousel .psac-post-carousel-content .psac-post-content .psac-readmorebtn {
+    border: none;
+    color: #000046;
+    padding: 0;
+    font-size: 14px;
+  }
+  .post-carousel .psac-post-carousel-content .psac-post-content .psac-readmorebtn::after {
+    content: url("/wp-content/themes/zig-template/assets/arrow-right.svg");
+    padding-left: 30px;
+    width: 50%;
   }
 }
 .padding-left {

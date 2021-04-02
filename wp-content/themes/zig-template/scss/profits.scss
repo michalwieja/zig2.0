@@ -199,12 +199,13 @@
       }
     }
   }
-  .relations{
-    &__content{
+  .relations {
+    &__content {
       padding-top: 50px;
       padding-bottom: 50px;
     }
-    &__text{
+
+    &__text {
       width: auto;
     }
   }
@@ -276,7 +277,15 @@
 
     &__content {
       width: 100%;
-      padding: $content-padding-mobile
+      padding: $content-padding-mobile;
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    &__text {
+      font-size: 14px;
     }
   }
 }

@@ -31,7 +31,8 @@
 
 @include respond-to($small) {
   .news {
-    padding-top: 50px;
+    padding-top: 280px;
+    padding-right: 30px;
 
     .button {
       width: 100%;

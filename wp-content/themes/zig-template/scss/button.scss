@@ -63,5 +63,11 @@
   }
 }
 
+@include respond-to($small) {
+  .button {
+    min-width: 118px;
+  }
+}
+
 
 

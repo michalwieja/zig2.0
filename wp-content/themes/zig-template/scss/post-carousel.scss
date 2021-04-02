@@ -226,16 +226,21 @@
   .full-width-carousel {
     margin-bottom: -49px;
   }
+  .post-carousel {
+    .psac-post-carousel-wrp {
+      width: auto;
+    }
+  }
 }
 
 @include respond-to($xl) {
   .post-carousel {
-    .psac-slider-and-carousel .owl-nav .owl-next {
-      right: 280px !important;
-    }
-
     .psac-post-carousel-wrp {
       width: 1480px !important;
+    }
+
+    .psac-slider-and-carousel .owl-nav .owl-next {
+      right: 280px !important;
     }
 
     .psac-post-carousel-content {
@@ -282,9 +287,13 @@
   }
 }
 
-
 @include respond-to($large) {
+
   .post-carousel {
+    .psac-post-carousel-wrp {
+      width: auto !important;
+    }
+
     .psac-slider-and-carousel .owl-nav .owl-next {
       right: 520px !important;
     }
@@ -296,6 +305,55 @@
 
       .psac-post-margin-content {
         padding: 150px $content-padding-tablet 50px 25px
+      }
+    }
+  }
+}
+
+@include respond-to($small) {
+  .post-carousel {
+    .psac-slider-and-carousel .owl-nav .owl-next {
+      right: 5px !important;
+    }
+
+    .psac-post-carousel-content {
+
+      .psac-post-margin-content {
+        padding: 15px !important;
+      }
+
+      .psac-post-title {
+
+        a {
+          font-size: 14px;
+          line-height: 22px;
+        }
+      }
+
+      .psac-post-meta {
+        padding-top: 0px;
+
+        span {
+          font-size: 12px;
+        }
+      }
+
+      .psac-post-content {
+        order: 3;
+
+        .psac-readmorebtn {
+          border: none;
+          color: $grenade;
+          padding: 0;
+          font-size: 14px;
+
+
+          &::after {
+            content: url("/wp-content/themes/zig-template/assets/arrow-right.svg");
+            padding-left: 30px;
+            width: 50%;
+          }
+        }
       }
     }
   }
