@@ -2023,6 +2023,47 @@ html {
     padding-left: 30px;
     width: 50%;
   }
+
+  .full-width-carousel {
+    margin-bottom: 0;
+  }
+  .full-width-carousel .psac-post-carousel-wrp {
+    width: 100vw !important;
+  }
+  .full-width-carousel .psac-post-carousel-content {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .full-width-carousel .psac-post-carousel-content .psac-post-img-wrap {
+    width: 100%;
+    height: 220px;
+  }
+  .full-width-carousel .psac-post-carousel-content .psac-post-img-wrap .psac-post-image-bg {
+    height: 100% !important;
+  }
+  .full-width-carousel .psac-post-carousel-content .psac-post-margin-content {
+    width: 100%;
+    min-height: 220px;
+    padding: 30px;
+  }
+  .full-width-carousel .psac-post-carousel-content .psac-post-margin-content .psac-post-title {
+    margin: 0;
+  }
+  .full-width-carousel .psac-post-carousel-content .psac-post-margin-content .psac-post-title a {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .full-width-carousel .psac-post-carousel-content .psac-post-margin-content .psac-post-short-content {
+    font-size: 14px;
+    padding-top: 20px;
+  }
+  .full-width-carousel .psac-post-carousel-content .psac-post-margin-content .psac-readmorebtn {
+    font-size: 14px;
+  }
+  .full-width-carousel .psac-post-carousel-content .psac-post-margin-content .psac-readmorebtn::after {
+    padding-left: 15px;
+  }
 }
 .padding-left {
   padding-left: 320px;
