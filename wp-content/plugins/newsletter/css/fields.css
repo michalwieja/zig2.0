@@ -1,7 +1,4 @@
-/* DEBUG - Disable when done */
-/*.tnp-field {*/
-   /*border: 1px dashed #999;*/
-/*}*/
+
 
 /* STRUCTURE */
 .tnp-field-row {
@@ -166,9 +163,4 @@ tnp-field.tnp-font {
     font-style: italic;
     font-weight: normal;
     color: #999999;
-}
-
-.tnpf-color {
-    width: 40px;
-    font-size: 12px;
 }

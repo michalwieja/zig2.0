@@ -69,6 +69,10 @@ $labels = array_reverse($labels);
 $lists = $this->get_lists();
 ?>
 
+<style>
+    <?php include NEWSLETTER_DIR . '/css/dashboard.css' ?>
+</style>
+
 <div class="wrap" id="tnp-wrap">
 
     <?php include NEWSLETTER_DIR . '/tnp-header.php'; ?>
@@ -231,55 +235,55 @@ $lists = $this->get_lists();
             <div class="tnp-card">
                 <div class="tnp-card-title"><?php _e('Documentation', 'newsletter') ?></div>
                 <div class="break"></div>
-                <a href="https://www.thenewsletterplugin.com/documentation/installation/">
+                <a href="https://www.thenewsletterplugin.com/documentation/installation/" target="_blank">
                     <div class="tnp-card-documentation-index">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><title>saved items</title><g class="nc-icon-wrapper" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  ><path d="M37,4h3a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H8a4,4,0,0,1-4-4V8A4,4,0,0,1,8,4h3" fill="none"  stroke-miterlimit="10"/> <polygon points="32 24 24 18 16 24 16 4 32 4 32 24" fill="none" stroke-miterlimit="10" data-color="color-2"/></g></svg>
                         Installation
                     </div>
                 </a>
-                <a href="https://www.thenewsletterplugin.com/documentation/subscription/">
+                <a href="https://www.thenewsletterplugin.com/documentation/subscription/" target="_blank">
                     <div class="tnp-card-documentation-index">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><title>saved items</title><g class="nc-icon-wrapper" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  ><path d="M37,4h3a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H8a4,4,0,0,1-4-4V8A4,4,0,0,1,8,4h3" fill="none"  stroke-miterlimit="10"/> <polygon points="32 24 24 18 16 24 16 4 32 4 32 24" fill="none" stroke-miterlimit="10" data-color="color-2"/></g></svg>
                         Subscription
                     </div>
                 </a>
-                <a href="https://www.thenewsletterplugin.com/category/tips">
+                <a href="https://www.thenewsletterplugin.com/category/tips" target="_blank">
                     <div class="tnp-card-documentation-index">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><title>saved items</title><g class="nc-icon-wrapper" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  ><path d="M37,4h3a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H8a4,4,0,0,1-4-4V8A4,4,0,0,1,8,4h3" fill="none"  stroke-miterlimit="10"/> <polygon points="32 24 24 18 16 24 16 4 32 4 32 24" fill="none" stroke-miterlimit="10" data-color="color-2"/></g></svg>
                         Tips & Tricks
                     </div>
                 </a>
-                <a href="https://www.thenewsletterplugin.com/documentation/subscribers-and-management/">
+                <a href="https://www.thenewsletterplugin.com/documentation/subscribers-and-management/" target="_blank">
                     <div class="tnp-card-documentation-index">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><title>saved items</title><g class="nc-icon-wrapper" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  ><path d="M37,4h3a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H8a4,4,0,0,1-4-4V8A4,4,0,0,1,8,4h3" fill="none"  stroke-miterlimit="10"/> <polygon points="32 24 24 18 16 24 16 4 32 4 32 24" fill="none" stroke-miterlimit="10" data-color="color-2"/></g></svg>
                         Subscribers and management
                     </div>
                 </a>
-                <a href="https://www.thenewsletterplugin.com/documentation/newsletters/newsletters-module/">
+                <a href="https://www.thenewsletterplugin.com/documentation/newsletters/newsletters-module/" target="_blank">
                     <div class="tnp-card-documentation-index">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><title>saved items</title><g class="nc-icon-wrapper" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  ><path d="M37,4h3a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H8a4,4,0,0,1-4-4V8A4,4,0,0,1,8,4h3" fill="none"  stroke-miterlimit="10"/> <polygon points="32 24 24 18 16 24 16 4 32 4 32 24" fill="none" stroke-miterlimit="10" data-color="color-2"/></g></svg>
                         Creating Newsletters
                     </div>
                 </a>
-                <a href="https://www.thenewsletterplugin.com/documentation/addons/">
+                <a href="https://www.thenewsletterplugin.com/documentation/addons/" target="_blank">
                     <div class="tnp-card-documentation-index">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><title>saved items</title><g class="nc-icon-wrapper" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  ><path d="M37,4h3a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H8a4,4,0,0,1-4-4V8A4,4,0,0,1,8,4h3" fill="none"  stroke-miterlimit="10"/> <polygon points="32 24 24 18 16 24 16 4 32 4 32 24" fill="none" stroke-miterlimit="10" data-color="color-2"/></g></svg>
                         Premium Addons
                     </div>
                 </a>
-                <a href="https://www.thenewsletterplugin.com/documentation/customization/">
+                <a href="https://www.thenewsletterplugin.com/documentation/customization/" target="_blank">
                     <div class="tnp-card-documentation-index">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><title>saved items</title><g class="nc-icon-wrapper" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  ><path d="M37,4h3a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H8a4,4,0,0,1-4-4V8A4,4,0,0,1,8,4h3" fill="none"  stroke-miterlimit="10"/> <polygon points="32 24 24 18 16 24 16 4 32 4 32 24" fill="none" stroke-miterlimit="10" data-color="color-2"/></g></svg>
                         Customization
                     </div>
                 </a>
-                <a href="https://www.thenewsletterplugin.com/documentation/delivery-and-spam/">
+                <a href="https://www.thenewsletterplugin.com/documentation/delivery-and-spam/" target="_blank">
                     <div class="tnp-card-documentation-index">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><title>saved items</title><g class="nc-icon-wrapper" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  ><path d="M37,4h3a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H8a4,4,0,0,1-4-4V8A4,4,0,0,1,8,4h3" fill="none"  stroke-miterlimit="10"/> <polygon points="32 24 24 18 16 24 16 4 32 4 32 24" fill="none" stroke-miterlimit="10" data-color="color-2"/></g></svg>
                         Delivery and spam
                     </div>
                 </a>
-                <a href="https://www.thenewsletterplugin.com/documentation/developers/">
+                <a href="https://www.thenewsletterplugin.com/documentation/developers/" target="_blank">
                     <div class="tnp-card-documentation-index">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20"><title>saved items</title><g class="nc-icon-wrapper" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  ><path d="M37,4h3a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H8a4,4,0,0,1-4-4V8A4,4,0,0,1,8,4h3" fill="none"  stroke-miterlimit="10"/> <polygon points="32 24 24 18 16 24 16 4 32 4 32 24" fill="none" stroke-miterlimit="10" data-color="color-2"/></g></svg>
                         Developers & Advanced Topics
@@ -292,7 +296,7 @@ $lists = $this->get_lists();
                 <div class="tnp-card-title"><?php _e('Developers', 'newsletter') ?></div>
                 <div class="tnp-card-description">Extending Newsletter by yourself? There is something for you as well!</div>
                 <div class="tnp-card-button-container">
-                    <a href="https://www.thenewsletterplugin.com/documentation/developers/">Developer's love 💛</a>
+                    <a href="https://www.thenewsletterplugin.com/documentation/developers/" target="_blank">Developer's love 💛</a>
                 </div>
             </div>
             <div class="tnp-card">
@@ -302,7 +306,7 @@ $lists = $this->get_lists();
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/zmVmW84Bw9A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="tnp-card-button-container">
-                    <a href="?https://www.thenewsletterplugin.com/video-tutorials">See the videos</a>
+                    <a href="https://www.thenewsletterplugin.com/video-tutorials" target="_blank">See the videos</a>
                 </div>
             </div>
         </div>

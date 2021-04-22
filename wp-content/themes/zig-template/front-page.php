@@ -1,24 +1,25 @@
 <?php get_header(); ?>
 
 <section class="hero">
-  <div class="hero__content">
-    <div class="hero__title main-title">TU SĄ MOŻLIWOŚCI
+  <div class="hero__content padding-l">
+    <div class="frontpage-title">TU SĄ </br>MOŻLIWOŚCI
     </div>
     <div class="hero__text">Sukcesu w biznesie nie buduje się w pojedynkę, dlatego tworzymy
       społeczność, która daje wartość
     </div>
     <div class="button-wrapper">
-      <button class="button light-blue">Dołącz</button>
-      <button class="button light-blue"/>
-      więcej</button>
+      <a href="/dolacz">
+        <button class="button white">Dołącz</button>
+      </a>
+      <a href="/mozliwosci">
+        <button class="button white"/>
+        więcej</button></a>
     </div>
     <div class="socials">
 		<?php
 		dynamic_sidebar( 'hero_social' )
 		?>
     </div>
-
-
   </div>
   <div class="hero__image">
 	  <?php
@@ -55,56 +56,33 @@
 
   </div>
 </section>
-<section class="news padding-left post-carousel">
-  <div class="news__title sub-title">
-    Sporo się u nas dzieje. Bądź zawsze na bieżąco
+<section class="news padding-l post-carousel">
+  <div class="title sub-title">
+    <p>Sporo się u nas dzieje.</p>
+    <p>Bądź zawsze na bieżąco </p>
   </div>
-	<?php echo do_shortcode( '[psac_post_carousel autoplay="false" design="design-2" arrows="true" dots="false" show_author="false" show_tags="false" show_comments="false" show_category="false" media_size="medium" sliderheight="230" slide_show="4" category="posty"]' ); ?>
+
   <button class="button grenade">ZOBACZ WSZYSTKIE</button>
 </section>
-<section class="announcements container">
-  <div class="announcements__title sub-title">
-    Najnowsze komunikaty
+<section class="slogan padding-x">
+  <div class="frontpage-title title">
+    Lepszy&nbsp;biznes,</br> lepsze życie
   </div>
-  <div class="announcements__cards">
-	  <?php query_posts( array(
-		  'category_name'  => 'komunikaty',
-		  'posts_per_page' => 4
-	  ) ); ?>
-	  <?php if ( have_posts() ) : ?>
-		  <?php while ( have_posts() ) : the_post(); ?>
-          <div class="announcements__card" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            <div class="title"><a href="<?php the_permalink(); ?>" rel="bookmark"
-                                  title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-            </div>
-            <div class="read-more">Czytaj więcej</div>
-            <!--end entry-->
-          </div><!--end post-->
-		  <?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
-	  <?php else : ?>
-	  <?php endif; ?>
-
-  </div>
-</section>
-<section class="slogan slogan--white-bg container">
-  <div class="slogan__title main-title main-title--blue">
-    Lepszy biznes, lepsze życie
-  </div>
-  <div class="slogan__text">
+  <div class="text">
     Jesteśmy tu, aby inspirować, wspierać i rozwijać się. Stwarzamy możliwości i potrafimy z nich
     korzystać. Pamiętamy też, że za każdym biznesem stoi człowiek
   </div>
 </section>
-<section id="profits">
-  <div class="profits container">
-    <div class="profits__title main-title main-title--blue">
-      CO ZYSKUJESZ?
-    </div>
-    <div class="profits__cards">
-
-      <div class="profits__card">
+<section class="profits padding-x">
+  <div class="frontpage-title profits__title">
+    CO ZYSKUJESZ?
+  </div>
+  <div class="cards">
+    <a href="/mozliwosci">
+      <div class="card">
         <div class="title">
-          CENNE KONTAKTY
+          <p>CENNE</p>
+          <p>KONTAKTY</p>
         </div>
         <div class="text">
           Dołącz do społeczności, która tworzy biznes na Śląsku i w zagłębiu.
@@ -114,9 +92,12 @@
           <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
         </div>
       </div>
-      <div class="profits__card">
+    </a>
+    <a href="/mozliwosci">
+      <div class="card">
         <div class="title">
-          INSPIRUJĄCE SPOTKANIA
+          <p>INSPIRUJĄCE</p>
+          <p>SPOTKANIA</p>
         </div>
         <div class="text">
           Szkolenia, warsztaty, spotkania, wspólne pasje. Tu znajdziesz inspiracje,
@@ -126,9 +107,12 @@
           <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
         </div>
       </div>
-      <div class="profits__card">
+    </a>
+    <a href="mozliwosci">
+      <div class="card">
         <div class="title">
-          WIEDZA I DOŚWIADCZENIE
+          <p>DOŚWIADCZENIE</p>
+          <p>I WIEDZA </p>
         </div>
         <div class="text">
           Korzystaj z wiedzy innych, dziel
@@ -139,31 +123,10 @@
           <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
         </div>
       </div>
-    </div>
-
-  </div>
-  <div class="relations">
-    <div class="relations__image">
-      <img alt="laura" src="/wp-content/themes/zig-template/assets/laura.png">
-    </div>
-    <div class="relations__content">
-      <div class="relations__title main-title main-title--blue">
-        Relacje są najważniejsze
-
-      </div>
-      <div class="relations__text">
-        <p>Razem jesteśmy silniejsi i mamy większy wpływ nie tylko na świat biznesu. Wierzymy w
-          skuteczność efektu synergii wiedzy, doświadczenia i odpowiedzialnego podejścia. To na
-          nich budujemy przewagę naszych biznesów i Zagłębiowskiej Izby Gospodarczej.</p>
-        <p>Dbam o jakość relacji w Zagłębiowskiej Izbie Gospodarczej. Poznam Cię z odpowiednimi
-          ludźmi </p>
-        <p>Paulina Piętowska Relationship Menager</p>
-      </div>
-      <div class="button">POŁĄCZMY SIŁY</div>
-    </div>
-
+    </a>
   </div>
 </section>
+
 <section class="motto container">
   <div class="motto__title">
     Jesteśmy społecznością przedsiębiorców opartą o
@@ -180,10 +143,7 @@
     wspólny głos ma znaczenie.
   </div>
 </section>
-<section class="full-width-carousel">
-	<?php echo do_shortcode( '[psac_post_carousel autoplay="false" design="design-2" show_date="false" show_author="false" show_tags="false" show_comments="false" show_category="false" sliderheight="750" slide_show="1" dots="false" category="posty"]' ); ?>
 
-</section>
 <section class="newsletter">
 	<?php
 	dynamic_sidebar( 'newsletter' )
@@ -191,5 +151,9 @@
 
 </section>
 
-
 <?php get_footer(); ?>
+
+<script>
+
+
+</script>

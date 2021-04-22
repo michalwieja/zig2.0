@@ -93,6 +93,7 @@
 
 @include respond-to($small) {
   .announcements {
+    padding-bottom: 50px;
 
     &__cards {
       grid-template-columns: 1fr;

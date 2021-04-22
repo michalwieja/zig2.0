@@ -16,19 +16,22 @@
           biuro@zig.org.pl
         </span>
     </a>
-    <a class="row" href="tel:505 582 720">
-      <img alt="phone" src="/wp-content/themes/zig-template/assets/call.svg"> <span class="text">
-          505 582 720
-        </span>
-    </a>
-    <div class="socials">
-	    <?php
-	    dynamic_sidebar( 'footer_social' )
-	    ?>
+    <div class="row">
+      <img alt="phone" src="/wp-content/themes/zig-template/assets/call.svg">
+      <a href="tel:533 881 032"><span class="text">533 881 032</span></a>
+      <a href="tel:533 881 032"><span class="text">533 881 032</span></a>
+
     </div>
+    <a href="tel:533 881 032">
+
+      <div class="socials">
+		  <?php
+		  dynamic_sidebar( 'footer_social' )
+		  ?>
+      </div>
 
   </div>
-  <div class="column">
+  <div class="column map">
 	  <?php
 	  dynamic_sidebar( 'footer_map' )
 	  ?>

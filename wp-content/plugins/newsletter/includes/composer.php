@@ -213,24 +213,40 @@ class TNP_Composer {
 
     /**
      * Prepares a controls object injecting the relevant fields from an email
-     * which cannot be directly used by controls.
+     * which cannot be directly used by controls. If $email is null or missing,
+     * $controls is prepared with default values.
      *
-     * @param Newsletter $controls
+     * @param NewsletterControls $controls
      * @param TNP_Email $email
      */
-    static function prepare_controls($controls, $email) {
+    static function prepare_controls($controls, $email = null) {
 
-        foreach ($email->options as $name => $value) {
-            //if (strpos($name, 'composer_') === 0) {
-            $controls->data['options_' . $name] = $value;
-            //}
+        // Controls for a new email (which actually does not exist yet
+        if (!empty($email)) {
+
+            foreach ($email->options as $name => $value) {
+                //if (strpos($name, 'composer_') === 0) {
+                $controls->data['options_' . $name] = $value;
+                //}
+            }
+
+            $controls->data['message'] = TNP_Composer::unwrap_email($email->message);
+            $controls->data['subject'] = $email->subject;
         }
 
-        $controls->data['message'] = TNP_Composer::unwrap_email($email->message);
-        $controls->data['subject'] = $email->subject;
+        if (!empty($email->options['sender_email'])) {
+            $controls->data['sender_email'] = $email->options['sender_email'];
+        } else {
+            $controls->data['sender_email'] = Newsletter::instance()->options['sender_email'];
+        }
 
-	    $controls->data = array_merge( TNP_Composer::get_global_style_defaults(), $controls->data );
+        if (!empty($email->options['sender_name'])) {
+            $controls->data['sender_name'] = $email->options['sender_name'];
+        } else {
+            $controls->data['sender_name'] = Newsletter::instance()->options['sender_name'];
+        }
 
+        $controls->data = array_merge(TNP_Composer::get_global_style_defaults(), $controls->data);
     }
 
     /**
@@ -335,45 +351,45 @@ class TNP_Composer {
      */
     static function image($media, $attr = []) {
 
-	    $default_attrs = [
-		    'style'      => 'max-width: 100%; height: auto;',
-		    'class'      => null,
-		    'link-style' => 'text-decoration: none;',
-		    'link-class' => null,
-	    ];
+        $default_attrs = [
+            'style' => 'max-width: 100%; height: auto;',
+            'class' => null,
+            'link-style' => 'text-decoration: none;',
+            'link-class' => null,
+        ];
 
-    	$attr = array_merge($default_attrs, $attr);
+        $attr = array_merge($default_attrs, $attr);
 
-    	//Class and style attribute are mutually exclusive.
-	    //Class take priority to style because classes will transform to inline style inside block rendering operation
-	    if ( ! empty( $attr['class'] ) ) {
-		    $styling = ' inline-class="' . $attr['class'] . '" ';
-	    } else {
-		    $styling = ' style="' . $attr['style'] . '" ';
-	    }
+        //Class and style attribute are mutually exclusive.
+        //Class take priority to style because classes will transform to inline style inside block rendering operation
+        if (!empty($attr['class'])) {
+            $styling = ' inline-class="' . $attr['class'] . '" ';
+        } else {
+            $styling = ' style="' . $attr['style'] . '" ';
+        }
 
-	    //Class and style attribute are mutually exclusive.
-	    //Class take priority to style because classes will transform to inline style inside block rendering operation
-	    if ( ! empty( $attr['link-class'] ) ) {
-		    $link_styling = ' inline-class="' . $attr['link-class'] . '" ';
-	    } else {
-		    $link_styling = ' style="' . $attr['link-style'] . '" ';
-	    }
+        //Class and style attribute are mutually exclusive.
+        //Class take priority to style because classes will transform to inline style inside block rendering operation
+        if (!empty($attr['link-class'])) {
+            $link_styling = ' inline-class="' . $attr['link-class'] . '" ';
+        } else {
+            $link_styling = ' style="' . $attr['link-style'] . '" ';
+        }
 
         $b = '';
-	    if ( $media->link ) {
-		    $b .= '<a href="' . $media->link . '" target="_blank" rel="noopener nofollow" ' . $link_styling . '>';
-	    }
+        if ($media->link) {
+            $b .= '<a href="' . $media->link . '" target="_blank" rel="noopener nofollow" ' . $link_styling . '>';
+        }
 
-	    if ( $media ) {
-		    $b .= '<img src="' . $media->url . '" width="' . $media->width . '"'
-		          . ' height="auto"'
-		          . ' alt="' . esc_attr( $media->alt ) . '"'
-		          . ' border="0" '
-		          . $styling
-		          . ' class="responsive" '
-		          . '>';
-	    }
+        if ($media) {
+            $b .= '<img src="' . $media->url . '" width="' . $media->width . '"'
+                    . ' height="auto"'
+                    . ' alt="' . esc_attr($media->alt) . '"'
+                    . ' border="0" '
+                    . $styling
+                    . ' class="responsive" '
+                    . '>';
+        }
 
         if ($media->link) {
             $b .= '</a>';
@@ -419,57 +435,55 @@ class TNP_Composer {
     }
 
     static function post_content($post) {
-	    $content = $post->post_content;
-	    $content = wpautop( $content );
-	    if ( true || $options['enable shortcodes'] ) {
-		    remove_shortcode( 'gallery' );
-		    add_shortcode( 'gallery', 'tnp_gallery_shortcode' );
-		    $content = do_shortcode( $content );
-	    }
-	    $content = str_replace( '<p>', '<p class="paragraph">', $content );
+        $content = $post->post_content;
+        $content = wpautop($content);
+        if (true || $options['enable shortcodes']) {
+            remove_shortcode('gallery');
+            add_shortcode('gallery', 'tnp_gallery_shortcode');
+            $content = do_shortcode($content);
+        }
+        $content = str_replace('<p>', '<p class="paragraph">', $content);
 
-	    $selected_images = array();
-	    if ( preg_match_all( '/<img [^>]+>/', $content, $matches ) ) {
-		    foreach ( $matches[0] as $image ) {
-			    if ( preg_match( '/wp-image-([0-9]+)/i', $image, $class_id ) && ( $attachment_id = absint( $class_id[1] ) ) ) {
-				    $selected_images[ $image ] = $attachment_id;
-			    }
-		    }
-	    }
+        $selected_images = array();
+        if (preg_match_all('/<img [^>]+>/', $content, $matches)) {
+            foreach ($matches[0] as $image) {
+                if (preg_match('/wp-image-([0-9]+)/i', $image, $class_id) && ( $attachment_id = absint($class_id[1]) )) {
+                    $selected_images[$image] = $attachment_id;
+                }
+            }
+        }
 
-	    foreach ( $selected_images as $image => $attachment_id ) {
-		    $src = tnp_media_resize( $attachment_id, array( 600, 0 ) );
-		    if ( is_wp_error( $src ) ) {
-			    continue;
-		    }
-		    $content = str_replace( $image, '<img src="' . $src . '" width="600" style="max-width: 100%">', $content );
-	    }
+        foreach ($selected_images as $image => $attachment_id) {
+            $src = tnp_media_resize($attachment_id, array(600, 0));
+            if (is_wp_error($src)) {
+                continue;
+            }
+            $content = str_replace($image, '<img src="' . $src . '" width="600" style="max-width: 100%">', $content);
+        }
 
-	    return $content;
+        return $content;
     }
 
-	static function get_global_style_defaults() {
-		return [
-			'options_composer_title_font_family' => 'Verdana, Geneva, sans-serif',
-			'options_composer_title_font_size'   => 36,
-			'options_composer_title_font_weight' => 'bold',
-			'options_composer_title_font_color'  => '#222222',
+    static function get_global_style_defaults() {
+        return [
+            'options_composer_title_font_family' => 'Verdana, Geneva, sans-serif',
+            'options_composer_title_font_size' => 36,
+            'options_composer_title_font_weight' => 'bold',
+            'options_composer_title_font_color' => '#222222',
+            'options_composer_text_font_family' => 'Verdana, Geneva, sans-serif',
+            'options_composer_text_font_size' => 16,
+            'options_composer_text_font_weight' => 'normal',
+            'options_composer_text_font_color' => '#222222',
+            'options_composer_button_font_family' => 'Verdana, Geneva, sans-serif',
+            'options_composer_button_font_size' => 16,
+            'options_composer_button_font_weight' => 'bold',
+            'options_composer_button_font_color' => '#FFFFFF',
+            'options_composer_button_background_color' => '#256F9C',
+            'options_composer_background' => '#FFFFFF',
+            'options_composer_block_background' => '#FFFFFF',
+        ];
+    }
 
-			'options_composer_text_font_family' => 'Verdana, Geneva, sans-serif',
-			'options_composer_text_font_size'   => 16,
-			'options_composer_text_font_weight' => 'normal',
-			'options_composer_text_font_color'  => '#222222',
-
-			'options_composer_button_font_family'      => 'Verdana, Geneva, sans-serif',
-			'options_composer_button_font_size'        => 16,
-			'options_composer_button_font_weight'      => 'bold',
-			'options_composer_button_font_color'       => '#FFFFFF',
-			'options_composer_button_background_color' => '#256F9C',
-
-			'options_composer_background' => '#FFFFFF',
-			'options_composer_block_background' => '#FFFFFF',
-		];
-	}
 }
 
 /**
@@ -582,18 +596,7 @@ class TNP_Composer_Grid_Row {
     }
 
     private function get_template() {
-        return "<table border='0'
-				       cellpadding='0'
-				       cellspacing='0'
-				       width='100%'>
-				    <tbody>
-				    <tr>
-				        <td>
-				            TNP_ROW_CONTENT_PH
-				        </td>
-				    </tr>
-				    </tbody>
-				</table>";
+        return "<table border='0' cellpadding='0' cellspacing='0' width='100%'><tbody><tr><td>TNP_ROW_CONTENT_PH</td></tr></tbody></table>";
     }
 
 }
@@ -653,57 +656,50 @@ class TNP_Composer_Grid_Cell {
     }
 
     private function get_template() {
-        return "<table border='0'
-				       cellpadding='0'
-				       cellspacing='0'
-				       width='TNP_WIDTH_PH'
-				       align='left'
-				       style='table-layout: fixed;'
-				       class='responsive-table'>
-				    <tbody>
-					    <tr>
-					        <td border='0'
-					            style='padding: 20px 10px 40px;'
-					            align='TNP_ALIGN_PH'
-					            valign='TNP_VALIGN_PH'
-					            class='TNP_CLASS_PH'>
-					            TNP_COLUMN_CONTENT_PH
-					        </td>
-					    </tr>
-				    </tbody>
-				</table>";
+        return "<table border='0' cellpadding='0' cellspacing='0' width='TNP_WIDTH_PH' align='left' style='table-layout: fixed;' class='responsive'>
+                    <tbody>
+                            <tr>
+                                <td border='0' style='padding: 20px 10px 40px;' align='TNP_ALIGN_PH' valign='TNP_VALIGN_PH' class='TNP_CLASS_PH'>
+                                    TNP_COLUMN_CONTENT_PH
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>";
     }
 
 }
 
 class TNP_Composer_Component_Factory {
 
-	private $options;
+    private $options;
 
-	/**
-	 * TNP_Composer_Component_Factory constructor.
-	 *
-	 * @param Controller$controller
-	 */
-	public function __construct($controller) {
-	}
+    /**
+     * TNP_Composer_Component_Factory constructor.
+     *
+     * @param Controller$controller
+     */
+    public function __construct($controller) {
+        
+    }
 
-	function heading() {
-	}
+    function heading() {
+        
+    }
 
-	function paragraph() {
+    function paragraph() {
+        
+    }
 
-	}
+    function link() {
+        
+    }
 
-	function link() {
+    function button() {
+        
+    }
 
-	}
-
-	function button() {
-	}
-
-	function image() {
-
-	}
+    function image() {
+        
+    }
 
 }

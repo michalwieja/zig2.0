@@ -4,13 +4,17 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 
-html{
+html {
   font-family: $font-family;
   overflow-x: hidden;
   color: #343434;
 
+}
+
+a {
+  text-decoration: none;
 }

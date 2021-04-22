@@ -6,24 +6,6 @@ include_once NEWSLETTER_INCLUDES_DIR . '/controls.php';
 $controls = new NewsletterControls();
 $extensions = $this->getTnpExtensions();
 
-$controls->data = get_option('newsletter_main');
-
-if (isset($_POST['email']) && check_admin_referer('subscribe')) {
-    $body = array();
-    $body['ne'] = $_POST['email'];
-    $body['nr'] = 'extensions';
-    $body['nl'] = array('3', '4', '1');
-    $body['optin'] = 'single';
-
-    wp_remote_post('http://www.thenewsletterplugin.com/?na=ajaxsub', array('body' => $body));
-
-    update_option('newsletter_subscribed', time(), false);
-
-    $id = (int) $_POST['id'];
-    wp_redirect(wp_nonce_url(admin_url('admin.php'), 'save') . '&page=newsletter_main_extensions&act=install&id=' . $id);
-    die();
-}
-
 if ($controls->is_action('activate')) {
     $result = activate_plugin('newsletter-extensions/extensions.php');
     if (is_wp_error($result)) {
@@ -41,7 +23,6 @@ if ($controls->is_action('activate')) {
 <div class="wrap" id="tnp-wrap">
 
     <?php include NEWSLETTER_DIR . '/tnp-header.php'; ?>
-
 
     <div id="tnp-body">
         <?php if (is_wp_error(validate_plugin('newsletter-extensions/extensions.php'))) { ?>
@@ -141,31 +122,4 @@ if ($controls->is_action('activate')) {
 
     <?php include NEWSLETTER_DIR . '/tnp-footer.php'; ?>
 
-</div>
-
-<script>
-    function newsletter_subscribe(id) {
-        document.getElementById("tnp-extension-id").value = id;
-        jQuery("#tnp-subscribe-overlay").fadeIn(500);
-    }
-</script>
-
-<div id="tnp-subscribe-overlay">
-    <div id="tnp-subscribe-modal">
-        <div>
-            <img src="https://cdn.thenewsletterplugin.com/newsletters-img/tnp-logo-colore-text-white@2x.png">
-        </div>
-        <div id="tnp-subscribe-title">
-            Subscribe our newsletter to get this extension<br>
-            and be informed about updates and best practices.</div>
-        <form method="post" action="?page=newsletter_main_extensions&noheader=true">
-            <?php wp_nonce_field('subscribe'); ?>
-            <input type="hidden" value="id" name="id" id="tnp-extension-id">
-            <div id="tnp-subscribe-email-wrapper"><input type="email" id="tnp-subscribe-email" name="email" value="<?php echo esc_attr(get_option('admin_email')) ?>"></div>
-            <div id="tnp-subscribe-submit-wrapper"><input type="submit" id="tnp-subscribe-submit" value="<?php esc_attr_e('Subscribe', 'newsletter') ?>"></div>
-        </form>
-        <div class="tnp-subscribe-no-thanks">
-            <a href="javascript:void(jQuery('#tnp-subscribe-overlay').hide())">No thanks, I don't want to install the free extension</a>
-        </div>
-    </div>
 </div>

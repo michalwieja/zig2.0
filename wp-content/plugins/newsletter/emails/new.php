@@ -109,6 +109,21 @@ if ($controls->is_action('create')) {
     $controls->data['id'] = $theme_id;
 }
 ?>
+<style>
+#tnp-body .tnp-emails-theme-options {
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 14px;
+}
+
+#tnp-body .tnp-emails-theme-options table.form-table {
+    margin: 0;
+}
+
+#tnp-body .tnp-emails-theme-options h3 {
+    color: #000;
+}
+</style>
 
 <div class="wrap tnp-emails tnp-emails-new" id="tnp-wrap">
 

@@ -1,4 +1,5 @@
 <?php
+/* @var $this NewsletterEmails */
 defined('ABSPATH') || exit;
 
 /* @var $wpdb wpdb */
@@ -15,7 +16,7 @@ function tnp_prepare_controls($email, $controls) {
 }
 
 // Always required
-$email = $module->get_email($_GET['id'], ARRAY_A);
+$email = $this->get_email($_GET['id'], ARRAY_A);
 
 if (empty($email)) {
     echo 'Wrong email identifier';
@@ -27,28 +28,28 @@ $email_id = $email['id'];
 /* Satus changes which require a reload */
 if ($controls->is_action('pause')) {
     $wpdb->update(NEWSLETTER_EMAILS_TABLE, array('status' => 'paused'), array('id' => $email_id));
-    $email = $module->get_email($_GET['id'], ARRAY_A);
+    $email = $this->get_email($_GET['id'], ARRAY_A);
     tnp_prepare_controls($email, $controls);
 }
 
 if ($controls->is_action('continue')) {
     $wpdb->update(NEWSLETTER_EMAILS_TABLE, array('status' => 'sending'), array('id' => $email_id));
-    $email = $module->get_email($_GET['id'], ARRAY_A);
+    $email = $this->get_email($_GET['id'], ARRAY_A);
     tnp_prepare_controls($email, $controls);
 }
 
 if ($controls->is_action('abort')) {
     $wpdb->query("update " . NEWSLETTER_EMAILS_TABLE . " set last_id=0, sent=0, status='new' where id=" . $email_id);
-    $email = $module->get_email($_GET['id'], ARRAY_A);
+    $email = $this->get_email($_GET['id'], ARRAY_A);
     tnp_prepare_controls($email, $controls);
     $controls->messages = __('Delivery definitively cancelled', 'newsletter');
 }
 
 if ($controls->is_action('change-private')) {
-    $data = array();
+    $data = [];
     $data['private'] = $controls->data['private'] ? 1 : 0;
     $data['id'] = $email['id'];
-    $email = Newsletter::instance()->save_email($data, ARRAY_A);
+    $email = $this->save_email($data, ARRAY_A);
     $controls->add_message_saved();
 
     tnp_prepare_controls($email, $controls);
@@ -93,7 +94,7 @@ if (!$controls->is_action()) {
 
 if ($controls->is_action('html')) {
 
-    $data = array();
+    $data = [];
     $data['editor'] = NewsletterEmails::EDITOR_HTML;
     $data['id'] = $email_id;
 
@@ -102,7 +103,7 @@ if ($controls->is_action('html')) {
     unset($data['options']['composer']);
     // End backward compatibility
 
-    $email = Newsletter::instance()->save_email($data, ARRAY_A);
+    $email = $this->save_email($data, ARRAY_A);
     $controls->messages = 'You can now edit the newsletter as pure HTML';
 
     tnp_prepare_controls($email, $controls);
@@ -133,10 +134,10 @@ if ($controls->is_action('test') || $controls->is_action('save') || $controls->i
     unset($email['options']['lists_operator']);
     unset($email['options']['lists_exclude']);
     unset($email['options']['sex']);
-    for ($i = 1; $i <= 20; $i ++) {
+    for ($i = 1; $i <= 20; $i++) {
         unset($email['options']["profile_$i"]);
     }
-    
+
     // Patch for Geo addon to be solved with a filter
     unset($email['options']['countries']);
     unset($email['options']['regions']);
@@ -209,7 +210,7 @@ if ($controls->is_action('test') || $controls->is_action('save') || $controls->i
 
     // Profile fields filter
     $profile_clause = array();
-    for ($i = 1; $i <= 20; $i ++) {
+    for ($i = 1; $i <= 20; $i++) {
         if (isset($email["options"]["profile_$i"]) && count($email["options"]["profile_$i"])) {
             $profile_clause[] = 'profile_' . $i . " IN ('" . implode("','", esc_sql($email["options"]["profile_$i"])) . "') ";
         }
@@ -262,15 +263,16 @@ if ($controls->is_action('send') || $controls->is_action('schedule')) {
     }
 }
 
-
-
-
 if (isset($email['options']['status']) && $email['options']['status'] == 'S') {
     $controls->warnings[] = __('This newsletter will be sent to not confirmed subscribers.', 'newsletter');
 }
 
 if (strpos($email['message'], '{profile_url}') === false && strpos($email['message'], '{unsubscription_url}') === false && strpos($email['message'], '{unsubscription_confirm_url}') === false) {
     $controls->warnings[] = __('The message is missing the subscriber profile or cancellation link.', 'newsletter');
+}
+
+if (TNP_Email::STATUS_ERROR === $email['status'] && isset($email['options']['error_message'])) {
+    $controls->errors .= sprintf(__('Stopped by fatal error: %s', 'newsletter'), esc_html($email['options']['error_message']));
 }
 
 
@@ -321,18 +323,18 @@ if ($email['status'] != 'sent') {
                         <?php } ?>
 
                         <?php if ($email['status'] != 'sending' && $email['status'] != 'sent') $controls->button_save(); ?>
-	                    <?php if ($email['status'] == 'new' ) $controls->button_confirm('send', __('Send now', 'newsletter'), __('Start real delivery?', 'newsletter')); ?>
+                        <?php if ($email['status'] == 'new') $controls->button_confirm('send', __('Send now', 'newsletter'), __('Start real delivery?', 'newsletter')); ?>
                         <?php if ($email['status'] == 'sending') $controls->button_confirm('pause', __('Pause', 'newsletter'), __('Pause the delivery?', 'newsletter')); ?>
-                        <?php if ($email['status'] == 'paused') $controls->button_confirm('continue', __('Continue', 'newsletter'), 'Continue the delivery?'); ?>
+                        <?php if ($email['status'] == 'paused' || $email['status'] == 'error') $controls->button_confirm('continue', __('Continue', 'newsletter'), 'Continue the delivery?'); ?>
                         <?php if ($email['status'] == 'paused') $controls->button_confirm('abort', __('Stop', 'newsletter'), __('This totally stop the delivery, ok?', 'newsletter')); ?>
-	                    <?php if ($email['status'] == 'new' || ( $email['status'] == 'paused' && $email['send_on'] > time() )) { ?>
+                        <?php if ($email['status'] == 'new' || ( $email['status'] == 'paused' && $email['send_on'] > time() )) { ?>
                             <a id="tnp-schedule-button" class="button-secondary" href="javascript:tnp_toggle_schedule()"><i class="far fa-clock"></i> <?php _e("Schedule") ?></a>
                             <span id="tnp-schedule" style="display: none;">
                                 <?php $controls->datetime('send_on') ?>
-			                    <?php $controls->button_confirm('schedule', __('Schedule', 'newsletter'), __('Schedule delivery?', 'newsletter')); ?>
+                                <?php $controls->button_confirm('schedule', __('Schedule', 'newsletter'), __('Schedule delivery?', 'newsletter')); ?>
                                 <a class="button-secondary tnp-button-cancel" href="javascript:tnp_toggle_schedule()"><?php _e("Cancel") ?></a>
                             </span>
-	                    <?php } ?>
+                        <?php } ?>
                     </div>
 
                     <?php $controls->text('subject', null, 'Subject'); ?>
@@ -477,6 +479,27 @@ if ($email['status'] != 'sent') {
                             <th><?php _e('Track clicks and message opening', 'newsletter') ?></th>
                             <td>
                                 <?php $controls->yesno('track'); ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><?php _e('Sender email address', 'newsletter') ?></th>
+                            <td>
+                                <?php $controls->text_email('options_sender_email', 40); ?>
+                                <div class="tnpc-hint">
+                                    Original: <?php echo esc_html(Newsletter::instance()->get_sender_email())?>.<br>
+                                    If you use a delivery service, be sure to use a validated email address.
+                                </div>
+                            </td>
+                        </tr>
+                         <tr>
+                            <th>
+                                <?php _e('Sender name', 'newsletter') ?>
+                            </th>
+                            <td>
+                                <?php $controls->text('options_sender_name', 40); ?>
+                               <div class="tnpc-hint">
+                                   Original: <?php echo esc_html(Newsletter::instance()->get_sender_name())?>
+                                </div> 
                             </td>
                         </tr>
                     </table>

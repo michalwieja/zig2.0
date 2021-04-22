@@ -39,16 +39,16 @@
         min-width: 210px;
         min-height: 44px;
         background-color: transparent;
-        border: 1px solid $light-blue;
-        color: $light-blue;
+        border: 1px solid $white;
+        color: $white;
         text-transform: uppercase;
         font-family: $font-family;
         transition: .3s;
         cursor: pointer;
 
         &:hover {
-          color: $light-blue;
-          border: 1px solid $light-blue;
+          background-color: $white;
+          color: $blue;
         }
       }
     }
@@ -73,5 +73,11 @@
         text-align: left;
       }
     }
+  }
+}
+
+@include respond-to($w650) {
+  .newsletter {
+    line-height: unset;
   }
 }

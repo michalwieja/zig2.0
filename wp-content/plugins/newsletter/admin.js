@@ -142,7 +142,7 @@ window.onload = function () {
  * https://seballot.github.io/spectrum/
  */
 function tnp_controls_init() {
-    jQuery(".tnpf-color").spectrum({
+    jQuery(".tnpc-color").spectrum({
         type: 'color',
         allowEmpty: true,
         showAlpha: false,
@@ -182,4 +182,10 @@ function tnp_fields_media_mini_remove(name) {
     $field.val("");
     $field.trigger("change");
     document.getElementById(name + "_img").src = "";
+}
+
+function tnp_lists_toggle(e) {
+    console.log(e);
+    jQuery('#' + e.id + '-notes > div').hide();
+    jQuery('#' + e.id + '-notes .list_' + e.value).show();
 }

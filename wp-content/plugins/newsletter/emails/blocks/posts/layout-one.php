@@ -1,5 +1,7 @@
 <?php
 $size = ['width' => 600, 'height' => 0];
+$total_width = 600 - $options['block_padding_left'] - $options['block_padding_right'];
+$column_width = $total_width / 2 - 10;
 ?>
 <style>
     .post-title {
@@ -50,7 +52,7 @@ $size = ['width' => 600, 'height' => 0];
             $media = tnp_composer_block_posts_get_media($post, $size);
             if ($media) {
                 $media->link = $url;
-                $media->set_width(250);
+                $media->set_width($column_width);
             }
         }
 
@@ -69,7 +71,7 @@ $size = ['width' => 600, 'height' => 0];
             <td valign="top" style="padding: 20px 0 0 0;" class="td-1">
 
                 <?php if ($media) { ?>
-                    <table width="40%" cellpadding="0" cellspacing="0" border="0" align="left" class="1-column" style="margin-bottom: 20px">
+                    <table width="<?php echo $column_width?>" cellpadding="0" cellspacing="0" border="0" align="left" class="responsive">
                         <tr>
                             <td>
                                 <?php echo TNP_Composer::image($media) ?>
@@ -78,7 +80,7 @@ $size = ['width' => 600, 'height' => 0];
                     </table>
                 <?php } ?>
 
-                <table width="<?php echo $media ? '57%' : '100%' ?>" cellpadding="0" cellspacing="0" border="0" class="responsive-table" align="right">
+                <table width="<?php echo $media ? $column_width : '100%' ?>" cellpadding="0" cellspacing="0" border="0" class="responsive" align="right">
                     <tr>
                         <td>
 

@@ -99,7 +99,9 @@ if (empty($page_exists)) {
     $logger->info('Dedicated page already exists');
 }
 ?>
-
+<style>
+    <?php include NEWSLETTER_DIR . '/css/welcome.css' ?>
+</style>
 <script src="<?php echo plugins_url('newsletter') ?>/main/js/snap.svg-min.js"></script>
 <script src="<?php echo plugins_url('newsletter') ?>/main/js/main.js"></script>
 <script>

@@ -505,6 +505,7 @@ function tnpc_show_presets() {
 
     jQuery(elModalContent).load(ajaxurl, {
         action: "tnpc_presets",
+        context_type: tnp_context_type,
     });
 
 }

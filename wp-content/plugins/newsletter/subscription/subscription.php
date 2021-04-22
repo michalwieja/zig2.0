@@ -144,6 +144,7 @@ class NewsletterSubscription extends NewsletterModule {
 
                 $captcha = !empty($options_antibot['captcha']);
 
+
                 if (!empty($options_antibot['disabled']) || $this->antibot_form_check($captcha)) {
 
                     $subscription = $this->build_subscription();
@@ -166,7 +167,9 @@ class NewsletterSubscription extends NewsletterModule {
                         $this->show_message('confirmation', $user);
                     }
                 } else {
-                    $this->request_to_antibot_form('Subscribe', $captcha);
+                    $language = isset($_REQUEST['nlang']) ? $_REQUEST['nlang'] : '';
+                    $options = $this->get_form_options($language);
+                    $this->request_to_antibot_form($options['subscribe'], $captcha);
                 }
                 die();
 
@@ -182,15 +185,20 @@ class NewsletterSubscription extends NewsletterModule {
                 $user = $this->subscribe2($subscription);
 
                 if (is_wp_error($user)) {
-                    $this->dienow('Registration failed.', $user->get_error_message(), 400);
-                }
+                    if ($user->get_error_code() === 'exists') {
+                        echo $this->options['error_text'];
+                        die();
+                    } else {
+                        $this->dienow('Registration failed.', $user->get_error_message(), 400);
+                    }
+                } else {
+                    if ($user->status == TNP_User::STATUS_CONFIRMED) {
+                        $key = 'confirmed';
+                    }
 
-                if ($user->status == TNP_User::STATUS_CONFIRMED) {
-                    $key = 'confirmed';
-                }
-
-                if ($user->status == TNP_User::STATUS_NOT_CONFIRMED) {
-                    $key = 'confirmation';
+                    if ($user->status == TNP_User::STATUS_NOT_CONFIRMED) {
+                        $key = 'confirmation';
+                    }
                 }
 
                 $message = $this->replace($this->options[$key . '_text'], $user);
@@ -285,7 +293,7 @@ class NewsletterSubscription extends NewsletterModule {
     }
 
     function first_install() {
-
+        
     }
 
     function admin_menu() {
@@ -343,10 +351,10 @@ class NewsletterSubscription extends NewsletterModule {
         if ($sub == '') {
             // For compatibility the options are wrongly named
             if ($language) {
-                $options = get_option('newsletter_' . $language, array());
-                $options = array_merge(get_option('newsletter', array()), $options);
+                $options = get_option('newsletter_' . $language, []);
+                $options = array_merge(get_option('newsletter', []), $options);
             } else {
-                $options = get_option('newsletter', array());
+                $options = get_option('newsletter', []);
             }
             if (!is_array($options)) {
                 $options = array();
@@ -358,22 +366,24 @@ class NewsletterSubscription extends NewsletterModule {
             if ($language) {
                 // All that because for unknown reasome, sometime the options are returned as string, maybe a WPML
                 // interference...
-                $i18n_options = get_option('newsletter_profile_' . $language, array());
-                if (!is_array($i18n_options))
-                    $i18n_options = array();
-                $options = get_option('newsletter_profile', array());
-                if (!is_array($options))
-                    $options = array();
+                $i18n_options = get_option('newsletter_profile_' . $language, []);
+                if (!is_array($i18n_options)) {
+                    $i18n_options = [];
+                }
+                $options = get_option('newsletter_profile', []);
+                if (!is_array($options)) {
+                    $options = [];
+                }
                 $options = array_merge($options, array_filter($i18n_options));
             } else {
-                $options = get_option('newsletter_profile', array());
+                $options = get_option('newsletter_profile', []);
             }
             // For compatibility the options are wrongly named
             return $options;
         }
         if ($sub == 'forms') {
             // For compatibility the options are wrongly named
-            return get_option('newsletter_forms', array());
+            return get_option('newsletter_forms', []);
         }
         return parent::get_options($sub, $language);
     }
@@ -459,14 +469,14 @@ class NewsletterSubscription extends NewsletterModule {
     /**
      * Builds a default subscription object to be used to collect data and subscription options.
      *
-     * @return \TNP_Subscription
+     * @return TNP_Subscription
      */
     function get_default_subscription($language = null) {
         $subscription = new TNP_Subscription();
 
-	    $language = is_null( $language ) ? $this->get_current_language() : $language;
+        $language = is_null($language) ? $this->get_current_language() : $language;
 
-        $subscription->data->language = $language ;
+        $subscription->data->language = $language;
         $subscription->optin = $this->is_double_optin() ? 'double' : 'single';
         $subscription->if_exists = empty($this->options['multiple']) ? TNP_Subscription::EXISTING_ERROR : TNP_Subscription::EXISTING_MERGE;
 
@@ -787,7 +797,6 @@ class NewsletterSubscription extends NewsletterModule {
                     continue;
                 }
                 $data->lists['' . $list_id] = 1;
-
             }
         } else {
             $this->logger->debug('No lists received');
@@ -937,8 +946,7 @@ class NewsletterSubscription extends NewsletterModule {
             $message['html'] = str_replace('{message}', $message['html'], $template);
             $message['html'] = $this->replace($message['html'], $user);
             $message['text'] = $this->replace($message['text'], $user);
-        }
-        else {
+        } else {
             $message = str_replace('{message}', $message, $template);
             $message = $this->replace($message, $user);
         }
@@ -983,7 +991,7 @@ class NewsletterSubscription extends NewsletterModule {
         } else {
             $new_email = get_transient('newsletter_user_' . $user->id . '_email');
             if ($new_email) {
-                $data = ['id'=>$user->id, 'email'=>$new_email];
+                $data = ['id' => $user->id, 'email' => $new_email];
                 $this->save_user($data);
                 delete_transient('newsletter_user_' . $user->id . '_email');
             }
@@ -1032,7 +1040,7 @@ class NewsletterSubscription extends NewsletterModule {
 
         $options = $this->get_options('', $language);
         $message = [];
-	    $message['html'] = do_shortcode( $options[ $type . '_message' ] );
+        $message['html'] = do_shortcode($options[$type . '_message']);
         $message['text'] = $this->get_text_message($type);
         if ($user->status == Newsletter::STATUS_NOT_CONFIRMED) {
             $message['html'] = $this->add_microdata($message['html']);
@@ -1127,7 +1135,7 @@ class NewsletterSubscription extends NewsletterModule {
     }
 
     function get_form_javascript() {
-
+        
     }
 
     /**
@@ -1191,7 +1199,8 @@ class NewsletterSubscription extends NewsletterModule {
 
         foreach ($arr as $a) {
             $a = trim($a);
-            if (empty($a)) continue;
+            if (empty($a))
+                continue;
 
             $list = $this->get_list($a);
             if (!$list) {
@@ -1410,8 +1419,8 @@ class NewsletterSubscription extends NewsletterModule {
             if (isset($attrs['layout']) && $attrs['layout'] === 'dropdown') {
 
                 $buffer .= '<div class="tnp-field tnp-lists">';
-	            // There is not a default "label" for the block of lists, so it can only be specified in the shortcode attrs as "label"
-	            $buffer .= $this->_shortcode_label('lists', $attrs);
+                // There is not a default "label" for the block of lists, so it can only be specified in the shortcode attrs as "label"
+                $buffer .= $this->_shortcode_label('lists', $attrs);
                 $buffer .= '<select class="tnp-lists" name="nl[]" required>';
 
                 if (!empty($attrs['first_option_label'])) {
@@ -1633,9 +1642,9 @@ class NewsletterSubscription extends NewsletterModule {
             if (empty($attrs['lists_field_empty_label'])) {
                 $attrs['lists_field_empty_label'] = '';
             }
-	        if (empty($attrs['lists_field_label'])) {
-		        $attrs['lists_field_label'] = '';
-	        }
+            if (empty($attrs['lists_field_label'])) {
+                $attrs['lists_field_label'] = '';
+            }
             $buffer .= $this->shortcode_newsletter_field(['name' => 'lists', 'layout' => 'dropdown', 'first_option_label' => $attrs['lists_field_empty_label'], 'label' => $attrs['lists_field_label']]);
         } else {
             $buffer .= $this->shortcode_newsletter_field(['name' => 'lists']);

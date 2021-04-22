@@ -364,9 +364,9 @@ if (!empty($return_path)) {
 
             </div> <!-- tabs -->
 
-            <p>
+            <div class="tnp-buttons">
                 <?php $controls->button_save(); ?>
-            </p>
+            </div>
 
         </form>
 

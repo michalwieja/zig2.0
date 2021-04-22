@@ -1,0 +1,29 @@
+.padding-x {
+  padding: 0 15vw;
+  @include respond-to($xl) {
+    padding: 0 10vw;
+  }
+  @include respond-to($xs) {
+    padding: 0 30px;
+  }
+}
+
+.padding-l {
+  padding-left: 15vw;
+  @include respond-to($xl) {
+    padding-left: 10vw;
+  }
+  @include respond-to($xs) {
+    padding-left: 30px;
+  }
+}
+
+.padding-r {
+  padding-right: 15vw;
+  @include respond-to($xl) {
+    padding-right: 10vw;
+  }
+  @include respond-to($xs) {
+    padding-right: 30px;
+  }
+}

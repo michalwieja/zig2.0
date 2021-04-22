@@ -1,16 +1,12 @@
-/* Bootstrap like */
+/* WordPress admin main wrapper */
+#wpwrap {
+    background-color: #222B36 !important;
+}
 
 #tnp-wrap * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-/* Color picker patch */
-#tnp-wrap .iris-picker, #tnp-wrap .iris-picker * {
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
 }
 
 #tnp-wrap *:before,
@@ -20,10 +16,23 @@
     box-sizing: border-box;
 }
 
-/*.row {
-    margin-right: -15px;
-    margin-left: -15px;
-}*/
+#tnp-wrap,
+#tnp-wrap td,
+#tnp-wrap h1,
+#tnp-wrap h2,
+#tnp-wrap h3,
+#tnp-wrap h4,
+#tnp-wrap input,
+#tnp-wrap select,
+#tnp-wrap textarea,
+#tnp-wrap button,
+#tnp-wrap li,
+#tnp-wrap a
+{
+    font-family: soleil, sans-serif;
+    -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+    -moz-osx-font-smoothing: grayscale; /* Firefox */
+}
 
 .container {
   width: 100%;
@@ -124,31 +133,6 @@
     margin-top: 80px;
 }
 
-
-
-#tnp-wrap,
-#tnp-header,
-#tnp-body p,
-#tnp-body td,
-#tnp-body td p,
-#tnp-body input,
-#tnp-body select,
-#tnp-body textarea {
-    font-family: soleil, sans-serif;
-    -webkit-font-smoothing: antialiased; /* Chrome, Safari */
-    -moz-osx-font-smoothing: grayscale; /* Firefox */
-}
-
-#tnp-body h1,
-#tnp-body h2,
-#tnp-body h3,
-#tnp-body h4 {
-    font-family: soleil, sans-serif;
-    -webkit-font-smoothing: antialiased; /* Chrome, Safari */
-    -moz-osx-font-smoothing: grayscale; /* Firefox */
-}
-
-
 #tnp-promotion-bar {
     background-color: #FF5F65;
     color: ddd;
@@ -180,7 +164,6 @@
 
 #tnp-header a {
     text-decoration: none;
-    /*font-family: soleil,sans-serif;*/
     color: white;
     letter-spacing: 0.1em;
 }
@@ -197,34 +180,15 @@
     color: #000!important;
 }
 
-.tnp-error {
-    border-left: 5px solid #dd0000;
-    background-color: #fff;
-    padding: 15px;
-    margin: 15px 0;
-    font-size: 1.2em;
-    line-height: 1.5em;
+/******************************************************************************
+* BODY
+******************************************************************************/
+
+#tnp-body {
+    padding: 10px;
+    background-color: #28313C;
 }
 
-.tnp-warning {
-    border-left: 5px solid #ffb900;
-    background-color: #fff;
-    padding: 15px;
-    margin: 15px 0;
-    font-size: 1.2em;
-    line-height: 1.5em;
-}
-
-.tnp-message {
-    border-left: 5px solid #46b450;
-    background-color: #fff;
-    padding: 15px;
-    margin: 15px 0;
-    font-size: 1.2em;
-    line-height: 1.5em;
-}
-
-/* Default font colors for our dark background page body */
 #tnp-body h1,
 #tnp-body h2,
 #tnp-body h3,
@@ -232,6 +196,13 @@
 #tnp-body p {
     color: #fff;
 }
+
+#tnp-body h3 {
+    margin-top: 25px;
+    clear: both;
+    margin-bottom: 10px;
+}
+
 
 #tnp-body ul {
     list-style-type: circle;
@@ -259,14 +230,21 @@
 #tnp-body .button:focus,
 #tnp-body .button-primary,
 #tnp-body .button-primary:visited,
-#tnp-body .button-primary:hover,
+#tnp-body .button-primary:hover {
+     color: #fff;
+    text-shadow: none;
+    width: auto;
+    vertical-align: bottom;
+}
+
 #tnp-body .button-secondary,
 #tnp-body .button-secondary:visited,
 #tnp-body .button-secondary:hover {
     color: #fff;
-    background-color: #3498db;
+    background-color: #999;
     text-shadow: none;
     width: auto;
+    vertical-align: bottom;
 }
 
 /* Icon in button media selector */
@@ -290,14 +268,6 @@
     width: auto;
 }
 
-/* Form tables correction */
-#tnp-body .form-table h1,
-#tnp-body .form-table h2,
-#tnp-body .form-table h4,
-#tnp-body .form-table h3 {
-    color: #444;
-}
-
 #tnp-body tbody th,
 #tnp-body td,
 #tnp-body td p,
@@ -313,52 +283,6 @@
 #tnp-body td a:visited {
     color: #27AE60; /* Green */
 }
-
-
-/* Tables of class form-table */
-#tnp-body .form-table {
-    background-color: #fff;
-    border: 1px solid #ECF0F1;
-    margin-top: 2em;
-    border-spacing: 4px;
-    border-collapse: separate;
-}
-
-#tnp-body .form-table th {
-    text-align: right;
-    font-weight: bold;
-    max-width: 200px;
-    color: #000000;
-    background-color: #ECF0F1;
-    vertical-align: middle;
-}
-
-#tnp-body .form-table th small {
-    font-weight: normal;
-}
-
-#tnp-body .form-table textarea {
-    width: 100%;
-}
-
-/* Table inside a field form table to create a grid of options */
-#tnp-body .form-table table {
-    border-collapse: collapse;
-}
-
-#tnp-body .form-table table td,
-.form-table table th {
-    padding: 5px;
-    font-size: .9em;
-    font-weight: normal;
-    border: 1px solid #eee;
-}
-
-#tnp-body .form-table table thead th {
-    text-align: left;
-    font-weight: bold;
-}
-
 
 /*******************************************************************************
  * Wide fat tables
@@ -391,44 +315,7 @@
     background-color: #f4faff;
 }
 
-#tnp-body .widefat.tnp-newsletters-list tbody tr {
-    height: 70px;
-}
 
-/* jQuery UI tabs corrections */
-#tnp-body #tabs h3,
-#tnp-body #tabs h4,
-#tnp-body #tabs p,
-#tnp-body #tabs li
-{
-    color: #444;
-}
-
-/* Button correction */
-#tnp-body #tabs .button,
-#tnp-body #tabs .button:visited,
-#tnp-body #tabs .button:hover,
-#tnp-body #tabs .button-primary,
-#tnp-body #tabs .button-primary:visited,
-#tnp-body #tabs .button-primary:hover,
-#tnp-body #tabs .button-secondary,
-#tnp-body #tabs .button-secondary:visited,
-#tnp-body #tabs .button-secondary:hover {
-    color: #fff;
-    width: auto;
-}
-
-#tnp-body td .tnp-tabs {
-    
-}
-
-#tnp-body td .tnp-tabs .ui-widget-header {
-    background-color: #ddd;
-}
-
-#tnp-body td .tnp-tabs .ui-tabs-anchor {
-    color: #000;
-}
 
 table.clicks td {
     border: 1px solid #666;
@@ -452,88 +339,15 @@ table.clicks {
     background-color: #aaa;
 }
 
-.tnp-checkboxes label {
-    display: block;
-    float: left;
-    width: 220px;
-    border: 1px solid #ccc;
-    background-color: #f4f4f4;
-    margin-bottom: 5px;
-    padding: 5px;
-    white-space: nowrap;
-    margin-right: 5px;
-}
-
 .tnp-buttons {
     /*background-color: #0073aa;*/
-    padding: 10px;
-}
-
-.newsletter-checkbox-group, .nl-checkbox-group {
-    float: left;
-    margin-right: 5px;
-    border: 1px solid #ccc;
-    background-color: #f4f4f4;
-    margin-bottom: 5px;
-    padding: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-/* Checkbox group */
-.newsletter-checkboxes-item {
-    float: left;
-    margin-right: 5px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    background-color: #f4f4f4;
-    width: 150px;
-    margin-bottom: 5px;
-    padding: 3px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.newsletter-checkboxes-item input {
-    vertical-align: text-bottom;
-}
-
-.newsletter-checkboxes-item label {
-    display: inline;
-}
-
-.newsletter-preferences-item {
-    float: left;
-    margin-right: 5px;
-    border: 1px solid #ccc;
-    background-color: #f4f4f4;
-    width: 250px;
-    margin-bottom: 5px;
-    padding: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.newsletter-preferences-item label {
-    display: inline;
-}
-
-.form-table td .nl-checkbox-group label {
-    display: inline;
+    padding: 10px 0;
 }
 
 
 
 
 
-
-
-/*
-.form-table td label {
-  font-size: 10px;
-  display: block;
-}
-*/
 
 .tnp-notice {
     padding: 15px;
@@ -547,13 +361,15 @@ table.clicks {
     border-left: 5px solid #27AE60;
 }
 
-.tnp-notice a {
+.tnp-notice a,
+.tnp-warning a {
     color: #0073aa;
     text-decoration: none;
     font-weight: bold;
 }
 
-.tnp-notice a.tnp-dismiss {
+.tnp-notice a.tnp-dismiss,
+.tnp-warning a.tnp-dismiss{
     display: block;
     position: absolute;
     right: 10px;
@@ -583,70 +399,9 @@ table.clicks {
     cursor: pointer;
 }
 
-
-
-.newsletter-message {
-    background-color: #efe;
-    border-color: #393;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 3px;
-    padding: .6em;
-    margin-bottom: .6em;
-}
-
-.newsletter-error-span {
-    color: #f00;
-    font-weight: bold;
-}
-
-.newsletter-error {
-    background-color: #fee;
-    border-color: #933;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 2px;
-    padding: .6em;
-    margin-bottom: .6em;
-}
-
-.newsletter-error strong, .newsletter-message strong {
-    font-weight: bold;
-}
-
-#newsletter-warnings {
-    background-color: #FFEBE8;
-    border-color: #C00;
-    border-radius: 3px;
-    border-style: solid;
-    border-width: 1px;
-    padding: .6em;
-    margin-bottom: .6em;
-}
-
-.newsletter-buttons {
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-
 .tnp-paginator {
     margin-top: 10px;
     margin-bottom: 5px;
-}
-
-.newsletter-option-grid th {
-    text-align: right;
-    width: auto;
-    border: 0;
-    padding: 3px;
-    font-weight: normal;
-    vertical-align: top;
-    padding-right: 15px;
-}
-.newsletter-option-grid td {
-    border: 0;
-    padding: 3px;
-    vertical-align: top;
 }
 
 .newsletter-box {
@@ -732,9 +487,7 @@ table.clicks {
 
 /* CSS General Font Styles */
 
-p.description {
-    font-size: 12px !important;
-}
+
 
 
 /* CSS Themes Preview */
@@ -786,29 +539,7 @@ p.description {
 }
 
 
-/* Regole Generali*/
 
-#tnp-body {
-    padding: 10px;
-    background-color: #28313C;
-    /*border-color: 10px solid #28313C;*/
-}
-
-.tnp-darkbg {
-    background-color: #34495E!important;
-}
-
-#tnp-body h3 {
-    margin-top: 25px;
-    clear: both;
-    /* display: inline-block; */
-    /* background-color: #34495E; */
-    /* color: #fff !important; */
-    margin-bottom: 10px;
-    /*    width: 200px;*/
-    /* text-align: right; */
-    /*    border-bottom: 2px solid #27AE60;*/
-}
 
 
 .tnp-body-lite {
@@ -840,6 +571,12 @@ p.description {
     color: #565656;
 }
 
+#tnp-heading h1 {
+    color: #fff;
+    font-family: soleil, sans-serif;
+    font-weight: 900;
+}
+
 #tnp-heading h2 {
     color: #fff;
     font-family: soleil, sans-serif;
@@ -867,9 +604,16 @@ p.description {
     margin: 0px;
 }
 
-#tnp-heading p {
+#tnp-heading p, #tnp-heading ul {
     margin: 0px;
     color: #ccc;
+}
+
+#tnp-heading ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    margin-left: 2em;
+    margin-top: 1em;
 }
 
 /* Style for WP global notices */
@@ -1030,12 +774,6 @@ p.description {
     border-left: 3px solid #2ECC71;
 }
 
-/* Wrapper Background */
-
-#wpwrap {
-    background-color: #222B36 !important;
-}
-
 /* Global buttons styles */
 
 #dashboard-widgets .button {
@@ -1059,15 +797,7 @@ p.description {
     width: auto;
 }
 
-.wp-core-ui .button-secondary, .wp-core-ui .button, .wp-core-ui .button-primary {
-    background-color: #3498db;
-    box-shadow: none;
-    color: #fff;
-    font-family: soleil,sans-serif;
-    margin: 0px 2px;
-}
-
-.wp-core-ui .button-secondary:hover, .wp-core-ui .button:hover, .wp-core-ui .button-primary:hover {
+.wp-core-ui .button-secondary:hover, .wp-core-ui .button-primary:hover {
     background-color: #5DADE2;
     color: #fff;
     width: auto;
@@ -1288,694 +1018,6 @@ table.widefat {
     margin: 5px;
 }
 
-/*******************************************************************************
- * Overrides some jQuery UI styles, specially for tabs and only inside the
- * #tnp-body div
- */
-
-#tnp-body .ui-widget {
-    font-family: soleil, sans-serif;
-}
-
-#tnp-body #tabs {
-    background-color: transparent;
-    border: 0!important;
-    padding: 0;
-    margin: 0;
-}
-
-#tnp-body #tabs .ui-widget-header {
-    background: #28313C;
-    border: 0;
-}
-
-#tnp-body #tabs .ui-tabs-panel {
-    padding: 15px!important;
-    background-color: #fff;
-}
-
-#tnp-body #tabs a.ui-tabs-anchor,
-#tnp-body #tabs a.ui-tabs-anchor:visited {
-    color: #444;
-}
-
-#tnp-body .ui-tabs .ui-tabs-nav {
-    padding: 0;
-}
-
-#tnp-body .ui-tabs .ui-tabs-nav li a {
-    font-size: 14px;
-}
-
-#tnp-body #tabs .ui-tabs {
-    border-color: #28313C;
-    background-color: #28313C;
-    border: 0;
-}
-
-#tnp-body #tabs .ui-tabs .ui-tabs-nav {
-    margin: 0;
-    padding: .2em .2em 0 0;
-    background-color: #f2f2f2;
-}
-
-#tnp-body #tabs .ui-tabs .ui-tabs-panel {
-    padding: 1em 0;
-    background-color: #f2f2f2;
-    margin: 0;
-    border: 0;
-}
-
-#tnp-body .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-    background: #fff !important;
-    font-weight: normal;
-    font-family: soleil, sans-serif;
-}
-
-
-#tnp-body .ui-widget-content {
-    background: #fff;
-}
-
-#tnp-body .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    border: none;
-    background: #ECF0F1;
-    font-family: soleil, sans-serif;
-}
-
-
-/*******************************************************************************
- * Extension Panel
- */
-
-.tnp-extension-premium-box, .tnp-extension-free-box, .tnp-integration-box {
-    width: 300px;
-    height: 220px;
-    background-color: #222B36;
-    text-align: center;
-    margin: 20px;
-    float: left;
-    position: relative;
-}
-
-.tnp-extension-premium-box:hover, .tnp-extension-free-box:hover, .tnp-integration-box:hover {
-    background-color: #232C35;
-    box-shadow: 1px 1px 15px #222B36;
-}
-
-.tnp-extension-premium-box p, .tnp-extension-free-box p, .tnp-integration-box p {
-    padding: 5px 10px;
-    color: #72777c;
-    font-size: 14px;
-    margin-top: 0px;
-}
-
-.tnp-extension-premium-box h3 {
-    font-family: soleil, sans-serif;
-    padding: 5px 8px !important;
-    border-radius: 3px;
-    display: inline-block;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 0px !important;
-    margin-top: 25px !important;
-    font-weight: 300;
-    width: auto !important;
-    border-bottom: none !important;
-}
-
-.tnp-extension-free-box h3 {
-    font-family: soleil, sans-serif;
-    padding: 5px 8px !important;
-    border-radius: 3px;
-    display: inline-block;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 0px !important;
-    margin-top: 25px !important;
-    font-weight: 300;
-    width: auto !important;
-    border-bottom: none !important;
-}
-
-.tnp-integration-box h3 {
-    font-family: soleil, sans-serif;
-    padding: 5px 8px !important;
-    border-radius: 3px;
-    display: inline-block;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 0px !important;
-    margin-top: 25px !important;
-    font-weight: 300;
-    width: auto !important;
-    border-bottom: none !important;
-}
-
-.tnp-extension-premium-action {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    padding: 12px;
-    font-family: soleil, sans-serif;
-}
-
-.tnp-extension-free-action {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    padding: 12px;
-    font-family: soleil, sans-serif;
-}
-
-.tnp-integration-action {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    padding: 12px;
-    font-family: soleil, sans-serif;
-}
-
-
-.tnp-extension-premium-action span {
-    color: #27AE60;
-}
-
-.tnp-extension-free-action span {
-    color: #27AE60;
-}
-
-.tnp-integration-action span {
-    color: #27AE60;
-}
-
-.tnp-extension-activate {
-    color: #1ABC9C;
-    padding: 5px 8px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.tnp-extension-install {
-    color: #2980B9;
-    padding: 5px 8px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.tnp-extension-buy {
-    color: #F1C40F;
-    padding: 5px 8px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#tnp-body a.tnp-extension-details{
-    color: #999999;
-    padding: 5px 8px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.tnp-extension-free {
-    color: #D35400;
-    padding: 5px 8px;
-    text-decoration: none;
-    cursor: pointer;
-    position: relative;
-}
-
-img.tnp-extensions-free-badge {
-    position: absolute;
-    display: block;
-    right: 0;
-    top: 0;
-    width: 70px;
-}
-
-.tnp-extensions-image img {
-    margin: 25px 0px -10px;
-}
-
-/* Subscription modal for free extensions */
-#tnp-subscribe-overlay {
-    height: 100vh;
-    width: 100vw;
-    z-index: 10000;
-    display: none;
-    background-image: url(images/modal-background.png);
-    background-repeat: repeat;
-    position: fixed;
-    top: 0;
-    left: -20px;
-}
-
-#tnp-subscribe-modal {
-    width: 600px;
-    background-color: rgba(255,255,255,1);
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 100px;
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-    padding: 25px;
-    background-color: #1D2B38;
-
-    text-align: center;
-}
-
-#tnp-subscribe-modal img {
-    width: 30%;
-}
-
-#tnp-subscribe-title {
-    font-size: 20px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    line-height: 30px;
-    color: white;
-    font-weight: 200;
-}
-
-#tnp-subscribe-email-wrapper {
-    margin: 20px;
-}
-
-#tnp-subscribe-email-wrapper input {
-    border: none;
-    background-color: #223242;
-    color: white;
-}
-
-#tnp-subscribe-email {
-    font-size: 24px;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-}
-
-#tnp-subscribe-submit-wrapper {
-    margin-bottom: 20px;
-}
-
-#tnp-subscribe-submit {
-    font-size: 24px;
-    background-color: #219050;
-    color: #fff;
-    padding: 10px 35px;
-    border: 0;
-    font-size: 17px;
-    letter-spacing: 2px;
-}
-
-#tnp-subscribe-no-thanks {
-    color: #666;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-
-/* Theme options and theme preview styles */
-
-#tnp-body div.tnp-emails-theme-options {
-    background-color: #fff;
-    padding: 10px;
-    margin-top: 14px;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    border: none;
-    background: #ECF0F1;
-    font-family: soleil, sans-serif;
-}
-
-
-
-/* --------------------------------
-
-Tnp Welcome Slider
-
--------------------------------- */
-
-.cd-slider-wrapper {
-    position: relative;
-    width: 100%;
-    height: 90vh;
-    /* hide horizontal scrollbar on IE11 */
-    overflow: hidden;
-    margin: 0 auto;
-}
-.cd-slider-wrapper .cd-slider, .cd-slider-wrapper .cd-slider > li {
-    height: 100%;
-    width: 100%;
-}
-
-.tnp-logo-big {
-    width: 300px;
-}
-
-.tnp-row {
-    display: table-row;
-}
-
-.tnp-third {
-    width: 33%;
-    float: left;
-}
-
-.tnp-welcome-confirm-button {
-    color: #fff;
-    padding: 10px 30px;
-    background-color: #2ECC71;
-    font-weight: 700;
-    font-size: 15px;
-    box-shadow: 0 20px 38px rgba(0, 0, 0, 0.16);
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    margin: 20px auto 0px;
-}
-
-.tnp-welcome-confirm-button:hover {
-    box-shadow: 0 0 38px rgba(0, 0, 0, 0.16);
-    color: #fff;
-}
-
-.tnp-welcome-confirm-button:visited {
-    color: #fff;
-    text-decoration: none;
-}
-
-.tnp-welcome-link-button {
-    color: #fff;
-    padding: 10px 30px;
-    background-color: #3498DB;
-    font-weight: 700;
-    font-size: 15px;
-    box-shadow: 0 20px 38px rgba(0, 0, 0, 0.16);
-    text-decoration: none;
-}
-
-.tnp-welcome-link-button:hover {
-    box-shadow: 0 0 38px rgba(0, 0, 0, 0.16);
-    color: #fff;
-}
-
-.tnp-welcome-link-button:visited {
-    color: #fff;
-    text-decoration: none;
-}
-
-#tnp-welcome input[type="text"], #tnp-welcome input[type="email"] {
-    max-width: 90%;
-}
-
-.tnp-welcome-next {
-    background-color: #2ECC71;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    margin: 0px 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
-    width: -moz-fit-content;
-    width: -webkit-fit-content;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-}
-
-.tnp-welcome-next:hover {
-    box-shadow: 0 0 38px rgba(0, 0, 0, 0.16);
-    color: #fff;
-}
-
-.tnp-welcome-next:visited {
-    color: #fff;
-    text-decoration: none;
-}
-
-.tnp-welcome-prev {
-    background-color: #3498DB;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    margin: 0px 0px 0px 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
-    width: -moz-fit-content;
-    width: -webkit-fit-content;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-}
-
-.tnp-welcome-prev:hover {
-    box-shadow: 0 0 38px rgba(0, 0, 0, 0.16);
-    color: #fff;
-}
-
-.tnp-welcome-prev:visited {
-    color: #fff;
-    text-decoration: none;
-}
-
-.tnp-welcome-next svg {
-    margin-left: 10px;
-}
-
-.tnp-welcome-prev svg {
-    margin-right: 10px;
-}
-
-.cd-slider input {
-    width: 250px;
-    height: 40px;
-    border: 1px solid #6c7280;
-    background: #454a56;
-    color: white;
-    color: white;
-    padding: 0px 10px;
-}
-
-.cd-slider > li {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    /* used to vertically center its content */
-    display: table;
-    background-position: center center;
-    background-repeat: no-repeat;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.cd-slider > li.visible {
-    /* selected slide */
-    position: relative;
-    z-index: 2;
-    opacity: 1;
-}
-.cd-slider > li:first-of-type {
-    background-color: #2B313A;
-}
-.cd-slider > li:nth-of-type(2) {
-    background-color: #2B313A;
-}
-.cd-slider > li:nth-of-type(3) {
-    background-color: #2B313A;
-}
-.cd-slider > li:nth-of-type(4) {
-    background-color: #2B313A;
-}
-.cd-slider > li:first-of-type, .cd-slider > li:nth-of-type(2), .cd-slider > li:nth-of-type(3), .cd-slider > li:nth-of-type(4) {
-    background-size: cover;
-}
-.cd-slider > li > div {
-    /* vertically center the slider content */
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
-.cd-slider > li h2, .cd-slider > li p {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    line-height: 1.2;
-    margin: 0 auto 14px;
-    color: #ffffff;
-    width: 90%;
-    max-width: 320px;
-}
-.cd-slider > li h2 {
-    font-size: 40px;
-}
-.cd-slider > li p {
-    font-size: 18px;
-    line-height: 26px;
-    text-align: left;
-    color: #B8C3C9;
-    margin: 40px auto;
-}
-
-.cd-slider > li .cd-btn {
-    display: inline-block;
-    padding: 1.2em 1.4em;
-    margin-top: .8em;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: .25em;
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #ffffff;
-    text-transform: uppercase;
-    -webkit-transition: background-color 0.2s;
-    -moz-transition: background-color 0.2s;
-    transition: background-color 0.2s;
-}
-.no-touch .cd-slider > li .cd-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-@media only screen and (min-width: 768px) {
-    .cd-slider > li h2, .cd-slider > li p {
-        max-width: 520px;
-    }
-    .cd-slider > li h2 {
-        font-size: 40px;
-    }
-    .cd-slider > li p {
-        font-size: 18px;
-        line-height: 26px;
-        text-align: left;
-        color: #B8C3C9;
-        margin: 40px auto;
-
-    }
-}
-@media only screen and (min-width: 1170px) {
-    .cd-slider > li h2, .cd-slider > li p {
-        margin-bottom: 20px;
-    }
-    .cd-slider > li h2 {
-        font-size: 40px;
-    }
-    .cd-slider > li p {
-        font-size: 18px;
-        line-height: 26px;
-        text-align: center;
-        color: #B8C3C9;
-        margin: 30px auto;
-    }
-}
-
-/* --------------------------------
-
-Tnp Welcome Slider Navigation
-
--------------------------------- */
-.cd-slider-navigation {
-    position: relative;
-    bottom: 110px;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-}
-
-/* svg cover layer */
-
-.cd-svg-cover {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-}
-.cd-svg-cover path {
-    fill: #ED6A6A;
-}
-.cd-svg-cover.is-animating {
-    z-index: 4;
-    opacity: 1;
-    -webkit-transition: opacity 0.6s;
-    -moz-transition: opacity 0.6s;
-    transition: opacity 0.6s;
-}
-
-/* Switch element style */
-
-/* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {display:none;}
-
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-/* Cossa sea sta roba? ORDINE! */
-
-#tnp-body div.tnp-emails-theme-options table.form-table {
-    margin: 0;
-}
-
-#tnp-body div.tnp-emails-theme-options h3 {
-    color: #000;
-}
-
 
 /* Suggerimenti Oggetto + Inserimento Emoticons */
 
@@ -2065,28 +1107,6 @@ input:checked + .slider:before {
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
-
-
-#tnp-edit-emoji-list {
-    font-size: 28px;
-}
-#tnp-edit-emoji-list a {
-    display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 5px;
-}
-
-/* Stili per il campo testo oggetto delle email */
-
-/*#options-subject {
-    background: url(images/idea.svg) no-repeat white 99% 3px;
-    background-size: 25px;
-}
-
-#options-subject:hover {
-    background: url(images/idea.svg) no-repeat red 99% 3px;
-    background-size: 25px;
-}*/
 
 
 /* Stile selettore liste - Schermata di invio newsletter */
@@ -2204,31 +1224,6 @@ iframe.tnp-editor-preview-desktop {
     color: #34495E;
 }
 
-/*.tnp-nl-status-bar {
-    height: 24px;
-    width: auto;
-    background-color: #fe5e64;
-    margin: 10px 0px;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.tnp-nl-status-bar span {
-    color: #fff;
-    line-height: 24px;
-}*/
-/*
-#tnp-nl-status-toggle {
-    width: 30px;
-    height: 30px;
-    background-color: #22272d;
-    z-index: 999999;
-    position: fixed;
-    right: 390px;
-    color: white;
-    text-align: center;
-}*/
-
 .tnp-status-header #options-subject {
     width: calc(100% - 150px);
 }
@@ -2273,8 +1268,12 @@ iframe.tnp-editor-preview-desktop {
     transition: width .6s ease;
 }
 
-.tnp-progress.sent .tnp-progress-bar {
+.tnp-progress--sent .tnp-progress-bar {
     background-color: green;
+}
+
+.tnp-progress--error .tnp-progress-bar {
+    background-color: #E74C3C;
 }
 
 .tnp-progress-numbers {
@@ -2287,45 +1286,37 @@ iframe.tnp-editor-preview-desktop {
     font-style: italic;
 }
 
+span.tnp-email-status {
+    background-color: #95A5A6;
+    padding: 2px 10px;
+    border-radius: 4px;
+    color: #fff;
+    white-space: nowrap;
+}
+
 /* Email status label */
-span.tnp-email-status-new {
+span.tnp-email-status.tnp-email-status--new {
     background-color: #8E44AD;
-    padding: 2px 10px;
-    border-radius: 4px;
-    color: #fff;
-    white-space: nowrap;
 }
 
-span.tnp-email-status-paused {
+span.tnp-email-status.tnp-email-status--paused {
     background-color: #95A5A6;
-    padding: 2px 10px;
-    border-radius: 4px;
-    color: #fff;
-    white-space: nowrap;
 }
 
-span.tnp-email-status-sending {
-    background-color:#27AE60;
-    padding: 2px 10px;
-    border-radius: 4px;
-    color: #fff;
-    white-space: nowrap;
+span.tnp-email-status.tnp-email-status--sending {
+    background-color: #27AE60;
 }
 
-span.tnp-email-status-scheduled {
+span.tnp-email-status.tnp-email-status--scheduled {
     background-color: #E67E22;
-    padding: 2px 10px;
-    border-radius: 4px;
-    color: #fff;
-    white-space: nowrap;
 }
 
-span.tnp-email-status-sent {
+span.tnp-email-status.tnp-email-status--sent {
     background-color: #95A5A6;
-    padding: 2px 10px;
-    border-radius: 4px;
-    color: #fff;
-    white-space: nowrap;
+}
+
+span.tnp-email-status.tnp-email-status--error {
+    background-color: #E74C3C;
 }
 
 /* Schedule buttons styles */

@@ -198,6 +198,7 @@ class NewsletterMailer {
 
 /**
  * @property string $to
+ * @property string $to_name
  * @property string $subject
  * @property string $body
  * @property array $headers
@@ -214,6 +215,8 @@ class TNP_Mailer_Message {
     var $subject = '';
     var $body = '';
     var $body_text = '';
+    var $from = '';
+    var $from_name = '';
 
 }
 
@@ -347,6 +350,11 @@ class NewsletterDefaultMailer extends NewsletterMailer {
         }
     }
 
+    /**
+     * 
+     * @param TNP_Mailer_Message $message
+     * @return \WP_Error|boolean
+     */
     function send($message) {
 
         if (!$this->filter_active) {
@@ -355,9 +363,16 @@ class NewsletterDefaultMailer extends NewsletterMailer {
         }
 
         $newsletter = Newsletter::instance();
-        $wp_mail_headers = array();
-        // TODO: Manage the from address
-        $wp_mail_headers[] = 'From: "' . $newsletter->options['sender_name'] . '" <' . $newsletter->options['sender_email'] . '>';
+        $wp_mail_headers = [];
+        if (empty($message->from)) {
+            $message->from = $newsletter->options['sender_email'];
+        } 
+        
+        if (empty($message->from_name)) {
+            $message->from_name = $newsletter->options['sender_name'];
+        }
+        
+        $wp_mail_headers[] = 'From: "' . $message->from_name . '" <' . $message->from . '>';
 
         if (!empty($newsletter->options['reply_to'])) {
             $wp_mail_headers[] = 'Reply-To: ' . $newsletter->options['reply_to'];
@@ -492,7 +507,7 @@ class NewsletterDefaultSMTPMailer extends NewsletterMailer {
 
         require_once 'PHPMailerLoader.php';
         $this->mailer = PHPMailerLoader::make_instance();
-        
+
         $this->mailer->XMailer = ' '; // A space!
 
         $this->mailer->IsSMTP();
@@ -506,7 +521,7 @@ class NewsletterDefaultSMTPMailer extends NewsletterMailer {
             $this->mailer->Username = $this->options['user'];
             $this->mailer->Password = $this->options['pass'];
         }
-        $this->mailer->SMTPKeepAlive = true;
+
         $this->mailer->SMTPSecure = $this->options['secure'];
         $this->mailer->SMTPAutoTLS = false;
 

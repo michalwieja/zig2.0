@@ -170,9 +170,9 @@ if (!$controls->is_action()) {
                 </div>
             </div>
 
-            <p>
+            <div class="tnp-buttons">
                 <?php $controls->button_save(); ?>
-            </p>
+            </div>
 
         </form>
     </div>

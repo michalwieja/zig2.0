@@ -1,58 +1,32 @@
-// only bg in #
-#profits {
-  background-image: url('assets/pattern.png');
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $grey;
-    z-index: -1;
-  }
-}
-
-// content
-
 .profits {
-  padding-top: 100px;
-  padding-bottom: 50px;
+  background-color: $grey;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
 
   &__title {
+    color: $blue;
+    text-decoration: none;
     text-align: right;
   }
 
-  &__cards {
-    padding-top: 100px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 60px;
+  .cards {
+    padding-top: 2.5vw;
+    @include flex(flex-start, space-between);
+    gap: 2.5vw;
   }
 
-  &__card {
+  .card {
     background-color: $white;
-    padding: 60px 37px 84px 44px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 350px;
-    height: 390px;
+    border: 8px solid $grenade;
     position: relative;
+    padding: 2.5vw;
 
-    &::before {
-      content: '';
+
+    &:after {
+      content: url("/wp-content/themes/zig-template/assets/border-ornamnet.jpg");
       position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      background-image: url("/wp-content/themes/zig-template/assets/01.svg");
-      background-size: cover;
+      top: -8px;
+      right: -8px;
     }
 
     .title {
@@ -62,230 +36,11 @@
     }
 
     .text {
-      padding-top: 20px;
+      padding-top: 1vw;
       font-size: 18px;
       color: $blue;
-      padding-bottom: 20px;
-      min-height: 180px;
-    }
-  }
-}
+      padding-bottom: 1vw;
 
-.relations {
-  @include flex(center);
-  width: 100%;
-  position: relative;
-
-  &__image {
-    width: 50%;
-
-    img {
-      display: block;
-    }
-  }
-
-  &__content {
-    width: 50%;
-    padding-top: 0;
-    padding-right: $content-padding-desktop;
-    padding-left: 23px;
-
-    .button {
-      width: 240px;
-    }
-  }
-
-  &__title {
-    padding-bottom: 75px;
-  }
-
-  &__text {
-    width: 592px;
-    font-size: 18px;
-    padding-bottom: 30px;
-
-    p {
-      padding: 10px 0;
-    }
-  }
-}
-
-@include respond-to($xxl) {
-  #profits {
-    background-position: -225px 0;
-  }
-  .profits {
-    padding-top: 50px;
-
-    &__cards {
-      //grid-gap: 25px;
-      padding-top: 50px;
-    }
-
-    &__card {
-      padding: 25px;
-    }
-  }
-  .relations {
-    &__content {
-      padding-right: $content-padding-tablet;
-    }
-  }
-}
-
-@include respond-to($xl) {
-  .profits {
-    padding-top: 130px;
-
-    &__cards {
-      padding-top: 100px;
-      grid-gap: 15px;
-    }
-
-    &__card {
-      padding: 40px 35px;
-      width: 335px;
-      height: 370px;
-
-      .title {
-        font-size: 32px;
-      }
-    }
-  }
-  .relations {
-    &__image {
-      align-self: flex-end;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    &__content {
-      padding-top: 180px;
-      padding-bottom: 100px;
-    }
-  }
-}
-
-@include respond-to($large) {
-  .profits {
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-    &__cards {
-      grid-gap: 10px;
-    }
-
-    &__card {
-      padding: 15px;
-      width: 260px;
-      height: 290px;
-
-      &::before {
-        top: -8px;
-        left: -8px;
-        right: -8px;
-        bottom: -8px;
-      }
-
-      .title {
-        font-size: 18px;
-      }
-
-      .text {
-        min-height: 150px;
-        font-size: 14px;
-      }
-    }
-  }
-  .relations {
-    &__content {
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
-
-    &__text {
-      width: auto;
-    }
-  }
-}
-
-@include respond-to($medium) {
-  #profits {
-    background-image: none;
-  }
-  .profits {
-    &__title {
-      padding-left: 30px;
-    }
-
-    &__cards {
-      grid-gap: 10px;
-    }
-
-    &__card {
-      padding: 15px;
-
-      .title {
-        font-size: 18px;
-      }
-
-      .text {
-        font-size: 14px;
-      }
-    }
-  }
-}
-
-@include respond-to($small) {
-  .profits {
-
-    &__title {
-      text-align: left;
-    }
-
-    &__cards {
-      grid-template-columns:  1fr;
-      grid-gap: 60px;
-      place-items: center;
-    }
-
-    &__card {
-      width: 261px;
-      height: 291px;
-
-      .title {
-        font-size: 18px;
-      }
-
-      .text {
-        padding-top: 20px;
-        font-size: 14px;
-        min-height: auto;
-        color: $blue;
-        padding-bottom: 20px;
-      }
-    }
-  }
-  .relations {
-    flex-direction: column-reverse;
-
-    &__image {
-      width: 100%;
-    }
-
-    &__content {
-      width: 100%;
-      padding: $content-padding-mobile;
-
-      .button {
-        width: 100%;
-      }
-    }
-
-    &__text {
-      font-size: 14px;
     }
   }
 }

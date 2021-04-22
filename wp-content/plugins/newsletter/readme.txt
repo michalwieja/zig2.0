@@ -2,7 +2,7 @@
 Tags: email, email marketing, newsletter, newsletter subscribers, welcome email, signup forms, contact, lead generation, popup, marketing automation
 Requires at least: 3.4.0
 Tested up to: 5.7
-Stable tag: 7.0.7
+Stable tag: 7.1.2
 Requires PHP: 5.6
 Contributors: satollo,webagile,michael-travan
 License: GPLv2 or later
@@ -34,7 +34,7 @@ We redesigned our drag and drop composer to make your campaign creation even eas
 * **Single** And **Double Opt-In** plus privacy checkbox for EU laws compliance
 * **Subscribers lists** to fine-target your campaigns
 * PHP API and REST API for coders and integrations
-* SMTP-Ready
+* SMTP-Ready (with free addon)
 * Customizable Themes
 * **Status panel** to check your blog mailing capability and configuration
 * **Compatible with every SMTP plugin**: Post SMTP (aka Postman), WP Mail SMTP, Easy WP SMTP, Easy SMTP Mail, WP Mail Bank, ...
@@ -49,11 +49,13 @@ Newsletter is a continuously evolving plugin. Stay tuned following us on [Facebo
 
 Improve The Newsletter Plugin with these free addons:
 
-* [WP Registration Integration](https://www.thenewsletterplugin.com/documentation/wpusers-extension) - connects the WordPress standard and custom registration with Newsletter subscription. Optionally imports all registered users as subscribers.
-* [Archive](https://www.thenewsletterplugin.com/documentation/archive-extension) - creates a simple blog page which lists all your sent newsletters
-* [Locked Content](https://www.thenewsletterplugin.com/documentation/locked-content-extension) - open up your premium content only after subscription
-* [Newsletter REST API](https://www.thenewsletterplugin.com/documentation/developers/newsletter-api-2/) - adds a tier of REST api to integrate with the Newsletter core services
-* [Sendinblue integration](https://www.thenewsletterplugin.com/documentation/addons/delivery-addons/sendinblue-extension/) - deliver your newsletters with Sendinblue
+* [WP Registration Addon](https://www.thenewsletterplugin.com/documentation/wpusers-extension) - connects the WordPress standard and custom registration with Newsletter subscription. Optionally imports all registered users as subscribers.
+* [Archive Addon](https://www.thenewsletterplugin.com/documentation/archive-extension) - creates a simple blog page which lists all your sent newsletters
+* [Locked Content Addon](https://www.thenewsletterplugin.com/documentation/locked-content-extension) - open up your premium content only after subscription
+* [Newsletter REST API Addon](https://www.thenewsletterplugin.com/documentation/developers/newsletter-api-2/) - adds a tier of REST api to integrate with the Newsletter core services
+* [Sendinblue Addon](https://www.thenewsletterplugin.com/documentation/addons/delivery-addons/sendinblue-extension/) - deliver your newsletters with Sendinblue
+* [SMTP Addon](https://www.thenewsletterplugin.com/documentation/addons/delivery-addons/smtp-extension/) - deliver your newsletters with external SMTP
+* [Advanced Import Addon](https://www.thenewsletterplugin.com/documentation/addons/extended-features/advanced-import/) - import contact from file or copy and paste data with full mapping
 
 (*easily add them from our [Addons panel](https://www.thenewsletterplugin.com/documentation/install-extensions)*)
 
@@ -98,6 +100,7 @@ Premium Users with an active license have access to one-to-one support via our [
 = Follow Us =
 
 * **Our Official Website** - [https://www.thenewsletterplugin.com/](https://www.thenewsletterplugin.com/)
+* **LinkedIn** - [https://www.linkedin.com/company/the-newsletter-plugin](https://www.linkedin.com/company/the-newsletter-plugin)
 * **Our Facebook Page** - [https://www.facebook.com/thenewsletterplugin](https://www.facebook.com/thenewsletterplugin)
 * **Our Twitter Account** - [https://twitter.com/newsletterwp](https://twitter.com/newsletterwp)
 
@@ -118,6 +121,48 @@ Thank you, The Newsletter Team
 
 == Changelog ==
 
+= 7.1.2 =
+
+* [ADDONS] Fixed the addons list
+
+= 7.1.1 =
+
+* [GENERAL] Improved profile related functions
+* [GENERAL] Fixed check on field names (thanks Peter P.)
+* [COMPOSER] Fix on preset selection
+* [GENERAL] Fix ajax subscription on error
+
+= 7.1.0 =
+
+* [COMPOSER] Added link to tags documentation to inject subscriber's data
+* [COMPOSER] Fixed layout of posts block for Outlook 365
+* [GENERAL] Improved caching of addons json (even on error)
+* [GENERAL] Status menu changed to System/Status and System/Logs
+* [API] Fixed the subscriber status management (the API Addon should be updated as well)
+* [GENERAL] Fixed management of fatal errors on sending
+* [GENERAL] Limited error string per message to 250 chars
+* [GENERAL] Fixed check on field names (thanks Peter P.)
+
+
+= 7.0.9 =
+
+* [CAPTCHA] Fixed button label translation
+* [DELIVERY] Mailing fatal error management with newsletter stop and reporting
+* [SMTP] Marked obsolete the internal SMTP and made available the free SMTP addon
+* [DELIVERY] Better management of delivery fatal errors with a new "error" status for newsletters
+* [GENERAL] New log files panel
+* [IMPORT] Old import panel replaced by the new (really better) import addon (file, copy and paste, bounced addresses import)
+* [NEWSLETTERS] It's now possible to specify the sender name and email per newsletter (thanks to Matthew S.)
+
+= 7.0.8 =
+
+* [SUBSCRIBERS] Changed action buttons
+* [GENERAL] Reorganization of CSS and removal of unused files
+* [DASHBOARD] New window open for links and fix of invalid URLs
+* [NEWSLETTERS] New action buttons
+* [GENERAL] Minor fixes and optimizations
+* [COMPOSER] Fixed rare size error on gif images
+
 = 7.0.7 =
 
 * [COMPOSER] Fixed a warning in some inline editable blocks
@@ -136,6 +181,8 @@ Thank you, The Newsletter Team
 = 7.0.5 =
 
 * [COMPOSER] Hero CTA button not working
+* Fixed to the hero block button
+* Added support for the SMTP addon
 
 = 7.0.4 =
 

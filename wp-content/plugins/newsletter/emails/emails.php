@@ -195,7 +195,10 @@ class NewsletterEmails extends NewsletterModule
     {
 
         $content = "<div class='tnpc-preset-container'>";
-        $content .= "<div class='tnpc-preset-legacy-themes'><a href='" . $this->get_admin_page_url('theme') . "'>" . __('Looking for legacy themes?', 'newsletter') . "</a></div>";
+
+	    if ( $this->is_normal_context_request() ) {
+		    $content .= "<div class='tnpc-preset-legacy-themes'><a href='" . $this->get_admin_page_url( 'theme' ) . "'>" . __( 'Looking for legacy themes?', 'newsletter' ) . "</a></div>";
+	    }
 
         // LOAD USER PRESETS
         $user_preset_list = $this->get_emails(self::PRESET_EMAIL_TYPE);
@@ -231,40 +234,68 @@ class NewsletterEmails extends NewsletterModule
             $content .= "</div>";
         }
 
-        // Automated spot
-        $content .= "<div class='tnpc-preset'>";
-        if (class_exists('NewsletterAutomated')) {
-            $content .= "<a href='?page=newsletter_automated_index'>";
-        } else {
-            $content .= "<a href='https://www.thenewsletterplugin.com/automated?utm_source=plugin&utm_campaign=automated&utm_medium=composer'>";
-        }
-        $content .= "<img src='" . plugins_url('newsletter') . "/emails/images/automated.png' title='Automated addon' alt='Automated'/>";
-        $content .= "<span class='tnpc-preset-label'>Daily, weekly and monthly newsletters</span></a>";
-        $content .= "</div>";
-
-        // Autoresponder spot
-        $content .= "<div class='tnpc-preset'>";
-        if (class_exists('NewsletterAutoresponder')) {
-            $content .= "<a href='?page=newsletter_autoresponder_index'>";
-        } else {
-            $content .= "<a href='https://www.thenewsletterplugin.com/autoresponder?utm_source=plugin&utm_campaign=autoresponder&utm_medium=composer' target='_blank'>";
-        }
-        $content .= "<img src='" . plugins_url('newsletter') . "/emails/images/autoresponder.png' title='Autoresponder addon' alt='Autoresponder'/>";
-        $content .= "<span class='tnpc-preset-label'>Autoresponders</span></a>";
-        $content .= "</div>";
-
-        // RAW HTML
-        $content .= "<div class='tnpc-preset tnpc-preset-html' onclick='location.href=\"" . wp_nonce_url('admin.php?page=newsletter_emails_new&id=rawhtml', 'newsletter-new') . "\"'>";
-        $content .= "<img src='" . plugins_url('newsletter') . "/emails/images/rawhtml.png' title='RAW HTML' alt='RAW'/>";
-        $content .= "<span class='tnpc-preset-label'>Raw HTML</span>";
-        $content .= "</div>";
-
-        $content .= "<div class='clear'></div>";
-        $content .= "</div>";;
+	    if ( $this->is_normal_context_request() ) {
+		    $content .= $this->get_automated_spot_element();
+		    $content .= $this->get_autoresponder_spot_element();
+		    $content .= $this->get_raw_html_preset_element();
+	    }
 
         return $content;
 
     }
+
+	private function is_normal_context_request() {
+		return empty( $_REQUEST['context_type'] );
+	}
+
+	private function is_automated_context_request() {
+		return isset( $_REQUEST['context_type'] ) && $_REQUEST['context_type'] === 'automated';
+	}
+
+	private function is_autoresponder_context_request() {
+		return isset( $_REQUEST['context_type'] ) && $_REQUEST['context_type'] === 'autoresponder';
+	}
+
+	private function get_automated_spot_element() {
+		$result = "<div class='tnpc-preset'>";
+		if ( class_exists( 'NewsletterAutomated' ) ) {
+			$result .= "<a href='?page=newsletter_automated_index'>";
+		} else {
+			$result .= "<a href='https://www.thenewsletterplugin.com/automated?utm_source=plugin&utm_campaign=automated&utm_medium=composer'>";
+		}
+		$result .= "<img src='" . plugins_url( 'newsletter' ) . "/emails/images/automated.png' title='Automated addon' alt='Automated'/>";
+		$result .= "<span class='tnpc-preset-label'>Daily, weekly and monthly newsletters</span></a>";
+		$result .= "</div>";
+
+		return $result;
+	}
+
+	private function get_autoresponder_spot_element() {
+		$result = "<div class='tnpc-preset'>";
+		if ( class_exists( 'NewsletterAutoresponder' ) ) {
+			$result .= "<a href='?page=newsletter_autoresponder_index'>";
+		} else {
+			$result .= "<a href='https://www.thenewsletterplugin.com/autoresponder?utm_source=plugin&utm_campaign=autoresponder&utm_medium=composer' target='_blank'>";
+		}
+		$result .= "<img src='" . plugins_url( 'newsletter' ) . "/emails/images/autoresponder.png' title='Autoresponder addon' alt='Autoresponder'/>";
+		$result .= "<span class='tnpc-preset-label'>Autoresponders</span></a>";
+		$result .= "</div>";
+
+		return $result;
+	}
+
+	private function get_raw_html_preset_element() {
+
+		$result = "<div class='tnpc-preset tnpc-preset-html' onclick='location.href=\"" . wp_nonce_url( 'admin.php?page=newsletter_emails_new&id=rawhtml', 'newsletter-new' ) . "\"'>";
+		$result .= "<img src='" . plugins_url( 'newsletter' ) . "/emails/images/rawhtml.png' title='RAW HTML' alt='RAW'/>";
+		$result .= "<span class='tnpc-preset-label'>Raw HTML</span>";
+		$result .= "</div>";
+
+		$result .= "<div class='clear'></div>";
+		$result .= "</div>";
+
+		return $result;
+	}
 
     /**
      * Check if the preset name exists and adds an incremental suffix if the name exists.
@@ -354,20 +385,22 @@ class NewsletterEmails extends NewsletterModule
 
             ob_start();
             $out = $this->render_block($options['block_id'], true, $options, $context);
-            if ($out['return_empty_message'] || $out['stop']) {
-                if (is_object($email)) {
-                    return false;
+            if (is_array($out)) {
+                if ($out['return_empty_message'] || $out['stop']) {
+                    if (is_object($email)) {
+                        return false;
+                    }
+                    return array();
                 }
-                return array();
-            }
-            if ($out['skip']) {
-                if (NEWSLETTER_DEBUG) {
-                    $result .= 'Block removed by request';
+                if ($out['skip']) {
+                    if (NEWSLETTER_DEBUG) {
+                        $result .= 'Block removed by request';
+                    }
+                    continue;
                 }
-                continue;
-            }
-            if (empty($subject) && !empty($out['subject'])) {
-                $subject = $out['subject'];
+                if (empty($subject) && !empty($out['subject'])) {
+                    $subject = $out['subject'];
+                }
             }
             $block_html = ob_get_clean();
             $result .= $block_html;

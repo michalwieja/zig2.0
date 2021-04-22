@@ -1324,24 +1324,8 @@ function tnp_status_print_flag($condition) {
                 </tbody>
             </table>
 
-            <h3>Log files</h3>
-
-            <ul class="tnp-log-files">
-                <?php
-                $files = glob(WP_CONTENT_DIR . '/logs/newsletter/*.txt'); // get all file names
-                foreach ($files as $file) { // iterate files
-                    echo '<li><a href="' . WP_CONTENT_URL . '/logs/newsletter/' . basename($file) . '" target="_blank">' . basename($file) . '</a>';
-                    echo ' <span class="tnp-log-size">(' . size_format(filesize($file)) . ')</span>';
-                    echo '</li>';
-                }
-                ?>
-            </ul>
-
-            <?php $controls->button('delete_logs', 'Delete all'); ?>
-
 
             <?php if (isset($_GET['debug'])) { ?>
-
 
                 <h3>Database Tables</h3>
                 <h4><?php echo $wpdb->prefix ?>newsletter</h4>

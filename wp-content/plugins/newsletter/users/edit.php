@@ -96,7 +96,7 @@ function percentValue($value, $total) {
 
         <form method="post" action="">
             <p>
-                <?php $controls->button_back('?page=newsletter_users_index'); ?>
+                <?php $controls->button_icon_back('?page=newsletter_users_index'); ?>
                 <?php $controls->button_save(); ?>
             </p>
             <?php $controls->init(); ?>

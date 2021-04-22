@@ -1,20 +1,11 @@
 .news {
   background-color: $grey;
   padding-top: 135px;
-
-  &__title {
-    width: 35%;
-    padding-bottom: 50px;
-  }
-
-  button{
-    margin-top: 60px;
-    width: 240px;
-  }
-
+  padding-bottom: 100px;
 }
-@include respond-to($xl){
-  .news{
+
+@include respond-to($xl) {
+  .news {
     padding-top: 100px;
   }
 }
@@ -27,11 +18,12 @@
       width: 90%;
     }
   }
- }
+}
 
 @include respond-to($small) {
   .news {
     padding-top: 280px;
+    padding-bottom: 50px;
     padding-right: 30px;
 
     .button {

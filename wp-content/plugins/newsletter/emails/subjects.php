@@ -3,22 +3,12 @@
         jQuery("#tnp-edit-subjects").show();
     }
 
-    function tnp_emoji() {
-        jQuery("#tnp-edit-emoji").show();
-    }
-
     jQuery(function () {
         jQuery("#tnp-edit-subjects-list a").click(function (e) {
             e.preventDefault();
             jQuery("#options-subject").val(this.innerText);
             jQuery("#options-title").val(this.innerText);
             jQuery("#tnp-edit-subjects").hide();
-        });
-
-        jQuery("#tnp-edit-emoji-list a").click(function (e) {
-            e.preventDefault();
-            document.getElementById("options-subject").value = this.title + document.getElementById("options-subject").value;
-            jQuery("#tnp-edit-emoji").hide();
         });
 
         jQuery(".tnp-popup-close").click(function () {
