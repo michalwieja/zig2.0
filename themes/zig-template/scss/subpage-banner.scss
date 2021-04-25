@@ -1,0 +1,11 @@
+.subpage-banner {
+  @include flex();
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+
+  .column {
+    width: 50%;
+    @include flex($flex-direction: column)
+  }
+}
+
