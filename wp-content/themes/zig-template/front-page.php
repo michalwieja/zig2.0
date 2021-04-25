@@ -171,7 +171,6 @@
   </div>
 
 </section>
-
 <section class="newsletter">
 	<?php
 	dynamic_sidebar( 'newsletter' )

@@ -331,7 +331,7 @@ a {
 .hero__image {
   width: 50%;
   height: 100%;
-  background-image: url("../assets/hero.jpg");
+  background-image: url("../../assets/hero.jpg");
   background-size: cover;
   position: relative;
   background-position: center top;
