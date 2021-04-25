@@ -23,6 +23,10 @@
   line-height: 150%;
   text-decoration: underline;
   text-underline-offset: .5vw;
+
+  &.white{
+    color: white;
+  }
 }
 
 .subpage-text {

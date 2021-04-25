@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*
 Theme Name: ZIG WP template.
 Theme URI: ZIG
@@ -198,6 +197,9 @@ a {
   line-height: 150%;
   text-decoration: underline;
   text-underline-offset: 0.5vw;
+}
+.subpage-title.white {
+  color: white;
 }
 
 .subpage-text {
@@ -1109,12 +1111,10 @@ a {
   margin-right: 5vw;
 }
 .about .important .content .img:before {
-  content: url("/assets/ornament-relations.svg");
+  content: url("/wp-content/themes/zig-template/assets/ornament-relations.svg");
   position: absolute;
-  left: 0;
   bottom: 0;
-  width: 100%;
-  height: 100%;
+  left: 0;
 }
 .about .important .content .img img {
   width: 100%;
@@ -1213,44 +1213,20 @@ a {
     grid-template-columns: 1fr;
   }
 }
-.opportunities .banner {
-  padding-bottom: 460px;
-}
-.opportunities .banner__title {
-  padding-top: 10px;
-}
-.opportunities .banner__text {
-  padding: 24px 0 0 22px;
-  font-weight: 500;
+.opportunities .video-wrapper {
+  background: linear-gradient(to bottom, white 0%, white 50%, #eeeeee 50.01%, #eeeeee 100%);
+  padding-top: 5vw;
+  padding-bottom: 5vw;
 }
 .opportunities .video {
-  position: absolute;
-  height: 720px;
-  width: 1280px;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 1px solid #0028c8;
-}
-.opportunities .video .wp-block-embed {
   width: 100%;
-  height: 100%;
-}
-.opportunities .video .wp-block-embed__wrapper {
-  width: 100%;
-  height: 100%;
-}
-.opportunities .video .wp-block-embed__wrapper iframe {
-  width: 100%;
-  height: 100%;
+  height: 37vw;
+  margin: 0 auto;
 }
 .opportunities .cards {
   background-color: #eeeeee;
-  padding-bottom: 175px;
-  padding-top: 430px;
-}
-.opportunities .cards .container {
-  padding: 0 222px;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
 }
 .opportunities .cards .card {
   display: flex;
@@ -1258,13 +1234,13 @@ a {
   align-items: start;
   justify-content: flex-start;
   flex-direction: row;
-  margin-top: 120px;
   position: relative;
+  margin-top: 5vw;
 }
 .opportunities .cards .card .column {
   width: 50%;
   position: relative;
-  height: 425px;
+  height: 22vw;
 }
 .opportunities .cards .card .column:nth-child(1) {
   top: -20px;
@@ -1274,7 +1250,7 @@ a {
 }
 .opportunities .cards .card .content {
   background-color: #ffffff;
-  padding: 50px 180px 80px 100px;
+  padding: 2vw 5vw;
   display: flex;
   display: -webkit-flex;
   align-items: start;
@@ -1282,146 +1258,42 @@ a {
   flex-direction: column;
 }
 .opportunities .cards .card .content .title {
-  font-size: 48px;
+  font-size: 2.5vw;
   color: #0028c8;
   font-weight: bold;
 }
 .opportunities .cards .card .content .text {
   font-size: 18px;
-  line-height: 26px;
+  line-height: 150%;
 }
 .opportunities .cards .card .img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-.joinBg {
-  height: 750px;
-  color: #ffffff;
-  display: flex;
-  display: -webkit-flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-image: url("/wp-content/uploads/2021/04/Przedsiębiorcy4.jpeg");
+.opportunities .join {
+  background-color: #0028c8;
+  display: grid;
+  place-items: center;
+  grid-gap: 2.5vw;
+  padding-top: 12vw;
+  padding-bottom: 12vw;
   position: relative;
 }
-.joinBg .overlay {
+.opportunities .join:before {
+  content: url("/wp-content/themes/zig-template/assets/ornament-relations.svg");
   position: absolute;
-  top: 0;
-  left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 70, 0.75);
 }
-.joinBg .title {
-  text-align: center;
-  max-width: 960px;
-  font-size: 48px;
-  line-height: 64px;
-  padding-bottom: 50px;
-  position: relative;
-  z-index: 3;
-}
-.joinBg .button {
-  position: relative;
-  z-index: 3;
+.opportunities .join .subpage-title {
+  text-decoration: none;
 }
 
-@media only screen and (max-width: 1680px) {
-  .opportunities .banner {
-    padding-bottom: 360px;
-  }
-  .opportunities .cards {
-    padding-top: 360px;
-  }
-  .opportunities .video {
-    height: 567px;
-    width: 1024px;
-  }
-}
-@media only screen and (max-width: 1366px) {
-  .opportunities .cards .container {
-    padding: 0 133px;
-  }
-  .opportunities .cards .container .card .content {
-    padding: 50px;
-  }
-  .opportunities .cards .container .card .title {
-    font-size: 32px;
-  }
-  .opportunities .cards .container .card .text {
-    font-size: 16px;
-  }
-}
-@media only screen and (max-width: 1152px) {
-  .opportunities .video {
-    top: 75%;
-    height: 506px;
-    width: 900px;
-  }
-  .opportunities .cards .card .content .title {
-    font-size: 24px;
-  }
-  .opportunities .cards .card .content .text {
-    font-size: 14px;
-  }
-}
 @media only screen and (max-width: 765px) {
-  .opportunities .banner {
-    padding-bottom: 50px;
-  }
-  .opportunities .banner__title {
-    padding: 0 0 25px;
-  }
-  .opportunities .banner__text {
-    padding: 0;
-  }
   .opportunities .video {
-    top: 0;
-    height: 300px;
     width: 100%;
-    position: relative;
-  }
-  .opportunities .cards {
-    padding: 50px 30px;
-  }
-  .opportunities .cards .container {
-    padding: 0;
-  }
-  .opportunities .cards .container .card {
-    margin-top: 20px;
-    flex-direction: column;
-  }
-  .opportunities .cards .container .card .content {
-    padding: 15px;
-    height: 350px;
-    top: 0;
-    width: 100%;
-  }
-  .opportunities .cards .container .card .content:nth-child(1) {
-    top: 0;
-  }
-  .opportunities .cards .container .card .content:nth-child(2) {
-    top: 0px;
-  }
-  .opportunities .cards .container .card .content .title {
-    font-size: 32px;
-  }
-  .opportunities .cards .container .card .content .text {
-    font-size: 16px;
-  }
-  .opportunities .cards .container .card .img {
-    display: none;
-  }
-
-  .joinBg {
-    max-height: 350px;
-  }
-  .joinBg .title {
-    font-size: 24px;
-    line-height: 36px;
+    height: auto;
   }
 }
 .perspectives .banner {
