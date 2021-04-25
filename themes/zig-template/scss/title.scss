@@ -1,0 +1,16 @@
+.frontpage-title {
+  font-size: clamp(64px, 4vw, 72px);
+  color: white;
+  line-height: 150%;
+  text-decoration: underline;
+  text-underline-offset: 1.3vh;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  @include respond-to($xl) {
+    font-size: clamp(34px, 10vw, 64px);
+  }
+  @include respond-to($large) {
+    font-size: clamp(34px, 10vw, 42px);
+  }
+}
