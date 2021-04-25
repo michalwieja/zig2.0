@@ -4,13 +4,16 @@
   }
 
   .important {
-
     .content {
       @include flex();
 
-      .img {
+      .column {
         width: 50%;
+      }
+
+      .img {
         position: relative;
+        margin-right: 5vw;
 
         &:before {
           content: url('/assets/ornament-relations.svg');
@@ -29,8 +32,6 @@
       }
 
       .text {
-        width: 50%;
-
         .title {
           font-size: 20px;
           font-weight: 500;
@@ -53,15 +54,18 @@
     background-color: $blue;
     color: white;
 
-
     .button-wrapper {
       @include flex();
+    }
 
-      .button {
-        font-size: 18px;
-        height: 88px;
-        width: 322px;
-        @include flex(center, space-evenly)
+    .button {
+      font-size: 18px;
+      height: 88px;
+      width: 322px;
+      @include flex(center, space-evenly);
+
+      img {
+        height: 18px;
       }
     }
   }
@@ -86,6 +90,68 @@
       display: grid;
       place-items: center;
       padding: 2.5vw 1.25vw;
+    }
+  }
+}
+
+@include respond-to($xl) {
+  .about {
+    .partners {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+@include respond-to($medium) {
+  .about {
+    .partners {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@include respond-to($small) {
+  .about {
+    .important {
+      .content {
+        flex-direction: column;
+
+        .column {
+          width: 100%;
+        }
+
+        .text {
+          padding: 25px 30px;
+        }
+      }
+    }
+
+    .documents {
+      .button-wrapper {
+        flex-direction: column;
+        grid-gap: 25px;
+      }
+
+      .button {
+        width: 100%;
+        font-size: 14px;
+        height: auto;
+        padding: 10px 20px;
+
+        img {
+          height: 14px;
+        }
+      }
+    }
+
+    .partners {
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   }
 }

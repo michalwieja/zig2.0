@@ -197,7 +197,7 @@ a {
   font-weight: bold;
   line-height: 150%;
   text-decoration: underline;
-  text-underline-offset: 1.3vh;
+  text-underline-offset: 0.5vw;
 }
 
 .subpage-text {
@@ -234,7 +234,19 @@ a {
   justify-content: flex-start;
   flex-direction: column;
 }
+.subpage-banner .subpage-title {
+  margin-right: 20px;
+}
 
+@media only screen and (max-width: 765px) {
+  .subpage-banner {
+    flex-direction: column;
+    grid-gap: 25px;
+  }
+  .subpage-banner .column {
+    width: 100%;
+  }
+}
 .header {
   display: flex;
   display: -webkit-flex;
@@ -1089,9 +1101,12 @@ a {
   justify-content: flex-start;
   flex-direction: row;
 }
-.about .important .content .img {
+.about .important .content .column {
   width: 50%;
+}
+.about .important .content .img {
   position: relative;
+  margin-right: 5vw;
 }
 .about .important .content .img:before {
   content: url("/assets/ornament-relations.svg");
@@ -1105,9 +1120,6 @@ a {
   width: 100%;
   object-fit: cover;
   display: block;
-}
-.about .important .content .text {
-  width: 50%;
 }
 .about .important .content .text .title {
   font-size: 20px;
@@ -1132,7 +1144,7 @@ a {
   justify-content: flex-start;
   flex-direction: row;
 }
-.about .documents .button-wrapper .button {
+.about .documents .button {
   font-size: 18px;
   height: 88px;
   width: 322px;
@@ -1141,6 +1153,9 @@ a {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
+}
+.about .documents .button img {
+  height: 18px;
 }
 .about .society {
   padding-top: 5vw;
@@ -1161,6 +1176,43 @@ a {
   padding: 2.5vw 1.25vw;
 }
 
+@media only screen and (max-width: 1366px) {
+  .about .partners .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .about .partners .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 765px) {
+  .about .important .content {
+    flex-direction: column;
+  }
+  .about .important .content .column {
+    width: 100%;
+  }
+  .about .important .content .text {
+    padding: 25px 30px;
+  }
+  .about .documents .button-wrapper {
+    flex-direction: column;
+    grid-gap: 25px;
+  }
+  .about .documents .button {
+    width: 100%;
+    font-size: 14px;
+    height: auto;
+    padding: 10px 20px;
+  }
+  .about .documents .button img {
+    height: 14px;
+  }
+  .about .partners .grid {
+    grid-template-columns: 1fr;
+  }
+}
 .opportunities .banner {
   padding-bottom: 460px;
 }
