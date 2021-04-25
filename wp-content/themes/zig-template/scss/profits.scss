@@ -19,7 +19,15 @@
     background-color: $white;
     border: 8px solid $grenade;
     position: relative;
-    padding: 2.5vw;
+    padding: clamp(25px, 2.5vw, 50px);
+    width: clamp(330px, 20vw, 385px);
+    min-height: 420px;
+    @include flex();
+    flex-direction: column;
+
+    .arrow {
+      margin-top: auto;
+    }
 
 
     &:after {
@@ -33,6 +41,8 @@
       font-size: 32px;
       font-weight: bold;
       color: $blue;
+      position: relative;
+      z-index: 2;
     }
 
     .text {
@@ -43,4 +53,30 @@
 
     }
   }
+}
+
+@include respond-to($xl) {
+  .profits {
+    .card {
+      width: 25vw;
+
+      .title {
+        font-size: clamp(24px, 2vw, 32px);
+      }
+    }
+  }
+}
+
+@include respond-to($medium) {
+  .profits {
+    .cards {
+      flex-direction: column;
+    }
+
+    .card {
+      width: 100%;
+      min-height: unset;
+    }
+  }
+
 }

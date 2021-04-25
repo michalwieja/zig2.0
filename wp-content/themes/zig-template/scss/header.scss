@@ -17,6 +17,22 @@
     gap: 40px;
   }
 
+  li {
+    background: linear-gradient($blue 0 0) 0 100% /var(--d, 0) 3px no-repeat;
+    transition: 0.5s;
+  }
+
+  li:hover {
+    --d: 100%;
+  }
+
+  .current-menu-item{
+    background: linear-gradient($blue 0 0) 0 100% /var(--d, 0) 3px no-repeat;
+    transition: 0.5s;
+    --d: 100%;
+
+  }
+
   li a {
     text-decoration: none;
 

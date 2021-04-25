@@ -126,22 +126,50 @@
     </a>
   </div>
 </section>
+<section class="motto padding-x">
+  <div class="column">
+    <div class="motto__title">
+      Jesteśmy społecznością przedsiębiorców opartą o
+      wartości i
+      poczucie wpływu na nasze firmy, miasto, region i ich
+      mieszkańców.
+    </div>
+    <button class="button">Poznaj nas</button>
+  </div>
+  <div class="column">
+    <div class="motto__text">
+      Wierzymy, że biznes to coś więcej niż pieniądze.
+      Bierzemy odpowiedzialność, chcemy się rozwijać, szukamy
+      inspiracji
+      i dajemy przykład. Dobrze wiemy, że razem jesteśmy silniejsi,
+      a nasz
+      wspólny głos ma znaczenie.
+    </div>
 
-<section class="motto container">
-  <div class="motto__title">
-    Jesteśmy społecznością przedsiębiorców opartą o
-    wartości i
-    poczucie wpływu na nasze firmy, miasto, region i ich
-    mieszkańców.
   </div>
-  <div class="motto__subtitle">
-    Wierzymy, że biznes to coś więcej niż pieniądze.
-    Bierzemy odpowiedzialność, chcemy się rozwijać, szukamy
-    inspiracji
-    i dajemy przykład. Dobrze wiemy, że razem jesteśmy silniejsi,
-    a nasz
-    wspólny głos ma znaczenie.
+</section>
+<section class="relations">
+  <div class=" padding-x">
+    <div class="content">
+      <div class="title frontpage-title">
+        RELACJE SĄ NAJWAŻNIEJSZE
+      </div>
+      <div class="text">
+        <p>Razem jesteśmy silniejsi i mamy większy wpływ nie tylko na świat biznesu. Wierzymy w
+          skuteczność efektu synergii wiedzy, doświadczenia i odpowiedzialnego podejścia. To na
+          nich budujemy przewagę naszych biznesów i Zagłębiowskiej Izby Gospodarczej.</p>
+        <p>Dbam o jakość relacji w Zagłębiowskiej Izbie Gospodarczej. Poznam Cię z odpowiednimi
+          ludźmi </p>
+        <p>Paulina Piętowska Relationship Menager</p>
+      </div>
+      <button class="button white">połączmy siły</button>
+    </div>
+
   </div>
+  <div class="img">
+    <img alt="Paulina" src="/wp-content/themes/zig-template/assets/Paulina.png">
+  </div>
+
 </section>
 
 <section class="newsletter">

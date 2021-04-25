@@ -1,58 +1,38 @@
 .motto {
-  padding-top: 130px;
-  padding-bottom: 140px;
+  background-color: $grey;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+  @include flex();
+  width: 100%;
+
+  .column {
+    width: 50%;
+  }
 
   &__title {
-    font-size: 64px;
-    font-weight: 500;
-    line-height: 85px;
+    margin-right: 2.5vw;
+    font-size: clamp(24px, 2.5vw, 36px);
+    font-weight: bold;
+    padding-bottom: 2.5vw;
   }
 
-  &__subtitle {
-    padding-top: 50px;
-    width: 50%;
-    left: 50%;
-    position: relative;
-    font-size: 24px;
-    color: $blue;
-  }
-}
-
-@include respond-to($xl){
-  .motto{
-    padding-top: 80px;
-    padding-bottom: 90px;
+  &__text {
+    font-size: 18px;
   }
 }
 
 @include respond-to($large) {
   .motto {
-    &__title {
-      font-size: 40px;
-      line-height: 60px;
-    }
+    flex-direction: column;
+    gap: 25px;
 
-    &__subtitle {
-      padding-top: 50px;
-      font-size: 20px;
-    }
-  }
-}
-@include respond-to($small) {
-  .motto {
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-    &__title {
-      font-size: 20px;
-      line-height: 32px;
-    }
-
-    &__subtitle {
+    .column {
       width: 100%;
-      left: 0;
-      padding-top: 25px;
-      font-size: 14px;
+    }
+
+    &__text {
+      font-size: 16px;
     }
   }
 }
+

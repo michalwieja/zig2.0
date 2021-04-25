@@ -115,6 +115,18 @@ a {
   list-style: none;
   gap: 40px;
 }
+.header li {
+  background: linear-gradient(#0028c8 0 0) 0 100%/var(--d, 0) 3px no-repeat;
+  transition: 0.5s;
+}
+.header li:hover {
+  --d: 100%;
+}
+.header .current-menu-item {
+  background: linear-gradient(#0028c8 0 0) 0 100%/var(--d, 0) 3px no-repeat;
+  transition: 0.5s;
+  --d: 100%;
+}
 .header li a {
   text-decoration: none;
   color: #343434;
@@ -348,6 +360,7 @@ a {
 }
 .hero__description .text {
   font-size: clamp(14px, 1vw, 16px);
+  padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 1366px) {
@@ -649,7 +662,18 @@ a {
   background-color: #ffffff;
   border: 8px solid #000046;
   position: relative;
-  padding: 2.5vw;
+  padding: clamp(25px, 2.5vw, 50px);
+  width: clamp(330px, 20vw, 385px);
+  min-height: 420px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: start;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-direction: column;
+}
+.profits .card .arrow {
+  margin-top: auto;
 }
 .profits .card:after {
   content: url("/wp-content/themes/zig-template/assets/border-ornamnet.jpg");
@@ -661,6 +685,8 @@ a {
   font-size: 32px;
   font-weight: bold;
   color: #0028c8;
+  position: relative;
+  z-index: 2;
 }
 .profits .card .text {
   padding-top: 1vw;
@@ -669,54 +695,104 @@ a {
   padding-bottom: 1vw;
 }
 
-.motto {
-  padding-top: 130px;
-  padding-bottom: 140px;
-}
-.motto__title {
-  font-size: 64px;
-  font-weight: 500;
-  line-height: 85px;
-}
-.motto__subtitle {
-  padding-top: 50px;
-  width: 50%;
-  left: 50%;
-  position: relative;
-  font-size: 24px;
-  color: #0028c8;
-}
-
 @media only screen and (max-width: 1366px) {
-  .motto {
-    padding-top: 80px;
-    padding-bottom: 90px;
+  .profits .card {
+    width: 25vw;
+  }
+  .profits .card .title {
+    font-size: clamp(24px, 2vw, 32px);
   }
 }
-@media only screen and (max-width: 1152px) {
-  .motto__title {
-    font-size: 40px;
-    line-height: 60px;
+@media only screen and (max-width: 1024px) {
+  .profits .cards {
+    flex-direction: column;
   }
-  .motto__subtitle {
-    padding-top: 50px;
-    font-size: 20px;
+  .profits .card {
+    width: 100%;
+    min-height: unset;
   }
+}
+.relations {
+  background: linear-gradient(to bottom, #eeeeee 0%, #eeeeee 50%, #000046 50.01%, #000046 100%);
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+  position: relative;
+}
+.relations:before {
+  content: url("/wp-content/themes/zig-template/assets/ornament-relations.svg");
+  position: absolute;
+  bottom: 0;
+  right: 7vw;
+}
+@media only screen and (max-width: 1366px) {
+  .relations:before {
+    display: none;
+  }
+}
+.relations .content {
+  background-color: #0028c8;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+}
+.relations .text {
+  font-size: 18px;
+  padding: 2.5vw 12vw;
 }
 @media only screen and (max-width: 765px) {
-  .motto {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .motto__title {
-    font-size: 20px;
-    line-height: 32px;
-  }
-  .motto__subtitle {
-    width: 100%;
-    left: 0;
-    padding-top: 25px;
+  .relations .text {
     font-size: 14px;
+  }
+}
+.relations .text p {
+  padding-bottom: 10px;
+}
+.relations .img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30vw;
+}
+.relations .img img {
+  height: 100%;
+  display: block;
+}
+
+.motto {
+  background-color: #eeeeee;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+  display: flex;
+  display: -webkit-flex;
+  align-items: start;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+}
+.motto .column {
+  width: 50%;
+}
+.motto__title {
+  margin-right: 2.5vw;
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: bold;
+  padding-bottom: 2.5vw;
+}
+.motto__text {
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 1152px) {
+  .motto {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .motto .column {
+    width: 100%;
+  }
+  .motto__text {
+    font-size: 16px;
   }
 }
 .footer {
