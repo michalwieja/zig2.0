@@ -1,0 +1,72 @@
+.slick-slide {
+  min-height: 460px;
+  //max-height: 460px;
+
+  img {
+    width: 100%;
+    aspect-ratio: 405/240;
+    object-fit: cover;
+  }
+
+  .wpcp-all-captions {
+    min-height: 224px;
+    position: relative;
+
+    .wpcp-post-meta, .wpcp-post-title {
+      left: 7%;
+      position: absolute;
+      max-width: 86%;
+
+    }
+
+    .wpcp-post-meta {
+      top: 37px;
+
+      time {
+        color: #343434;
+        font-size: 14px;
+      }
+    }
+
+    .wpcp-post-title {
+      top: 70px;
+
+      a {
+        color: #343434;
+        font-size: 22px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.slick-next {
+  position: absolute;
+  left: 85% !important;
+  margin-left: -5%;
+
+  @include respond-to($large) {
+    margin-left: -10%;
+  }
+
+  @include respond-to(735px) {
+    left: initial !important;
+    margin-left: 40px;
+  }
+}
+
+.slick-arrow {
+  background-color: $grenade !important;
+  border: none !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  @include respond-to($xl) {
+    width: 50px;
+    height: 50px;
+  }
+}
