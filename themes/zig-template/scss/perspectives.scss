@@ -1,259 +1,91 @@
 .perspectives {
-  .banner {
-    padding-bottom: 50px;
+  .filter-wrapper {
+    @include flex();
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 5vw;
+  }
+
+  .button {
+    font-size: 14px;
+    min-width: unset;
   }
 
   .cards {
-    padding-bottom: 100px;
-    @include flex(center, space-between);
-
-    .card {
-      @include flex(start, space-between, column);
-      color: $blue;
-      height: 200px;
-      width: 405px;
-      border: 1px solid $blue;
-      padding: 20px;
-
-      .number {
-        font-size: 48px;
-        line-height: 72px;
-        font-weight: bold;
-      }
-
-      .title {
-        font-size: 18px;
-        line-height: 16px;
-        font-weight: bold;
-      }
-    }
-  }
-}
-
-.ajax-load-more-wrap {
-  background-color: $grey;
-  padding-top: 120px;
-  padding-bottom: 110px;
-
-  .alm-btn-wrap {
-    text-align: center;
-    margin-top: 120px;
-
-    .alm-load-more-btn {
-      font-size: 16px;
-      padding: 10px 20px;
-      font-weight: 700;
-      min-width: 210px;
-      min-height: 44px;
-      background-color: transparent;
-      border: 1px solid $grenade;
-      color: $grenade;
-      text-transform: uppercase;
-      font-family: $font-family;
-      transition: .3s;
-      cursor: pointer;
-    }
-  }
-
-  .alm-reveal {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 32px;
-    margin-bottom: 32px;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5vw;
+  }
 
-    .alm-item {
-      background-color: $white;
-      list-style: none;
-      height: 460px;
-      @include flex();
-      flex-direction: column;
+  .card {
+    border-bottom: 3px solid $grey;
+    padding-bottom: 5vw;
 
-      img {
-        width: 100% !important;
-        height: 230px !important;
-        object-fit: cover;
-        order: 1;
-      }
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 150%;
 
-      h3 {
-        order: 3;
-        font-size: 22px;
-        font-weight: 500;
-        padding-left: 30px;
-
-        a {
-          color: $black;
-          text-decoration: none;
-        }
-      }
-
-      .entry-meta {
-        order: 2;
-        padding: 30px;
-        font-size: 14px;
-      }
-
-      p:last-child {
-        display: none;
+      a {
+        color: $black;
       }
     }
-  }
-}
 
-.question {
-  height: 600px;
-  background-image: url('/wp-content/themes/zig-template/assets/question-blue-bg.svg');
-  background-repeat: no-repeat;
+    p {
+      font-size: 16px;
+      line-height: 150%;
+      color: $black;
+      padding: 25px 0;
+    }
 
-  .container {
-    @include flex();
-  }
-
-  .img {
-    width: 50%;
+    &:nth-child(even) {
+      position: relative;
+      top: 100px;
+    }
 
     img {
-      height: 600px;
+      width: 100%;
+      height: 17.5vw;
+      object-fit: cover;
     }
   }
 
-  .content {
-    width: 50%;
-    padding: 200px 40px 300px 0px;
-
-    .title {
-      font-size: 36px;
-      font-weight: 500;
-      line-height: 48px;
-      padding-bottom: 56px;
-    }
-  }
-}
-
-@include respond-to($xl) {
-  .perspectives {
-    .cards {
-      .card {
-        width: 330px;
-      }
-    }
-  }
   .question {
-    background-position-x: -100px;
-  }
-}
+    text-align: center;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    font-size: clamp(18px, 2vw, 36px);
+    font-weight: 500;
 
-@include respond-to($large) {
-  .perspectives {
-    .cards {
-      .card {
-        width: 250px;
-
-        .number {
-          font-size: 32px;
-          line-height: 48px;
-        }
-
-        .title {
-          font-size: 16px;
-          line-height: 24px;
-        }
-      }
+    .button{
+     margin-top: 2.5vw;
     }
   }
-  .ajax-load-more-wrap {
-    .alm-reveal {
-      grid-template-columns: repeat(2, 1fr);
-
-    }
-  }
-  .question {
-    height: 500px;
-    background-position-x: -250px;
-
-    .content {
-      padding: 150px 0;
-    }
-    .img img{
-      height: 500px;
-    }
-  }
-}
-
-@include respond-to($medium) {
-  .perspectives {
-    .cards {
-      .card {
-        text-align: center;
-        width: 200px;
-
-        .number {
-          font-size: 32px;
-          line-height: 48px;
-        }
-
-        .title {
-          font-size: 16px;
-          line-height: 24px;
-        }
-      }
-    }
-  }
-  .question {
-    height: 400px;
-    background-position-x: -300px;
-
-    .content {
-      padding: 100px 0;
-    }
-    .img img{
-      height: 400px;
-    }
-  }
-
 }
 
 @include respond-to($small) {
   .perspectives {
-    .cards {
-      flex-wrap: wrap;
-      gap: 25px;
-      padding-bottom: 50px;
-
-      .card {
-        width: 100%;
-        text-align: left;
-      }
+    .filter-wrapper {
+      gap: 5px;
     }
-  }
 
-  .ajax-load-more-wrap {
-    padding: 50px 0;
+    .button {
+      font-size: 10px;
+      padding: 5px 10px;
+    }
 
-    .alm-reveal {
+    .cards {
       grid-template-columns: 1fr;
     }
 
-    .alm-btn-wrap {
-      margin-top: 18px;
-    }
-  }
-
-  .question{
-    height: auto;
-    background-image: unset;
-    .container{
-      flex-direction: column-reverse;
-    }
-    .content{
-      width: 100%;
-      padding: 50px 0;
-    }
-    .img{
-      width: 100%;
-      img{
+    .card {
+      img {
         height: 300px;
-        display: block;
+      }
+
+      &:nth-child(even) {
+        top: unset;
+        padding-bottom: 25px;
       }
     }
   }

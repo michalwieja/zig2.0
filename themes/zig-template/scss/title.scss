@@ -1,11 +1,11 @@
 .frontpage-title {
-  font-size: clamp(64px, 4vw, 72px);
   color: white;
   line-height: 150%;
   text-decoration: underline;
   text-underline-offset: 1.3vh;
   font-weight: bold;
   text-transform: uppercase;
+  font-size: 72px;
 
   @include respond-to($xl) {
     font-size: clamp(34px, 10vw, 64px);
@@ -13,11 +13,10 @@
   @include respond-to($large) {
     font-size: clamp(34px, 10vw, 42px);
   }
-  @include respond-to($xxs){
+  @include respond-to($xxs) {
     font-size: 30px;
   }
 }
-
 
 .subpage-title {
   color: $blue;
@@ -27,13 +26,14 @@
   text-decoration: underline;
   text-underline-offset: .5vw;
 
-  &.white{
+  &.white {
     color: white;
   }
 }
 
 .subpage-text {
-  font-size: clamp(16px, 1vw, 20px);
+  font-size: clamp(16px, 1.25vw, 24px);
+  font-weight: 500;
 
   p {
     padding-bottom: 10px;
