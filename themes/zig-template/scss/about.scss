@@ -4,6 +4,8 @@
   }
 
   .important {
+    padding-bottom: 5vw;
+
     .content {
       @include flex();
 
@@ -62,8 +64,8 @@
       width: 322px;
       @include flex(center, space-evenly);
 
-      img {
-        height: 18px;
+      &:hover path {
+        fill: $blue;
       }
     }
   }
@@ -135,14 +137,11 @@
       }
 
       .button {
-        width: 100%;
+        max-width: 300px;
         font-size: 14px;
         height: auto;
         padding: 10px 20px;
 
-        img {
-          height: 14px;
-        }
       }
     }
 
@@ -151,5 +150,27 @@
         grid-template-columns: 1fr;
       }
     }
+  }
+}
+
+@include respond-to($xs) {
+  .about {
+    .documents {
+      .button {
+        width: 100%;
+      }
+    }
+
+  }
+}
+
+@include respond-to($xs) {
+  .about {
+    .documents {
+      .button {
+        width: 100%;
+      }
+    }
+
   }
 }
