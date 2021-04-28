@@ -1,10 +1,10 @@
 .newsletter {
-  padding: 40px;
+  padding: 2.5vw;
   background-color: $grenade;
   @include flex(flex-start, center);
-  color: $light-blue;
+  color: $white;
   line-height: 47px;
-  border-bottom: 1px solid $light-blue;
+  border-bottom: 1px solid $grey;
   position: relative;
   z-index: 3;
 
@@ -76,7 +76,7 @@
   }
 }
 
-@include respond-to($w650) {
+@include respond-to($xs) {
   .newsletter {
     line-height: unset;
   }

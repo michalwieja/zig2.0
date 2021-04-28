@@ -3,6 +3,7 @@
   padding-top: 5vw;
   padding-bottom: 5vw;
   position: relative;
+  border-bottom: 1px solid $grey;
 
   &:before {
     content: url("/wp-content/themes/zig-template/assets/ornament-relations.svg");
@@ -27,8 +28,10 @@
     font-size: 18px;
     padding: 2.5vw 12vw;
 
-    @include respond-to($small){
+    @include respond-to($small) {
       font-size: 14px;
+      padding: 2vw;
+
     }
 
     p {
