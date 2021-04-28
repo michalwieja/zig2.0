@@ -201,6 +201,11 @@ a {
     font-size: 30px;
   }
 }
+@media only screen and (max-width: 360px) {
+  .frontpage-title {
+    font-size: 30px;
+  }
+}
 
 .subpage-title {
   color: #0028c8;
@@ -1388,6 +1393,11 @@ a {
     width: 100%;
   }
 }
+@media only screen and (max-width: 650px) {
+  .about .documents .button {
+    width: 100%;
+  }
+}
 .opportunities .video-wrapper {
   background: linear-gradient(to bottom, white 0%, white 50%, #eeeeee 50.01%, #eeeeee 100%);
   padding-top: 5vw;
@@ -2082,6 +2092,74 @@ html.modal-open .join-us-modal {
   opacity: 0 !important;
   max-height: 0;
   overflow: hidden;
+}
+
+.img-banner {
+  background-image: url("/wp-content/themes/zig-template/assets/single-banner.png");
+  width: 100%;
+  height: 66vh;
+  background-size: cover;
+}
+@media only screen and (max-width: 765px) {
+  .img-banner {
+    height: 30vh;
+  }
+}
+
+.single-wrapper {
+  background-color: white;
+  margin-top: -33vh;
+  padding: 5vw 10vw;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (max-width: 765px) {
+  .single-wrapper {
+    padding: 0;
+    margin-top: 25px;
+  }
+}
+.single-wrapper .category {
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 1.25vw;
+  order: 1;
+}
+.single-wrapper .category a {
+  color: #0028c8;
+  font-size: 14px;
+  font-weight: 600;
+}
+.single-wrapper .date {
+  order: 3;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: #c4c4c4;
+  padding-bottom: 5vw;
+  text-transform: uppercase;
+}
+.single-wrapper h2 {
+  font-size: clamp(20px, 2vw, 36px);
+  text-align: center;
+  padding-bottom: 1.25vw;
+  order: 2;
+}
+.single-wrapper p {
+  order: 4;
+  padding: 1.25vw 0;
+}
+.single-wrapper .wp-block-image {
+  order: 4;
+}
+.single-wrapper .wp-block-image img {
+  object-fit: cover;
+  max-height: 60vh;
+}
+@media only screen and (max-width: 765px) {
+  .single-wrapper .wp-block-image img {
+    max-height: 30vh;
+  }
 }
 
 .img-banner {

@@ -163,3 +163,14 @@
 
   }
 }
+
+@include respond-to($xs) {
+  .about {
+    .documents {
+      .button {
+        width: 100%;
+      }
+    }
+
+  }
+}

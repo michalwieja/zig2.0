@@ -16,6 +16,9 @@
   @include respond-to($xxs) {
     font-size: 30px;
   }
+  @include respond-to($xxs){
+    font-size: 30px;
+  }
 }
 
 .subpage-title {
