@@ -38,7 +38,7 @@
     font-size: 14px;
     text-align: center;
     color: #c4c4c4;
-    padding-bottom: 5vw;
+    padding-bottom: clamp(50px, 5vw, 100px);;
     text-transform: uppercase;
   }
 

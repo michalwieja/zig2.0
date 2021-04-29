@@ -1,5 +1,5 @@
 .newsletter {
-  padding: 2.5vw;
+  padding: clamp(30px, 2.5vw, 50px);
   background-color: $grenade;
   @include flex(flex-start, center);
   color: $white;

@@ -1,7 +1,7 @@
 .contact {
   @include flex(flex-start, space-between);
   position: relative;
-  padding-bottom: 5vw;
+  padding-bottom: clamp(50px, 5vw, 100px);;
 
   .subpage-banner {
     flex-direction: column;

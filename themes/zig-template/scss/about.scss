@@ -4,7 +4,7 @@
   }
 
   .important {
-    padding-bottom: 5vw;
+    padding-bottom: clamp(50px, 5vw, 100px);;
 
     .content {
       @include flex();
@@ -22,6 +22,9 @@
           position: absolute;
           bottom: 0;
           left: 0;
+          @include respond-to($small) {
+            display: none;
+          }
         }
 
         img {
@@ -50,7 +53,7 @@
 
   .documents {
 
-    padding-bottom: 5vw;
+    padding-bottom: clamp(50px, 5vw, 100px);;
     background-color: $blue;
     color: white;
 
@@ -71,15 +74,15 @@
   }
 
   .society {
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
     background-color: $grey;
   }
 
 
   .partners {
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
 
     .grid {
       display: grid;

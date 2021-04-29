@@ -2,8 +2,8 @@
 
   .video-wrapper {
     background: linear-gradient(to bottom, white 0%, white 50%, $grey 50.01%, $grey 100%);
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
   }
 
   .video {
@@ -14,13 +14,13 @@
 
   .cards {
     background-color: $grey;
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
 
     .card {
       @include flex();
       position: relative;
-      margin-top: 5vw;
+      margin-top: clamp(50px, 5vw, 100px);
 
       .column {
         width: 50%;
@@ -38,22 +38,28 @@
 
       .content {
         background-color: $white;
-        padding: 2vw 5vw;
+        padding: clamp(25px, 2vw, 50px);
         @include flex(start, space-between, column);
         grid-gap: 10px;
 
         .title {
-          font-size: clamp(24px, 2.5vw, 48px);
+          font-size: clamp(20px, 2.5vw, 48px);
           color: $blue;
           font-weight: bold;
+          text-decoration: underline;
+          text-underline-offset: 10px;
+          text-decoration-thickness: 5px;
+
+          @include respond-to($small) {
+            text-underline-offset: 5px;
+            text-decoration-thickness: 3px;
+          }
         }
 
         .text {
-          font-size: 18px;
+          font-size: clamp(14px, .5vw, 18px);
           line-height: 150%;
-          @include respond-to($xl) {
-            font-size: 16px;
-          }
+
         }
       }
 

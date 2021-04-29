@@ -206,6 +206,7 @@ a {
 }
 .subpage-title.white {
   color: white;
+  font-weight: 500;
 }
 
 .subpage-text {
@@ -219,8 +220,8 @@ a {
 .subpage-header {
   font-size: clamp(24px, 2vw, 36px);
   font-weight: 500;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .subpage-header.white {
   color: white;
@@ -232,8 +233,8 @@ a {
   align-items: start;
   justify-content: flex-start;
   flex-direction: row;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .subpage-banner .column {
   width: 50%;
@@ -284,7 +285,7 @@ a {
   color: #0028c8;
   text-decoration: underline;
   text-decoration-color: #0028c8;
-  text-underline-offset: 35px;
+  text-underline-offset: 30px;
   text-decoration-thickness: 5px;
 }
 .header li {
@@ -578,7 +579,7 @@ a {
 .carousel {
   background-color: #eeeeee;
   padding-top: clamp(50px, 5vw, 100px);
-  padding-bottom: 5vw;
+  padding-bottom: clamp(50px, 5vw, 100px);
   margin-right: -12.5%;
 }
 @media only screen and (max-width: 765px) {
@@ -588,8 +589,8 @@ a {
   }
 }
 .carousel .slick-list {
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .carousel #sp-wp-carousel-free-id-395 {
   padding: 0;
@@ -765,8 +766,8 @@ a {
   }
 }
 .slogan {
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
   display: flex;
   display: -webkit-flex;
   align-items: start;
@@ -800,8 +801,8 @@ a {
 }
 .profits {
   background-color: #eeeeee;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .profits__title {
   color: #0028c8;
@@ -809,13 +810,14 @@ a {
   text-align: right;
 }
 .profits .cards {
-  padding-top: 2.5vw;
+  padding-top: clamp(25px, 2.5vw, 50px);
   display: flex;
   display: -webkit-flex;
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
-  gap: 2.5vw;
+  gap: clamp(25px, 2.5vw, 50px);
+  width: 100%;
 }
 .profits .card {
   background-color: #ffffff;
@@ -849,7 +851,7 @@ a {
 }
 .profits .card .text {
   padding-top: 1vw;
-  font-size: 18px;
+  font-size: clamp(14px, 1vw, 18px);
   color: #0028c8;
   padding-bottom: 1vw;
 }
@@ -857,14 +859,18 @@ a {
 @media only screen and (max-width: 1366px) {
   .profits .card {
     width: 25vw;
+    min-height: 320px;
   }
   .profits .card .title {
-    font-size: clamp(24px, 2vw, 32px);
+    font-size: clamp(20px, 2vw, 32px);
   }
 }
 @media only screen and (max-width: 1024px) {
   .profits .cards {
     flex-direction: column;
+  }
+  .profits .cards > a {
+    width: 100%;
   }
   .profits .card {
     width: 100%;
@@ -873,8 +879,8 @@ a {
 }
 .relations {
   background: linear-gradient(to bottom, #eeeeee 0%, #eeeeee 50%, #000046 50.01%, #000046 100%);
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
   position: relative;
   border-bottom: 1px solid #eeeeee;
 }
@@ -893,8 +899,8 @@ a {
   background-color: #0028c8;
   text-align: center;
   color: #ffffff;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .relations .text {
   font-size: 18px;
@@ -920,10 +926,30 @@ a {
   display: block;
 }
 
+@media only screen and (max-width: 765px) {
+  .relations > div {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .relations {
+    padding-bottom: 0;
+  }
+  .relations .content {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .relations .img {
+    height: 66vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+}
 .motto {
   background-color: #eeeeee;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
   display: flex;
   display: -webkit-flex;
   align-items: start;
@@ -1137,7 +1163,7 @@ a {
   }
 }
 .newsletter {
-  padding: 2.5vw;
+  padding: clamp(30px, 2.5vw, 50px);
   background-color: #000046;
   display: flex;
   display: -webkit-flex;
@@ -1233,7 +1259,7 @@ a {
 .events .content {
   width: 50%;
   padding: clamp(25px, 2.5vw, 50px);
-  height: 100%;
+  height: 66%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1284,7 +1310,7 @@ a {
   padding-bottom: 2.5vw;
 }
 .about .important {
-  padding-bottom: 5vw;
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .about .important .content {
   display: flex;
@@ -1306,6 +1332,11 @@ a {
   bottom: 0;
   left: 0;
 }
+@media only screen and (max-width: 765px) {
+  .about .important .content .img:before {
+    display: none;
+  }
+}
 .about .important .content .img img {
   width: 100%;
   object-fit: cover;
@@ -1323,7 +1354,7 @@ a {
   margin-bottom: 20px;
 }
 .about .documents {
-  padding-bottom: 5vw;
+  padding-bottom: clamp(50px, 5vw, 100px);
   background-color: #0028c8;
   color: white;
 }
@@ -1348,13 +1379,13 @@ a {
   fill: #0028c8;
 }
 .about .society {
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
   background-color: #eeeeee;
 }
 .about .partners {
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .about .partners .grid {
   display: grid;
@@ -1412,8 +1443,8 @@ a {
 }
 .opportunities .video-wrapper {
   background: linear-gradient(to bottom, white 0%, white 50%, #eeeeee 50.01%, #eeeeee 100%);
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .opportunities .video {
   width: 100%;
@@ -1422,8 +1453,8 @@ a {
 }
 .opportunities .cards {
   background-color: #eeeeee;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .opportunities .cards .card {
   display: flex;
@@ -1432,7 +1463,7 @@ a {
   justify-content: flex-start;
   flex-direction: row;
   position: relative;
-  margin-top: 5vw;
+  margin-top: clamp(50px, 5vw, 100px);
 }
 .opportunities .cards .card .column {
   width: 50%;
@@ -1447,7 +1478,7 @@ a {
 }
 .opportunities .cards .card .content {
   background-color: #ffffff;
-  padding: 2vw 5vw;
+  padding: clamp(25px, 2vw, 50px);
   display: flex;
   display: -webkit-flex;
   align-items: start;
@@ -1456,18 +1487,22 @@ a {
   grid-gap: 10px;
 }
 .opportunities .cards .card .content .title {
-  font-size: clamp(24px, 2.5vw, 48px);
+  font-size: clamp(20px, 2.5vw, 48px);
   color: #0028c8;
   font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 5px;
+}
+@media only screen and (max-width: 765px) {
+  .opportunities .cards .card .content .title {
+    text-underline-offset: 5px;
+    text-decoration-thickness: 3px;
+  }
 }
 .opportunities .cards .card .content .text {
-  font-size: 18px;
+  font-size: clamp(14px, .5vw, 18px);
   line-height: 150%;
-}
-@media only screen and (max-width: 1366px) {
-  .opportunities .cards .card .content .text {
-    font-size: 16px;
-  }
 }
 .opportunities .cards .card .img img {
   width: 100%;
@@ -1533,7 +1568,7 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
-  padding-bottom: 5vw;
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .perspectives .button {
   font-size: 14px;
@@ -1546,12 +1581,13 @@ a {
 }
 .perspectives .card {
   border-bottom: 3px solid #eeeeee;
-  padding-bottom: 5vw;
+  padding-bottom: 30px;
 }
 .perspectives .card h2 {
   font-size: 22px;
   font-weight: 500;
   line-height: 150%;
+  padding: 30px 30px 0 30px;
 }
 .perspectives .card h2 a {
   color: #343434;
@@ -1560,7 +1596,10 @@ a {
   font-size: 16px;
   line-height: 150%;
   color: #343434;
-  padding: 25px 0;
+  padding: 30px 30px 0 30px;
+}
+.perspectives .card button {
+  padding: 30px 30px 0 30px;
 }
 .perspectives .card:nth-child(even) {
   position: relative;
@@ -1573,8 +1612,8 @@ a {
 }
 .perspectives .question {
   text-align: center;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
   font-size: clamp(18px, 2vw, 36px);
   font-weight: 500;
 }
@@ -1586,7 +1625,7 @@ a {
   .perspectives .filter-wrapper {
     gap: 5px;
   }
-  .perspectives .button {
+  .perspectives .filter-wrapper > a .button {
     font-size: 10px;
     padding: 5px 10px;
   }
@@ -1608,7 +1647,7 @@ a {
   justify-content: space-between;
   flex-direction: row;
   position: relative;
-  padding-bottom: 5vw;
+  padding-bottom: clamp(50px, 5vw, 100px);
 }
 .contact .subpage-banner {
   flex-direction: column;
@@ -2148,7 +2187,7 @@ html.modal-open .join-us-modal {
   font-size: 14px;
   text-align: center;
   color: #c4c4c4;
-  padding-bottom: 5vw;
+  padding-bottom: clamp(50px, 5vw, 100px);
   text-transform: uppercase;
 }
 .single-wrapper h2 {
