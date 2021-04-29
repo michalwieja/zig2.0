@@ -16,35 +16,35 @@
         więcej</button></a>
     </div>
     <div class="socials">
-        <?php
-        dynamic_sidebar('hero_social')
-        ?>
+		<?php
+		dynamic_sidebar( 'hero_social' )
+		?>
     </div>
   </div>
   <div class="hero__image">
-      <?php
+	  <?php
 
-      $args = array(
-          'posts_per_page' => 1,
-          'post__in' => get_option('sticky_posts'),
-          'ignore_sticky_posts' => 1
-      );
-      $my_query = new WP_Query($args);
+	  $args     = array(
+		  'posts_per_page'      => 1,
+		  'post__in'            => get_option( 'sticky_posts' ),
+		  'ignore_sticky_posts' => 1
+	  );
+	  $my_query = new WP_Query( $args );
 
-      $do_not_duplicate = array();
-      while ($my_query->have_posts()) : $my_query->the_post();
-          $do_not_duplicate[] = $post->ID; ?>
+	  $do_not_duplicate = array();
+	  while ( $my_query->have_posts() ) : $my_query->the_post();
+		  $do_not_duplicate[] = $post->ID; ?>
 
-        <div id="post-<?php the_ID(); ?>" <?php post_class(''); ?> >
-            <?php the_post_thumbnail('full'); ?>
+        <div id="post-<?php the_ID(); ?>" <?php post_class( '' ); ?> >
+			<?php the_post_thumbnail( 'full' ); ?>
 
         </div>
         <div class="hero__description">
           <div class="title">
-              <?php the_title() ?>
+			  <?php the_title() ?>
           </div>
           <div class="text">
-              <?php the_excerpt() ?>
+			  <?php the_excerpt() ?>
           </div>
           <button class="read-more light-blue"><a
               href="<?php the_permalink(); ?>" rel="bookmark"
@@ -53,17 +53,17 @@
               więcej</a></button>
         </div>
 
-      <?php endwhile; ?>
-      <?php wp_reset_postdata(); //VERY VERY IMPORTANT?>
+	  <?php endwhile; ?>
+	  <?php wp_reset_postdata(); //VERY VERY IMPORTANT?>
 
   </div>
 </section>
-<section class="news post-carousel">
-  <div class="title sub-title">
+<section class="carousel padding-l">
+  <div class="carousel-title">
     <p>Sporo się u nas dzieje.</p>
     <p>Bądź zawsze na bieżąco </p>
   </div>
-    <?php echo do_shortcode('[sp_wpcarousel id="293"]'); ?>
+	<?php echo do_shortcode( '[sp_wpcarousel id="395"]' ); ?>
   <button class="button grenade">ZOBACZ WSZYSTKIE</button>
 </section>
 <section class="slogan padding-x">
@@ -174,9 +174,9 @@
 
 </section>
 <section class="newsletter">
-    <?php
-    dynamic_sidebar('newsletter')
-    ?>
+	<?php
+	dynamic_sidebar( 'newsletter' )
+	?>
 
 </section>
 

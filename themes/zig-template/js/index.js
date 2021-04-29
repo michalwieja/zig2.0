@@ -11,7 +11,8 @@ const setOpacityOnLastPost = () => {
     if (res && res.length > 1) {
       const last = res.length - 1;
       const one_before_last = last > 1 ? last - 1 : 0;
-      if (!res[last].classList.contains('semiopaque') || res[one_before_last].classList.contains('semiopaque')) {
+      if (!res[last].classList.contains('semiopaque') || res[one_before_last].classList.contains(
+        'semiopaque')) {
         res.forEach(el => {
           el.classList.remove('semiopaque');
         });

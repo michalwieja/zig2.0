@@ -2,23 +2,13 @@
   color: white;
   line-height: 150%;
   text-decoration: underline;
-  text-underline-offset: 1.3vh;
+  text-underline-offset: .8vh;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 72px;
+  font-size: clamp(30px, 3.75vw, 72px);
 
-  @include respond-to($xl) {
-    font-size: clamp(34px, 10vw, 64px);
-  }
-  @include respond-to($large) {
-    font-size: clamp(34px, 10vw, 42px);
-  }
-  @include respond-to($xxs) {
-    font-size: 30px;
-  }
-  @include respond-to($xxs){
-    font-size: 30px;
-  }
+
 }
 
 .subpage-title {
