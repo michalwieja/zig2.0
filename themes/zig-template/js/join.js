@@ -61,16 +61,17 @@ const validateStepRegulations = () => {
   return error.selected_contribution;
 };
 
-const validateStepDeclaration = (field = null, value = null, custom_error = null) => {
+const validateStepDeclaration = (field = null, value = 'not_specified', custom_error = null) => {
   if (custom_error) {
     error[field] = custom_error;
   } else if (field === 'username') {
-    error.username = !validateNonExistent(value || user.username)
+    error.username = !validateNonExistent(value === 'not_specified' ? user.username : value)
       ? 'Pole nie może być puste'
-      : !validateMail(value || user.username) ? 'Email nie jest poprawny' : null;
+      : !validateMail(value === 'not_specified' ? user.username : value) ? 'Email nie jest poprawny' : null;
   } else if (field) {
-    error[field] = !validateNonExistent(value || user[field]) ? 'Pole nie może być puste' : null;
+    error[field] = !validateNonExistent(value === 'not_specified' ? user[field] : value) ? 'Pole nie może być puste' : null;
   } else {
+    console.warn(validateNonExistent(user.username), validateMail(user.username));
     error.username = !validateNonExistent(user.username)
       ? 'Pole nie może być puste'
       : !validateMail(user.username) ? 'Email nie jest poprawny' : null;
@@ -136,7 +137,9 @@ const handleContributionClick = () => {
 const handleFormButtonClick = (action) => {
   if (action < 0) {
     if (step + action < 0) return;
+    generateButtons(step + action);
     setActiveStep(action);
+    return;
   }
   let has_errors = false;
   if (step === 1) {
@@ -150,12 +153,12 @@ const handleFormButtonClick = (action) => {
     return;
   }
   next.classList.remove('disabled');
+  generateButtons(step + action);
   setActiveStep(action);
-  generateButtons();
 };
 
-const generateButtons = () => {
-  switch (step) {
+const generateButtons = (s) => {
+  switch (s) {
     case 0: {
       prev.style.opacity = 0;
       return;
@@ -276,7 +279,7 @@ const setActiveStep = (action) => {
     }
   });
   join_form.scrollTop = 0;
-  first_form.style.marginLeft = `${-(step * 1000)}px`;
+  first_form.style.marginLeft = `${-(step * 100)}vw`;
 };
 
 checkForErrors();
