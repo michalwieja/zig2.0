@@ -3,10 +3,16 @@
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('.header__nav');
 const header = document.querySelector('.header');
-const carousel_post = document.querySelectorAll('time.entry-date');
+let interval = null;
+
+const getHomeCarouselElements = () => {
+  const carousel_post = document.getElementsByClassName('slick-slide');
+  const carousel_post_time = document.querySelectorAll('time.entry-date');
+  return { carousel_post, carousel_post_time };
+};
 
 const setOpacityOnLastPost = () => {
-  setInterval(() => {
+  interval = setInterval(() => {
     const res = document.querySelectorAll('.slick-slide.slick-active');
     if (res && res.length > 1) {
       const last = res.length - 1;
@@ -22,9 +28,9 @@ const setOpacityOnLastPost = () => {
   }, 100);
 };
 
-const formatTime = () => {
-  if (carousel_post && carousel_post.length) {
-    carousel_post.forEach((post) => {
+const formatTime = (carousel_post_time) => {
+  if (carousel_post_time && carousel_post_time.length) {
+    carousel_post_time.forEach((post) => {
       const t = post.attributes.datetime.nodeValue;
       const date = new Date(t);
       post.innerHTML = date.toLocaleDateString();
@@ -32,9 +38,36 @@ const formatTime = () => {
   }
 };
 
+const injectReadMoreButton = (carousel_post) => {
+  const posts = Array.from(carousel_post);
+  posts.forEach((post) =>{
+    const post_content = post.querySelector('.wpcp-single-item > .wpcp-all-captions');
+    if (!post_content) return;
+    post_content.innerHTML += '<button class="read-more">Czytaj więcej</button>';
+    const location = post.querySelector('.wpcp-post-title a');
+    if (!location) return;
+    const button = post.querySelector('button.read-more');
+    if (!button) return;
+    button.addEventListener('click', () => {
+      window.location = location.href;
+    });
+  });
+};
+
+const homeCarouselFunctions = () => {
+  if (window.location.pathname !== '/') {
+    clearInterval(interval);
+    return;
+  }
+  const { carousel_post, carousel_post_time } = getHomeCarouselElements();
+  formatTime(carousel_post_time);
+  injectReadMoreButton(carousel_post);
+  setOpacityOnLastPost();
+};
+
+document.addEventListener("DOMContentLoaded", homeCarouselFunctions);
+
 hamburger.addEventListener('click', () => handleHamburgerClick());
-formatTime();
-setOpacityOnLastPost();
 
 if (window.location.pathname === '/dolacz/') {
   header.classList.add('inverted');
