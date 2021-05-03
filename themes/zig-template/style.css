@@ -615,7 +615,11 @@ a {
   min-height: 224px;
   position: relative;
 }
-.carousel .slick-slide .wpcp-all-captions .wpcp-post-meta, .carousel .slick-slide .wpcp-all-captions .wpcp-post-title {
+.carousel .slick-slide .wpcp-all-captions .read-more {
+  position: absolute;
+  bottom: 20px;
+}
+.carousel .slick-slide .wpcp-all-captions .wpcp-post-meta, .carousel .slick-slide .wpcp-all-captions .wpcp-post-title, .carousel .slick-slide .wpcp-all-captions .read-more {
   left: 7%;
   position: absolute;
   max-width: 86%;
