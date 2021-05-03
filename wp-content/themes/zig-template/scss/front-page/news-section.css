@@ -1,0 +1,21 @@
+/* Error: Undefined mixin.
+ *    ,
+ * 5  | / @include respond-to($xl) {
+ * 6  | |   .news {
+ * 7  | |     padding-top: 100px;
+ * 8  | |     padding-left: 10%;
+ * 9  | |   }
+ * 10 | \ }
+ *    '
+ *   news-section.scss 5:1  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 5  \2502  \250c  @include respond-to($xl) {\a 6  \2502  \2502    .news {\a 7  \2502  \2502      padding-top: 100px;\a 8  \2502  \2502      padding-left: 10%;\a 9  \2502  \2502    }\a 10 \2502  \2514  }\a    \2575 \a   news-section.scss 5:1  root stylesheet";
+}

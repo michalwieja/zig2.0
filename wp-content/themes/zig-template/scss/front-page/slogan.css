@@ -1,9 +1,9 @@
 /* Error: Undefined mixin.
  *   ,
- * 3 |     @include flex();
- *   |     ^^^^^^^^^^^^^^^
+ * 4 |   @include flex();
+ *   |   ^^^^^^^^^^^^^^^
  *   '
- *   perspectives.scss 3:5  root stylesheet */
+ *   slogan.scss 4:3  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a   \2577 \a 3 \2502      @include flex();\a   \2502      ^^^^^^^^^^^^^^^\a   \2575 \a   perspectives.scss 3:5  root stylesheet";
+  content: "Error: Undefined mixin.\a   \2577 \a 4 \2502    @include flex();\a   \2502    ^^^^^^^^^^^^^^^\a   \2575 \a   slogan.scss 4:3  root stylesheet";
 }

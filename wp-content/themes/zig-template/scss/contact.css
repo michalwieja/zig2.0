@@ -1,7 +1,7 @@
 /* Error: Undefined mixin.
  *   ,
- * 2 |   @include flex();
- *   |   ^^^^^^^^^^^^^^^
+ * 2 |   @include flex(flex-start, space-between);
+ *   |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *   '
  *   contact.scss 2:3  root stylesheet */
 
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a   \2577 \a 2 \2502    @include flex();\d\a   \2502    ^^^^^^^^^^^^^^^\a   \2575 \a   contact.scss 2:3  root stylesheet";
+  content: "Error: Undefined mixin.\a   \2577 \a 2 \2502    @include flex(flex-start, space-between);\a   \2502    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   contact.scss 2:3  root stylesheet";
 }
