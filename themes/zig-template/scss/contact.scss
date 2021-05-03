@@ -1,0 +1,137 @@
+.contact {
+  @include flex(flex-start, space-between);
+  position: relative;
+  padding-bottom: clamp(50px, 5vw, 100px);
+
+
+
+  .subpage-banner {
+    flex-direction: column;
+    gap: 2.5vw;
+  }
+
+  .data {
+    background-color: $blue;
+    color: white;
+    right: 0;
+    margin-top: 5vw;
+    position: relative;
+    width: 30vw;
+    height: 30vw;
+    @include flex();
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 3vw;
+
+    .row {
+      @include flex(center);
+      text-decoration: none;
+      width: 100%;
+      height: 33%;
+
+      &:nth-child(2) {
+        border-top: 1px solid $light-blue;
+        border-bottom: 1px solid $light-blue
+      }
+    }
+
+    .text {
+      padding-left: 3vw;
+      color: white;
+      width: 100%;
+    }
+  }
+
+  input, textarea {
+    padding: 1.25vw;
+    border: 1px solid #c4c4c4;
+    border-radius: 0;
+    font-size: 16px;
+    font-family: $font-family;
+  }
+
+  input {
+    width: 20vw;
+  }
+
+  .your-name {
+    margin-right: 2vw;
+  }
+
+  textarea {
+    margin: 2vw 0;
+    width: 42vw;
+  }
+
+  input[type="submit"] {
+    background: transparent;
+    text-transform: uppercase;
+    border: 1px solid $blue;
+    color: $blue;
+    max-width: 200px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0;
+    transition: .3s;
+
+    &:hover {
+      color: white;
+      background-color: $blue;
+    }
+  }
+}
+
+@include respond-to($medium) {
+  .contact {
+    display: block;
+    padding: 10vw;
+
+
+    .column {
+      text-align: center;
+      display: grid;
+      place-items: center;
+
+      .banner__text {
+        width: 100%;
+      }
+    }
+
+    .data {
+      width: 580px;
+    }
+  }
+}
+
+@include respond-to($small) {
+  .contact {
+    padding: 30px;
+    width: 100%;
+
+
+    .column {
+      width: 100%;
+
+      input, textarea {
+        width: 100%;
+        margin-top: 32px;
+      }
+
+      .data {
+        width: 100%;
+        height: auto;
+        padding: 25px;
+
+        .row {
+          padding: 25px 0;
+        }
+
+        .text {
+          font-size: 14px;
+        }
+      ;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+  font-family: $font-family;
+  overflow-x: hidden;
+  color: #343434;
+
+}
+
+a {
+  text-decoration: none;
+}

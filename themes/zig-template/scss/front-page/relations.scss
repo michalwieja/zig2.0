@@ -1,0 +1,79 @@
+.relations {
+  background: linear-gradient(to bottom, $grey 0%, $grey 50%, $grenade 50.01%, $grenade 100%);
+  padding-top: clamp(50px, 5vw, 100px);;
+  padding-bottom: clamp(50px, 5vw, 100px);;
+  position: relative;
+  border-bottom: 1px solid $grey;
+
+  &:before {
+    content: url("/wp-content/themes/zig-template/assets/ornament-relations.svg");
+    position: absolute;
+    bottom: 0;
+    right: 7vw;
+
+    @include respond-to($xl) {
+      display: none;
+    }
+  }
+
+  .content {
+    background-color: $blue;
+    text-align: center;
+    color: $white;
+    padding-top: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
+  }
+
+  .text {
+    font-size: 18px;
+    padding: 2.5vw 12vw;
+
+    @include respond-to($small) {
+      font-size: 14px;
+      padding: 2vw;
+
+    }
+
+    p {
+      padding-bottom: 10px;
+    }
+  }
+
+  .img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30vw;
+
+    img {
+      height: 100%;
+      display: block;
+    }
+  }
+}
+
+@include respond-to($small) {
+  .relations > div {
+    padding-left: 0;
+    padding-right: 0;
+
+  }
+  .relations {
+    padding-bottom: 0;
+
+    .content {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+
+    .img {
+      height: 66vw;
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+    }
+  }
+}
+

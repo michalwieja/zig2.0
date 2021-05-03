@@ -1,0 +1,179 @@
+.about {
+  .subpage-title {
+    padding-bottom: 2.5vw;
+  }
+
+  .important {
+    padding-bottom: clamp(50px, 5vw, 100px);;
+
+    .content {
+      @include flex();
+
+      .column {
+        width: 50%;
+      }
+
+      .img {
+        position: relative;
+        margin-right: 5vw;
+
+        &:before {
+          content: url('/wp-content/themes/zig-template/assets/ornament-relations.svg');
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          @include respond-to($small) {
+            display: none;
+          }
+        }
+
+        img {
+          width: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .text {
+        .title {
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 26px;
+          padding-bottom: 5px;
+        }
+
+        p {
+          font-size: 18px;
+          line-height: 32px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  .documents {
+
+    padding-bottom: clamp(50px, 5vw, 100px);;
+    background-color: $blue;
+    color: white;
+
+    .button-wrapper {
+      @include flex();
+    }
+
+    .button {
+      font-size: 18px;
+      height: 88px;
+      width: 322px;
+      @include flex(center, space-evenly);
+
+      &:hover path {
+        fill: $blue;
+      }
+    }
+  }
+
+  .society {
+    padding-top: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
+    background-color: $grey;
+  }
+
+
+  .partners {
+    padding-top: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .logo {
+      display: grid;
+      place-items: center;
+      padding: 2.5vw 1.25vw;
+    }
+  }
+}
+
+@include respond-to($xl) {
+  .about {
+    .partners {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+@include respond-to($medium) {
+  .about {
+    .partners {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@include respond-to($small) {
+  .about {
+    .important {
+      .content {
+        flex-direction: column;
+
+        .column {
+          width: 100%;
+        }
+
+        .text {
+          padding: 25px 30px;
+        }
+      }
+    }
+
+    .documents {
+      .button-wrapper {
+        flex-direction: column;
+        grid-gap: 25px;
+      }
+
+      .button {
+        max-width: 300px;
+        font-size: 14px;
+        height: auto;
+        padding: 10px 20px;
+
+      }
+    }
+
+    .partners {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@include respond-to($xs) {
+  .about {
+    .documents {
+      .button {
+        width: 100%;
+      }
+    }
+
+  }
+}
+
+@include respond-to($xs) {
+  .about {
+    .documents {
+      .button {
+        width: 100%;
+      }
+    }
+
+  }
+}

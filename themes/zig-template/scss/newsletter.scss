@@ -1,0 +1,87 @@
+.newsletter {
+  padding: clamp(30px, 2.5vw, 50px);
+  background-color: $grenade;
+  @include flex(flex-start, center);
+  color: $white;
+  line-height: 47px;
+  border-bottom: 1px solid $grey;
+  position: relative;
+  z-index: 3;
+
+  div {
+    width: auto;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding-left: 50px;
+
+    .tnp-privacy-field {
+      order: 3;
+      line-height: 20px;
+
+      a {
+        color: white;
+      }
+    }
+
+    .tnp-field-email {
+      margin-right: 20px;
+
+      input {
+        min-height: 47px;
+        background-color: transparent;
+        color: $white;
+      }
+    }
+
+    .tnp-field-button, .tnp-field-email {
+      input {
+        font-size: 16px;
+        font-weight: 700;
+        min-width: 210px;
+        min-height: 44px;
+        background-color: transparent;
+        border: 1px solid $white;
+        color: $white;
+        text-transform: uppercase;
+        font-family: $font-family;
+        transition: .3s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $white;
+          color: $blue;
+        }
+      }
+    }
+  }
+}
+
+@include respond-to($large) {
+  .newsletter {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    form {
+      grid-template-columns: 1fr;
+      padding-left: 0;
+
+      .tnp-field-email {
+        margin-right: 0;
+      }
+
+      .tnp-privacy-field {
+        text-align: left;
+      }
+    }
+  }
+}
+
+@include respond-to($xs) {
+  .newsletter {
+    line-height: unset;
+  }
+}
