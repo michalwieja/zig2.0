@@ -39,7 +39,8 @@ const formatTime = (carousel_post_time) => {
 };
 
 const injectReadMoreButton = (carousel_post) => {
-  carousel_post.forEach((post) =>{
+  const posts = Array.from(carousel_post);
+  posts.forEach((post) =>{
     const post_content = post.querySelector('.wpcp-single-item > .wpcp-all-captions');
     if (!post_content) return;
     post_content.innerHTML += '<button class="read-more">Czytaj więcej</button>';
