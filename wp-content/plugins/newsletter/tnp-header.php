@@ -184,6 +184,10 @@ $warning |= empty($status_options['mail']);
                 </a>
                 <ul>
                     <li>
+                        <a href="<?php echo admin_url('site-health.php')?> "><i class="fas fa-file"></i> <?php _e('Site health') ?>
+                            <small><?php _e('WP native site health checks', 'newsletter') ?></small></a>
+                    </li>
+                    <li>
                         <a href="?page=newsletter_main_status"><i class="fas fa-file"></i> <?php _e('Status', 'newsletter') ?>
                             <small><?php _e('Checks and parameters', 'newsletter') ?></small></a>
                     </li>

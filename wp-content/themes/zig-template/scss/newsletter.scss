@@ -1,10 +1,10 @@
 .newsletter {
-  padding: 40px;
+  padding: clamp(30px, 2.5vw, 50px);
   background-color: $grenade;
   @include flex(flex-start, center);
-  color: $light-blue;
+  color: $white;
   line-height: 47px;
-  border-bottom: 1px solid $light-blue;
+  border-bottom: 1px solid $grey;
   position: relative;
   z-index: 3;
 
@@ -20,6 +20,10 @@
     .tnp-privacy-field {
       order: 3;
       line-height: 20px;
+
+      a {
+        color: white;
+      }
     }
 
     .tnp-field-email {
@@ -76,7 +80,7 @@
   }
 }
 
-@include respond-to($w650) {
+@include respond-to($xs) {
   .newsletter {
     line-height: unset;
   }

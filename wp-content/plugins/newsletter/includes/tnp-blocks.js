@@ -213,13 +213,13 @@
             }
 
             lists_attr = "";
-            if (props.attributes.list_ids != "") {
+            if (props.attributes.list_ids) {
                 lists_attr = " lists=\"" + props.attributes.list_ids + "\"";
             }
 
             button_color_attr = "";
             button_color = buttonClass ? undefined : props.attributes.customButtonColor;
-            if (button_color != "") {
+            if (button_color) {
                 button_color_attr = " button_color=\"" + button_color + "\"";
             }
 

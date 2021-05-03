@@ -1,7 +1,7 @@
 .profits {
   background-color: $grey;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);;
+  padding-bottom: clamp(50px, 5vw, 100px);;
 
   &__title {
     color: $blue;
@@ -10,9 +10,10 @@
   }
 
   .cards {
-    padding-top: 2.5vw;
+    padding-top: clamp(25px, 2.5vw, 50px);
     @include flex(flex-start, space-between);
-    gap: 2.5vw;
+    gap: clamp(25px, 2.5vw, 50px);
+    width: 100%;
   }
 
   .card {
@@ -47,7 +48,7 @@
 
     .text {
       padding-top: 1vw;
-      font-size: 18px;
+      font-size: clamp(14px, 1vw, 18px);
       color: $blue;
       padding-bottom: 1vw;
 
@@ -59,9 +60,10 @@
   .profits {
     .card {
       width: 25vw;
+      min-height: 320px;
 
       .title {
-        font-size: clamp(24px, 2vw, 32px);
+        font-size: clamp(20px, 2vw, 32px);
       }
     }
   }
@@ -71,6 +73,10 @@
   .profits {
     .cards {
       flex-direction: column;
+
+      & > a {
+        width: 100%;
+      }
     }
 
     .card {

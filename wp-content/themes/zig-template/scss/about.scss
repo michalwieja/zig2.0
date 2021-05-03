@@ -1,69 +1,40 @@
 .about {
-  .banner {
-    padding-bottom: 160px;
-
-    &__title {
-      @include flex(start, start, column);
-
-      button {
-        margin-top: 217px;
-        text-decoration: none;
-      }
-    }
-
-    &__text {
-      padding: 40px 20px 40px 80px;
-      font-size: 20px;
-      position: relative;
-
-      &:before {
-        content: url("/wp-content/themes/zig-template/assets/border-lb.svg");
-        position: absolute;
-        left: 23px;
-        bottom: -33px;
-      }
-
-      &:after {
-        content: url("/wp-content/themes/zig-template/assets/border-rt.svg");
-        position: absolute;
-        right: -21px;
-        top: -26px;
-      }
-
-    }
-
-    .button {
-      position: absolute;
-    }
+  .subpage-title {
+    padding-bottom: 2.5vw;
   }
 
   .important {
-    position: relative;
-    background-color: $blue;
-    color: $white;
-    padding-top: 127px;
-    padding-bottom: 127px;
-
-    .title {
-      font-size: 36px;
-      padding-bottom: 86px;
-    }
+    padding-bottom: clamp(50px, 5vw, 100px);;
 
     .content {
       @include flex();
 
-      .img {
+      .column {
         width: 50%;
+      }
+
+      .img {
+        position: relative;
+        margin-right: 5vw;
+
+        &:before {
+          content: url('/wp-content/themes/zig-template/assets/ornament-relations.svg');
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          @include respond-to($small) {
+            display: none;
+          }
+        }
 
         img {
           width: 100%;
+          object-fit: cover;
+          display: block;
         }
       }
 
       .text {
-        width: 50%;
-        padding: 0 $content-padding-desktop 0 100px;
-
         .title {
           font-size: 20px;
           font-weight: 500;
@@ -81,104 +52,66 @@
   }
 
   .documents {
-    padding-top: 50px;
-    padding-bottom: 50px;
 
-    .title {
-      font-size: 36px;
-      font-weight: 500;
-      padding-bottom: 50px;
-      position: relative;
-    }
-
+    padding-bottom: clamp(50px, 5vw, 100px);;
+    background-color: $blue;
+    color: white;
 
     .button-wrapper {
       @include flex();
+    }
 
-      .button {
-        font-size: 18px;
-        height: 88px;
-        width: 322px;
-        @include flex(center, space-evenly)
+    .button {
+      font-size: 18px;
+      height: 88px;
+      width: 322px;
+      @include flex(center, space-evenly);
+
+      &:hover path {
+        fill: $blue;
       }
-    }
-  }
-
-  .board {
-    padding-top: 100px;
-    padding-bottom: 130px;
-    background-color: $grey;
-
-    .title {
-      padding-top: 50px;
-      padding-bottom: 50px;
-      font-size: 36px;
-    }
-
-    .images {
-      display: flex;
     }
   }
 
   .society {
-    padding-top: 122px;
-    padding-bottom: 100px;
-    background-color: $grenade;
-
-    .title {
-      color: $white;
-      font-size: 36px;
-      line-height: 48px;
-      width: 430px;
-    }
+    padding-top: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
+    background-color: $grey;
   }
 
-  .padding-left {
-    padding-bottom: 100px;
-
-    .button {
-      margin-top: 50px;
-    }
-  }
 
   .partners {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
 
-    .title {
-      font-size: 36px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
     }
-  }
-}
 
-@include respond-to($xxl) {
-  .about {
-    .important {
-      .content {
-        .text {
-          padding: 0 $content-padding-tablet 0 100px;
-        }
-      }
+    .logo {
+      display: grid;
+      place-items: center;
+      padding: 2.5vw 1.25vw;
     }
   }
 }
 
 @include respond-to($xl) {
   .about {
+    .partners {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
 
-    .important {
-      .content {
-        .text {
-          padding: 0 $content-padding-tablet 0 25px;
-
-          .title {
-            font-size: 16px;
-          }
-
-          p {
-            font-size: 14px;
-          }
-        }
+@include respond-to($medium) {
+  .about {
+    .partners {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   }
@@ -186,40 +119,16 @@
 
 @include respond-to($small) {
   .about {
-    .banner {
-      padding: 50px 0;
-      &__title {
-        .button {
-          display: none;
-        }
-      }
-
-      &__text {
-        padding: 50px 0;
-
-        &:before, &:after {
-          display: none;
-        }
-      }
-    }
-
     .important {
-      padding: 50px 0;
-
-      .title{
-        padding-bottom: 50px;
-      }
       .content {
         flex-direction: column;
 
-        .img {
+        .column {
           width: 100%;
         }
 
         .text {
-          padding: 0 $content-padding-mobile 0 25px;
-
-          width: 100%;
+          padding: 25px 30px;
         }
       }
     }
@@ -227,24 +136,44 @@
     .documents {
       .button-wrapper {
         flex-direction: column;
+        grid-gap: 25px;
+      }
 
-        .button {
-          margin-bottom: 10px;
-          width: 100%;
-          font-size: 14px;
-        }
+      .button {
+        max-width: 300px;
+        font-size: 14px;
+        height: auto;
+        padding: 10px 20px;
+
       }
     }
 
-    .board{
-      padding: 0;
+    .partners {
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
+  }
+}
 
-    .society {
-      padding: 50px 30px;
-      .title {
+@include respond-to($xs) {
+  .about {
+    .documents {
+      .button {
         width: 100%;
       }
     }
+
+  }
+}
+
+@include respond-to($xs) {
+  .about {
+    .documents {
+      .button {
+        width: 100%;
+      }
+    }
+
   }
 }

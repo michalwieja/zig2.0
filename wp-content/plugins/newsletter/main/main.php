@@ -310,9 +310,9 @@ if (!empty($return_path)) {
                         </tr>
 
                         <tr>
-                            <th><?php _e('Disable standard styles', 'newsletter') ?></th>
+                            <th><?php _e('Standard styles', 'newsletter') ?></th>
                             <td>
-                                <?php $controls->yesno('css_disabled'); ?>
+                                <?php $controls->disabled('css_disabled'); ?>
                             </td>
                         </tr>
                         

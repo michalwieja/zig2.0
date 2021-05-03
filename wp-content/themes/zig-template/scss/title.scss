@@ -1,16 +1,46 @@
 .frontpage-title {
-  font-size: clamp(64px, 4vw, 72px);
   color: white;
   line-height: 150%;
   text-decoration: underline;
-  text-underline-offset: 1.3vh;
+  text-underline-offset: .8vh;
   font-weight: bold;
   text-transform: uppercase;
+  font-size: 72px;
+  font-size: clamp(30px, 3.75vw, 72px);
 
-  @include respond-to($xl) {
-    font-size: clamp(34px, 10vw, 64px);
+
+}
+
+.subpage-title {
+  color: $blue;
+  font-size: clamp(24px, 2.3vw, 48px);
+  font-weight: bold;
+  line-height: 150%;
+  text-decoration: underline;
+  text-underline-offset: .5vw;
+
+  &.white {
+    color: white;
+    font-weight: 500;
   }
-  @include respond-to($large) {
-    font-size: clamp(34px, 10vw, 42px);
+}
+
+.subpage-text {
+  font-size: clamp(16px, 1.25vw, 24px);
+  font-weight: 500;
+
+  p {
+    padding-bottom: 10px;
+  }
+}
+
+.subpage-header {
+  font-size: clamp(24px, 2vw, 36px);
+  font-weight: 500;
+  padding-top: clamp(50px, 5vw, 100px);;
+  padding-bottom: clamp(50px, 5vw, 100px);;
+
+  &.white {
+    color: white;
   }
 }

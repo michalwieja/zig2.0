@@ -103,6 +103,10 @@
     height: auto;
     flex-direction: column;
 
+    &__description {
+      padding: 30px;
+    }
+
     &__content {
       width: 100%;
       height: clamp(400px, 50vw, 600px);

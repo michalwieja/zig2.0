@@ -12,6 +12,7 @@ $defaults = array(
     'image' => '',
     'url' => '',
     'width' => 0,
+    'align' => 'center',
     'block_background' => '',
     'block_padding_left' => 0,
     'block_padding_right' => 0,
@@ -39,7 +40,7 @@ if (empty($options['image']['id'])) {
         }
     }
 } else {
-    $media = tnp_resize_2x($options['image']['id'], array(600, 0));
+    $media = tnp_resize_2x($options['image']['id'], [600, 0]);
     // Should never happen but... it happens
     if (!$media) {
         echo 'The selected media file cannot be processed';
@@ -54,25 +55,24 @@ $media->link = $options['url'];
 if (!empty($options['image-alt'])) {
     $media->alt = $options['image-alt'];
 }
-$image_class_name = 'image';
-
-$img_align = '';
-if (isset($options['img_align']) && in_array($options['img_align'], array('left', 'right'))) {
-    $img_align = 'float: ' . $options['img_align'] .';';
-}
 
 ?>
 <style>
-    .<?php echo $image_class_name ?> {
+    .image {
         max-width: 100% !important;
         height: auto !important;
-        display: block;
+        display: inline-block;
         width: <?php echo $media->width ?>px;
         line-height: 0;
         margin: 0 auto;
-        <?php echo $img_align ?>
     }
 </style>
 
-<?php echo TNP_Composer::image( $media, [ 'class' => $image_class_name ] ); ?>
+<table border="0" cellspacing="0" cellpadding="0" width="100%" class="responsive">
+    <tr>
+        <td align="<?php echo esc_attr($options['align']) ?>" valign="middle" width="100%" style="line-height: 0">
+            <?php echo TNP_Composer::image($media, ['class' => $image_class_name]); ?>
+        </td>
+    </tr>
+</table>
 

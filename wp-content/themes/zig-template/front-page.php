@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 
+
+
+
 <section class="hero">
   <div class="hero__content padding-l">
     <div class="frontpage-title">TU SĄ </br>MOŻLIWOŚCI
@@ -46,8 +49,10 @@
           <div class="text">
 			  <?php the_excerpt() ?>
           </div>
-          <button class="read-more light-blue"><a href="<?php the_permalink(); ?>" rel="bookmark"
-                                                  title="Permanent Link to <?php the_title_attribute(); ?>">Czytaj
+          <button class="read-more light-blue"><a
+              href="<?php the_permalink(); ?>" rel="bookmark"
+              title="Permanent Link to <?php the_title_attribute(); ?>"
+            >Czytaj
               więcej</a></button>
         </div>
 
@@ -56,12 +61,12 @@
 
   </div>
 </section>
-<section class="news padding-l post-carousel">
-  <div class="title sub-title">
+<section class="carousel padding-l">
+  <div class="carousel-title">
     <p>Sporo się u nas dzieje.</p>
     <p>Bądź zawsze na bieżąco </p>
   </div>
-
+	<?php echo do_shortcode( '[sp_wpcarousel id="395"]' ); ?>
   <button class="button grenade">ZOBACZ WSZYSTKIE</button>
 </section>
 <section class="slogan padding-x">

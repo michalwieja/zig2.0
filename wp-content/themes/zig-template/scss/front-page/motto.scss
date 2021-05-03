@@ -1,7 +1,7 @@
 .motto {
   background-color: $grey;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);;
+  padding-bottom: clamp(50px, 5vw, 100px);;
   @include flex();
   width: 100%;
 
@@ -12,7 +12,7 @@
   &__title {
     margin-right: 2.5vw;
     font-size: clamp(24px, 2.5vw, 36px);
-    font-weight: bold;
+    font-weight: 500;
     padding-bottom: 2.5vw;
   }
 

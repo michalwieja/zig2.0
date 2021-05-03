@@ -17,25 +17,26 @@
     gap: 40px;
   }
 
+  .current-menu-item {
+    a {
+      color: $blue;
+      text-decoration: underline;
+      text-decoration-color: $blue;
+      text-underline-offset: 30px;
+      text-decoration-thickness: 5px;
+    }
+  }
+
   li {
-    background: linear-gradient($blue 0 0) 0 100% /var(--d, 0) 3px no-repeat;
-    transition: 0.5s;
+    transition: .3s;
   }
 
-  li:hover {
-    --d: 100%;
-  }
-
-  .current-menu-item{
-    background: linear-gradient($blue 0 0) 0 100% /var(--d, 0) 3px no-repeat;
-    transition: 0.5s;
-    --d: 100%;
-
+  li:hover a {
+    color: $blue;
   }
 
   li a {
     text-decoration: none;
-
     color: $black;
     font-size: 16px;
     font-family: 'roboto';
