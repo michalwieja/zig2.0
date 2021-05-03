@@ -62,6 +62,10 @@
 @include respond-to($small) {
   .events {
 
+    .button{
+      max-width: 175px;
+    }
+
     .card {
       flex-direction: column-reverse;
       height: 450px;

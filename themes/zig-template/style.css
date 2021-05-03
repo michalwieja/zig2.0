@@ -28,12 +28,13 @@ a {
   text-decoration: none;
 }
 
-.button {
+.button, #s, #searchsubmit {
   font-size: 16px;
-  padding: 10px 20px;
   font-weight: 700;
   min-width: 210px;
   min-height: 44px;
+  line-height: 44px;
+  white-space: nowrap;
   margin-right: 26px;
   background-color: transparent;
   border: 1px solid #0028c8;
@@ -44,47 +45,54 @@ a {
   cursor: pointer;
   text-align: center;
 }
-.button:hover {
+.button.active, #s.active, #searchsubmit.active {
   color: white;
   background-color: #0028c8;
 }
-.button.white {
+.button:hover, #s:hover, #searchsubmit:hover {
+  color: white;
+  background-color: #0028c8;
+}
+.button.white, #s.white, #searchsubmit.white {
   border: 1px solid #ffffff;
   color: #ffffff;
 }
-.button.white:hover {
+.button.white:hover, #s.white:hover, #searchsubmit.white:hover {
   color: #0028c8;
   background-color: #ffffff;
 }
 
 @media only screen and (max-width: 1366px) {
-  .button {
+  .button, #s, #searchsubmit {
     min-width: 180px;
     min-height: 40px;
+    line-height: 40px;
   }
 }
 @media only screen and (max-width: 1152px) {
-  .button {
+  .button, #s, #searchsubmit {
     min-width: 140px;
     min-height: 32px;
+    line-height: 32px;
   }
 }
 @media only screen and (max-width: 1024px) {
-  .button {
+  .button, #s, #searchsubmit {
     min-width: 120px;
     font-size: 14px;
     margin-right: 15px;
   }
 }
 @media only screen and (max-width: 765px) {
-  .button {
+  .button, #s, #searchsubmit {
     min-width: 118px;
-    padding: 7px 20px;
   }
 }
 @media only screen and (max-width: 650px) {
-  .button {
-    min-width: 110px;
+  .button, #s, #searchsubmit {
+    min-width: 80px;
+    padding: 5px;
+    margin-right: 0;
   }
 }
 .read-more {
@@ -102,16 +110,18 @@ a {
     font-size: 14px;
   }
 }
-.read-more:hover .read-more::after {
-  margin-left: 40px;
-}
 .read-more a {
   color: #343434;
   text-decoration: none;
 }
+.read-more:hover::after {
+  margin-left: 40px;
+}
 .read-more::after {
   content: url("/wp-content/themes/zig-template/assets/arrow-right.svg");
   margin-left: 20px;
+  transition: 0.3s;
+  pointer-events: none;
 }
 .read-more.light-blue {
   color: #85d4ff;
@@ -606,6 +616,11 @@ a {
 .carousel .slick-slide {
   min-height: 460px;
 }
+@media only screen and (max-width: 765px) {
+  .carousel .slick-slide {
+    min-height: 375px;
+  }
+}
 .carousel .slick-slide img {
   width: 100%;
   aspect-ratio: 405/240;
@@ -615,11 +630,7 @@ a {
   min-height: 224px;
   position: relative;
 }
-.carousel .slick-slide .wpcp-all-captions .read-more {
-  position: absolute;
-  bottom: 20px;
-}
-.carousel .slick-slide .wpcp-all-captions .wpcp-post-meta, .carousel .slick-slide .wpcp-all-captions .wpcp-post-title, .carousel .slick-slide .wpcp-all-captions .read-more {
+.carousel .slick-slide .wpcp-all-captions .wpcp-post-meta, .carousel .slick-slide .wpcp-all-captions .wpcp-post-title {
   left: 7%;
   position: absolute;
   max-width: 86%;
@@ -1192,6 +1203,9 @@ a {
   order: 3;
   line-height: 20px;
 }
+.newsletter form .tnp-privacy-field a {
+  color: white;
+}
 .newsletter form .tnp-field-email {
   margin-right: 20px;
 }
@@ -1295,6 +1309,9 @@ a {
   }
 }
 @media only screen and (max-width: 765px) {
+  .events .button {
+    max-width: 175px;
+  }
   .events .card {
     flex-direction: column-reverse;
     height: 450px;
@@ -1505,7 +1522,7 @@ a {
   }
 }
 .opportunities .cards .card .content .text {
-  font-size: clamp(14px, .5vw, 18px);
+  font-size: clamp(14px, 1vw, 18px);
   line-height: 150%;
 }
 .opportunities .cards .card .img img {
@@ -1616,7 +1633,7 @@ a {
 }
 .perspectives .question {
   text-align: center;
-  padding-top: clamp(50px, 5vw, 100px);
+  padding-top: clamp(100px, 10vw, 200px);
   padding-bottom: clamp(50px, 5vw, 100px);
   font-size: clamp(18px, 2vw, 36px);
   font-weight: 500;
@@ -1732,33 +1749,16 @@ a {
     display: block;
     padding: 10vw;
   }
-  .contact .data {
-    display: none;
+  .contact .column {
+    text-align: center;
+    display: grid;
+    place-items: center;
   }
   .contact .column .banner__text {
     width: 100%;
   }
-  .contact input {
-    width: 280px;
-  }
-  .contact .your-name {
-    margin-right: 20px;
-  }
-  .contact textarea {
-    margin: 20px 0;
+  .contact .data {
     width: 580px;
-  }
-  .contact input[type=submit] {
-    background: transparent;
-    text-transform: uppercase;
-    border: 1px solid #343434;
-    color: #343434;
-    max-width: 200px;
-    height: 50px;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 0;
-    margin-bottom: 50px;
   }
 }
 @media only screen and (max-width: 765px) {
@@ -1772,6 +1772,17 @@ a {
   .contact .column input, .contact .column textarea {
     width: 100%;
     margin-top: 32px;
+  }
+  .contact .column .data {
+    width: 100%;
+    height: auto;
+    padding: 25px;
+  }
+  .contact .column .data .row {
+    padding: 25px 0;
+  }
+  .contact .column .data .text {
+    font-size: 14px;
   }
 }
 .join-us {
@@ -2214,6 +2225,124 @@ html.modal-open .join-us-modal {
 @media only screen and (max-width: 765px) {
   .single-wrapper .wp-block-image img {
     max-height: 30vh;
+  }
+}
+
+.policy {
+  background-color: #fff;
+  margin-top: -33vh;
+  padding: 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.society {
+  background-color: #eeeeee;
+  padding-bottom: 5vw;
+}
+.society .filters {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: clamp(50px, 5vw, 100px);
+}
+.society form {
+  align-self: flex-end;
+}
+.society hr {
+  border: 1px solid white;
+}
+.society button {
+  align-self: start;
+}
+.society .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5vw;
+  background-color: #eeeeee;
+  padding-bottom: clamp(50px, 5vw, 100px);
+}
+.society .card {
+  width: 30vw;
+}
+.society .card:nth-child(even) {
+  position: relative;
+  top: 100px;
+}
+.society .card .logo {
+  background-color: #fff;
+  height: 15vw;
+  display: grid;
+  place-items: center;
+}
+.society .card .logo img {
+  max-height: 110px;
+  height: 100%;
+  width: auto;
+  max-width: 360px;
+}
+.society .card > .title {
+  font-size: clamp(18px, 1vw, 22px);
+  font-weight: 500;
+  line-height: 150%;
+  padding: 30px 0;
+}
+.society .card .data {
+  display: flex;
+  display: -webkit-flex;
+  align-items: start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 20px;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+}
+.society .card .phone a, .society .card .web a, .society .card .email a {
+  color: #343434;
+  margin-left: 10px;
+  line-height: 25px;
+}
+.society .card .phone a:hover, .society .card .web a:hover, .society .card .email a:hover {
+  color: #0028c8;
+}
+.society .card .phone:before {
+  content: url("/wp-content/themes/zig-template/assets/phone-black.svg");
+}
+.society .card .web:before {
+  content: url("/wp-content/themes/zig-template/assets/web.svg");
+}
+.society .card .email:before {
+  content: url("/wp-content/themes/zig-template/assets/mail-black.svg");
+}
+.society .navigation {
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 765px) {
+  .society #s {
+    max-width: 175px;
+  }
+  .society .cards {
+    grid-template-columns: 1fr;
+  }
+  .society .card {
+    width: 100%;
+  }
+  .society .card:nth-child(even) {
+    top: unset;
+  }
+  .society .card .logo {
+    height: auto;
+  }
+  .society .card .logo img {
+    padding: 25px;
+    max-height: 110px;
+    width: auto;
+    max-width: 200px;
+  }
+  .society .card .data {
+    font-size: 14px;
   }
 }
 

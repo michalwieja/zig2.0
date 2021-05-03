@@ -23,20 +23,13 @@ $column_width = $total_width / 2 - 10;
         text-decoration: none;
     }
 
-    .date {
+    .meta {
         font-family: <?php echo $text_font_family ?>;
         color: <?php echo $text_font_color ?>;
-        font-size: <?php echo round($text_font_size * 0.8) ?>px;
+        font-size: <?php echo round($text_font_size * 0.9) ?>px;
         font-weight: normal;
         padding: 0 0 5px 0;
-    }
-
-    .author {
-        font-family: <?php echo $text_font_family ?>;
-        color: <?php echo $text_font_color ?>;
-        font-size: <?php echo round($text_font_size * 0.8) ?>px;
-        font-weight: normal;
-        padding: 0 0 5px 0;
+        line-height: normal !important;
     }
 </style>
 
@@ -46,7 +39,6 @@ $column_width = $total_width / 2 - 10;
     <?php foreach ($posts as $post) { ?>
         <?php
         $url = tnp_post_permalink($post);
-        $options['button_url'] = $url;
 
         $media = null;
         if ($show_image) {
@@ -56,14 +48,21 @@ $column_width = $total_width / 2 - 10;
                 $media->set_width($column_width);
             }
         }
+        
+        $meta = [];
 
-        $author = '';
+        if ($show_date) {
+            $meta[] = tnp_post_date($post);
+        }
+
         if ($show_author) {
             $author_object = get_user_by('id', $post->post_author);
             if ($author_object) {
-                $author = $author_object->display_name;
+                $meta[] = $author_object->display_name;
             }
         }
+        
+        $button_options['button_url'] = $url; 
         ?>
 
         <tr>
@@ -94,27 +93,16 @@ $column_width = $total_width / 2 - 10;
                     <tr>
                         <td>
                             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                <?php if ($show_date) { ?>
+                                <?php if ($meta) { ?>
                                     <tr>
-                                        <td align="<?php echo $align_left ?>" inline-class="date">
-                                            <?php echo tnp_post_date($post) ?>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-
-                                <?php if ($show_author) { ?>
-                                    <tr>
-                                        <td align="<?php echo $align_left ?>" inline-class="author">
-                                            <?php echo $author ?>
+                                        <td inline-class="meta" dir="<?php echo $dir ?>" align="<?php echo $align_left ?>">
+                                            <?php echo esc_html(implode(' - ', $meta)) ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
 
                                 <tr>
-                                    <td align="<?php echo $align_left ?>"
-                                        inline-class="post-excerpt"
-
-                                        data-id="<?php echo $post->ID ?>" dir="<?php echo $dir ?>">
+                                    <td align="<?php echo $align_left ?>" data-id="<?php echo $post->ID ?>" dir="<?php echo $dir ?>">
                                         <a href="<?php $url ?>" inline-class="excerpt" class="tnpc-row-edit tnpc-inline-editable" data-type="text">
                                             <?php
                                             echo TNP_Composer::is_post_field_edited_inline($options['inline_edits'], 'text', $post->ID) ?
@@ -129,7 +117,6 @@ $column_width = $total_width / 2 - 10;
                                     <tr>
                                         <td align="<?php echo $align_left ?>">
                                             <br>
-                                            <?php $button_options['button_url'] = $url; ?>
                                             <?php echo TNP_Composer::button($button_options) ?>
                                         </td>
                                     </tr>

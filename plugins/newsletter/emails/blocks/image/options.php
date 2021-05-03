@@ -16,7 +16,7 @@
         <?php $fields->size('width', __('Width', 'newsletter')) ?>
     </div>
     <div class="tnp-field-col-2">
-        <?php $fields->select('img_align', __('Image align', 'newsletter'), ['center' => __('Center', 'newsletter'), 'left' => __('Left', 'newsletter'), 'right' => __('Right')]) ?>
+        <?php $fields->align() ?>
     </div>
 </div>
 

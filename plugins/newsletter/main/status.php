@@ -71,6 +71,11 @@ if ($controls->is_action('conversion')) {
     $controls->messages = 'Triggered';
 }
 
+if ($controls->is_action('reset_send_stats')) {
+    update_option('newsletter_diagnostic_send_calls', [], false);
+    $controls->add_message_done();
+}
+
 if ($controls->is_action('test')) {
 
     if (!NewsletterModule::is_email($controls->data['test_email'])) {
@@ -602,7 +607,7 @@ function tnp_status_print_flag($condition) {
                             if ($send_max < $send_mean) {
                                 $send_max = $send_mean;
                             }
-                            if (isset($send_calls[$i][3])) {
+                            if (isset($send_calls[$i][3]) && $send_calls[$i][3]) {
                                 $send_completed++;
                             }
                         }
@@ -634,32 +639,26 @@ function tnp_status_print_flag($condition) {
                                 Total email in the sample: <?php echo $send_total_emails ?><br>
                                 Runs in the sample: <?php echo count($send_calls); ?><br>
                                 Runs prematurely interrupted: <?php echo sprintf("%.2f", (count($send_calls) - $send_completed) * 100.0 / count($send_calls)) ?>%<br>
+                                <br>
+                                <?php $controls->button_reset('reset_send_stats')?>
                             </td>
                         </tr>
-                        <?php
-                    }
-                    ?>
+                        <?php } else { ?>
+                        <tr>
+                            <td>
+                                Send details
+                            </td>
+                            <td>
+                                <span class="tnp-maybe">MAYBE</span>
+                            </td>
+                            <td>
+                                No data avaiable. Send a newsletter to collect some sending statistics.
+                            </td>
+                        </tr>
+                        <?php } ?>
 
 
-                    <tr>
-                        <?php
-                        $condition = (defined('NEWSLETTER_CRON_WARNINGS') && !NEWSLETTER_CRON_WARNINGS) ? 2 : 1;
-                        ?>
-                        <td>
-                            Cron warnings<br>
-                            <small>Newsletter can notify of WP scheduler problems?</small>
-                        </td>
-                        <td>
-                            <?php tnp_status_print_flag($condition) ?>
-                        </td>
-                        <td>
-                            <?php if ($condition == 2) { ?>
-                                Scheduler warnings are disabled in your <code>wp-config.php</code> with the constant <code>NEWSLETTER_CRON_WARNINGS</code> set to true.
-                            <?php } else { ?>
-
-                            <?php } ?>
-                        </td>
-                    </tr>
+                   
 
 
 
@@ -771,6 +770,7 @@ function tnp_status_print_flag($condition) {
                 </tbody>
             </table>
 
+            
             <h3>WordPress Scheduler/Cron</h3>
 
             <table class="widefat" id="tnp-status-table">
@@ -782,6 +782,24 @@ function tnp_status_print_flag($condition) {
                     </tr>
                 </thead>
                 <tbody>
+                     <tr>
+                        <?php
+                        $condition = (defined('NEWSLETTER_CRON_WARNINGS') && !NEWSLETTER_CRON_WARNINGS) ? 2 : 1;
+                        ?>
+                        <td>
+                            Cron warnings<br>
+                        </td>
+                        <td>
+                            <?php tnp_status_print_flag($condition) ?>
+                        </td>
+                        <td>
+                            <?php if ($condition == 2) { ?>
+                                Scheduler warnings are disabled in your <code>wp-config.php</code> with the constant <code>NEWSLETTER_CRON_WARNINGS</code> set to true.
+                            <?php } else { ?>
+                                Scheduler warnings are enabled
+                            <?php } ?>
+                        </td>
+                    </tr>
                     <tr>
                         <?php
                         $condition = (defined('DISABLE_WP_CRON') && DISABLE_WP_CRON) ? 2 : 1;

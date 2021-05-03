@@ -163,7 +163,7 @@ class NewsletterFields {
     }
 
     public function textarea($name, $label = '', $attrs = []) {
-        $attrs = $this->_merge_attrs($attrs, ['width'=>'100%', 'height'=>'150']);
+        $attrs = $this->_merge_attrs($attrs, ['width' => '100%', 'height' => '150']);
         $this->_open();
         $this->_label($label);
         $this->controls->textarea_fixed($name, $attrs['width'], $attrs['height']);
@@ -193,13 +193,13 @@ class NewsletterFields {
 
         if (version_compare($wp_version, '4.8', '>=')) {
 
-	        $paragraph_style = " p { font-family: ${attrs['text_font_family']}; font-size: ${attrs['text_font_size']}px; font-weight: ${attrs['text_font_weight']}; color: ${attrs['text_font_color']}; line-height: 1.5em; }";
-	        $content_style = $paragraph_style;
+            $paragraph_style = " p { font-family: ${attrs['text_font_family']}; font-size: ${attrs['text_font_size']}px; font-weight: ${attrs['text_font_weight']}; color: ${attrs['text_font_color']}; line-height: 1.5em; }";
+            $content_style = $paragraph_style;
 
-	        echo '<script>';
-	        echo 'wp.editor.remove("options-', $name, '");';
-	        echo 'wp.editor.initialize("options-', $name, '", { tinymce: {content_style: "' . $content_style . '", toolbar1: "undo redo | formatselect fontselect fontsizeselect | bold italic forecolor backcolor | link unlink | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | wp_add_media | charmap | rtl ltr", fontsize_formats: "11px 12px 14px 16px 18px 24px 36px 48px", plugins: "link textcolor colorpicker lists wordpress charmap directionality", default_link_target: "_blank", relative_urls : false, convert_urls: false, keep_styles: true }});';
-	        echo '</script>';
+            echo '<script>';
+            echo 'wp.editor.remove("options-', $name, '");';
+            echo 'wp.editor.initialize("options-', $name, '", { tinymce: {content_style: "' . $content_style . '", toolbar1: "undo redo | formatselect fontselect fontsizeselect | bold italic forecolor backcolor | link unlink | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | wp_add_media | charmap | rtl ltr", fontsize_formats: "11px 12px 14px 16px 18px 24px 36px 48px", plugins: "link textcolor colorpicker lists wordpress charmap directionality", default_link_target: "_blank", relative_urls : false, convert_urls: false, keep_styles: true }});';
+            echo '</script>';
         }
         $this->_description($attrs);
         $this->_close();
@@ -243,6 +243,13 @@ class NewsletterFields {
 
         $this->_description($attrs);
         $this->_close();
+    }
+
+    public function align($name = 'align') {
+        $this->select($name,
+                __('Align', 'newsletter'),
+                ['center' => __('Center', 'newsletter'), 'left' => __('Left', 'newsletter'), 'right' => __('Right')]
+        );
     }
 
     public function yesno($name, $label = '', $attrs = []) {
@@ -303,16 +310,16 @@ class NewsletterFields {
      * - url: if true (default) shows the URL field (sometime the URL is produced elsewhere, for example on post list)
      */
     public function button($name, $label = '', $attrs = []) {
-	    $attrs = $this->_merge_attrs( $attrs,
-		    [
-			    'placeholder'     => 'Label...',
-			    'url_placeholder' => 'https://...',
-			    'url'             => true,
-			    'weight'          => true,
-			    'family_default'  => false,
-			    'size_default'    => false,
-			    'weight_default'  => false,
-		    ] );
+        $attrs = $this->_merge_attrs($attrs,
+                [
+                    'placeholder' => 'Label...',
+                    'url_placeholder' => 'https://...',
+                    'url' => true,
+                    'weight' => true,
+                    'family_default' => false,
+                    'size_default' => false,
+                    'weight_default' => false,
+                ]);
 
         $this->_open('tnpf-button');
         $this->_label($label);
@@ -334,25 +341,24 @@ class NewsletterFields {
         }
         echo '<div style="clear: both"></div>';
         echo '</div>';
-	    $this->controls->css_font( $name . '_font', [
-		    'weight'         => $attrs['weight'],
-		    'family_default' => $attrs['family_default'],
-		    'size_default'   => $attrs['size_default'],
-		    'weight_default' => $attrs['weight_default']
-	    ] );
-	    $this->controls->color( $name . '_background' );
+        $this->controls->css_font($name . '_font', [
+            'weight' => $attrs['weight'],
+            'family_default' => $attrs['family_default'],
+            'size_default' => $attrs['size_default'],
+            'weight_default' => $attrs['weight_default']
+        ]);
+        $this->controls->color($name . '_background');
         $this->_close();
     }
 
-	public function button_style( $name, $label = '' ) {
+    public function button_style($name, $label = '') {
 
-		$this->_open( 'tnp-font' );
-		$this->_label( $label );
-		$this->controls->css_font( $name . '_font' );
-		$this->controls->color( $name . '_background_color' );
-		$this->_close();
-
-	}
+        $this->_open('tnp-font');
+        $this->_label($label);
+        $this->controls->css_font($name . '_font');
+        $this->controls->color($name . '_background_color');
+        $this->_close();
+    }
 
     /**
      * URL input field
@@ -449,7 +455,7 @@ class NewsletterFields {
     }
 
     function lists($name, $label, $attrs = []) {
-        $attrs = $this->_merge_attrs($attrs, ['empty_label'=>null]);
+        $attrs = $this->_merge_attrs($attrs, ['empty_label' => null]);
         $this->_open();
         $this->_label($label);
         $lists = $this->controls->get_list_options($attrs['empty_label']);
@@ -594,16 +600,16 @@ class NewsletterFields {
      */
     public function font($name = 'font', $label = 'Font', $attrs = []) {
         $attrs = $this->_merge_base_attrs($attrs);
-	    $attrs = array_merge( [
-		    'hide_family'    => false,
-		    'family'         => true,
-		    'color'          => true,
-		    'size'           => true,
-		    'weight'         => true,
-		    'family_default' => false,
-		    'size_default'   => false,
-		    'weight_default' => false,
-	    ], $attrs );
+        $attrs = array_merge([
+            'hide_family' => false,
+            'family' => true,
+            'color' => true,
+            'size' => true,
+            'weight' => true,
+            'family_default' => false,
+            'size_default' => false,
+            'weight_default' => false,
+                ], $attrs);
 
         $this->_open('tnp-font');
         $this->_label($label);

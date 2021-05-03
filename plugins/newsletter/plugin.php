@@ -4,7 +4,7 @@
   Plugin Name: Newsletter
   Plugin URI: https://www.thenewsletterplugin.com/plugins/newsletter
   Description: Newsletter is a cool plugin to create your own subscriber list, to send newsletters, to build your business. <strong>Before update give a look to <a href="https://www.thenewsletterplugin.com/category/release">this page</a> to know what's changed.</strong>
-  Version: 7.1.2
+  Version: 7.1.4
   Author: Stefano Lissa & The Newsletter Team
   Author URI: https://www.thenewsletterplugin.com
   Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -35,7 +35,7 @@ if (version_compare(phpversion(), '5.6', '<')) {
     return;
 }
 
-define('NEWSLETTER_VERSION', '7.1.2');
+define('NEWSLETTER_VERSION', '7.1.4');
 
 global $newsletter, $wpdb;
 
@@ -436,6 +436,8 @@ class Newsletter extends NewsletterModule {
             $this->save_options($this->options);
         }
 
+        // Clear the addons and license caches
+        delete_transient('newsletter_license_data');
         delete_transient("tnp_extensions_json");
 
         touch(NEWSLETTER_LOG_DIR . '/index.html');
@@ -511,6 +513,12 @@ class Newsletter extends NewsletterModule {
             wp_enqueue_style('newsletter', plugins_url('newsletter') . '/style.css', [], NEWSLETTER_VERSION);
             if (!empty($this->options['css'])) {
                 wp_add_inline_style('newsletter', $this->options['css']);
+            }
+        } else {
+            if (!empty($this->options['css'])) {
+                add_action('wp_head', function () {
+                    echo '<style>', $this->options['css'], '</style>';
+                });
             }
         }
     }
@@ -819,24 +827,24 @@ class Newsletter extends NewsletterModule {
         }
 
         $end_time = microtime(true);
+        
+        // We sent to all supplied users, but warning that no more should be processed
+        if (!$test && $supplied_users && $this->limits_exceeded()) {
+            $result = false;
+        }
 
         //Se non sono in test e ho completato con successo delle spedizioni aggiorno i dati di diagnostica
         if (!$test && $count > 0) {
 
             NewsletterStatistics::instance()->reset_stats_time($email->id);
 
-            $send_calls = get_option('newsletter_diagnostic_send_calls', array());
+            $send_calls = get_option('newsletter_diagnostic_send_calls', []);
             $send_calls[] = array($start_time, $end_time, $count, $result);
 
             if (count($send_calls) > self::MAX_CRON_SAMPLES)
                 array_shift($send_calls);
 
             update_option('newsletter_diagnostic_send_calls', $send_calls, false);
-        }
-
-        // We sent to all supplied users, but warning that no more should be processed
-        if (!$test && $supplied_users && $this->limits_exceeded()) {
-            $result = false;
         }
 
         $this->logger->info(__METHOD__ . '> End run for email ' . $email->id);
@@ -932,7 +940,7 @@ class Newsletter extends NewsletterModule {
             return;
         }
         $status = empty($message->error) ? 0 : 1;
-        
+
         $error = mb_substr($message->error, 0, 250);
 
         $this->query($wpdb->prepare("insert into " . $wpdb->prefix . 'newsletter_sent (user_id, email_id, time, status, error) values (%d, %d, %d, %d, %s) on duplicate key update time=%d, status=%d, error=%s', $message->user_id, $message->email_id, time(), $status, $error, time(), $status, $error));
@@ -1269,7 +1277,7 @@ class Newsletter extends NewsletterModule {
             } else {
 
                 $extensions_json = wp_remote_retrieve_body($extensions_response);
-                
+
                 // Not clear cases
                 if (empty($extensions_json) || !json_decode($extensions_json)) {
                     $this->logger->error('Invalid json from thenewsletterplugin.com: retrying in 72 hours');
@@ -1378,6 +1386,16 @@ class Newsletter extends NewsletterModule {
         return false;
     }
 
+    /**
+     * Get the data connected to the specified license code on man settings.
+     * 
+     * - false if no license is present
+     * - WP_Error if something went wrong if getting the license data
+     * - object with expiration and addons list
+     * 
+     * @param boolean $refresh
+     * @return \WP_Error|boolean|object
+     */
     function get_license_data($refresh = false) {
 
         $this->logger->debug('Getting license data');
@@ -1385,6 +1403,7 @@ class Newsletter extends NewsletterModule {
         $license_key = $this->get_license_key();
         if (empty($license_key)) {
             $this->logger->debug('License was empty');
+            delete_transient('newsletter_license_data');
             return false;
         }
 
