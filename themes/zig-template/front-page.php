@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 
+
+
+
 <section class="hero">
   <div class="hero__content padding-l">
     <div class="frontpage-title">TU SĄ </br>MOŻLIWOŚCI
@@ -63,7 +66,7 @@
     <p>Sporo się u nas dzieje.</p>
     <p>Bądź zawsze na bieżąco </p>
   </div>
-	<?php echo do_shortcode( '[sp_wpcarousel id="293"]' ); ?>
+	<?php echo do_shortcode( '[sp_wpcarousel id="395"]' ); ?>
   <button class="button grenade">ZOBACZ WSZYSTKIE</button>
 </section>
 <section class="slogan padding-x">

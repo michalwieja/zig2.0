@@ -547,7 +547,7 @@ class NewsletterSubscription extends NewsletterModule {
             }
 
             // If the existing subscriber esists and is already confirmed, park the data until the new subscription is confirmed itself
-            if ($user->status == Newsletter::STATUS_CONFIRMED && $subscription->optin == 'double') {
+            if ($user->status == TNP_User::STATUS_CONFIRMED && $subscription->optin == 'double') {
 
                 set_transient('newsletter_subscription_' . $user->id, $subscription->data, 3600 * 48);
 
@@ -569,7 +569,7 @@ class NewsletterSubscription extends NewsletterModule {
 
             $user->token = $this->get_token();
 
-            $user->status = $subscription->optin == 'single' ? Newsletter::STATUS_CONFIRMED : Newsletter::STATUS_NOT_CONFIRMED;
+            $user->status = $subscription->optin == 'single' ? TNP_User::STATUS_CONFIRMED : TNP_User::STATUS_NOT_CONFIRMED;
             $user->updated = time();
         }
 
@@ -580,14 +580,14 @@ class NewsletterSubscription extends NewsletterModule {
         $this->add_user_log($user, 'subscribe');
 
         // Notification to admin (only for new confirmed subscriptions)
-        if ($user->status == Newsletter::STATUS_CONFIRMED) {
+        if ($user->status == TNP_User::STATUS_CONFIRMED) {
             do_action('newsletter_user_confirmed', $user);
             $this->notify_admin_on_subscription($user);
             setcookie('newsletter', $user->id . '-' . $user->token, time() + 60 * 60 * 24 * 365, '/');
         }
 
         if ($subscription->send_emails) {
-            $this->send_message(($user->status == Newsletter::STATUS_CONFIRMED) ? 'confirmed' : 'confirmation', $user);
+            $this->send_message(($user->status == TNP_User::STATUS_CONFIRMED) ? 'confirmed' : 'confirmation', $user);
         }
 
         // Used by Autoresponder (probably)
@@ -635,7 +635,7 @@ class NewsletterSubscription extends NewsletterModule {
             // If a status is forced and it is requested to be "confirmed" is like a single opt in
             // $status here can only be confirmed or not confirmed
             // TODO: Add a check on status values
-            if ($status == Newsletter::STATUS_CONFIRMED) {
+            if ($status == TNP_User::STATUS_CONFIRMED) {
                 $opt_in = self::OPTIN_SINGLE;
             } else {
                 $opt_in = self::OPTIN_DOUBLE;
@@ -667,7 +667,7 @@ class NewsletterSubscription extends NewsletterModule {
 
             // If the subscriber is confirmed, we cannot change his data in double opt in mode, we need to
             // temporary store and wait for activation
-            if ($user->status == Newsletter::STATUS_CONFIRMED && $opt_in == self::OPTIN_DOUBLE) {
+            if ($user->status == TNP_User::STATUS_CONFIRMED && $opt_in == self::OPTIN_DOUBLE) {
 
                 set_transient($this->get_user_key($user), $_REQUEST, 3600 * 48);
 
@@ -697,7 +697,7 @@ class NewsletterSubscription extends NewsletterModule {
         $ip = $this->process_ip($ip);
         $user['ip'] = $ip;
         $user['geo'] = 0;
-        $user['status'] = $opt_in == self::OPTIN_SINGLE ? Newsletter::STATUS_CONFIRMED : Newsletter::STATUS_NOT_CONFIRMED;
+        $user['status'] = $opt_in == self::OPTIN_SINGLE ? TNP_User::STATUS_CONFIRMED : TNP_User::STATUS_NOT_CONFIRMED;
 
         $user['updated'] = time();
 
@@ -708,14 +708,14 @@ class NewsletterSubscription extends NewsletterModule {
         $this->add_user_log($user, 'subscribe');
 
         // Notification to admin (only for new confirmed subscriptions)
-        if ($user->status == Newsletter::STATUS_CONFIRMED) {
+        if ($user->status == TNP_User::STATUS_CONFIRMED) {
             do_action('newsletter_user_confirmed', $user);
             $this->notify_admin_on_subscription($user);
             setcookie('newsletter', $user->id . '-' . $user->token, time() + 60 * 60 * 24 * 365, '/');
         }
 
         if ($emails) {
-            $this->send_message(($user->status == Newsletter::STATUS_CONFIRMED) ? 'confirmed' : 'confirmation', $user);
+            $this->send_message(($user->status == TNP_User::STATUS_CONFIRMED) ? 'confirmed' : 'confirmation', $user);
         }
 
         $user = apply_filters('newsletter_user_post_subscribe', $user);
@@ -986,7 +986,7 @@ class NewsletterSubscription extends NewsletterModule {
             $data->merge_in($user);
             //$this->merge($user, $data);
             $user = $this->save_user($user);
-            $user->status = Newsletter::STATUS_NOT_CONFIRMED;
+            $user->status = TNP_User::STATUS_NOT_CONFIRMED;
             delete_transient('newsletter_subscription_' . $user->id);
         } else {
             $new_email = get_transient('newsletter_user_' . $user->id . '_email');
@@ -1042,7 +1042,7 @@ class NewsletterSubscription extends NewsletterModule {
         $message = [];
         $message['html'] = do_shortcode($options[$type . '_message']);
         $message['text'] = $this->get_text_message($type);
-        if ($user->status == Newsletter::STATUS_NOT_CONFIRMED) {
+        if ($user->status == TNP_User::STATUS_NOT_CONFIRMED) {
             $message['html'] = $this->add_microdata($message['html']);
         }
         $subject = $options[$type . '_subject'];

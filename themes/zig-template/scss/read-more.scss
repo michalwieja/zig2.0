@@ -11,18 +11,23 @@
     font-size: 14px;
   }
 
-  &:hover &::after{
-    margin-left: 40px;
-  }
 
   a {
     color: $black;
     text-decoration: none;
   }
 
+  &:hover {
+    &::after {
+      margin-left: 40px;
+    }
+  }
+
   &::after {
     content: url("/wp-content/themes/zig-template/assets/arrow-right.svg");
     margin-left: 20px;
+    transition: .3s;
+    pointer-events: none;
   }
 
   &.light-blue {

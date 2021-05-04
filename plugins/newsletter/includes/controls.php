@@ -936,8 +936,8 @@ class NewsletterControls {
         $this->btn('save', __('Save', 'newsletter'), ['icon' => 'fa-save']);
     }
 
-    function button_reset() {
-        $this->btn('reset', __('Reset', 'newsletter'), ['icon' => 'fa-reply', 'confirm' => true]);
+    function button_reset($action = 'reset') {
+        $this->btn($action, __('Reset', 'newsletter'), ['icon' => 'fa-reply', 'confirm' => true]);
     }
 
     function button_copy($data = '') {

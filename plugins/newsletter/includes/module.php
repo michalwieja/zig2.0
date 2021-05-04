@@ -16,6 +16,7 @@ class TNP_Media {
     var $height;
     var $alt;
     var $link;
+    var $align = 'center';
 
     /** Sets the width recalculating the height */
     public function set_width($width) {

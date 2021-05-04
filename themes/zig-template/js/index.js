@@ -65,10 +65,6 @@ const homeCarouselFunctions = () => {
   setOpacityOnLastPost();
 };
 
-document.addEventListener("DOMContentLoaded", homeCarouselFunctions);
-
-hamburger.addEventListener('click', () => handleHamburgerClick());
-
 if (window.location.pathname === '/dolacz/') {
   header.classList.add('inverted');
 } else {
@@ -82,4 +78,19 @@ const handleHamburgerClick = () => {
 
 //end menu
 
+const handleActiveCategory = () => {
+  const urls = ['category/wszystkie', 'category/strefa-prawo-podatki-finanse', 'category/strefa-marketing-hr-sprzedaz', 'category/strefa-lidera', 'category/aktualnosci']
 
+  urls.forEach(url => {
+    if (window.location.href.indexOf(url) > -1) {
+      const link = document.querySelector(`a[href = "/${url}"]`);
+      link.querySelector('button').classList.add('active')
+    }
+  })
+};
+
+handleActiveCategory();
+
+document.addEventListener("DOMContentLoaded", homeCarouselFunctions);
+
+hamburger.addEventListener('click', () => handleHamburgerClick());

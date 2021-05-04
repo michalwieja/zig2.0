@@ -4,6 +4,8 @@ get_header();
 
 if ( is_page( 'dolacz' ) ) {
 	include 'join.php';
+} else if ( is_page( 'spolecznosc' ) ) {
+	include 'society.php';
 } else {
 	the_content();
 }
@@ -16,7 +18,6 @@ if ( is_page( 'dolacz' ) ) {
 	?>
 
 </section>
-
 
 
 <?php

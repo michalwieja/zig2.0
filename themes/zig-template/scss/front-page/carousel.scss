@@ -30,7 +30,9 @@
 
   .slick-slide {
     min-height: 460px;
-    //max-height: 460px;
+    @include respond-to($small){
+      min-height: 375px;
+    }
 
     img {
       width: 100%;
@@ -51,6 +53,7 @@
         left: 7%;
         position: absolute;
         max-width: 86%;
+
       }
 
       .wpcp-post-meta {

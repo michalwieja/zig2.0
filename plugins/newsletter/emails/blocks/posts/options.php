@@ -43,10 +43,8 @@ if (class_exists('NewsletterExtensions')) {
 
 <?php } ?>
 
-<div class="tnp-field-row">
-    <label class="tnp-row-label"><?php _e( 'Layout', 'newsletter' ) ?></label>
-    <div class="tnp-field-col-2">
-	    <?php $fields->select( 'layout', '',
+
+	    <?php $fields->select( 'layout', __( 'Layout', 'newsletter' ),
 		    array(
 			    'one'       => __( 'One column', 'newsletter' ),
 			    'one-2'     => __( 'One column variant', 'newsletter' ),
@@ -55,19 +53,18 @@ if (class_exists('NewsletterExtensions')) {
 			    'full-post' => __( 'Full post', 'newsletter' )
 		    ) )
 	    ?>
-    </div>
-    <div class="tnp-field-col-2">
-		<?php $fields->checkbox( 'show_image', __( 'Show image', 'newsletter' ) ) ?>
-    </div>
-</div>
+    
 
 <div class="tnp-field-row">
     <label class="tnp-row-label"><?php _e('Post info', 'newsletter') ?></label>
-    <div class="tnp-field-col-2">
+    <div class="tnp-field-col-3">
 		<?php $fields->checkbox('show_date', __('Show date', 'newsletter')) ?>
     </div>
-    <div class="tnp-field-col-2">
+    <div class="tnp-field-col-3">
 		<?php $fields->checkbox('show_author', __('Show author', 'newsletter')) ?>
+    </div>
+    <div class="tnp-field-col-3">
+    <?php $fields->checkbox( 'show_image', __( 'Show image', 'newsletter' ) ) ?>
     </div>
     <div style="clear: both"></div>
 </div>

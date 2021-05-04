@@ -9,12 +9,7 @@
 /* @var $options array */
 /* @var $wpdb wpdb */
 
-$default_options = array(
-    'view'=>'View online',
-    'text'=>'Few words summary',
-    'font_family'=>$font_family,
-    'font_size'=>13,
-    'color'=>'#999999',
+$defaults = array(
     'block_padding_top'=>15,
     'block_padding_bottom'=>15,
     'block_padding_left'=>0,
@@ -23,14 +18,14 @@ $default_options = array(
     'giphy_url' => ''
 );
 
-$options = array_merge($default_options, $options);
+$options = array_merge($defaults, $options);
 
 ?>
 
-<table width="100%" border="0" cellpadding="0" align="center" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" align="center" cellspacing="0" class="responsive">
     <tr>
         <td width="100%" valign="top" align="center">
-            <img src="<?php echo $options['giphy_url'] ?>" style="max-width: 100%!important; height: auto!important;" />
+            <img src="<?php echo $options['giphy_url'] ?>" style="max-width: 100%!important; height: auto!important;">
         </td>
     </tr>
 </table>
