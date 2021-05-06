@@ -22,6 +22,7 @@ get_header(); ?>
     <div class="date">
 		<?php
 		echo get_the_date( 'd F, Y' );
+		the_title()
 
 		?>
 

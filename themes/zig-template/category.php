@@ -11,8 +11,8 @@ get_header(); ?>
       Perspektywy
     </div>
     <div class="column subpage-text">
-      Na blogu Zagłębiowskiej Izby Gospodarczej eksperci ZIG dzielą się wiedzą i doświadczeniem. Tu
-      znajdziesz informacje m.in. z zakresu biznesu, prawa, ekonomii, marketingu, które pomogą Ci
+      Na blogu Zagłębiowskiej Izby Gospodarczej eksperci ZIG dzielą się wiedzą i&nbsp;doświadczeniem. Tu
+      znajdziesz informacje m.in. z&nbsp;zakresu biznesu, prawa, ekonomii, marketingu, które pomogą Ci
       rozwijać Twoją firmę
     </div>
   </div>

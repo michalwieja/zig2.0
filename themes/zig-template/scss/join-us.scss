@@ -1,3 +1,7 @@
+.join {
+  background-color: $grey;
+}
+
 .join-us {
   width: 100%;
   margin-top: 100px;
@@ -260,7 +264,7 @@
 
   &__header, &__row {
     display: grid;
-    grid-template-columns: 67px clamp(275px, 30vw ,318px) repeat(2, clamp(215px, 30vw ,318px));
+    grid-template-columns: 67px clamp(275px, 30vw, 318px) repeat(2, clamp(215px, 30vw, 318px));
   }
 
   &__header {
@@ -345,6 +349,10 @@
 
     &.focus {
       border: 2px solid #85D4FF;
+
+      .text-input__label {
+        top: 0;
+      }
     }
 
     &.has-value {

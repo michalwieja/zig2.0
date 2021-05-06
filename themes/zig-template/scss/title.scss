@@ -20,6 +20,9 @@
   &.white {
     color: white;
     font-weight: 500;
+    font-size: clamp(20px, 2.3vw, 48px);
+
+
   }
 }
 

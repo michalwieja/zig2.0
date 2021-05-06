@@ -30,7 +30,8 @@
   }
 
   .card {
-    width: 30vw;
+    border-bottom: 3px solid white;
+    padding-bottom: 30px;
 
     &:nth-child(even) {
       position: relative;
@@ -99,7 +100,7 @@
 
 
     #s{
-      max-width: 175px;
+      max-width: 150px;
     }
     .cards {
       grid-template-columns: 1fr;

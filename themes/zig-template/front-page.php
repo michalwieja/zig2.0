@@ -1,13 +1,11 @@
 <?php get_header(); ?>
 
 
-
-
 <section class="hero">
   <div class="hero__content padding-l">
     <div class="frontpage-title">TU SĄ </br>MOŻLIWOŚCI
     </div>
-    <div class="hero__text">Sukcesu w biznesie nie buduje się w pojedynkę, dlatego tworzymy
+    <div class="hero__text">Sukcesu w biznesie nie buduje się w&nbsp;pojedynkę, dlatego tworzymy
       społeczność, która daje wartość
     </div>
     <div class="button-wrapper">
@@ -39,8 +37,9 @@
 		  $do_not_duplicate[] = $post->ID; ?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class( '' ); ?> >
-			<?php the_post_thumbnail( 'full' ); ?>
-
+          <a href="<?php the_permalink(); ?>">
+			  <?php the_post_thumbnail( 'full' ); ?>
+          </a>
         </div>
         <div class="hero__description">
           <div class="title">
@@ -74,7 +73,8 @@
     Lepszy&nbsp;biznes,</br> lepsze życie
   </div>
   <div class="text">
-    Jesteśmy tu, aby inspirować, wspierać i rozwijać się. Stwarzamy możliwości i potrafimy z nich
+    Jesteśmy tu, aby inspirować, wspierać i&nbsp;rozwijać się. Stwarzamy możliwości i&nbsp;potrafimy
+    z nich
     korzystać. Pamiętamy też, że za każdym biznesem stoi człowiek
   </div>
 </section>
@@ -90,8 +90,8 @@
           <p>KONTAKTY</p>
         </div>
         <div class="text">
-          Dołącz do społeczności, która tworzy biznes na Śląsku i w zagłębiu.
-          Zdobądź nowych klientów i poznaj dostawców rozwiązań dla Twojej firmy
+          Dołącz do społeczności, która tworzy biznes na Śląsku i&nbsp;w&nbsp;zagłębiu.
+          Zdobądź nowych klientów i&nbsp;poznaj dostawców rozwiązań dla Twojej firmy
         </div>
         <div class="arrow">
           <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
@@ -106,7 +106,7 @@
         </div>
         <div class="text">
           Szkolenia, warsztaty, spotkania, wspólne pasje. Tu znajdziesz inspiracje,
-          motywację i odpowiednich partnerów
+          motywację i&nbsp;odpowiednich partnerów
         </div>
         <div class="arrow">
           <img alt="" src="wp-content/themes/zig-template/assets/arrow-right.svg">
@@ -120,7 +120,7 @@
           <p>I WIEDZA </p>
         </div>
         <div class="text">
-          Korzystaj z wiedzy innych, dziel
+          Korzystaj z&nbsp;wiedzy innych, dziel
           się własnymi doświadczeniami.
           Razem budujmy wartość
         </div>
@@ -134,9 +134,8 @@
 <section class="motto padding-x">
   <div class="column">
     <div class="motto__title">
-      Jesteśmy społecznością przedsiębiorców opartą o
-      wartości i
-      poczucie wpływu na nasze firmy, miasto, region i ich
+      Jesteśmy społecznością przedsiębiorców opartą o&nbsp;wartości i&nbsp;poczucie wpływu na nasze
+      firmy, miasto, region i&nbsp;ich
       mieszkańców.
     </div>
     <button class="button">Poznaj nas</button>
@@ -145,10 +144,8 @@
     <div class="motto__text">
       Wierzymy, że biznes to coś więcej niż pieniądze.
       Bierzemy odpowiedzialność, chcemy się rozwijać, szukamy
-      inspiracji
-      i dajemy przykład. Dobrze wiemy, że razem jesteśmy silniejsi,
-      a nasz
-      wspólny głos ma znaczenie.
+      inspiracji i&nbsp;dajemy przykład. Dobrze wiemy, że razem jesteśmy silniejsi, a nasz wspólny
+      głos ma znaczenie.
     </div>
 
   </div>
@@ -160,10 +157,10 @@
         RELACJE SĄ NAJWAŻNIEJSZE
       </div>
       <div class="text">
-        <p>Razem jesteśmy silniejsi i mamy większy wpływ nie tylko na świat biznesu. Wierzymy w
-          skuteczność efektu synergii wiedzy, doświadczenia i odpowiedzialnego podejścia. To na
-          nich budujemy przewagę naszych biznesów i Zagłębiowskiej Izby Gospodarczej.</p>
-        <p>Dbam o jakość relacji w Zagłębiowskiej Izbie Gospodarczej. Poznam Cię z odpowiednimi
+        <p>Razem jesteśmy silniejsi i&nbsp;mamy większy wpływ nie tylko na świat biznesu. Wierzymy w&nbsp;skuteczność
+          efektu synergii wiedzy, doświadczenia i&nbsp;odpowiedzialnego podejścia. To na
+          nich budujemy przewagę naszych biznesów i&nbsp;Zagłębiowskiej Izby Gospodarczej.</p>
+        <p>Dbam o jakość relacji w&nbsp;Zagłębiowskiej Izbie Gospodarczej. Poznam Cię z&nbsp;odpowiednimi
           ludźmi </p>
         <p>Paulina Piętowska Relationship Menager</p>
       </div>

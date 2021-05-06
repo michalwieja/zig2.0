@@ -2,14 +2,12 @@
   border: none;
   color: $black;
   background-color: transparent;
-  font-size: 18px;
+  font-size: clamp(14px, 1vw, 18px);
   cursor: pointer;
   font-family: $font-family;
   position: relative;
   transition: .3s;
-  @include respond-to($small) {
-    font-size: 14px;
-  }
+
 
 
   a {
