@@ -5,7 +5,7 @@
         POZNAJMY SIĘ
       </div>
       <div class="column subpage-text">
-        Sprawdź kto już działa w Zagłębiowskiej Izbie Gospodarczej i dołącz do nas.
+        Sprawdź kto już działa w&nbsp;Zagłębiowskiej Izbie Gospodarczej i&nbsp;dołącz do nas.
       </div>
     </div>
     <div class="filters">

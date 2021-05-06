@@ -4,7 +4,7 @@
   }
 
   &.inverted {
-    background-color: #E5E5E5;
+    background-color: #EEE;
   }
 
   @include flex(center, space-between);
@@ -22,7 +22,7 @@
       color: $blue;
       text-decoration: underline;
       text-decoration-color: $blue;
-      text-underline-offset: 30px;
+      text-underline-offset: 20px;
       text-decoration-thickness: 5px;
     }
   }

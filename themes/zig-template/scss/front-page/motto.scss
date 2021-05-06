@@ -18,6 +18,7 @@
 
   &__text {
     font-size: 18px;
+    padding-bottom: 2.5vw;
   }
 }
 
@@ -28,6 +29,10 @@
 
     .column {
       width: 100%;
+    }
+
+    &__title {
+      padding-bottom: 0;
     }
 
     &__text {

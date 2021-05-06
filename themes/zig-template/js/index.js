@@ -65,7 +65,7 @@ const homeCarouselFunctions = () => {
   setOpacityOnLastPost();
 };
 
-if (window.location.pathname === '/dolacz/') {
+if (['/dolacz/', '/dolacz', 'dolacz'].includes(window.location.pathname) || window.location.search === '?page_id=29') {
   header.classList.add('inverted');
 } else {
   header.classList.remove('inverted');
