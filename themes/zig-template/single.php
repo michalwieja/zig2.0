@@ -18,14 +18,15 @@ get_header(); ?>
 		?>
 
     </div>
+<!--    <h1>--><?php //the_title() ?><!--</h1>-->
+
 
     <div class="date">
 		<?php
 		echo get_the_date( 'd F, Y' );
-		the_title()
+
 
 		?>
-
     </div>
 
 	  <?php
