@@ -66,7 +66,9 @@
     <p>Bądź zawsze na bieżąco </p>
   </div>
 	<?php echo do_shortcode( '[sp_wpcarousel id="395"]' ); ?>
-  <button class="button grenade">ZOBACZ WSZYSTKIE</button>
+  <a href="/perspektywy">
+    <button class="button grenade">ZOBACZ WSZYSTKIE</button>
+  </a>
 </section>
 <section class="slogan padding-x">
   <div class="frontpage-title title">
@@ -138,7 +140,9 @@
       firmy, miasto, region i&nbsp;ich
       mieszkańców.
     </div>
-    <button class="button desktop-only">Poznaj nas</button>
+    <a href="/zig">
+      <button class="button desktop-only">Poznaj nas</button>
+    </a>
   </div>
   <div class="column">
     <div class="motto__text">
@@ -147,7 +151,9 @@
       inspiracji i&nbsp;dajemy przykład. Dobrze wiemy, że razem jesteśmy silniejsi, a nasz wspólny
       głos ma znaczenie.
     </div>
-    <button class="button tablet-only">Poznaj nas</button>
+    <a href="/zig">
+      <button class="button tablet-only">Poznaj nas</button>
+    </a>
   </div>
 </section>
 <section class="relations">
@@ -164,7 +170,9 @@
           ludźmi </p>
         <p>Paulina Piętowska Relationship Menager</p>
       </div>
-      <button class="button white">połączmy siły</button>
+      <a href="/dolacz">
+        <button class="button white">połączmy siły</button>
+      </a>
     </div>
 
   </div>
