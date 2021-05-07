@@ -138,7 +138,7 @@
       firmy, miasto, region i&nbsp;ich
       mieszkańców.
     </div>
-    <button class="button">Poznaj nas</button>
+    <button class="button desktop-only">Poznaj nas</button>
   </div>
   <div class="column">
     <div class="motto__text">
@@ -147,7 +147,7 @@
       inspiracji i&nbsp;dajemy przykład. Dobrze wiemy, że razem jesteśmy silniejsi, a nasz wspólny
       głos ma znaczenie.
     </div>
-
+    <button class="button tablet-only">Poznaj nas</button>
   </div>
 </section>
 <section class="relations">

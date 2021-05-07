@@ -98,7 +98,7 @@
         }
 
         &:before {
-          content: url(/wp-content/uploads/2021/04/tick.svg);
+          content: url(/wp-content/themes/zig-template/assets/tick.svg);
           background-color: #0028c8;
           display: flex;
           align-items: center;
@@ -348,7 +348,7 @@
     }
 
     &.focus {
-      border: 2px solid #85D4FF;
+      border: 2px solid #0028c8;
 
       .text-input__label {
         top: 0;
@@ -356,7 +356,7 @@
     }
 
     &.has-value {
-      border-color: #85D4FF;
+      border-color: #0028c8;
 
       .text-input__label {
         top: 0;

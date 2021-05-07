@@ -19,7 +19,7 @@
   transition: .3s;
   cursor: pointer;
   text-align: center;
-  padding:0 10px;
+  padding: 0 10px;
 
   &.active {
     color: white;
@@ -86,6 +86,41 @@
   }
 }
 
+.desktop-only {
+  @include respond-to($large) {
+    display: none;
+  }
+}
 
+.tablet-only {
+  display: none;
 
+  @include respond-to($large) {
+    display: block;
+  }
+}
 
+.fa-angle-right {
+  &:before {
+    content: '' !important;
+    width: 32px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url(/wp-content/themes/zig-template/assets/arrow-right-light-blue.svg);
+  }
+}
+
+.slick-next.slick-arrow {
+  &:hover {
+    .fa-angle-right {
+      &:before {
+        background: url(/wp-content/themes/zig-template/assets/arrow-right-white.svg);
+      }
+    }
+  }
+}

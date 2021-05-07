@@ -16,7 +16,6 @@ if ( is_page( 'dolacz' ) ) {
 	<?php
 	dynamic_sidebar( 'newsletter' )
 	?>
-
 </section>
 
 

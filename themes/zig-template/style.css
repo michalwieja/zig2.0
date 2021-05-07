@@ -105,6 +105,38 @@ a {
     min-width: 100px;
   }
 }
+@media only screen and (max-width: 1152px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+.tablet-only {
+  display: none;
+}
+@media only screen and (max-width: 1152px) {
+  .tablet-only {
+    display: block;
+  }
+}
+
+.fa-angle-right:before {
+  content: "" !important;
+  width: 32px;
+  height: 14px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url(/wp-content/themes/zig-template/assets/arrow-right-light-blue.svg);
+}
+
+.slick-next.slick-arrow:hover .fa-angle-right:before {
+  background: url(/wp-content/themes/zig-template/assets/arrow-right-white.svg);
+}
+
 .read-more {
   border: none;
   color: #343434;
@@ -272,7 +304,7 @@ a {
   z-index: 3;
 }
 .header.inverted {
-  background-color: #E5E5E5;
+  background-color: #EEE;
 }
 .header__nav {
   display: flex;
@@ -584,6 +616,11 @@ a {
   padding-bottom: clamp(50px, 5vw, 100px);
   margin-right: -12.5%;
 }
+@media only screen and (max-width: 980px) {
+  .carousel {
+    margin-right: -25%;
+  }
+}
 @media only screen and (max-width: 765px) {
   .carousel {
     padding-right: 30px;
@@ -654,6 +691,11 @@ a {
 @media only screen and (max-width: 1152px) {
   .carousel .slick-next {
     margin-left: -10%;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .carousel .slick-next {
+    margin-left: -25%;
   }
 }
 @media only screen and (max-width: 735px) {
@@ -870,7 +912,7 @@ a {
 @media only screen and (max-width: 1366px) {
   .profits .card {
     width: 25vw;
-    min-height: 320px;
+    min-height: 385px;
   }
   .profits .card .title {
     font-size: clamp(20px, 2vw, 32px);
@@ -980,6 +1022,7 @@ a {
 }
 .motto__text {
   font-size: 18px;
+  padding-bottom: 2.5vw;
 }
 
 @media only screen and (max-width: 1152px) {
@@ -989,6 +1032,9 @@ a {
   }
   .motto .column {
     width: 100%;
+  }
+  .motto__title {
+    padding-bottom: 0;
   }
   .motto__text {
     font-size: 16px;
@@ -1878,7 +1924,7 @@ a {
   color: rgba(0, 40, 200, 0.5);
 }
 .join-us .progress-bar__element.past:before {
-  content: url(/wp-content/uploads/2021/04/tick.svg);
+  content: url(/wp-content/themes/zig-template/assets/tick.svg);
   background-color: #0028c8;
   display: flex;
   align-items: center;
@@ -2095,13 +2141,13 @@ a {
   border: 1px solid #EB5757 !important;
 }
 .text-input__wrapper.focus {
-  border: 2px solid #85D4FF;
+  border: 2px solid #0028c8;
 }
 .text-input__wrapper.focus .text-input__label {
   top: 0;
 }
 .text-input__wrapper.has-value {
-  border-color: #85D4FF;
+  border-color: #0028c8;
 }
 .text-input__wrapper.has-value .text-input__label {
   top: 0;
