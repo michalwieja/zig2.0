@@ -82,6 +82,7 @@
 
 @include respond-to($xs) {
   .newsletter {
+    gap: 10px;
     line-height: unset;
   }
 }

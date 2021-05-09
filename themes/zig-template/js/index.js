@@ -3,6 +3,7 @@
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('.header__nav');
 const header = document.querySelector('.header');
+const wrapper = document.querySelector('.wrapper');
 let interval = null;
 
 const getHomeCarouselElements = () => {
@@ -40,7 +41,7 @@ const formatTime = (carousel_post_time) => {
 
 const injectReadMoreButton = (carousel_post) => {
   const posts = Array.from(carousel_post);
-  posts.forEach((post) =>{
+  posts.forEach((post) => {
     const post_content = post.querySelector('.wpcp-single-item > .wpcp-all-captions');
     if (!post_content) return;
     post_content.innerHTML += '<button class="read-more">Czytaj więcej</button>';
@@ -75,6 +76,8 @@ const homeCarouselFunctions = () => {
 const handleHamburgerClick = () => {
   hamburger.classList.toggle('active');
   nav.classList.toggle('active');
+  wrapper.classList.toggle('active')
+
 };
 
 //end menu

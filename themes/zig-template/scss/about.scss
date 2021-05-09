@@ -36,14 +36,14 @@
 
       .text {
         .title {
-          font-size: 20px;
+          font-size: clamp(16px, 3vw, 20px);
           font-weight: 500;
           line-height: 26px;
           padding-bottom: 5px;
         }
 
         p {
-          font-size: 18px;
+          font-size: clamp(14px, 2.5vw, 18px);
           line-height: 32px;
           margin-bottom: 20px;
         }
@@ -97,7 +97,7 @@
   }
 }
 
-@include respond-to($xl) {
+@include respond-to($xxl) {
   .about {
     .partners {
       .grid {
@@ -107,7 +107,7 @@
   }
 }
 
-@include respond-to($medium) {
+@include respond-to($large) {
   .about {
     .partners {
       .grid {

@@ -1,6 +1,10 @@
 <?php
 get_header();
 
+?>
+<div class="wrapper">
+
+  <?php
 
 if ( is_page( 'dolacz' ) ) {
 	include 'join.php';
@@ -11,7 +15,7 @@ if ( is_page( 'dolacz' ) ) {
 }
 ?>
 
-
+</div>
 <section class="newsletter">
 	<?php
 	dynamic_sidebar( 'newsletter' )
