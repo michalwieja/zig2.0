@@ -61,6 +61,10 @@
   .footer {
     flex-direction: column;
 
+    .map {
+      padding-top: 0;
+    }
+
     .column {
       width: 100%;
 

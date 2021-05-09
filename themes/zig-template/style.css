@@ -293,6 +293,9 @@ a {
 }
 .header {
   z-index: 6;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
   display: flex;
   display: -webkit-flex;
   align-items: center;
@@ -303,9 +306,6 @@ a {
 }
 .header__logo {
   z-index: 5;
-}
-.header.inverted {
-  background-color: #EEE;
 }
 .header__nav {
   display: flex;
@@ -321,8 +321,13 @@ a {
   color: #0028c8;
   text-decoration: underline;
   text-decoration-color: #0028c8;
-  text-underline-offset: 20px;
+  text-underline-offset: 25px;
   text-decoration-thickness: 5px;
+}
+@media only screen and (max-width: 1366px) {
+  .header .current-menu-item a {
+    text-underline-offset: 10px;
+  }
 }
 .header li {
   transition: 0.3s;
@@ -409,15 +414,6 @@ a {
     transition: 0.3s;
     border-top: 1px solid #c4c4c4;
   }
-  .header__nav:before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: #333333a1;
-  }
   .header__nav .menu-item {
     width: 100%;
     text-align: center;
@@ -425,9 +421,8 @@ a {
   }
   .header__nav .join {
     order: 2;
+    background-color: #fff;
     position: relative;
-    border-top: 1px solid #c4c4c4;
-    border-bottom: 1px solid #c4c4c4;
   }
   .header__nav .phone {
     order: 3;
@@ -956,6 +951,9 @@ a {
   color: #ffffff;
   padding-top: clamp(50px, 5vw, 100px);
   padding-bottom: clamp(50px, 5vw, 100px);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 .relations .text {
   font-size: clamp(14px, 1vw, 18px);
@@ -964,7 +962,7 @@ a {
 @media only screen and (max-width: 765px) {
   .relations .text {
     font-size: 14px;
-    padding: 2vw;
+    padding: 0;
   }
 }
 .relations .text p {
@@ -1024,7 +1022,7 @@ a {
 }
 .motto__text {
   font-size: 18px;
-  padding-bottom: 2.5vw;
+  padding-bottom: clamp(35px,2.5vw,50px);
 }
 
 @media only screen and (max-width: 1152px) {
@@ -1195,6 +1193,9 @@ a {
   .footer {
     flex-direction: column;
   }
+  .footer .map {
+    padding-top: 0;
+  }
   .footer .column {
     width: 100%;
   }
@@ -1303,6 +1304,7 @@ a {
 }
 @media only screen and (max-width: 650px) {
   .newsletter {
+    gap: 10px;
     line-height: unset;
   }
 }
@@ -1328,11 +1330,11 @@ a {
 }
 .events .content {
   width: 50%;
-  padding: clamp(25px, 2.5vw, 50px);
-  height: 66%;
+  padding: clamp(25px, 5vw, 100px) clamp(25px, 4vw, 80px);
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .events .content .title {
   font-size: clamp(18px, 2vw, 36px);
@@ -1416,13 +1418,13 @@ a {
   display: block;
 }
 .about .important .content .text .title {
-  font-size: 20px;
+  font-size: clamp(16px, 3vw, 20px);
   font-weight: 500;
   line-height: 26px;
   padding-bottom: 5px;
 }
 .about .important .content .text p {
-  font-size: 18px;
+  font-size: clamp(14px, 2.5vw, 18px);
   line-height: 32px;
   margin-bottom: 20px;
 }
@@ -1470,12 +1472,12 @@ a {
   padding: 2.5vw 1.25vw;
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1680px) {
   .about .partners .grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1152px) {
   .about .partners .grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1551,7 +1553,7 @@ a {
 }
 .opportunities .cards .card .content {
   background-color: #ffffff;
-  padding: clamp(25px, 2vw, 50px);
+  padding: clamp(25px, 3vw, 70px);
   display: flex;
   display: -webkit-flex;
   align-items: start;
@@ -1560,12 +1562,11 @@ a {
   grid-gap: 10px;
 }
 .opportunities .cards .card .content .title {
-  font-size: clamp(20px, 2.5vw, 48px);
+  font-size: clamp(20px, 2.3vw, 48px);
   color: #0028c8;
   font-weight: bold;
   text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 5px;
+  text-underline-offset: 0.5vw;
 }
 @media only screen and (max-width: 765px) {
   .opportunities .cards .card .content .title {
@@ -1576,6 +1577,7 @@ a {
 .opportunities .cards .card .content .text {
   font-size: clamp(14px, 1vw, 18px);
   line-height: 150%;
+  padding: 25px 0;
 }
 .opportunities .cards .card .img img {
   width: 100%;
@@ -2436,6 +2438,45 @@ html.modal-open .join-us-modal {
   .society .card .data {
     font-size: 14px;
   }
+}
+body {
+  position: relative;
+}
+
+.wrapper {
+  padding-top: 80px;
+}
+@media only screen and (max-width: 1024px) {
+  .wrapper {
+    padding-top: 60px;
+  }
+}
+.wrapper.active {
+  z-index: 2;
+  position: relative;
+}
+.wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+  background-color: #33333300;
+}
+
+.wrapper.active {
+  transition: 0.3s;
+}
+.wrapper.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333333a1;
 }
 
 /*# sourceMappingURL=style.css.map */

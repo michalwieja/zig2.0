@@ -10,8 +10,6 @@
     </div>
     <div class="filters">
 
-		<?php get_search_form(); ?>
-
       <hr>
       <button class="button">SORTUJ</button>
     </div>
@@ -52,9 +50,6 @@
           </div>
 
 		<?php endwhile; ?>
-
-
-
 
 
     </div>
