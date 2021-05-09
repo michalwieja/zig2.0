@@ -66,11 +66,12 @@ const homeCarouselFunctions = () => {
   setOpacityOnLastPost();
 };
 
-if (['/dolacz/', '/dolacz', 'dolacz'].includes(window.location.pathname) || window.location.search === '?page_id=29') {
-  header.classList.add('inverted');
-} else {
-  header.classList.remove('inverted');
-}
+// Change header colour
+// if (['/dolacz/', '/dolacz', 'dolacz'].includes(window.location.pathname) || window.location.search === '?page_id=29') {
+//   header.classList.add('inverted');
+// } else {
+//   header.classList.remove('inverted');
+// }
 
 const handleHamburgerClick = () => {
   hamburger.classList.toggle('active');

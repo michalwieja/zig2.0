@@ -1888,6 +1888,26 @@ a {
   transition: all 0.25s ease-in-out;
   margin-bottom: 78px;
 }
+@media only screen and (max-width: 1280px) {
+  .join-us .progress-bar {
+    width: 100vw;
+  }
+  .join-us .progress-bar__element {
+    min-width: 0;
+    width: 0;
+    max-width: 0;
+    opacity: 0;
+  }
+  .join-us .progress-bar__element.active {
+    opacity: 1;
+    min-width: 100vw;
+    width: 100vw;
+    max-width: 100vh;
+  }
+  .join-us .progress-bar__element p {
+    max-width: unset !important;
+  }
+}
 .join-us .progress-bar * {
   transition: all 0.25s ease-in-out;
 }
@@ -2079,6 +2099,20 @@ a {
   display: grid;
   grid-template-columns: 67px clamp(275px, 30vw, 318px) repeat(2, clamp(215px, 30vw, 318px));
 }
+@media only screen and (max-width: 900px) {
+  .contributions__header, .contributions__row {
+    grid-template-columns: 35% 65%;
+    width: 100%;
+  }
+  .contributions__header p, .contributions__row p {
+    line-height: 50px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .contributions__header {
+    display: none;
+  }
+}
 .contributions__header p {
   font-size: 16px;
   color: rgba(52, 52, 52, 0.5);
@@ -2093,6 +2127,26 @@ a {
 .contributions__row :nth-child(3) {
   border-right: 1px solid #eee;
   border-left: 1px solid #eee;
+}
+@media only screen and (max-width: 900px) {
+  .contributions__row {
+    height: unset;
+  }
+  .contributions__row p {
+    line-height: 45px;
+  }
+  .contributions__row :nth-child(3) {
+    display: none;
+  }
+  .contributions__row :nth-child(4) {
+    display: none;
+  }
+  .contributions__row span {
+    display: block !important;
+  }
+  .contributions__row input[type=radio] {
+    height: 100%;
+  }
 }
 .contributions__row input[type=radio] {
   position: absolute;
@@ -2119,6 +2173,9 @@ a {
   color: #343434;
   padding-left: 40px;
   line-height: 72px;
+}
+.contributions__row p span {
+  display: none;
 }
 .contributions__row.error .radio-button {
   border-color: #EB5757;
