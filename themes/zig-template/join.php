@@ -185,7 +185,11 @@
                   <input type="radio" name="contribution_size" value="<49|540zł|180zł"/>
                   <div class="radio-button"></div>
                 </div>
-                <p>< 49 pracowników</p>
+                <p>
+                  < 49 pracowników
+                  <span>540 zł</span>
+                  <span>180 zł</span>
+                </p>
                 <p>540 zł</p>
                 <p>180 zł</p>
               </div>
@@ -194,7 +198,11 @@
                   <input type="radio" name="contribution_size" value="50-99|780zł|260zł"/>
                   <div class="radio-button"></div>
                 </div>
-                <p>50-99 pracowników</p>
+                <p>
+                  50-99 pracowników
+                  <span>780 zł</span>
+                  <span>260 zł</span>
+                </p>
                 <p>780 zł</p>
                 <p>260 zł</p>
               </div>
@@ -203,7 +211,11 @@
                   <input type="radio" name="contribution_size" value="100-199|1140zł|380zł"/>
                   <div class="radio-button"></div>
                 </div>
-                <p>100-199 pracowników</p>
+                <p>
+                  100-199 pracowników
+                  <span>1140 zł</span>
+                  <span>380 zł</span>
+                </p>
                 <p>1140 zł</p>
                 <p>380 zł</p>
               </div>
@@ -212,7 +224,11 @@
                   <input type="radio" name="contribution_size" value="200-400|1320zł|440zł"/>
                   <div class="radio-button"></div>
                 </div>
-                <p>200-400 pracowników</p>
+                <p>
+                  200-400 pracowników
+                  <span>1320 zł</span>
+                  <span>440 zł</span>
+                </p>
                 <p>1320 zł</p>
                 <p>440 zł</p>
               </div>
@@ -221,7 +237,11 @@
                   <input type="radio" name="contribution_size" value=">400|1800zł|600zł"/>
                   <div class="radio-button"></div>
                 </div>
-                <p>powyżej 400 pracowników</p>
+                <p>
+                  powyżej 400 pracowników
+                  <span>1800 zł</span>
+                  <span>600 zł</span>
+                </p>
                 <p>1800 zł</p>
                 <p>600 zł</p>
               </div>
@@ -230,7 +250,11 @@
                   <input type="radio" name="contribution_size" value="gminy|1200zł|400zł"/>
                   <div class="radio-button"></div>
                 </div>
-                <p>gminy</p>
+                <p>
+                  gminy
+                  <span>1200 zł</span>
+                  <span>400 zł</span>
+                </p>
                 <p>1200 zł</p>
                 <p>400 zł</p>
               </div>
@@ -239,7 +263,11 @@
                   <input type="radio" name="contribution_size" value="banki|1500zł|500zł"/>
                   <div class="radio-button"></div>
                 </div>
-                <p>banki</p>
+                <p>
+                  banki
+                  <span>1500 zł</span>
+                  <span>500 zł</span>
+                </p>
                 <p>1500 zł</p>
                 <p>500 zł</p>
               </div>
@@ -280,7 +308,7 @@
         Akceptuję i przechodzę dalej
       </button>
     </div>
-	  <?php echo do_shortcode( "[ultimatemember form_id=\"263\"]" ); ?>
+      <?php echo do_shortcode("[ultimatemember form_id=\"263\"]"); ?>
     <div class="join-us-modal">
       <div class="join-us-modal__content">
         <p class="join-us-modal__title">

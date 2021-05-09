@@ -50,6 +50,28 @@
     transition: all .25s ease-in-out;
     margin-bottom: 78px;
 
+    @include respond-to(1280px) {
+      width: 100vw;
+
+      &__element {
+        min-width: 0;
+        width: 0;
+        max-width: 0;
+        opacity: 0;
+
+        &.active {
+          opacity: 1;
+          min-width: 100vw;
+          width: 100vw;
+          max-width: 100vh;
+        }
+
+        p {
+          max-width: unset !important;
+        }
+      }
+    }
+
     * {
       transition: all .25s ease-in-out;
     }
@@ -265,9 +287,22 @@
   &__header, &__row {
     display: grid;
     grid-template-columns: 67px clamp(275px, 30vw, 318px) repeat(2, clamp(215px, 30vw, 318px));
+
+    @include respond-to(900px) {
+      grid-template-columns: 35% 65%;
+      width: 100%;
+
+      p {
+        line-height: 50px;
+      }
+    }
   }
 
   &__header {
+    @include respond-to(900px) {
+      display: none;
+    }
+
     p {
       font-size: 16px;
       color: rgba($black, .5);
@@ -284,6 +319,29 @@
     :nth-child(3) {
       border-right: 1px solid #eee;
       border-left: 1px solid #eee;
+    }
+
+    @include respond-to(900px) {
+      height: unset;
+
+      p {
+        line-height: 45px;
+      }
+
+      :nth-child(3) {
+        display: none;
+      }
+      :nth-child(4) {
+        display: none;
+      }
+
+      span {
+        display: block !important;
+      }
+
+      input[type="radio"] {
+        height: 100%;
+      }
     }
 
     input[type="radio"] {
@@ -313,6 +371,10 @@
       color: $black;
       padding-left: 40px;
       line-height: 72px;
+
+      span {
+        display: none;
+      }
     }
 
     &.error {
