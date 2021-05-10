@@ -63,7 +63,12 @@
           opacity: 1;
           min-width: 100vw;
           width: 100vw;
-          max-width: 100vh;
+          max-width: 100vw;
+
+          @include respond-to(765px) {
+            min-width: unset !important;
+            width: calc(100vw - 60px) !important;
+          }
         }
 
         p {
@@ -203,6 +208,16 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-flow: row;
+
+  @include respond-to(765px) {
+    width: calc(100vw + 60px);
+    padding: 30px;
+
+    .step__content {
+      width: calc(100% - 60px) !important;
+    }
+  }
+
 
   .step {
     min-width: 100vw;
@@ -348,7 +363,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 72px;
+      height: 100%;
       width: 100%;
     }
 
