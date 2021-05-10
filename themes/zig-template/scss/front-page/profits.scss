@@ -39,7 +39,7 @@
     }
 
     .title {
-      font-size: 32px;
+      font-size: $f36;
       font-weight: bold;
       color: $blue;
       position: relative;
@@ -48,7 +48,7 @@
 
     .text {
       padding-top: 1vw;
-      font-size: clamp(14px, 1.5vw, 18px);
+      font-size: $f18;
       color: $blue;
       padding-bottom: 1vw;
 
@@ -63,7 +63,7 @@
       min-height: 385px;
 
       .title {
-        font-size: clamp(20px, 2vw, 32px);
+        font-size: $f36;
       }
     }
   }

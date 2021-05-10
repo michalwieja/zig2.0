@@ -29,12 +29,12 @@
     }
 
     &--main {
-      font-size: 48px;
+      font-size: $f36;
       line-height: 72px;
     }
 
     &--sub {
-      font-size: 24px;
+      font-size: $f24;
       color: $black;
       line-height: 32px;
       max-width: 410px;
@@ -88,7 +88,7 @@
         height: 93px;
         max-width: 164px;
         font-weight: 600;
-        font-size: 18px;
+        font-size: $f18;
         line-height: 26px;
         padding-left: 15px;
       }
@@ -304,7 +304,7 @@
     }
 
     p {
-      font-size: 16px;
+      font-size: $f16;
       color: rgba($black, .5);
       padding-left: 40px;
       line-height: 72px;
@@ -367,7 +367,7 @@
     }
 
     p {
-      font-size: 16px;
+      font-size: $f16;
       color: $black;
       padding-left: 40px;
       line-height: 72px;
@@ -488,12 +488,12 @@
   }
 
   &__title {
-    font-size: 24px;
+    font-size: $f24;
     margin-bottom: 36px;
   }
 
   &__text {
-    font-size: 16px;
+    font-size: $f16;
     margin-bottom: 54px;
   }
 }
@@ -513,7 +513,7 @@ html.modal-open {
 
 #form-error {
   margin-bottom: 0;
-  font-size: 24px;
+  font-size: $f24;
   color: $red;
   max-height: 0;
   opacity: 0;

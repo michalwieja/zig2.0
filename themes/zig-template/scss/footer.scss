@@ -57,6 +57,12 @@
   }
 }
 
+.copy {
+  background-color: $grenade;
+  text-align: center;
+  color: white;
+}
+
 @include respond-to($small) {
   .footer {
     flex-direction: column;
@@ -69,7 +75,8 @@
       width: 100%;
 
       #wpgmza_map {
-        height: 200px !important;
+        height: 80vw !important;
+        max-height: 400px !important;
         margin-top: 25px;
       }
     }

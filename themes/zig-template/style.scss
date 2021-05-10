@@ -51,7 +51,6 @@ body {
     padding-top: 60px;
   }
 
-
   &.active {
     z-index: 2;
     position: relative;
@@ -66,7 +65,8 @@ body {
     height: 100%;
     transition: 1s;
     background-color: #33333300;
-
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -81,7 +81,8 @@ body {
     width: 100%;
     height: 100%;
     background-color: #333333a1;
-
+    opacity: 1;
+    visibility: visible;
   }
 }
 

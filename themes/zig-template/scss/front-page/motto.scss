@@ -11,13 +11,13 @@
 
   &__title {
     margin-right: 2.5vw;
-    font-size: clamp(24px, 2.5vw, 36px);
+    font-size: $f36;
     font-weight: 500;
     padding-bottom: 2.5vw;
   }
 
   &__text {
-    font-size: 18px;
+    font-size: $f18;
     padding-bottom: clamp(35px,2.5vw,50px);
   }
 }
@@ -36,7 +36,7 @@
     }
 
     &__text {
-      font-size: 16px;
+      font-size: $f16;
     }
   }
 }

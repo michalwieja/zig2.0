@@ -44,7 +44,7 @@
   li a {
     text-decoration: none;
     color: $black;
-    font-size: 16px;
+    font-size: $f16;
     font-family: 'roboto';
 
     .join {
@@ -58,6 +58,10 @@
     background-color: $blue;
     color: $white;
     padding: 10px 20px;
+    }
+
+  li.join.current-menu-item a {
+    text-decoration: none;
   }
 
   li.phone a {

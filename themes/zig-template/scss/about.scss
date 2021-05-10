@@ -36,14 +36,14 @@
 
       .text {
         .title {
-          font-size: clamp(16px, 3vw, 20px);
+          font-size: $f22;
           font-weight: 500;
           line-height: 26px;
           padding-bottom: 5px;
         }
 
         p {
-          font-size: clamp(14px, 2.5vw, 18px);
+          font-size: $f18;
           line-height: 32px;
           margin-bottom: 20px;
         }
@@ -62,7 +62,7 @@
     }
 
     .button {
-      font-size: 18px;
+      font-size: $f18;
       height: 88px;
       width: 322px;
       @include flex(center, space-evenly);
