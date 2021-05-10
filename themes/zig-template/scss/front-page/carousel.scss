@@ -27,7 +27,7 @@
   }
 
   .carousel-title {
-    font-size: clamp(24px, 2vw, 36px);
+    font-size: $f36;
     font-weight: 500;
     line-height: 150%;
   }
@@ -106,7 +106,7 @@
 
         a {
           color: #343434;
-          font-size: clamp(14px, 1vw, 18px);
+          font-size: $f18;
           font-weight: 500;
         }
       }

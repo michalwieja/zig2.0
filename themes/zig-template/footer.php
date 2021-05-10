@@ -37,8 +37,13 @@
 	  ?>
   </div>
 </footer>
+<div class="copy padding-x">
+  copyright 2021 ZIG
+</div>
 
 <?php wp_footer() ?>
 
 </body>
 </html>
+
+

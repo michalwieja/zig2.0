@@ -5,13 +5,12 @@
   text-underline-offset: .8vh;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 72px;
-  font-size: clamp(30px, 3.75vw, 72px);
+  font-size: $f72;
 }
 
 .subpage-title {
   color: $blue;
-  font-size: clamp(24px, 2.3vw, 48px);
+  font-size: $f48;
   font-weight: bold;
   line-height: 150%;
   text-decoration: underline;
@@ -20,14 +19,14 @@
   &.white {
     color: white;
     font-weight: 500;
-    font-size: clamp(20px, 2.3vw, 48px);
+    font-size: $f48;
 
 
   }
 }
 
 .subpage-text {
-  font-size: clamp(16px, 1.25vw, 24px);
+  font-size: $f24;
   font-weight: 500;
 
   p {
@@ -36,7 +35,7 @@
 }
 
 .subpage-header {
-  font-size: clamp(24px, 2vw, 36px);
+  font-size: $f36;
   font-weight: 500;
   padding-top: clamp(50px, 5vw, 100px);;
   padding-bottom: clamp(50px, 5vw, 100px);;

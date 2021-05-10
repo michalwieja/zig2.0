@@ -43,7 +43,7 @@
         grid-gap: 10px;
 
         .title {
-          font-size: clamp(20px, 2.3vw, 48px);
+          font-size: $f36;
           color: $blue;
           font-weight: bold;
           text-decoration: underline;
@@ -56,7 +56,7 @@
         }
 
         .text {
-          font-size: clamp(14px, 1vw, 18px);
+          font-size: $f18;
           line-height: 150%;
           padding: 25px 0;
 

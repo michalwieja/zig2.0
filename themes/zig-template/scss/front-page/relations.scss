@@ -28,7 +28,7 @@
   }
 
   .text {
-    font-size: clamp(14px, 1vw, 18px);
+    font-size: $f18;
     padding: 2.5vw 12vw;
 
     @include respond-to($small) {

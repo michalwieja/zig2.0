@@ -26,13 +26,13 @@
     justify-content: space-evenly;
 
     .title {
-      font-size: clamp(18px, 2vw, 36px);
+      font-size: $f36;
       line-height: 150%;
       font-weight: bold;
     }
 
     .text {
-      font-size: 18px;
+      font-size: $f18;
       line-height: 150%;
       padding: 1.25vw 0;
     }

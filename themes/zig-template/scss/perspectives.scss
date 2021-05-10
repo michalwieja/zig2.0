@@ -23,7 +23,7 @@
     padding-bottom: 30px;
 
     h2 {
-      font-size: 22px;
+      font-size: $f22;
       font-weight: 500;
       line-height: 150%;
       padding: 30px 30px 0 30px;
@@ -34,7 +34,7 @@
     }
 
     p {
-      font-size: 16px;
+      font-size: $f16;
       line-height: 150%;
       color: $black;
       padding: 30px 30px 0 30px;
@@ -61,7 +61,7 @@
     text-align: center;
     padding-top: clamp(100px, 10vw, 200px);;
     padding-bottom: clamp(50px, 5vw, 100px);;
-    font-size: clamp(18px, 2vw, 36px);
+    font-size: $f36;
     font-weight: 500;
 
     .button {
