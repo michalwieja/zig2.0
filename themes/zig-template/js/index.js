@@ -56,7 +56,8 @@ const injectReadMoreButton = (carousel_post) => {
 };
 
 const homeCarouselFunctions = () => {
-  if (window.location.pathname !== '/') {
+  console.warn(window.location.pathname);
+  if (!['/', '/zig/', '/zig'].includes(window.location.pathname)) {
     clearInterval(interval);
     return;
   }

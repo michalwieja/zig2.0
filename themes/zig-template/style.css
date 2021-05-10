@@ -639,6 +639,31 @@ a {
   font-weight: 500;
   line-height: 150%;
 }
+.carousel.about .slick-slide {
+  aspect-ratio: 1/1;
+  background: white;
+  height: auto;
+  min-height: unset;
+}
+.carousel.about .slick-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.carousel.about .slick-slide .wpcp-single-item {
+  background: #fff !important;
+  border: unset !important;
+  height: 100%;
+}
+.carousel.about .slick-slide .wpcp-single-item * {
+  height: 100%;
+}
+.carousel.about .slick-slide img {
+  width: 56%;
+  height: 100%;
+  object-fit: contain;
+}
 .carousel .slick-slide {
   min-height: 460px;
 }
@@ -677,31 +702,33 @@ a {
 }
 .carousel .slick-slide .wpcp-all-captions .wpcp-post-title a {
   color: #343434;
-  font-size: clamp(14px, 1vw,18px);
+  font-size: clamp(14px, 1vw, 18px);
   font-weight: 500;
 }
-.carousel .slick-next {
+
+.slick-next {
   position: absolute;
   left: 85% !important;
   margin-left: -5%;
 }
 @media only screen and (max-width: 1152px) {
-  .carousel .slick-next {
+  .slick-next {
     margin-left: -10%;
   }
 }
 @media only screen and (max-width: 980px) {
-  .carousel .slick-next {
+  .slick-next {
     margin-left: -25%;
   }
 }
 @media only screen and (max-width: 735px) {
-  .carousel .slick-next {
+  .slick-next {
     left: initial !important;
     margin-left: 40px;
   }
 }
-.carousel .slick-arrow {
+
+.slick-arrow {
   background-color: #000046 !important;
   border: none !important;
   width: 60px !important;
@@ -713,12 +740,13 @@ a {
   z-index: 4;
 }
 @media only screen and (max-width: 1366px) {
-  .carousel .slick-arrow {
+  .slick-arrow {
     width: 50px;
     height: 50px;
   }
 }
-.carousel .slick-prev {
+
+.slick-prev {
   display: none !important;
 }
 
