@@ -127,7 +127,7 @@ jQuery(function () {
     }
 
     if (!preloadedContent) {
-        tnpc_show_presets();
+        tnpc_show_presets_modal();
     } else {
         jQuery('#newsletter-builder-area-center-frame-content').html(preloadedContent);
         start_composer();
@@ -497,15 +497,22 @@ const presetListModal = new TNPModal({
     }
 });
 
-function tnpc_show_presets() {
+function tnpc_show_presets_modal() {
 
     jQuery('.tnpc-controls input[type=button]').attr('disabled', true);
 
     const elModalContent = presetListModal.open();
 
-    jQuery(elModalContent).load(ajaxurl, {
-        action: "tnpc_presets",
-        context_type: tnp_context_type,
+    jQuery.ajax({
+        type: "POST",
+        url: ajaxurl,
+        data: {
+            action: "tnpc_get_all_presets",
+            context_type: tnp_context_type,
+        },
+        success: function (res) {
+            jQuery(elModalContent).html(res.data);
+        },
     });
 
 }
@@ -514,21 +521,41 @@ function tnpc_load_preset(id, subject, isEditMode) {
 
     presetListModal.close();
 
-    jQuery('#newsletter-builder-area-center-frame-content').load(ajaxurl, {
-        action: "tnpc_presets",
-        id: id
-    }, function () {
-        start_composer();
+    jQuery.ajax({
+        type: "POST",
+        url: ajaxurl,
+        data: {
+            action: "tnpc_get_preset",
+            id: id
+        },
+        success: function (res) {
+            jQuery('#newsletter-builder-area-center-frame-content').html(res.data.content);
+            _restore_global_options(res.data.globalOptions);
 
-        if (!isEditMode) {
-            //Enable buttons
-            jQuery('.tnpc-controls input[type=button]').attr('disabled', false);
-        }
+            start_composer();
 
-        if (subject && subject.length > 0) {
-            jQuery('#options-title').val(tnpc_remove_double_quotes_escape_from(subject));
-        }
+            if (!isEditMode) {
+                //Enable buttons
+                jQuery('.tnpc-controls input[type=button]').attr('disabled', false);
+            }
+
+            if (subject && subject.length > 0) {
+                jQuery('#options-title').val(tnpc_remove_double_quotes_escape_from(subject));
+            }
+        },
     });
+
+    function _restore_global_options(options) {
+        jQuery.each(options, function (name, value) {
+            var el = jQuery(`#tnpc-global-styles-form #options-options_composer_${name}`);
+            if (el.length) {
+                el.val(value);
+            }
+        });
+
+        tnp_controls_init();
+        _setBuilderAreaBackgroundColor(document.getElementById('options-options_composer_background').value);
+    }
 
 }
 

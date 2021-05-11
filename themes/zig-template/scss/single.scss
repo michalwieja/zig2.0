@@ -38,12 +38,12 @@
     font-size: 14px;
     text-align: center;
     color: #c4c4c4;
-    padding-bottom: 5vw;
+    padding-bottom: clamp(50px, 5vw, 100px);;
     text-transform: uppercase;
   }
 
   h2 {
-    font-size: clamp(20px, 2vw, 36px);
+    font-size: $f36;
     text-align: center;
     padding-bottom: 1.25vw;
     order: 2;

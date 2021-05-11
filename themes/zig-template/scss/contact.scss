@@ -1,11 +1,17 @@
 .contact {
   @include flex(flex-start, space-between);
   position: relative;
-  padding-bottom: 5vw;
+  padding-bottom: clamp(50px, 5vw, 100px);
 
   .subpage-banner {
     flex-direction: column;
     gap: 2.5vw;
+  }
+
+  form{
+    p{
+      text-align: left;
+    }
   }
 
   .data {
@@ -44,7 +50,7 @@
     padding: 1.25vw;
     border: 1px solid #c4c4c4;
     border-radius: 0;
-    font-size: 16px;
+    font-size: $f16;
     font-family: $font-family;
   }
 
@@ -68,7 +74,7 @@
     color: $blue;
     max-width: 200px;
     height: 50px;
-    font-size: 18px;
+    font-size: $f18;
     font-weight: 500;
     padding: 0;
     transition: .3s;
@@ -85,40 +91,19 @@
     display: block;
     padding: 10vw;
 
-    .data {
-      display: none;
-    }
 
     .column {
+      text-align: center;
+      display: grid;
+      place-items: center;
+
       .banner__text {
         width: 100%;
       }
     }
 
-    input {
-      width: 280px;
-    }
-
-    .your-name {
-      margin-right: 20px;
-    }
-
-    textarea {
-      margin: 20px 0;
+    .data {
       width: 580px;
-    }
-
-    input[type="submit"] {
-      background: transparent;
-      text-transform: uppercase;
-      border: 1px solid $black;
-      color: $black;
-      max-width: 200px;
-      height: 50px;
-      font-size: 18px;
-      font-weight: 500;
-      padding: 0;
-      margin-bottom: 50px;
     }
   }
 }
@@ -128,12 +113,28 @@
     padding: 30px;
     width: 100%;
 
+
     .column {
       width: 100%;
 
       input, textarea {
         width: 100%;
         margin-top: 32px;
+      }
+
+      .data {
+        width: 100%;
+        height: auto;
+        padding: 25px;
+
+        .row {
+          padding: 25px 0;
+        }
+
+        .text {
+          font-size: 14px;
+        }
+      ;
       }
     }
   }

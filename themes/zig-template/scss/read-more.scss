@@ -2,11 +2,12 @@
   border: none;
   color: $black;
   background-color: transparent;
-  font-size: 18px;
+  font-size: $f18;
   cursor: pointer;
   font-family: $font-family;
   position: relative;
   transition: .3s;
+
 
 
   a {
@@ -14,9 +15,17 @@
     text-decoration: none;
   }
 
+  &:hover {
+    &::after {
+      margin-left: 40px;
+    }
+  }
+
   &::after {
     content: url("/wp-content/themes/zig-template/assets/arrow-right.svg");
     margin-left: 20px;
+    transition: .3s;
+    pointer-events: none;
   }
 
   &.light-blue {

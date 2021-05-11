@@ -1,9 +1,20 @@
 .footer {
-  padding: 100px $content-padding-desktop;
+
   background-color: $grenade;
   @include flex();
+  gap: 25px;
+  padding: 0 15vw;
+
+  @include respond-to($xl) {
+    padding: 0 10vw;
+  }
+  @include respond-to($small) {
+    padding: 0 30px;
+  }
 
   .column {
+    padding-top: 5vw;
+    padding-bottom: 5vw;
     width: 50%;
     position: relative;
 
@@ -46,22 +57,26 @@
   }
 }
 
-@include respond-to($xxl) {
-  .footer {
-    padding: 100px $content-padding-tablet;
-  }
+.copy {
+  background-color: $grenade;
+  text-align: center;
+  color: white;
 }
 
 @include respond-to($small) {
   .footer {
-    padding: 100px $content-padding-mobile;
     flex-direction: column;
+
+    .map {
+      padding-top: 0;
+    }
 
     .column {
       width: 100%;
 
       #wpgmza_map {
-        height: 200px !important;
+        height: 80vw !important;
+        max-height: 400px !important;
         margin-top: 25px;
       }
     }

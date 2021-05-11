@@ -1,7 +1,8 @@
 .subpage-banner {
   @include flex();
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
+
 
   .column {
     width: 50%;
@@ -9,7 +10,7 @@
   }
 
   .subpage-title {
-    margin-right: 20px;
+    margin-right: 25px;
   }
 }
 

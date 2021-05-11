@@ -5,186 +5,207 @@ defined('ABSPATH') || exit;
 class NewsletterEmails extends NewsletterModule
 {
 
-    static $instance;
+	static $instance;
 
-    const EDITOR_COMPOSER = 2;
-    const EDITOR_HTML = 1;
-    const EDITOR_TINYMCE = 0;
+	const EDITOR_COMPOSER = 2;
+	const EDITOR_HTML = 1;
+	const EDITOR_TINYMCE = 0;
 
-    static $PRESETS_LIST;
-    const PRESET_EMAIL_TYPE = 'composer_template';
+	static $PRESETS_LIST;
+	const PRESET_EMAIL_TYPE = 'composer_template';
 
-    // Cache
-    var $blocks = null;
+	// Cache
+	var $blocks = null;
 
-    /**
-     * @return NewsletterEmails
-     */
-    static function instance()
-    {
-        if (self::$instance == null) {
-            self::$instance = new NewsletterEmails();
-        }
-        return self::$instance;
-    }
+	/**
+	 * @return NewsletterEmails
+	 */
+	static function instance() {
+		if ( self::$instance == null ) {
+			self::$instance = new NewsletterEmails();
+		}
 
-    function __construct()
-    {
-        self::$PRESETS_LIST = array("cta", "invite", "announcement", "posts", "sales", "product", "tour", "simple");
-        $this->themes = new NewsletterThemes('emails');
-        parent::__construct('emails', '1.1.5');
-        add_action('newsletter_action', array($this, 'hook_newsletter_action'), 13, 3);
+		return self::$instance;
+	}
 
-        if (is_admin()) {
-            add_action('wp_ajax_tnpc_render', array($this, 'tnpc_render_callback'));
-            add_action('wp_ajax_tnpc_preview', array($this, 'tnpc_preview_callback'));
-            add_action('wp_ajax_tnpc_css', array($this, 'tnpc_css_callback'));
-            add_action('wp_ajax_tnpc_options', array($this, 'hook_wp_ajax_tnpc_options'));
-            add_action('wp_ajax_tnpc_presets', array($this, 'hook_wp_ajax_tnpc_presets'));
-            add_action('wp_ajax_tnpc_delete_preset', array($this, 'hook_wp_ajax_tnpc_delete_preset'));
-            add_action('wp_ajax_tnpc_regenerate_email', array($this, 'hook_wp_ajax_tnpc_regenerate_email'));
+	function __construct() {
+		self::$PRESETS_LIST = array( "cta", "invite", "announcement", "posts", "sales", "product", "tour", "simple" );
+		$this->themes       = new NewsletterThemes( 'emails' );
+		parent::__construct( 'emails', '1.1.5' );
+		add_action( 'newsletter_action', array( $this, 'hook_newsletter_action' ), 13, 3 );
 
-            // Thank you to plugins which add the WP editor on other admin plugin pages...
-            if (isset($_GET['page']) && $_GET['page'] == 'newsletter_emails_edit') {
-                global $wp_actions;
-                $wp_actions['wp_enqueue_editor'] = 1;
-            }
-        }
-    }
+		if ( is_admin() ) {
+			add_action( 'wp_ajax_tnpc_render', array( $this, 'tnpc_render_callback' ) );
+			add_action( 'wp_ajax_tnpc_preview', array( $this, 'tnpc_preview_callback' ) );
+			add_action( 'wp_ajax_tnpc_css', array( $this, 'tnpc_css_callback' ) );
+			add_action( 'wp_ajax_tnpc_options', array( $this, 'hook_wp_ajax_tnpc_options' ) );
+			add_action( 'wp_ajax_tnpc_get_all_presets', array( $this, 'ajax_get_all_presets' ) );
+			add_action( 'wp_ajax_tnpc_get_preset', array( $this, 'ajax_get_preset' ) );
+			add_action( 'wp_ajax_tnpc_delete_preset', array( $this, 'hook_wp_ajax_tnpc_delete_preset' ) );
+			add_action( 'wp_ajax_tnpc_regenerate_email', array( $this, 'hook_wp_ajax_tnpc_regenerate_email' ) );
 
-    function options_decode($options)
-    {
+			// Thank you to plugins which add the WP editor on other admin plugin pages...
+			if ( isset( $_GET['page'] ) && $_GET['page'] == 'newsletter_emails_edit' ) {
+				global $wp_actions;
+				$wp_actions['wp_enqueue_editor'] = 1;
+			}
+		}
+	}
 
-        // Start compatibility
-        if (is_string($options) && strpos($options, 'options[') !== false) {
-            $opts = array();
-            parse_str($options, $opts);
-            $options = $opts['options'];
-        }
-        // End compatibility
+	function options_decode( $options ) {
 
-        if (is_array($options)) {
-            return $options;
-        }
+		// Start compatibility
+		if ( is_string( $options ) && strpos( $options, 'options[' ) !== false ) {
+			$opts = array();
+			parse_str( $options, $opts );
+			$options = $opts['options'];
+		}
+		// End compatibility
 
-        $tmp = json_decode($options, true);
-        if (is_null($tmp)) {
-            return json_decode(base64_decode($options), true);
-        } else {
-            return $tmp;
-        }
-    }
+		if ( is_array( $options ) ) {
+			return $options;
+		}
 
-    /**
-     *
-     * @param array $options Options array
-     */
-    function options_encode($options)
-    {
-        return base64_encode(json_encode($options, JSON_HEX_TAG | JSON_HEX_AMP));
-    }
+		$tmp = json_decode( $options, true );
+		if ( is_null( $tmp ) ) {
+			return json_decode( base64_decode( $options ), true );
+		} else {
+			return $tmp;
+		}
+	}
 
-    function hook_wp_ajax_tnpc_options()
-    {
-        global $wpdb;
+	/**
+	 *
+	 * @param array $options Options array
+	 */
+	function options_encode( $options ) {
+		return base64_encode( json_encode( $options, JSON_HEX_TAG | JSON_HEX_AMP ) );
+	}
 
-        // TODO: Uniform to use id everywhere
-        if (!isset($_REQUEST['id']))
-            $_REQUEST['id'] = $_REQUEST['b'];
+	function hook_wp_ajax_tnpc_options() {
+		global $wpdb;
 
-        $block = $this->get_block($_REQUEST['id']);
-        if (!$block) {
-            die('Block not found with id ' . esc_html($_REQUEST['id']));
-        }
+		// TODO: Uniform to use id everywhere
+		if ( ! isset( $_REQUEST['id'] ) ) {
+			$_REQUEST['id'] = $_REQUEST['b'];
+		}
 
-        if (!class_exists('NewsletterControls')) {
-            include NEWSLETTER_INCLUDES_DIR . '/controls.php';
-        }
+		$block = $this->get_block( $_REQUEST['id'] );
+		if ( ! $block ) {
+			die( 'Block not found with id ' . esc_html( $_REQUEST['id'] ) );
+		}
 
-        $options = $this->options_decode(stripslashes_deep($_REQUEST['options']));
-        $composer = isset($_POST['composer']) ? $_POST['composer'] : [];
+		if ( ! class_exists( 'NewsletterControls' ) ) {
+			include NEWSLETTER_INCLUDES_DIR . '/controls.php';
+		}
 
-        $context = array('type' => '');
-        if (isset($_REQUEST['context_type'])) {
-            $context['type'] = $_REQUEST['context_type'];
-        }
+		$options  = $this->options_decode( stripslashes_deep( $_REQUEST['options'] ) );
+		$composer = isset( $_POST['composer'] ) ? $_POST['composer'] : [];
 
-        $controls = new NewsletterControls($options);
-        $fields = new NewsletterFields($controls);
+		$context = array( 'type' => '' );
+		if ( isset( $_REQUEST['context_type'] ) ) {
+			$context['type'] = $_REQUEST['context_type'];
+		}
 
-        $controls->init();
-        echo '<input type="hidden" name="action" value="tnpc_render">';
-        echo '<input type="hidden" name="b" value="' . esc_attr($_REQUEST['id']) . '">';
-        echo '<input type="hidden" name="context_type" value="' . esc_attr($context['type']) . '">';
-        $inline_edits = '';
-        if (isset($controls->data['inline_edits'])) {
-            $inline_edits = $controls->data['inline_edits'];
-        }
-        echo '<input type="hidden" name="options[inline_edits]" value="' . $this->options_encode($inline_edits) . '">';
+		$controls = new NewsletterControls( $options );
+		$fields   = new NewsletterFields( $controls );
 
-        ob_start();
-        include $block['dir'] . '/options.php';
-        $content = ob_get_clean();
-        echo "<h2>", esc_html($block["name"]), "</h2>";
-        echo $content;
-        wp_die();
-    }
+		$controls->init();
+		echo '<input type="hidden" name="action" value="tnpc_render">';
+		echo '<input type="hidden" name="b" value="' . esc_attr( $_REQUEST['id'] ) . '">';
+		echo '<input type="hidden" name="context_type" value="' . esc_attr( $context['type'] ) . '">';
+		$inline_edits = '';
+		if ( isset( $controls->data['inline_edits'] ) ) {
+			$inline_edits = $controls->data['inline_edits'];
+		}
+		echo '<input type="hidden" name="options[inline_edits]" value="' . $this->options_encode( $inline_edits ) . '">';
 
-    /**
-     * Retrieves the presets list (no id in GET) or a specific preset id in GET)
-     *
-     * @return string
-     */
-    public function hook_wp_ajax_tnpc_presets()
-    {
+		ob_start();
+		include $block['dir'] . '/options.php';
+		$content = ob_get_clean();
+		echo "<h2>", esc_html( $block["name"] ), "</h2>";
+		echo $content;
+		wp_die();
+	}
 
-        if ($this->is_loading_preset_content_request()) {
+	/**
+	 * Retrieves the presets list (no id in GET) or a specific preset id in GET)
+	 */
+	public function ajax_get_all_presets() {
+		wp_send_json_success( $this->get_all_preset() );
+	}
 
-            $preset_id = $_REQUEST['id'];
-            $response = $this->get_preset_content($preset_id);
+	public function ajax_get_preset() {
 
-        } else {
+		if ( empty( $_REQUEST['id'] ) ) {
+			wp_send_json_error( [
+				'msg' => __( 'Invalid preset ID' )
+			] );
+		}
 
-            $response = $this->get_all_preset();
+		$preset_id      = $_REQUEST['id'];
+		$preset_content = $this->get_preset_content( $preset_id );
+		$global_options = $this->get_preset_global_options( $preset_id );
 
-        }
+		wp_send_json_success( [
+			'content'       => $preset_content,
+			'globalOptions' => $global_options,
+		] );
 
-        echo $response;
-        die();
-    }
+	}
 
-    private function is_loading_preset_content_request()
-    {
-        return !empty($_REQUEST['id']);
-    }
+	private function get_preset_content( $preset_id ) {
 
-    private function get_preset_content($preset_id)
-    {
+		$content = '';
 
-        $content = '';
+		if ( $this->is_a_tnp_default_preset( $preset_id ) ) {
 
-        if ($this->is_a_tnp_default_preset($preset_id)) {
+			// Get preset from file
+			$preset = $this->get_preset_from_file( $preset_id );
 
-            // Get preset from file
-            $preset = $this->get_preset_from_file($preset_id);
+			foreach ( $preset->blocks as $item ) {
+				ob_start();
+				$this->render_block( $item->block, true, (array) $item->options );
+				$content .= trim( ob_get_clean() );
+			}
 
-            foreach ($preset->blocks as $item) {
-                ob_start();
-                $this->render_block($item->block, true, (array)$item->options);
-                $content .= trim(ob_get_clean());
-            }
+		} else {
 
-        } else {
+			// Get preset from db
+			$preset_email   = $this->get_email( intval( $preset_id ) );
+			$global_options = $this->extract_global_options_from( $preset_email );
+			$content        = $this->regenerate_email_blocks( $preset_email->message, $global_options );
 
-            // Get preset from db
-            $preset_email = $this->get_email(intval($_REQUEST['id']));
-            $content = $preset_email->message;
+		}
 
-        }
+		return $content;
 
-        return $content;
+	}
 
-    }
+	private function get_preset_global_options( $preset_id ) {
+
+		if ( $this->is_a_tnp_default_preset( $preset_id ) ) {
+			return [];
+		}
+
+		// Get preset from db
+		$preset_email   = $this->get_email( intval( $preset_id ) );
+		$global_options = $this->extract_global_options_from( $preset_email );
+
+		return $global_options;
+
+	}
+
+	private function extract_global_options_from( $email ) {
+		$global_options = [];
+		foreach ( $email->options as $global_option_name => $global_option ) {
+			if ( strpos( $global_option_name, 'composer_' ) === 0 ) {
+				$global_options[ str_replace( 'composer_', '', $global_option_name ) ] = $global_option;
+			}
+		}
+
+		return $global_options;
+	}
 
     private function is_a_tnp_default_preset($preset_id)
     {
@@ -348,7 +369,7 @@ class NewsletterEmails extends NewsletterModule
      * @param TNP_Email $email (Rinominare)
      * @return string
      */
-    function regenerate($email, $context = array())
+    function regenerate($email, $context = [])
     {
 
         // Cannot be removed due to compatibility issues with old Automated versions
@@ -366,7 +387,7 @@ class NewsletterEmails extends NewsletterModule
             return array('body' => '', 'subject' => '');
         }
 
-        $context = array_merge(array('last_run' => 0, 'type' => ''), $context);
+        $context = array_merge(['last_run' => 0, 'type' => ''], $context);
 
         preg_match_all('/data-json="(.*?)"/m', $theme, $matches, PREG_PATTERN_ORDER);
 
@@ -454,10 +475,13 @@ class NewsletterEmails extends NewsletterModule
 
     /**
      * Renders a block identified by its id, using the block options and adding a wrapper
-     * if required (for the first block rendering.
-     * @param type $block_id
-     * @param type $wrapper
-     * @param type $options
+     * if required (for the first block rendering).
+     *
+     * @param string $block_id
+     * @param boolean $wrapper
+     * @param array $options
+     * @param array $context
+     * @param array $composer
      */
     function render_block($block_id = null, $wrapper = false, $options = [], $context = [], $composer = [])
     {
@@ -470,10 +494,6 @@ class NewsletterEmails extends NewsletterModule
             $composer_defaults[str_replace('options_composer_', '', $global_option_name)] = $global_option;
         }
         $composer = array_merge($composer_defaults, $composer);
-
-        // ========================================================= //
-        // ===============    GLOBAL VARIABLES    ================== //
-        // ========================================================= //
 
         $width = 600;
         $font_family = 'Helvetica, Arial, sans-serif';
@@ -498,16 +518,13 @@ class NewsletterEmails extends NewsletterModule
 
         $info = Newsletter::instance()->get_options('info');
 
-        // ============================================================= //
-        // ===============    END GLOBAL VARIABLES    ================== //
-        // ============================================================= //
-
         // Just in case...
         if (!is_array($options)) {
             $options = array();
         }
 
-
+        // This code filters the HTML to remove javascript and unsecure attributes and enable the
+        // "display" rule for CSS which is needed in blocks to force specific "block" or "inline" or "table".
         add_filter('safe_style_css', [$this, 'hook_safe_style_css']);
         $options = wp_kses_post_deep($options);
         remove_filter('safe_style_css', [$this, 'hook_safe_style_css']);
@@ -538,7 +555,7 @@ class NewsletterEmails extends NewsletterModule
             return;
         }
 
-        $out = array('subject' => '', 'return_empty_message' => false, 'stop' => false, 'skip' => false);
+        $out = ['subject' => '', 'return_empty_message' => false, 'stop' => false, 'skip' => false];
 
         $dir = is_rtl() ? 'rtl' : 'ltr';
         $align_left = is_rtl() ? 'right' : 'left';

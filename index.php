@@ -43,7 +43,9 @@
     <div class="society container">
         <div class="title">Społeczność ZIG warto poznać nas bliżej</div>
     </div>
-    <div class="padding-left grenade users-carousel">[psac_post_carousel show_date="false" arrows="false" show_author="false" show_tags="false" show_comments="false" show_category="false" show_content="false" media_size="medium" sliderheight="300" slide_show="4" category="czlonkowie"] <button class="button white">ZOBACZ WSZYSTKICH</button></div>
+    <div class="padding-left grenade users-carousel">
+        <?php echo do_shortcode( '[sp_wpcarousel id="499"]' ); ?>
+      <button class="button white">ZOBACZ WSZYSTKICH</button></div>
     <div class="partners container">
         <div class="title">Partnerzy</div>
     </div>

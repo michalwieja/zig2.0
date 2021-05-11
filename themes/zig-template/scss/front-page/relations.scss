@@ -1,7 +1,7 @@
 .relations {
   background: linear-gradient(to bottom, $grey 0%, $grey 50%, $grenade 50.01%, $grenade 100%);
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: clamp(50px, 5vw, 100px);;
+  padding-bottom: clamp(50px, 5vw, 100px);;
   position: relative;
   border-bottom: 1px solid $grey;
 
@@ -20,17 +20,20 @@
     background-color: $blue;
     text-align: center;
     color: $white;
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: clamp(50px, 5vw, 100px);
+    padding-bottom: clamp(50px, 5vw, 100px);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
   .text {
-    font-size: 18px;
+    font-size: $f18;
     padding: 2.5vw 12vw;
 
     @include respond-to($small) {
       font-size: 14px;
-      padding: 2vw;
+      padding: 0;
 
     }
 
@@ -51,3 +54,30 @@
     }
   }
 }
+
+@include respond-to($small) {
+  .relations > div {
+    padding-left: 0;
+    padding-right: 0;
+
+  }
+  .relations {
+    padding-bottom: 0;
+
+    .content {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+
+    .img {
+      background-color: $blue;
+      height: 50vw;
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+    }
+  }
+}
+

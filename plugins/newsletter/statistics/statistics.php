@@ -142,9 +142,15 @@ class NewsletterStatistics extends NewsletterModule {
         }
     }
 
+    /**
+     * Reset the timestamp which indicates the specific email stats must be recalculated.
+     * 
+     * @global wpdb $wpdb
+     * @param int $email_id
+     */
     function reset_stats_time($email_id) {
         global $wpdb;
-        $wpdb->update(NEWSLETTER_EMAILS_TABLE, array('stats_time' => 0), array('id' => $email_id));
+        $wpdb->update(NEWSLETTER_EMAILS_TABLE, ['stats_time' => 0], ['id' => $email_id]);
     }
 
     function upgrade() {

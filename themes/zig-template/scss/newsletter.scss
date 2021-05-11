@@ -1,5 +1,5 @@
 .newsletter {
-  padding: 2.5vw;
+  padding: clamp(30px, 2.5vw, 50px);
   background-color: $grenade;
   @include flex(flex-start, center);
   color: $white;
@@ -20,6 +20,10 @@
     .tnp-privacy-field {
       order: 3;
       line-height: 20px;
+
+      a {
+        color: white;
+      }
     }
 
     .tnp-field-email {
@@ -34,7 +38,7 @@
 
     .tnp-field-button, .tnp-field-email {
       input {
-        font-size: 16px;
+        font-size: $f16;
         font-weight: 700;
         min-width: 210px;
         min-height: 44px;
@@ -78,6 +82,7 @@
 
 @include respond-to($xs) {
   .newsletter {
+    gap: 10px;
     line-height: unset;
   }
 }

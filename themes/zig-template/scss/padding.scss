@@ -3,7 +3,7 @@
   @include respond-to($xl) {
     padding: 0 10vw;
   }
-  @include respond-to($xs) {
+  @include respond-to($small) {
     padding: 0 30px;
   }
 }
@@ -13,7 +13,7 @@
   @include respond-to($xl) {
     padding-left: 10vw;
   }
-  @include respond-to($xs) {
+  @include respond-to($small) {
     padding-left: 30px;
   }
 }
@@ -23,7 +23,7 @@
   @include respond-to($xl) {
     padding-right: 10vw;
   }
-  @include respond-to($xs) {
+  @include respond-to($small) {
     padding-right: 30px;
   }
 }

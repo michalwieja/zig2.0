@@ -44,12 +44,12 @@
 
     <tr>
         <td align="center" inline-class="title">
-            <span><?php echo $options['title'] ?></span>
+            <?php echo $options['title'] ?>
         </td>
     </tr>
     <tr>
         <td align="center" inline-class="text">
-            <span><?php echo $options['text'] ?></span>
+            <?php echo $options['text'] ?>
         </td>
     </tr>
 

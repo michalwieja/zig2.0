@@ -24,6 +24,13 @@ if ($controls->is_action()) {
         $email->subject = $module->sanitize_preset_name($controls->data['subject']);
         $email->message = $controls->data['message'];
 
+	    //Save Global Style options
+	    foreach ($controls->data as $name => $value) {
+		    if (strpos($name, 'options_composer_') === 0) {
+			    $email->options[substr($name, 8)] = $value;
+		    }
+	    }
+
         $email = Newsletter::instance()->save_email($email);
 
         $redirect = $module->get_admin_page_url('composer');
@@ -44,6 +51,13 @@ if ($controls->is_action()) {
         $email->message = $controls->data['message'];
 
         $email = Newsletter::instance()->save_email($email);
+
+        //Save Global Style options
+	    foreach ($controls->data as $name => $value) {
+		    if (strpos($name, 'options_composer_') === 0) {
+			    $email->options[substr($name, 8)] = $value;
+		    }
+	    }
 
         $redirect = $module->get_admin_page_url('composer');
         $controls->js_redirect($redirect);

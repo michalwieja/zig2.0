@@ -1,0 +1,132 @@
+.society {
+  background-color: $grey;
+  padding-bottom: 5vw;
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: clamp(50px, 5vw, 100px);
+  }
+
+  form {
+    align-self: flex-end;
+  }
+
+  hr {
+    border: 1px solid white;
+  }
+
+  button {
+    align-self: start;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5vw;
+    background-color: $grey;
+    padding-bottom: clamp(50px, 5vw, 100px);
+  }
+
+  .card {
+    border-bottom: 3px solid white;
+    padding-bottom: 30px;
+
+    &:nth-child(even) {
+      position: relative;
+      top: 100px;
+    }
+
+    .logo {
+      background-color: #fff;
+      height: 15vw;
+      display: grid;
+      place-items: center;
+
+      img {
+        max-height: 110px;
+        height: 100%;
+        width: auto;
+        max-width: 360px;
+      }
+    }
+
+    & > .title {
+      font-size: $f22;
+      font-weight: 500;
+      line-height: 150%;
+      padding: 30px 0;
+    }
+
+    .data {
+      @include flex();
+      gap: 20px;
+      padding-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .phone a, .web a, .email a {
+      color: $black;
+      margin-left: 10px;
+      line-height: 25px;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+
+    .phone:before {
+      content: url("/wp-content/themes/zig-template/assets/phone-black.svg");
+    }
+
+    .web:before {
+      content: url("/wp-content/themes/zig-template/assets/web.svg");
+    }
+
+    .email:before {
+      content: url("/wp-content/themes/zig-template/assets/mail-black.svg");
+    }
+  }
+
+  .navigation {
+    margin-top: 50px;
+  }
+}
+
+
+@include respond-to($small) {
+  .society {
+
+
+    #s{
+      max-width: 150px;
+    }
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      width: 100%;
+
+      &:nth-child(even) {
+        top: unset;
+      }
+
+      .logo {
+        height: auto;
+
+        img {
+          padding: 25px;
+          max-height: 110px;
+          width: auto;
+          max-width: 200px;
+        }
+      }
+
+      .data {
+        font-size: 14px;
+      }
+    }
+  }
+}
