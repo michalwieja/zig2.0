@@ -31,7 +31,7 @@
     </div>
     <div id="form-error">
     </div>
-    <form autocomplete="off" id="join-form" class="padding-x">
+    <form autocomplete="off" id="join-form">
       <div class="step regulations" id="regulations">
         <div class="step__content">
           Regulamin<br/>
