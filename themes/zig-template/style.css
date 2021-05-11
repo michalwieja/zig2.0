@@ -2050,6 +2050,9 @@ a {
   width: 100%;
   min-height: 600px;
 }
+#join-form .step__content > p {
+  text-align: left;
+}
 #join-form input[type=radio] {
   opacity: 0;
   cursor: pointer;

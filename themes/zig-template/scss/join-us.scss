@@ -218,6 +218,10 @@
       max-width: 1000px;
       width: 100%;
       min-height: 600px;
+
+      & > p {
+        text-align: left;
+      }
     }
   }
 
