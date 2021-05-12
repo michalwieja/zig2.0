@@ -283,3 +283,5 @@ const setActiveStep = (action) => {
 };
 
 checkForErrors();
+
+document.querySelector('.join-us').innerText.replace('You are already registered', '');

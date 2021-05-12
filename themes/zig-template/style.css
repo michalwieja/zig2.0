@@ -1783,6 +1783,9 @@ a {
   justify-content: space-evenly;
   padding-left: 3vw;
 }
+.contact .data.tablet {
+  display: none;
+}
 .contact .data .row {
   display: flex;
   display: -webkit-flex;
@@ -1839,7 +1842,7 @@ a {
 @media only screen and (max-width: 1024px) {
   .contact {
     display: block;
-    padding: 10vw;
+    padding: 0;
   }
   .contact .column {
     text-align: center;
@@ -1849,8 +1852,39 @@ a {
   .contact .column .banner__text {
     width: 100%;
   }
+  .contact .subpage-banner, .contact .form, .contact textarea {
+    width: 100%;
+  }
+  .contact .your-name {
+    margin-right: 0;
+  }
+  .contact .your-name input {
+    margin-right: 4%;
+  }
+  .contact input {
+    width: 48%;
+    display: inline-block;
+    float: left;
+  }
   .contact .data {
-    width: 580px;
+    width: 100%;
+    display: none;
+  }
+  .contact .data.tablet {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: unset;
+    margin-top: 0;
+    padding-left: 0;
+    gap: 25px;
+  }
+  .contact .data.tablet .row {
+    border: none;
+    max-width: 252px;
+    padding: 39px 0;
+    align-items: flex-start;
   }
 }
 @media only screen and (max-width: 765px) {
