@@ -22,7 +22,7 @@
     position: relative;
     padding: clamp(25px, 2.5vw, 50px);
     width: clamp(330px, 20vw, 385px);
-    min-height: 420px;
+    min-height: 425px;
     @include flex();
     flex-direction: column;
 
@@ -39,7 +39,7 @@
     }
 
     .title {
-      font-size: $f36;
+      font-size: $f30;
       font-weight: bold;
       color: $blue;
       position: relative;
