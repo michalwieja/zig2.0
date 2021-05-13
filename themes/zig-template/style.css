@@ -905,7 +905,7 @@ a {
   position: relative;
   padding: clamp(25px, 2.5vw, 50px);
   width: clamp(330px, 20vw, 385px);
-  min-height: 420px;
+  min-height: 425px;
   display: flex;
   display: -webkit-flex;
   align-items: start;
@@ -923,7 +923,7 @@ a {
   right: -8px;
 }
 .profits .card .title {
-  font-size: clamp(20px, 2.5vw, 36px);
+  font-size: clamp(20px, 2.4vw, 30px);
   font-weight: bold;
   color: #0028c8;
   position: relative;
@@ -1295,6 +1295,7 @@ a {
 }
 .newsletter form .tnp-privacy-field a {
   color: white;
+  text-decoration: underline;
 }
 .newsletter form .tnp-field-email {
   margin-right: 20px;
@@ -2129,6 +2130,39 @@ a {
   width: 100%;
   min-height: 600px;
 }
+#join-form .step__content > h2 {
+  font-size: 24px;
+}
+@media only screen and (max-width: 765px) {
+  #join-form .step__content > h2 {
+    font-size: 20px;
+  }
+}
+#join-form .step__content > h3 {
+  font-size: 22px;
+}
+@media only screen and (max-width: 765px) {
+  #join-form .step__content > h3 {
+    font-size: 18px;
+  }
+}
+#join-form .step__content > h4 {
+  font-size: 20px;
+}
+@media only screen and (max-width: 765px) {
+  #join-form .step__content > h4 {
+    font-size: 16px;
+  }
+}
+#join-form .step__content > p {
+  text-align: left;
+  font-size: 16px;
+}
+@media only screen and (max-width: 765px) {
+  #join-form .step__content > p {
+    font-size: 14px;
+  }
+}
 #join-form input[type=radio] {
   opacity: 0;
   cursor: pointer;
@@ -2398,21 +2432,30 @@ html.modal-open .join-us-modal {
   overflow: hidden;
 }
 
-.img-banner {
-  background-image: url("/wp-content/themes/zig-template/assets/single-banner.png");
-  width: 100%;
-  height: 66vh;
-  background-size: cover;
-}
-@media only screen and (max-width: 765px) {
-  .img-banner {
-    height: 30vh;
-  }
+.fbc {
+  padding-top: clamp(50px, 5vw, 100px);
 }
 
+.fbc-page .fbc-wrap .fbc-items {
+  font-family: "Saira", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.fbc-page .fbc-wrap .fbc-items li a {
+  color: #c4c4c4 !important;
+}
+
+.fbc-page .fbc-wrap .fbc-items li:first-child {
+  padding: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .fbc-page .fbc-wrap .fbc-items {
+    padding: 0 !important;
+  }
+}
 .single-wrapper {
   background-color: white;
-  margin-top: -33vh;
   padding: 5vw 10vw;
   display: flex;
   flex-direction: column;
@@ -2423,38 +2466,20 @@ html.modal-open .join-us-modal {
     margin-top: 25px;
   }
 }
-.single-wrapper .category {
-  text-align: center;
-  text-transform: uppercase;
-  padding-bottom: 1.25vw;
-  order: 1;
-}
-.single-wrapper .category a {
-  color: #0028c8;
-  font-size: 14px;
-  font-weight: 600;
-}
 .single-wrapper .date {
-  order: 3;
   font-weight: 600;
   font-size: 14px;
-  text-align: center;
   color: #c4c4c4;
-  padding-bottom: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(30px, 3.7vw, 48px);
+  padding-top: clamp(30px, 3.7vw, 48px);
   text-transform: uppercase;
 }
-.single-wrapper h2 {
+.single-wrapper h1 {
   font-size: clamp(20px, 2.5vw, 36px);
-  text-align: center;
-  padding-bottom: 1.25vw;
-  order: 2;
+  padding-bottom: 50px;
 }
 .single-wrapper p {
-  order: 4;
   padding: 1.25vw 0;
-}
-.single-wrapper .wp-block-image {
-  order: 4;
 }
 .single-wrapper .wp-block-image img {
   object-fit: cover;
