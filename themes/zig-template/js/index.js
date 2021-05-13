@@ -56,6 +56,7 @@ const injectReadMoreButton = (carousel_post) => {
 };
 
 const checkCarousels = () => {
+  // TODO - check id's in production
   const homeCarouselCheck = document.getElementById('sp-wp-carousel-free-id-395');
   const aboutCarouselCheck = document.getElementById('sp-wp-carousel-free-id-499');
   return !!homeCarouselCheck || !!aboutCarouselCheck;
