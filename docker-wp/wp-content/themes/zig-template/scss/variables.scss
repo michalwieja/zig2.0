@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Saira:wght@400;500;700&display=swap');
+//colors
+
+$blue: #0028c8;
+$grenade: #000046;
+$light-blue: #85d4ff;
+$white: #ffffff;
+$black: #343434;
+$grey: #eeeeee;
+$red: #EB5757;
+
+//font
+
+$font-family: 'Saira', sans-serif;
+
+
+//padding
+
+$site-padding-desktop: 0 64px;
+$content-padding-desktop: 15vw;
+
+$site-padding-tablet: 0 50px;
+$content-padding-tablet: 133px;
+
+$site-padding-mobile: 0 30px;
+$content-padding-mobile: 30px;
+
+
+//breakpoints
+$xxl: 1680px;
+$xl: 1366px;
+$large: 1152px;
+$medium: 1024px;
+$small: 765px;
+$xs: 650px;
+$xxs: 360px;
+
+$f72: clamp(34px, 5vw, 72px);
+$f64: clamp(34px, 4vw, 64px);
+$f48: clamp(30px, 3.7vw, 48px);
+$f36: clamp(20px, 2.5vw, 36px);
+$f30: clamp(20px, 2.4vw, 30px);
+$f24: clamp(18px, 2.2vw, 24px);
+$f22: clamp(18px, 2.1vw, 22px);
+$f18: clamp(16px, 1.73vw, 18px);
+$f16: clamp(14px, 1.66vw, 16px);
+
+
+
+
+
+
+
+
+
+

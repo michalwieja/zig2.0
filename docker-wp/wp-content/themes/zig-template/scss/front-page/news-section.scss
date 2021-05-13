@@ -1,0 +1,31 @@
+.news {
+
+}
+
+@include respond-to($xl) {
+  .news {
+    padding-top: 100px;
+    padding-left: 10%;
+  }
+}
+
+@include respond-to($large) {
+  .news {
+    padding-top: 150px;
+
+    &__title {
+      width: 90%;
+    }
+  }
+}
+
+@include respond-to($small) {
+  .news {
+    padding: 280px 30px 50px;
+    margin-right: 0;
+
+    .button {
+      width: 100%;
+    }
+  }
+}

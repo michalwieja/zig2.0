@@ -1,0 +1,223 @@
+.header {
+  z-index: 6;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+
+  &__logo {
+    z-index: 5;
+  }
+
+  @include flex(center, space-between);
+  padding: $site-padding-desktop;
+  height: 80px;
+
+  &__nav {
+    @include flex(center);
+    list-style: none;
+    gap: 40px;
+    z-index: 5;
+  }
+
+  .current-menu-item {
+    a {
+      color: $blue;
+      text-decoration: underline;
+      text-decoration-color: $blue;
+      text-underline-offset: 25px;
+      text-decoration-thickness: 5px;
+
+      @include respond-to($xl) {
+        text-underline-offset: 10px;
+      }
+    }
+  }
+
+  li {
+    transition: .3s;
+  }
+
+  li:hover a {
+    color: $blue;
+  }
+
+  li a {
+    text-decoration: none;
+    color: $black;
+    font-size: $f16;
+    font-family: 'roboto';
+
+    .join {
+      background-color: $blue;
+      color: $white;
+      padding: 10px 20px;
+    }
+  }
+
+  li.join a {
+    background-color: $blue;
+    color: $white;
+    padding: 10px 20px;
+    }
+
+  li.join.current-menu-item a {
+    text-decoration: none;
+  }
+
+  li.phone a {
+    color: $blue;
+    font-weight: bold;
+    @include flex(center, center);
+    position: relative;
+
+    &::before {
+      content: url("/wp-content/themes/zig-template/assets/phone-blue.svg");
+      position: relative;
+      margin-right: 5px;
+    }
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 2;
+
+    &__text {
+      font-size: 10px;
+      font-weight: bold;
+      color: $blue;
+    }
+
+    &__line {
+      width: 25px;
+      height: 3px;
+      margin: 5px;
+      background-color: $blue;
+      transition: .2s;
+    }
+  }
+}
+
+//hamburger animation
+.active .hamburger__line:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.active .hamburger__line:nth-child(2) {
+  opacity: 0;
+}
+
+.active .hamburger__line:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@include respond-to($xl) {
+  .header {
+    padding: $site-padding-tablet;
+
+    &__nav {
+      position: fixed;
+      gap: 0;
+      background-color: #fff;
+      top: 80px;
+      right: -100%;
+      width: 50%;
+      height: calc(100vh - 60px);
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: start;
+      transition: .3s;
+      border-top: 1px solid #c4c4c4;
+
+      .menu-item {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+      }
+
+
+      .join {
+        order: 2;
+        background-color: #fff;
+        position: relative;
+      }
+
+      .phone {
+        order: 3;
+      }
+
+      &.active {
+        right: 0;
+      }
+    }
+
+    .hamburger {
+      @include flex(center, center, column);
+    }
+  }
+}
+
+@include respond-to($medium) {
+  .header {
+
+    height: 60px;
+    padding: $site-padding-mobile;
+
+    &__nav {
+      top: 60px;
+      width: 50%;
+    }
+
+    .hamburger {
+
+      &__line {
+        width: 20px;
+        height: 2px;
+        margin: 3px;
+      }
+    }
+  }
+  //hamburger animation
+  .active .hamburger__line:nth-child(1) {
+    transform: rotate(-45deg) translate(-2px, 5px);
+  }
+
+  .active .hamburger__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .active .hamburger__line:nth-child(3) {
+    transform: rotate(45deg) translate(-2px, -5px);
+  }
+}
+
+@include respond-to($small) {
+  .header {
+
+    &__nav {
+      width: 100%;
+      top: 60px;
+    }
+
+    .hamburger {
+
+      &__line {
+        width: 20px;
+        height: 2px;
+        margin: 3px;
+      }
+    }
+  }
+  //hamburger animation
+  .active .hamburger__line:nth-child(1) {
+    transform: rotate(-45deg) translate(-2px, 5px);
+  }
+
+  .active .hamburger__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .active .hamburger__line:nth-child(3) {
+    transform: rotate(45deg) translate(-2px, -5px);
+  }
+}

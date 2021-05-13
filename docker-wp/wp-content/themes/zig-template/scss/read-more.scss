@@ -1,0 +1,48 @@
+.read-more {
+  border: none;
+  color: $black;
+  background-color: transparent;
+  font-size: $f18;
+  cursor: pointer;
+  font-family: $font-family;
+  position: relative;
+  transition: .3s;
+
+
+
+  a {
+    color: $black;
+    text-decoration: none;
+  }
+
+  &:hover {
+    &::after {
+      margin-left: 40px;
+    }
+  }
+
+  &::after {
+    content: url("/wp-content/themes/zig-template/assets/arrow-right.svg");
+    margin-left: 20px;
+    transition: .3s;
+    pointer-events: none;
+  }
+
+  &.light-blue {
+    color: $light-blue;
+
+    a {
+      color: $light-blue;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 14px;
+      width: 25px;
+      background-size: 25px 14px;
+      background-image: url("/wp-content/themes/zig-template/assets/arrow-right-light-blue.svg");
+      background-repeat: no-repeat;
+    }
+  }
+}
