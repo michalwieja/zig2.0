@@ -1,0 +1,27 @@
+.subpage-banner {
+  @include flex();
+  padding-top: clamp(50px, 5vw, 100px);
+  padding-bottom: clamp(50px, 5vw, 100px);
+
+
+  .column {
+    width: 50%;
+    @include flex($flex-direction: column)
+  }
+
+  .subpage-title {
+    margin-right: 25px;
+  }
+}
+
+@include respond-to($small) {
+
+  .subpage-banner {
+    flex-direction: column;
+    grid-gap: 25px;
+
+    .column {
+      width: 100%;
+    }
+  }
+}

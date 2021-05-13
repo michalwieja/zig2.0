@@ -1,0 +1,126 @@
+.button-wrapper {
+  display: flex;
+  gap: clamp(10px, 1vw, 25px);
+}
+
+.button, #s, #searchsubmit {
+  font-size: $f16;
+  font-weight: 700;
+  min-width: 210px;
+  min-height: 44px;
+  line-height: 44px;
+  white-space: nowrap;
+  margin-right: 26px;
+  background-color: transparent;
+  border: 1px solid $blue;
+  color: $blue;
+  text-transform: uppercase;
+  font-family: $font-family;
+  transition: .3s;
+  cursor: pointer;
+  text-align: center;
+  padding: 0 10px;
+
+  &.active {
+    color: white;
+    background-color: $blue;
+  }
+
+  &:hover {
+    color: white;
+    background-color: $blue;
+  }
+
+  &.white {
+    border: 1px solid $white;
+    color: $white;
+
+    &:hover {
+      color: $blue;
+      background-color: $white;
+    }
+  }
+}
+
+@include respond-to($xl) {
+  .button, #s, #searchsubmit {
+    min-width: 180px;
+    min-height: 40px;
+    line-height: 40px;
+  }
+}
+
+@include respond-to($large) {
+  .button, #s, #searchsubmit {
+    min-width: 140px;
+    min-height: 32px;
+    line-height: 32px;
+  }
+}
+
+@include respond-to($medium) {
+  .button, #s, #searchsubmit {
+    min-width: 120px;
+    font-size: 14px;
+    margin-right: 15px;
+  }
+}
+
+@include respond-to($small) {
+  .button, #s, #searchsubmit {
+    min-width: 118px;
+  }
+}
+
+@include respond-to($xs) {
+  .button, #s, #searchsubmit {
+    min-width: 110px;
+    margin-right: 0;
+  }
+}
+
+
+@include respond-to($xxs) {
+  .button, #s, #searchsubmit {
+    min-width: 100px;
+  }
+}
+
+.desktop-only {
+  @include respond-to($large) {
+    display: none;
+  }
+}
+
+.tablet-only {
+  display: none;
+
+  @include respond-to($large) {
+    display: block;
+  }
+}
+
+.fa-angle-right {
+  &:before {
+    content: '' !important;
+    width: 32px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url(/wp-content/themes/zig-template/assets/arrow-right-light-blue.svg);
+  }
+}
+
+.slick-next.slick-arrow {
+  &:hover {
+    .fa-angle-right {
+      &:before {
+        background: url(/wp-content/themes/zig-template/assets/arrow-right-white.svg);
+      }
+    }
+  }
+}

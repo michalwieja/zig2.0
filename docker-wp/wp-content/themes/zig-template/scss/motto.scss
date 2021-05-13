@@ -1,0 +1,38 @@
+.motto {
+  background-color: $grey;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+  @include flex();
+  width: 100%;
+
+  .column {
+    width: 50%;
+  }
+
+  &__title {
+    margin-right: 2.5vw;
+    font-size: clamp(24px, 2.5vw, 36px);
+    font-weight: bold;
+    padding-bottom: 2.5vw;
+  }
+
+  &__text {
+    font-size: 18px;
+  }
+}
+
+@include respond-to($large) {
+  .motto {
+    flex-direction: column;
+    gap: 25px;
+
+    .column {
+      width: 100%;
+    }
+
+    &__text {
+      font-size: 16px;
+    }
+  }
+}
+

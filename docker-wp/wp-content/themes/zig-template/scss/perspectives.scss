@@ -1,0 +1,95 @@
+.perspectives {
+  .filter-wrapper {
+    @include flex();
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: clamp(50px, 5vw, 100px);;
+  }
+
+  .button {
+    font-size: 14px;
+    min-width: unset;
+    padding: 0 20px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5vw;
+  }
+
+  .card {
+    border-bottom: 3px solid $grey;
+    padding-bottom: 30px;
+
+    h2 {
+      font-size: $f22;
+      font-weight: 500;
+      line-height: 150%;
+      padding: 30px 30px 0 30px;
+
+      a {
+        color: $black;
+      }
+    }
+
+    p {
+      font-size: $f16;
+      line-height: 150%;
+      color: $black;
+      padding: 30px 30px 0 30px;
+    }
+
+    button {
+      padding: 30px 30px 0 30px;
+    }
+
+    &:nth-child(even) {
+      position: relative;
+      top: 100px;
+    }
+
+    img {
+      width: 100%;
+      height: unset;
+      aspect-ratio: 615/345;
+      object-fit: cover;
+    }
+  }
+
+  .question {
+    text-align: center;
+    padding-top: clamp(100px, 10vw, 200px);;
+    padding-bottom: clamp(50px, 5vw, 100px);;
+    font-size: $f36;
+    font-weight: 500;
+
+    .button {
+      margin-top: 2.5vw;
+    }
+  }
+}
+
+@include respond-to($small) {
+  .perspectives {
+    .filter-wrapper {
+      gap: 5px;
+
+      & > a .button {
+        font-size: 10px;
+      }
+    }
+
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+
+      &:nth-child(even) {
+        top: unset;
+        padding-bottom: 25px;
+      }
+    }
+  }
+}
