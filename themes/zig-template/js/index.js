@@ -55,9 +55,15 @@ const injectReadMoreButton = (carousel_post) => {
   });
 };
 
+const checkCarousels = () => {
+  // TODO - check id's in production
+  const homeCarouselCheck = document.getElementById('sp-wp-carousel-free-id-395');
+  const aboutCarouselCheck = document.getElementById('sp-wp-carousel-free-id-499');
+  return !!homeCarouselCheck || !!aboutCarouselCheck;
+};
+
 const homeCarouselFunctions = () => {
-  console.warn(window.location.pathname);
-  if (!['/', '/zig/', '/zig'].includes(window.location.pathname)) {
+  if (!checkCarousels()) {
     clearInterval(interval);
     return;
   }

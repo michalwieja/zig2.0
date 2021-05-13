@@ -27,6 +27,10 @@
     justify-content: space-evenly;
     padding-left: 3vw;
 
+    &.tablet {
+      display: none;
+    }
+
     .row {
       @include flex(center);
       text-decoration: none;
@@ -89,8 +93,8 @@
 @include respond-to($medium) {
   .contact {
     display: block;
-    padding: 10vw;
-
+    //padding: 10vw;
+    padding: 0;
 
     .column {
       text-align: center;
@@ -102,8 +106,45 @@
       }
     }
 
+    .subpage-banner, .form, textarea {
+      width: 100%;
+    }
+
+    .your-name {
+      margin-right: 0;
+
+      input {
+        margin-right: 4%;
+      }
+    }
+    input {
+      width: 48%;
+      display: inline-block;
+      float: left;
+    }
+
     .data {
-      width: 580px;
+      //width: 580px;
+      width: 100%;
+      display: none;
+
+      &.tablet {
+        display: flex;
+        flex-flow: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: unset;
+        margin-top: 0;
+        padding-left: 0;
+        gap: 25px;
+
+        .row {
+          border: none;
+          max-width: 252px;
+          padding: 39px 0;
+          align-items: flex-start;
+        }
+      }
     }
   }
 }
