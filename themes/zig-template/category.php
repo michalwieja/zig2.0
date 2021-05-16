@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<div class="perspectives">
+<div class="perspectives wrapper">
   <div class="subpage-banner padding-x">
     <div class="column subpage-title">
       Perspektywy

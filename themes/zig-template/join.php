@@ -803,82 +803,120 @@
             <div class="contributions__content">
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="<49|540zł|180zł"/>
+                  <input type="radio" name="contribution_size" value="<5|540zł|180zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  < 49 pracowników
-                  <span>540 zł</span>
-                  <span>180 zł</span>
+                  Przedsiębiorstwa do 5 pracowników <span>330 zł</span>
+                  <span>55 zł</span>
                 </p>
-                <p>540 zł</p>
-                <p>180 zł</p>
+                <p>330 zł</p>
+                <p>55 zł</p>
               </div>
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="50-99|780zł|260zł"/>
+                  <input type="radio" name="contribution_size" value="5-10|780zł|260zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  50-99 pracowników
-                  <span>780 zł</span>
-                  <span>260 zł</span>
+                  Przedsiębiorstwa 5 - 10 pracowników <span>510 zł</span>
+                  <span>85 zł</span>
+                </p>
+                <p>510 zł</p>
+                <p>85 zł</p>
+              </div>
+              <div class="contributions__row">
+                <div class="checkbox-wrapper">
+                  <input type="radio" name="contribution_size" value="10-50|1140zł|380zł"/>
+                  <div class="radio-button"></div>
+                </div>
+                <p>
+                  Przedsiębiorstwa 10-50 pracowników <span>660 zł</span>
+                  <span>110 zł</span>
+                </p>
+                <p>660 zł</p>
+                <p>110 zł</p>
+              </div>
+              <div class="contributions__row">
+                <div class="checkbox-wrapper">
+                  <input type="radio" name="contribution_size" value="50-100|1320zł|440zł"/>
+                  <div class="radio-button"></div>
+                </div>
+                <p>
+                  50-100 pracowników <span>780 zł</span>
+                  <span>130 zł</span>
                 </p>
                 <p>780 zł</p>
-                <p>260 zł</p>
+                <p>130 zł</p>
               </div>
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="100-199|1140zł|380zł"/>
+                  <input type="radio" name="contribution_size" value="100-300|1800zł|600zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  100-199 pracowników
-                  <span>1140 zł</span>
-                  <span>380 zł</span>
+                  100-300 pracowników <span>1020 zł</span>
+                  <span>170 zł</span>
                 </p>
-                <p>1140 zł</p>
-                <p>380 zł</p>
+                <p>1020 zł</p>
+                <p>170 zł</p>
               </div>
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="200-400|1320zł|440zł"/>
+                  <input type="radio" name="contribution_size" value=">300|1800zł|600zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  200-400 pracowników
-                  <span>1320 zł</span>
-                  <span>440 zł</span>
+                  powyżej 300 pracowników <span>1680 zł</span>
+                  <span>280 zł</span>
                 </p>
-                <p>1320 zł</p>
-                <p>440 zł</p>
+                <p>1680 zł</p>
+                <p>280 zł</p>
+              </div>
+
+              <div class="contributions__row">
+                <div class="checkbox-wrapper">
+                  <input type="radio" name="contribution_size" value="gminy<50|1200zł|400zł"/>
+                  <div class="radio-button"></div>
+                </div>
+                <p>
+                  gminy do 50 tys. mieszkańców
+                  <span>450 zł</span>
+                  <span>75 zł</span>
+                </p>
+                <p>450 zł</p>
+                <p>75 zł</p>
+              </div>
+
+
+              <div class="contributions__row">
+                <div class="checkbox-wrapper">
+                  <input type="radio" name="contribution_size" value="gminy50-100|1200zł|400zł"/>
+                  <div class="radio-button"></div>
+                </div>
+                <p>
+                  gminy 50-100 tys. mieszkańców
+                  <span>900 zł</span>
+                  <span>150 zł</span>
+                </p>
+                <p>900 zł</p>
+                <p>150 zł</p>
               </div>
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value=">400|1800zł|600zł"/>
+                  <input type="radio" name="contribution_size" value="gminy>100|1200zł|400zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  powyżej 400 pracowników
-                  <span>1800 zł</span>
-                  <span>600 zł</span>
+                  gminy powyżej 100 tys. mieszk.
+                  <span>1350 zł</span>
+                  <span>225 zł</span>
                 </p>
-                <p>1800 zł</p>
-                <p>600 zł</p>
+                <p>1350 zł</p>
+                <p>225 zł</p>
               </div>
-              <div class="contributions__row">
-                <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="gminy|1200zł|400zł"/>
-                  <div class="radio-button"></div>
-                </div>
-                <p>
-                  gminy
-                  <span>1200 zł</span>
-                  <span>400 zł</span>
-                </p>
-                <p>1200 zł</p>
-                <p>400 zł</p>
-              </div>
+
+
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
                   <input type="radio" name="contribution_size" value="banki|1500zł|500zł"/>
@@ -886,11 +924,11 @@
                 </div>
                 <p>
                   banki
-                  <span>1500 zł</span>
-                  <span>500 zł</span>
+                  <span>1800 zł</span>
+                  <span>300 zł</span>
                 </p>
-                <p>1500 zł</p>
-                <p>500 zł</p>
+                <p>1800 zł</p>
+                <p>300 zł</p>
               </div>
             </div>
           </div>
