@@ -1801,6 +1801,9 @@ a {
   justify-content: space-evenly;
   padding-left: 3vw;
 }
+.contact .data.tablet {
+  display: none;
+}
 .contact .data .row {
   display: flex;
   display: -webkit-flex;

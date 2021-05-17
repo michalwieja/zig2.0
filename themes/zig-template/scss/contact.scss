@@ -8,8 +8,8 @@
     gap: 2.5vw;
   }
 
-  form {
-    p {
+  form{
+    p{
       text-align: left;
     }
   }
@@ -26,6 +26,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     padding-left: 3vw;
+
+    &.tablet {
+      display: none;
+    }
 
     .row {
       @include flex(center);
@@ -150,8 +154,6 @@
         }
       }
     }
-
-
   }
 }
 
