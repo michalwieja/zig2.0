@@ -919,17 +919,111 @@
           >
           <p class="text-input__error" id="user_password-error"></p>
         </div>
+        <div class="text-input__wrapper" id="company-name-input">
+          <p class="text-input__label">Nazwa firmy</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="company-name"
+            id="input-company-name-input"
+          >
+          <p class="text-input__error" id="company-name-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="address-input">
+          <p class="text-input__label">Adres siedziby firmy</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="address"
+            id="input-address-input"
+          >
+          <p class="text-input__error" id="address-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="industry-input">
+          <p class="text-input__label">Branża</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="industry"
+            id="input-industry-input"
+          >
+          <p class="text-input__error" id="industry-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="activity-input">
+          <p class="text-input__label">Działalność</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="activity"
+            id="input-activity-input"
+          >
+          <p class="text-input__error" id="activity-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="contact-input">
+          <p class="text-input__label">Kontakt (tel./fax)</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="contact"
+            id="input-contact-input"
+          >
+          <p class="text-input__error" id="contact-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="contact-person-input">
+          <p class="text-input__label">Osoba odpowiedzialna za kontakty z klientami (Imię, nazwisko, tel./fax., email)</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="contact-person"
+            id="input-contact-person-input"
+          >
+          <p class="text-input__error" id="contact-person-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="url-input">
+          <p class="text-input__label">Adres strony internetowej</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="url"
+            id="input-url-input"
+          >
+          <p class="text-input__error" id="url-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="legal-form-input">
+          <p class="text-input__label">Forma prawna Firmy</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="legal-form"
+            id="input-legal-form-input"
+          >
+          <p class="text-input__error" id="legal-form-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="krs-input">
+          <p class="text-input__label">KRS</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="krs"
+            id="input-krs-input"
+          >
+          <p class="text-input__error" id="krs-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="established-input">
+          <p class="text-input__label">Rok założenia</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="established"
+            id="input-established-input"
+          >
+          <p class="text-input__error" id="established-error"></p>
+        </div>
+        <div class="text-input__wrapper" id="facebook-input">
+          <p class="text-input__label">Informacja o działalności firmy na stronę internetową oraz profil facebook.pl</p>
+          <input
+            type="text" class="text-input__input" autocomplete="new-password" name="facebook"
+            id="input-facebook-input"
+          >
+          <p class="text-input__error" id="facebook-error"></p>
+        </div>
+        <p class="join-consent">Wyrażam zgodę na umieszczenie ww. danych o Firmie na stronie internetowej Zagłębiowskiej Izby Gospodarczej oraz jej promocję w mediach na podstawie wyżej przedstawionych danych i informacji. </p>
       </div>
     </form>
     <div class="button-wrapper">
       <button class="button" id="prev-button" style="opacity: 0">
         Wróć do poprzedniego kroku
       </button>
+      <a href="/wp-content/themes/zig-template/assets/deklaracja.pdf">
+        <button class="button" id="declaration-button">
+          Pobierz deklarację
+        </button>
+      </a>
       <button class="button" id="next-button">
         Akceptuję i przechodzę dalej
       </button>
     </div>
-	  <?php echo do_shortcode( "[ultimatemember form_id=\"263\"]" ); ?>
+      <?php echo do_shortcode("[ultimatemember form_id=\"263\"]"); ?>
     <div class="join-us-modal">
       <div class="join-us-modal__content">
         <p class="join-us-modal__title">

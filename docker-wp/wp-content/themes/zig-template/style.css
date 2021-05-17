@@ -2424,6 +2424,12 @@ html.modal-open .join-us-modal {
   overflow: hidden;
 }
 
+.join-consent {
+  text-align: center;
+  width: 100%;
+  max-width: 1280px;
+}
+
 .fbc {
   padding-top: clamp(50px, 5vw, 100px);
 }
