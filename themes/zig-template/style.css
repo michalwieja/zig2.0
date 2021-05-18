@@ -1946,6 +1946,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-flow: column;
+  background-color: red;
 }
 .join-us__title {
   background-color: #e5e5e5;
