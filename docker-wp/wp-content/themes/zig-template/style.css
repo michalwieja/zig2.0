@@ -2086,6 +2086,9 @@ a {
     width: 100%;
     margin-bottom: 15px;
   }
+  .join-us .button-wrapper a {
+    width: 100%;
+  }
 }
 
 #join-form {
