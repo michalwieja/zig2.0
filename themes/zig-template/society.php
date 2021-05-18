@@ -15,15 +15,14 @@
     </div>
     <div class="cards">
 		<?php
-    $order = 'ASC';
+
 		$limit = get_option( 'posts_per_page' );
 		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		query_posts( array(
 			'posts_per_page' => $limit,
 			'paged'          => $paged,
-			'category_name'  => 'czlonkowie',
-      'orderby' => 'post_title',
-        'order' => $order,
+			'category_name'  => 'czlonkowie'
+
 		) );
 		?>
 

@@ -310,17 +310,22 @@ a {
   display: flex;
   display: -webkit-flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-direction: row;
   list-style: none;
-  gap: 40px;
+  width: 50%;
   z-index: 5;
+}
+@media only screen and (max-width: 1680px) {
+  .header__nav {
+    width: 60%;
+  }
 }
 .header .current-menu-item a {
   color: #0028c8;
   text-decoration: underline;
   text-decoration-color: #0028c8;
-  text-underline-offset: 25px;
+  text-underline-offset: 26px;
   text-decoration-thickness: 5px;
 }
 @media only screen and (max-width: 1366px) {
@@ -630,6 +635,9 @@ a {
   padding-top: clamp(50px, 5vw, 100px);
   padding-bottom: clamp(50px, 5vw, 100px);
 }
+.carousel .wpcp-post-thumb.skip-lazy {
+  object-position: top;
+}
 .carousel #sp-wp-carousel-free-id-395 {
   padding: 0;
 }
@@ -640,6 +648,13 @@ a {
   font-size: clamp(20px, 2.5vw, 36px);
   font-weight: 500;
   line-height: 150%;
+}
+.carousel.about {
+  padding-top: 0;
+}
+.carousel.about .slick-list {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .carousel.about .slick-slide {
   aspect-ratio: 1/1;
@@ -659,7 +674,10 @@ a {
   height: 100%;
 }
 .carousel.about .slick-slide .wpcp-single-item * {
+  width: 100%;
   height: 100%;
+  display: grid;
+  place-items: center;
 }
 .carousel.about .slick-slide img {
   width: 56%;
@@ -703,9 +721,14 @@ a {
   top: 70px;
 }
 .carousel .slick-slide .wpcp-all-captions .wpcp-post-title a {
-  color: #343434;
-  font-size: clamp(16px, 1.73vw, 18px);
+  color: #343434 !important;
+  font-size: clamp(16px, 1.73vw, 18px) !important;
   font-weight: 500;
+  text-align: left;
+}
+
+.wpcpro-wrapper .wpcp-carousel-section.nav-vertical-center {
+  padding: 0;
 }
 
 .slick-next {
@@ -1492,12 +1515,10 @@ a {
   fill: #0028c8;
 }
 .about .society {
-  padding-top: clamp(50px, 5vw, 100px);
   padding-bottom: clamp(50px, 5vw, 100px);
   background-color: #eeeeee;
 }
 .about .partners {
-  padding-top: clamp(50px, 5vw, 100px);
   padding-bottom: clamp(50px, 5vw, 100px);
 }
 .about .partners .grid {
@@ -1507,7 +1528,6 @@ a {
 .about .partners .logo {
   display: grid;
   place-items: center;
-  padding: 2.5vw 1.25vw;
 }
 
 @media only screen and (max-width: 1680px) {
@@ -1784,9 +1804,6 @@ a {
   justify-content: space-evenly;
   padding-left: 3vw;
 }
-.contact .data.tablet {
-  display: none;
-}
 .contact .data .row {
   display: flex;
   display: -webkit-flex;
@@ -1843,54 +1860,60 @@ a {
 @media only screen and (max-width: 1024px) {
   .contact {
     display: block;
-    padding: 0;
+    padding: 0 0 10vw 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .contact input {
+    width: 35vw;
+  }
+  .contact .your-name {
+    margin-right: 2vw;
+  }
+  .contact textarea {
+    margin: 2vw 0;
+    width: 72vw;
   }
   .contact .column {
     text-align: center;
     display: grid;
     place-items: center;
+    width: 100%;
+    padding-left: 0;
+  }
+  .contact .column.padding-l {
+    padding: 0 30px;
   }
   .contact .column .banner__text {
     width: 100%;
   }
-  .contact .subpage-banner, .contact .form, .contact textarea {
-    width: 100%;
-  }
-  .contact .your-name {
-    margin-right: 0;
-  }
-  .contact .your-name input {
-    margin-right: 4%;
-  }
-  .contact input {
-    width: 48%;
-    display: inline-block;
-    float: left;
-  }
   .contact .data {
     width: 100%;
-    display: none;
-  }
-  .contact .data.tablet {
-    display: flex;
-    flex-flow: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: unset;
-    margin-top: 0;
+    height: 150px;
+    flex-direction: row;
     padding-left: 0;
-    gap: 25px;
+    align-items: center;
+    padding: 0 5vw;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 0;
   }
-  .contact .data.tablet .row {
-    border: none;
-    max-width: 252px;
-    padding: 39px 0;
-    align-items: flex-start;
+  .contact .data .row {
+    flex: 1 1 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact .data .row:nth-child(2) {
+    border-top: 0;
+    border-bottom: 0;
+  }
+  .contact .data .row .text {
+    width: unset;
   }
 }
 @media only screen and (max-width: 765px) {
   .contact {
-    padding: 30px;
     width: 100%;
   }
   .contact .column {

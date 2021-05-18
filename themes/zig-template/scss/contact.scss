@@ -8,8 +8,8 @@
     gap: 2.5vw;
   }
 
-  form{
-    p{
+  form {
+    p {
       text-align: left;
     }
   }
@@ -26,10 +26,6 @@
     flex-direction: column;
     justify-content: space-evenly;
     padding-left: 3vw;
-
-    &.tablet {
-      display: none;
-    }
 
     .row {
       @include flex(center);
@@ -93,67 +89,75 @@
 @include respond-to($medium) {
   .contact {
     display: block;
-    //padding: 10vw;
-    padding: 0;
+    padding: 0 0 10vw 0;
+    display: flex;
+    flex-direction: column-reverse;
+
+    input {
+      width: 35vw;
+    }
+
+    .your-name {
+      margin-right: 2vw;
+    }
+
+    textarea {
+      margin: 2vw 0;
+      width: 72vw;
+    }
+
 
     .column {
       text-align: center;
       display: grid;
       place-items: center;
+      width: 100%;
+      padding-left: 0;
+
+      &.padding-l {
+        padding: 0 30px;
+      }
 
       .banner__text {
         width: 100%;
       }
     }
 
-    .subpage-banner, .form, textarea {
-      width: 100%;
-    }
-
-    .your-name {
-      margin-right: 0;
-
-      input {
-        margin-right: 4%;
-      }
-    }
-    input {
-      width: 48%;
-      display: inline-block;
-      float: left;
-    }
-
     .data {
-      //width: 580px;
       width: 100%;
-      display: none;
+      height: 150px;
+      flex-direction: row;
+      padding-left: 0;
+      align-items: center;
+      padding: 0 5vw;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 0;
 
-      &.tablet {
+      .row {
+        flex: 1 1 200px;
         display: flex;
-        flex-flow: row;
-        align-items: flex-start;
-        justify-content: flex-start;
-        height: unset;
-        margin-top: 0;
-        padding-left: 0;
-        gap: 25px;
+        align-items: center;
+        justify-content: center;
 
-        .row {
-          border: none;
-          max-width: 252px;
-          padding: 39px 0;
-          align-items: flex-start;
+        &:nth-child(2) {
+          border-top: 0;
+          border-bottom: 0;
+        }
+
+        .text {
+          width: unset;
         }
       }
     }
+
+
   }
 }
 
 @include respond-to($small) {
   .contact {
-    padding: 30px;
     width: 100%;
-
 
     .column {
       width: 100%;
@@ -175,7 +179,7 @@
         .text {
           font-size: 14px;
         }
-      ;
+
       }
     }
   }

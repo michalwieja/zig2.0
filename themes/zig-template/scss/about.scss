@@ -74,15 +74,13 @@
   }
 
   .society {
-    padding-top: clamp(50px, 5vw, 100px);;
-    padding-bottom: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);
     background-color: $grey;
   }
 
 
   .partners {
-    padding-top: clamp(50px, 5vw, 100px);;
-    padding-bottom: clamp(50px, 5vw, 100px);;
+    padding-bottom: clamp(50px, 5vw, 100px);
 
     .grid {
       display: grid;
@@ -92,7 +90,6 @@
     .logo {
       display: grid;
       place-items: center;
-      padding: 2.5vw 1.25vw;
     }
   }
 }

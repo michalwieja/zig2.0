@@ -71,6 +71,7 @@ const validateStepDeclaration = (field = null, value = 'not_specified', custom_e
   } else if (field) {
     error[field] = !validateNonExistent(value === 'not_specified' ? user[field] : value) ? 'Pole nie może być puste' : null;
   } else {
+    console.warn(validateNonExistent(user.username), validateMail(user.username));
     error.username = !validateNonExistent(user.username)
       ? 'Pole nie może być puste'
       : !validateMail(user.username) ? 'Email nie jest poprawny' : null;
@@ -282,5 +283,3 @@ const setActiveStep = (action) => {
 };
 
 checkForErrors();
-
-document.querySelector('.join-us').innerText.replace('You are already registered', '');
