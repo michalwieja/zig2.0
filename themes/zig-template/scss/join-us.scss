@@ -9,7 +9,15 @@
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  background-color: red;
+
+  &__subtitle {
+    color: #0028c8;
+    max-width: 320px;
+    font-weight: 600;
+    font-size: clamp(16px, 1.73vw, 18px);
+    line-height: 26px;
+    text-align: center;
+  }
 
   &__title {
     background-color: #e5e5e5;
@@ -84,7 +92,8 @@
 
     &__element {
       height: 167px;
-      width: 256px;
+      //width: 256px;
+      width: calc(1280px/3);
       border-top: 2px solid #c4c4c4;
       position: relative;
 
@@ -202,7 +211,7 @@
 
 #join-form {
   width: 100vw;
-  max-height: 600px;
+  //max-height: 600px;
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
@@ -319,8 +328,14 @@
 .regulations {
   text-align: center;
   padding: 0 130px;
+  max-height: 600px !important;
   @include respond-to($medium) {
     padding: 0 10%;
+  }
+
+  &__content-wrapper {
+    height: 100%;
+    overflow: auto;
   }
 }
 

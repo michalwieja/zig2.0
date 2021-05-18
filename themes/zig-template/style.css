@@ -1946,7 +1946,14 @@ a {
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  background-color: red;
+}
+.join-us__subtitle {
+  color: #0028c8;
+  max-width: 320px;
+  font-weight: 600;
+  font-size: clamp(16px, 1.73vw, 18px);
+  line-height: 26px;
+  text-align: center;
 }
 .join-us__title {
   background-color: #e5e5e5;
@@ -2017,7 +2024,7 @@ a {
 }
 .join-us .progress-bar__element {
   height: 167px;
-  width: 256px;
+  width: calc(1280px/3);
   border-top: 2px solid #c4c4c4;
   position: relative;
 }
@@ -2122,7 +2129,6 @@ a {
 
 #join-form {
   width: 100vw;
-  max-height: 600px;
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
@@ -2231,11 +2237,16 @@ a {
 .regulations {
   text-align: center;
   padding: 0 130px;
+  max-height: 600px !important;
 }
 @media only screen and (max-width: 1024px) {
   .regulations {
     padding: 0 10%;
   }
+}
+.regulations__content-wrapper {
+  height: 100%;
+  overflow: auto;
 }
 
 .contributions * {
