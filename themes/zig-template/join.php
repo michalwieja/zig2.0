@@ -32,7 +32,7 @@
     <div id="form-error">
     </div>
     <form autocomplete="off" id="join-form">
-      <div class="step regulations" id="regulations">
+      <div class="step regulations" id="regulations" style="max-height: unset">
         <div class="regulations__content-wrapper">
           <div class="step__content">
             <h2>STATUT ZAGŁĘBIOWSKIEJ IZBY GOSPODARCZEJ
@@ -793,7 +793,7 @@
           </div>
         </div>
       </div>
-      <div class="step">
+      <div class="step" style="max-height: 0">
         <div class="step__content">
           <div class="contributions">
             <div class="contributions__header">
@@ -935,8 +935,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="step">
+      </div  style="max-height: unset">
+      <div class="step" style="max-height: 0">
         <div class="text-input__wrapper" id="name-input">
           <p class="text-input__label">Imię i nazwisko</p>
           <input type="text" class="text-input__input" name="name" id="input-name-input">
@@ -959,13 +959,13 @@
           >
           <p class="text-input__error" id="user_password-error"></p>
         </div>
-        <div class="text-input__wrapper" id="company-name-input">
+        <div class="text-input__wrapper" id="company_name-input">
           <p class="text-input__label">Nazwa firmy</p>
           <input
-            type="text" class="text-input__input" autocomplete="new-password" name="company-name"
-            id="input-company-name-input"
+            type="text" class="text-input__input" autocomplete="new-password" name="company_name"
+            id="input-company_name-input"
           >
-          <p class="text-input__error" id="company-name-error"></p>
+          <p class="text-input__error" id="company_name-error"></p>
         </div>
         <div class="text-input__wrapper" id="address-input">
           <p class="text-input__label">Adres siedziby firmy</p>
@@ -1007,13 +1007,13 @@
           >
           <p class="text-input__error" id="url-error"></p>
         </div>
-        <div class="text-input__wrapper" id="legal-form-input">
+        <div class="text-input__wrapper" id="legal_form-input">
           <p class="text-input__label">Forma prawna Firmy</p>
           <input
-            type="text" class="text-input__input" autocomplete="new-password" name="legal-form"
-            id="input-legal-form-input"
+            type="text" class="text-input__input" autocomplete="new-password" name="legal_form"
+            id="input-legal_form-input"
           >
-          <p class="text-input__error" id="legal-form-error"></p>
+          <p class="text-input__error" id="legal_form-error"></p>
         </div>
         <div class="text-input__wrapper" id="krs-input">
           <p class="text-input__label">KRS</p>
@@ -1042,29 +1042,29 @@
         <p class="join-us__subtitle">
           Osoba odpowiedzialna za kontakty z klientami
         </p>
-        <div class="text-input__wrapper" id="contact-person-name-input">
+        <div class="text-input__wrapper" id="contact_person_name-input">
           <p class="text-input__label">Imię i nazwisko</p>
           <input
-            type="text" class="text-input__input" autocomplete="new-password" name="contact-person-name"
-            id="input-contact-person-name-input"
+            type="text" class="text-input__input" autocomplete="new-password" name="contact_person_name"
+            id="input-contact_person_name-input"
           >
-          <p class="text-input__error" id="contact-person-name-error"></p>
+          <p class="text-input__error" id="contact_person_name-error"></p>
         </div>
-        <div class="text-input__wrapper" id="contact-person-phone-input">
+        <div class="text-input__wrapper" id="contact_person_phone-input">
           <p class="text-input__label">Tel./Fax.</p>
           <input
-            type="text" class="text-input__input" autocomplete="new-password" name="contact-person-phone"
-            id="input-contact-person-phone-input"
+            type="text" class="text-input__input" autocomplete="new-password" name="contact_person_phone"
+            id="input-contact_person_phone-input"
           >
-          <p class="text-input__error" id="contact-person-phone-error"></p>
+          <p class="text-input__error" id="contact_person_phone-error"></p>
         </div>
-        <div class="text-input__wrapper" id="contact-person-email-input">
+        <div class="text-input__wrapper" id="contact_person_email-input">
           <p class="text-input__label">Email</p>
           <input
-            type="text" class="text-input__input" autocomplete="new-password" name="contact-person-email"
+            type="text" class="text-input__input" autocomplete="new-password" name="contact_person_email"
             id="input-contact-person-input"
           >
-          <p class="text-input__error" id="contact-person-email-error"></p>
+          <p class="text-input__error" id="contact_person_email-error"></p>
         </div>
         <p class="join-consent">Wyrażam zgodę na umieszczenie ww. danych o Firmie na stronie internetowej Zagłębiowskiej
           Izby Gospodarczej oraz jej promocję w mediach na podstawie wyżej przedstawionych danych i informacji. </p>

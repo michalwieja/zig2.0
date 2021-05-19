@@ -3,7 +3,6 @@ const prev = document.getElementById('prev-button');
 const pb_el = document.querySelectorAll('.progress-bar__element');
 const steps = document.querySelectorAll('.step');
 const first_form = document.getElementById('regulations');
-const join_form = document.getElementById('join-form');
 const contributions_row = document.querySelectorAll('.contributions__row');
 const register_fields = document.querySelectorAll('.text-input__input');
 const close_modal_button = document.getElementById('close-modal-button');
@@ -22,6 +21,19 @@ const body_factory = {
   username: null,
   user_password: null,
   name: null,
+  company_name: null,
+  address: null,
+  industry: null,
+  activity: null,
+  contact: null,
+  url: null,
+  legal_form: null,
+  krs: null,
+  established: null,
+  facebook: null,
+  contact_person_name: null,
+  contact_person_phone: null,
+  contact_person_email: null,
 };
 
 const user = {
@@ -49,6 +61,7 @@ register_fields.forEach(input => {
 });
 
 const validateStepRegulations = () => {
+  console.warn(556, !(user.contribution_proposal && user.entry_fee && user.monthly_fee), user);
   if (!(user.contribution_proposal && user.entry_fee && user.monthly_fee)) {
     error.selected_contribution = 'Proszę wybrać wysokość składki';
     contributions_row.forEach(el => el.classList.add('error'));
@@ -71,13 +84,21 @@ const validateStepDeclaration = (field = null, value = 'not_specified', custom_e
   } else if (field) {
     error[field] = !validateNonExistent(value === 'not_specified' ? user[field] : value) ? 'Pole nie może być puste' : null;
   } else {
-    console.warn(validateNonExistent(user.username), validateMail(user.username));
-    error.username = !validateNonExistent(user.username)
-      ? 'Pole nie może być puste'
-      : !validateMail(user.username) ? 'Email nie jest poprawny' : null;
-    error.name = !validateNonExistent(user.name) ? 'Pole nie może być puste' : null;
-    error.user_password = !validateNonExistent(user.user_password) ? 'Pole nie może być puste' : null;
+    Object.keys(error).forEach((key) => {
+      if (key === 'username') {
+        error.username = !validateNonExistent(user.username)
+          ? 'Pole nie może być puste'
+          : !validateMail(user.username) ? 'Email nie jest poprawny' : null;
+      } else if (key === 'selected_contribution') {
+        validateStepRegulations();
+      } else {
+        error[key] = !validateNonExistent(user[key]) ? 'Pole nie może być puste' : null;
+      }
+    });
+    // error.name = !validateNonExistent(user.name) ? 'Pole nie może być puste' : null;
+    // error.user_password = !validateNonExistent(user.user_password) ? 'Pole nie może być puste' : null;
   }
+  console.warn(error);
 
   Object.entries(error).forEach(([k, v]) => {
     const element = document.getElementById(`${k}-input`);
@@ -127,6 +148,7 @@ const handleContributionClick = () => {
       user.entry_fee = el.value.split('|')[1];
       user.monthly_fee = el.value.split('|')[2];
       sibling.classList.add('active');
+      console.warn(123, user);
     } else {
       sibling.classList.remove('active');
     }
@@ -190,9 +212,22 @@ const fillJoinForm = () => {
   const name = document.getElementById(`name-${form_id}`);
   const username = document.getElementById(`username-${form_id}`);
   const user_password = document.getElementById(`user_password-${form_id}`);
-  const contribution_proposal = document.getElementById(`contributions_proposal-${form_id}`);
+  const contribution_proposal = document.getElementById(`contribution_proposal-${form_id}`);
   const entry_fee = document.getElementById(`entry_fee-${form_id}`);
   const monthly_fee = document.getElementById(`monthly_fee-${form_id}`);
+  const company_name = document.getElementById(`company_name-${form_id}`);
+  const address = document.getElementById(`address-${form_id}`);
+  const industry = document.getElementById(`industry-${form_id}`);
+  const activity = document.getElementById(`activity-${form_id}`);
+  const contact = document.getElementById(`contact-${form_id}`);
+  const web_url = document.getElementById(`web_url-${form_id}`);
+  const legal_form = document.getElementById(`legal_form-${form_id}`);
+  const krs = document.getElementById(`krs-${form_id}`);
+  const established = document.getElementById(`established-${form_id}`);
+  const facebook_info = document.getElementById(`facebook_info-${form_id}`);
+  const contact_person_name = document.getElementById(`contact_person_name-${form_id}`);
+  const contact_person_phone = document.getElementById(`contact_person_phone-${form_id}`);
+  const contact_person_email = document.getElementById(`contact_person_email-${form_id}`);
 
   name.value = user.name;
   username.value = user.username;
@@ -200,6 +235,20 @@ const fillJoinForm = () => {
   contribution_proposal.value = user.contribution_proposal;
   entry_fee.value = user.entry_fee;
   monthly_fee.value = user.monthly_fee;
+
+  company_name.value = user.company_name;
+  address.value = user.address;
+  industry.value = user.industry;
+  activity.value = user.activity;
+  contact.value = user.contact;
+  web_url.value = user.url;
+  legal_form.value = user.legal_form;
+  krs.value = user.krs;
+  established.value = user.established;
+  facebook_info.value = user.facebook;
+  contact_person_name.value = user.contact_person_name;
+  contact_person_phone.value = user.contact_person_phone;
+  contact_person_email.value = user.contact_person_email;
 
   document.getElementById('um-submit-btn').click();
 };
@@ -231,7 +280,8 @@ const checkForErrors = () => {
     form_error.classList.add('visible');
     request_errors = [...error_list].map((err) => ({
       field: err.parentElement.id.replace(`um_field_${form_id}_`, ''),
-      message: generateError(err.innerText)}));
+      message: generateError(err.innerText),
+    }));
     getDataFromForm();
     setActiveStep(1);
     request_errors.forEach((err) => {
@@ -278,7 +328,11 @@ const setActiveStep = (action) => {
       el.style.maxHeight = 0;
     }
   });
-  join_form.scrollTop = 0;
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
   first_form.style.marginLeft = `${-(step * 100)}vw`;
 };
 
