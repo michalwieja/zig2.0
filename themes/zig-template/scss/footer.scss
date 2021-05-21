@@ -13,8 +13,8 @@
   }
 
   .column {
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: clamp(50px, 5vw, 100px);
+    padding-bottom: clamp(50px, 5vw, 100px);
     width: 50%;
     position: relative;
 
@@ -32,6 +32,7 @@
 
       .text {
         padding-left: 20px;
+        font-size: $f16;
       }
     }
 
@@ -61,6 +62,7 @@
   background-color: $grenade;
   text-align: center;
   color: white;
+  padding-bottom: 20px;
 }
 
 @include respond-to($small) {

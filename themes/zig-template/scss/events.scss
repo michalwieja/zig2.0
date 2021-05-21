@@ -15,6 +15,7 @@
 
   .button {
     max-width: 250px;
+    width: fit-content;
   }
 
   .content {
@@ -35,6 +36,9 @@
       font-size: $f18;
       line-height: 150%;
       padding: 1.25vw 0;
+      @include respond-to($small) {
+        padding: 5vw 0;
+      }
     }
   }
 
