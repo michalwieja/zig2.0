@@ -20,11 +20,11 @@
         <p>02<br>WYBIERZ WŁAŚCIWĄ SKŁADKĘ</p>
       </div>
       <div class="progress-bar__element">
-        <p>03<br>WYPEŁNIJ&nbsp;ANKIETĘ I POBIERZ DEKLARACJĘ</p>
+        <p>03<br>WYPEŁNIJ&nbsp;ANKIETĘ</p>
       </div>
-      <!--      <div class="progress-bar__element">-->
-      <!--        <p>04<br>WYPEŁNIJ ANKIETĘ</p>-->
-      <!--      </div>-->
+      <div class="progress-bar__element">
+        <p>04<br>POBIERZ DEKLARACJĘ</p>
+      </div>
       <!--      <div class="progress-bar__element">-->
       <!--        <p>05<br>APLIKUJ</p>-->
       <!--      </div>-->
@@ -1069,16 +1069,36 @@
         <p class="join-consent">Wyrażam zgodę na umieszczenie ww. danych o Firmie na stronie internetowej Zagłębiowskiej
           Izby Gospodarczej oraz jej promocję w mediach na podstawie wyżej przedstawionych danych i informacji. </p>
       </div>
+      <div class="step" style="max-height: 0">
+        <div class="join-us-modal__content">
+          <p class="join-us-modal__title">
+            Dzień dobry,
+            dziękujemy za wypełnienie deklaracji.
+          </p>
+          <p class="join-us-modal__text">
+            Daj nam chwilę na zapoznanie się z nią. Skontaktujemy się najszybciej, jak będzie to
+            możliwe. W pilnych
+            sprawach skontaktuj się z Pauliną...., tel..
+            <br>
+            <br>
+            Dziękujemy,
+            Z poważaniem
+          </p>
+          <a href="/wp-content/themes/zig-template/assets/deklaracja.pdf">
+            <button class="button" id="declaration-button">
+              Pobierz deklarację
+            </button>
+          </a>
+          <button class="button" id="close-modal-button">
+            Kolejny krok
+          </button>
+        </div>
+      </div>
     </form>
     <div class="button-wrapper">
       <button class="button" id="prev-button" style="opacity: 0">
         Wróć do poprzedniego kroku
       </button>
-      <a href="/wp-content/themes/zig-template/assets/deklaracja.pdf">
-        <button class="button" id="declaration-button">
-          Pobierz deklarację
-        </button>
-      </a>
       <button class="button" id="next-button">
         Akceptuję i przechodzę dalej
       </button>

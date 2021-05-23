@@ -274,6 +274,10 @@ const getDataFromForm = () => {
   fillInput(username.value, username_input);
 };
 
+const goToStep4 = () => {
+  step = 4;
+};
+
 const checkForErrors = () => {
   if (error_list && error_list.length) {
     form_error.innerText = 'Wystąpił błąd - uzupełnij formularz ponownie';
@@ -289,7 +293,8 @@ const checkForErrors = () => {
     });
     return;
   } else if (post_message) {
-    document.querySelector('html').classList.add('modal-open');
+    // document.querySelector('html').classList.add('modal-open');
+    goToStep4();
   } else {
     request_errors = [];
   }
