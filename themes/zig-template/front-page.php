@@ -66,7 +66,7 @@
       <p>Bądź zawsze na bieżąco </p>
     </div>
 	  <?php echo do_shortcode( '[sp_wpcarousel id="395"]' ); ?>
-    <a href="/perspektywy">
+    <a href="/category/wszystkie">
       <button class="button grenade">ZOBACZ WSZYSTKIE</button>
     </a>
   </section>

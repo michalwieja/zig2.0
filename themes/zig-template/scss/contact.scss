@@ -8,6 +8,10 @@
     gap: 2.5vw;
   }
 
+  .subpage-text {
+    text-align: left;
+  }
+
   form {
     p {
       text-align: left;
@@ -26,6 +30,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     padding-left: 3vw;
+    margin-left: 3vw;
+    @include respond-to($medium) {
+      margin-left: 0;
+    }
 
     .row {
       @include flex(center);
@@ -55,7 +63,7 @@
   }
 
   input {
-    width: 20vw;
+    width: 25vw;
   }
 
   .your-name {
@@ -64,7 +72,7 @@
 
   textarea {
     margin: 2vw 0;
-    width: 42vw;
+    width: 52vw;
   }
 
   input[type="submit"] {

@@ -1,0 +1,10 @@
+.wp-paginate.wpp-modern-grey .current.page{
+  opacity: 1;
+  color: $blue;
+  background-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.wp-paginate.wpp-modern-grey a{
+  background-color: transparent !important;
+}

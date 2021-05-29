@@ -27,6 +27,9 @@
       font-weight: 500;
       line-height: 150%;
       padding: 30px 30px 0 30px;
+      @include respond-to($small) {
+        padding: 15px 15px 0 15px;
+      }
 
       a {
         color: $black;
@@ -38,6 +41,9 @@
       line-height: 150%;
       color: $black;
       padding: 30px 30px 0 30px;
+      @include respond-to($small) {
+        padding: 15px 15px 0 15px;
+      }
     }
 
     button {
@@ -65,7 +71,7 @@
     font-weight: 500;
 
     .button {
-      margin-top: 2.5vw;
+      margin-top: 35px;
     }
   }
 }

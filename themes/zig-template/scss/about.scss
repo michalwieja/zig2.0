@@ -1,4 +1,7 @@
 .about {
+  .subpage-banner{
+    padding-bottom: 0;
+  }
   .subpage-title {
     padding-bottom: 2.5vw;
   }
@@ -63,8 +66,8 @@
 
     .button {
       font-size: $f18;
-      height: 88px;
-      width: 322px;
+      height: clamp(60px, 4vw, 88px);
+      width: clamp(240px, 16vw, 322px);
       @include flex(center, space-evenly);
 
       &:hover path {
@@ -125,7 +128,7 @@
         }
 
         .text {
-          padding: 25px 30px;
+          padding: 25px 30px 0;
         }
       }
     }
@@ -134,14 +137,6 @@
       .button-wrapper {
         flex-direction: column;
         grid-gap: 25px;
-      }
-
-      .button {
-        max-width: 300px;
-        font-size: 14px;
-        height: auto;
-        padding: 10px 20px;
-
       }
     }
 
@@ -153,24 +148,3 @@
   }
 }
 
-@include respond-to($xs) {
-  .about {
-    .documents {
-      .button {
-        width: 100%;
-      }
-    }
-
-  }
-}
-
-@include respond-to($xs) {
-  .about {
-    .documents {
-      .button {
-        width: 100%;
-      }
-    }
-
-  }
-}

@@ -71,6 +71,7 @@
 
 @include respond-to($xl) {
   .hero {
+    height: 50vw;
     &__description {
       width: 100%;
     }
@@ -79,7 +80,7 @@
 
 @include respond-to($large) {
   .hero {
-    height: 40vw;
+
 
     &__description {
       top: -25%;

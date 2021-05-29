@@ -6,6 +6,15 @@
 
   &__logo {
     z-index: 5;
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+    a {
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
   }
 
   @include flex(center, space-between);
