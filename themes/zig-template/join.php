@@ -14,16 +14,16 @@
   <div class="join-us">
     <div class="progress-bar">
       <div class="progress-bar__element active">
-        <p>01<br>PRZECZYTAJ STATUS&nbsp;ZIG</p>
+        <p>01<br>Przeczytaj statu ZIG</p>
       </div>
       <div class="progress-bar__element">
-        <p>02<br>WYBIERZ WŁAŚCIWĄ SKŁADKĘ</p>
+        <p>02<br>Wybierz właściwą składkę</p>
       </div>
       <div class="progress-bar__element">
-        <p>03<br>WYPEŁNIJ&nbsp;ANKIETĘ</p>
+        <p>03<br>Wypełnij ankietę</p>
       </div>
       <div class="progress-bar__element">
-        <p>04<br>POBIERZ DEKLARACJĘ</p>
+        <p>04<br>Pobierz deklarację</p>
       </div>
       <!--      <div class="progress-bar__element">-->
       <!--        <p>05<br>APLIKUJ</p>-->
@@ -937,167 +937,175 @@
         </div>
       </div  style="max-height: unset">
       <div class="step" style="max-height: 0">
-        <div class="text-input__wrapper" id="name-input">
-          <p class="text-input__label">Imię i nazwisko</p>
-          <input type="text" class="text-input__input" name="name" id="input-name-input">
-          <p class="text-input__error" id="name-error"></p>
+        <div class="company-form">
+          <!--        <div class="text-input__wrapper" id="name-input">-->
+          <!--          <p class="text-input__label">Imię i nazwisko</p>-->
+          <!--          <input type="text" class="text-input__input" name="name" id="input-name-input">-->
+          <!--          <p class="text-input__error" id="name-error"></p>-->
+          <!--        </div>-->
+          <p class="join-us__subtitle">
+            Informacje o firmie
+          </p>
+          <div class="text-input__wrapper" id="company_name-input">
+            <p class="text-input__label">Nazwa firmy</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="company_name"
+                id="input-company_name-input"
+            >
+            <p class="text-input__error" id="company_name-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="address-input">
+            <p class="text-input__label">Adres siedziby firmy</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="address"
+                id="input-address-input"
+            >
+            <p class="text-input__error" id="address-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="contact-input">
+            <p class="text-input__label">Numer telefonu</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="contact"
+                id="input-contact-input"
+            >
+            <p class="text-input__error" id="contact-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="username-input">
+            <p class="text-input__label">Email</p>
+            <input
+                type="email" class="text-input__input" autocomplete="new-password" name="username"
+                id="input-username-input"
+            >
+            <p class="text-input__error" id="username-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="user_password-input">
+            <p class="text-input__label">Hasło</p>
+            <input
+                type="password" class="text-input__input" autocomplete="new-password"
+                name="user_password"
+                id="input-user_password-input"
+            >
+            <p class="text-input__error" id="user_password-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="url-input">
+            <p class="text-input__label">Adres strony internetowej</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="url"
+                id="input-url-input"
+            >
+            <p class="text-input__error" id="url-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="industry-input">
+            <p class="text-input__label">Branża</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="industry"
+                id="input-industry-input"
+            >
+            <p class="text-input__error" id="industry-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="legal_form-input">
+            <p class="text-input__label">Forma prawna Firmy</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="legal_form"
+                id="input-legal_form-input"
+            >
+            <p class="text-input__error" id="legal_form-error"></p>
+          </div>
+          <div class="text-input__row">
+            <div class="text-input__wrapper" id="krs-input">
+              <p class="text-input__label">KRS</p>
+              <input
+                  type="text" class="text-input__input" autocomplete="new-password" name="krs"
+                  id="input-krs-input"
+              >
+              <p class="text-input__error" id="krs-error"></p>
+            </div>
+            <div class="text-input__wrapper" id="established-input">
+              <p class="text-input__label">Rok założenia</p>
+              <input
+                  type="text" class="text-input__input" autocomplete="new-password" name="established"
+                  id="input-established-input"
+              >
+              <p class="text-input__error" id="established-error"></p>
+            </div>
+          </div>
+          <div class="text-input__wrapper" id="activity-input">
+            <p class="text-input__label">Działalność</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="activity"
+                id="input-activity-input"
+            >
+            <p class="text-input__error" id="activity-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="facebook-input">
+            <p class="text-input__label">Zakres usług</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="facebook"
+                id="input-facebook-input"
+            >
+            <p class="text-input__error" id="facebook-error"></p>
+          </div>
+          <p class="join-us__subtitle">
+            Osoba odpowiedzialna za kontakty z klientami
+          </p>
+          <div class="text-input__wrapper" id="contact_person_name-input">
+            <p class="text-input__label">Imię i nazwisko</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="contact_person_name"
+                id="input-contact_person_name-input"
+            >
+            <p class="text-input__error" id="contact_person_name-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="contact_person_email-input">
+            <p class="text-input__label">Email</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="contact_person_email"
+                id="input-contact-person-input"
+            >
+            <p class="text-input__error" id="contact_person_email-error"></p>
+          </div>
+          <div class="text-input__wrapper" id="contact_person_phone-input">
+            <p class="text-input__label">Numer telefonu</p>
+            <input
+                type="text" class="text-input__input" autocomplete="new-password" name="contact_person_phone"
+                id="input-contact_person_phone-input"
+            >
+            <p class="text-input__error" id="contact_person_phone-error"></p>
+          </div>
+          <div class="join-consent-wrapper">
+            <div class="input-wrapper">
+              <input type="checkbox" id="join-consent" name="join-consent"/>
+            </div>
+            <label for="join-consent" class="join-consent">Wyrażam zgodę na umieszczenie ww. danych o Firmie na stronie
+              internetowej
+              Zagłębiowskiej
+              Izby Gospodarczej oraz jej promocję w mediach na podstawie wyżej przedstawionych danych i
+              informacji.</label>
+          </div>
         </div>
-        <div class="text-input__wrapper" id="username-input">
-          <p class="text-input__label">Email</p>
-          <input
-            type="email" class="text-input__input" autocomplete="new-password" name="username"
-            id="input-username-input"
-          >
-          <p class="text-input__error" id="username-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="user_password-input">
-          <p class="text-input__label">Hasło</p>
-          <input
-            type="password" class="text-input__input" autocomplete="new-password"
-            name="user_password"
-            id="input-user_password-input"
-          >
-          <p class="text-input__error" id="user_password-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="company_name-input">
-          <p class="text-input__label">Nazwa firmy</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="company_name"
-            id="input-company_name-input"
-          >
-          <p class="text-input__error" id="company_name-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="address-input">
-          <p class="text-input__label">Adres siedziby firmy</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="address"
-            id="input-address-input"
-          >
-          <p class="text-input__error" id="address-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="industry-input">
-          <p class="text-input__label">Branża</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="industry"
-            id="input-industry-input"
-          >
-          <p class="text-input__error" id="industry-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="activity-input">
-          <p class="text-input__label">Działalność</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="activity"
-            id="input-activity-input"
-          >
-          <p class="text-input__error" id="activity-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="contact-input">
-          <p class="text-input__label">Kontakt (tel./fax)</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="contact"
-            id="input-contact-input"
-          >
-          <p class="text-input__error" id="contact-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="url-input">
-          <p class="text-input__label">Adres strony internetowej</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="url"
-            id="input-url-input"
-          >
-          <p class="text-input__error" id="url-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="legal_form-input">
-          <p class="text-input__label">Forma prawna Firmy</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="legal_form"
-            id="input-legal_form-input"
-          >
-          <p class="text-input__error" id="legal_form-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="krs-input">
-          <p class="text-input__label">KRS</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="krs"
-            id="input-krs-input"
-          >
-          <p class="text-input__error" id="krs-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="established-input">
-          <p class="text-input__label">Rok założenia</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="established"
-            id="input-established-input"
-          >
-          <p class="text-input__error" id="established-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="facebook-input">
-          <p class="text-input__label">Informacja o działalności firmy</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="facebook"
-            id="input-facebook-input"
-          >
-          <p class="text-input__error" id="facebook-error"></p>
-        </div>
-        <p class="join-us__subtitle">
-          Osoba odpowiedzialna za kontakty z klientami
-        </p>
-        <div class="text-input__wrapper" id="contact_person_name-input">
-          <p class="text-input__label">Imię i nazwisko</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="contact_person_name"
-            id="input-contact_person_name-input"
-          >
-          <p class="text-input__error" id="contact_person_name-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="contact_person_phone-input">
-          <p class="text-input__label">Tel./Fax.</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="contact_person_phone"
-            id="input-contact_person_phone-input"
-          >
-          <p class="text-input__error" id="contact_person_phone-error"></p>
-        </div>
-        <div class="text-input__wrapper" id="contact_person_email-input">
-          <p class="text-input__label">Email</p>
-          <input
-            type="text" class="text-input__input" autocomplete="new-password" name="contact_person_email"
-            id="input-contact-person-input"
-          >
-          <p class="text-input__error" id="contact_person_email-error"></p>
-        </div>
-        <p class="join-consent">Wyrażam zgodę na umieszczenie ww. danych o Firmie na stronie internetowej Zagłębiowskiej
-          Izby Gospodarczej oraz jej promocję w mediach na podstawie wyżej przedstawionych danych i informacji. </p>
       </div>
       <div class="step" style="max-height: 0">
         <div class="join-us-modal__content">
           <p class="join-us-modal__title">
-            Dzień dobry,
-            dziękujemy za wypełnienie deklaracji.
+            Dziękujemy!
           </p>
           <p class="join-us-modal__text">
-            Daj nam chwilę na zapoznanie się z nią. Skontaktujemy się najszybciej, jak będzie to
-            możliwe. W pilnych
-            sprawach skontaktuj się z Pauliną...., tel..
-            <br>
-            <br>
-            Dziękujemy,
-            Z poważaniem
+            Aby dokończyć proces aplikacji pobierz deklarację, podpisz i wyślij skan na adres biuro@zig.org.pl
           </p>
           <a href="/wp-content/themes/zig-template/assets/deklaracja.pdf">
             <button class="button" id="declaration-button">
               Pobierz deklarację
             </button>
           </a>
-          <button class="button" id="close-modal-button">
-            Kolejny krok
-          </button>
+          <!--          <button class="button" id="close-modal-button">-->
+          <!--            Kolejny krok-->
+          <!--          </button>-->
         </div>
       </div>
     </form>
     <div class="button-wrapper">
       <button class="button" id="prev-button" style="opacity: 0">
-        Wróć do poprzedniego kroku
+        Poprzedni krok
       </button>
       <button class="button" id="next-button">
         Akceptuję i przechodzę dalej
