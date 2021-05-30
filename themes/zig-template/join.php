@@ -224,7 +224,7 @@
               przystąpiły do Izby przed jej rejestracją i posiadają w niej nieprzerwane członkostwo.
             </p>
             <h5> § 9
-              <p></h5>
+            </h5><p>
             1) Decyzje w sprawach przyznania członkostwa podejmuje Dyrektor Izby po rozpatrzeniu
             wnio­sku zainteresowanego podmiotu.
             </p>
@@ -794,7 +794,7 @@
         </div>
       </div>
       <div class="step" style="max-height: 0">
-        <div class="step__content">
+        <div class="step__content contributions">
           <div class="contributions">
             <div class="contributions__header">
               <p></p>
@@ -809,8 +809,9 @@
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  Przedsiębiorstwa do 5 pracowników <span>330 zł</span>
-                  <span>55 zł</span>
+                  Przedsiębiorstwa do 5 pracowników
+                  <span><span class="gray">propozycja składek</span><span>330 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>55 zł</span></span>
                 </p>
                 <p>330 zł</p>
                 <p>55 zł</p>
@@ -821,7 +822,8 @@
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  Przedsiębiorstwa 5 - 10 pracowników <span>510 zł</span>
+                  Przedsiębiorstwa 5 - 10 pracowników
+                  <span>510 zł</span>
                   <span>85 zł</span>
                 </p>
                 <p>510 zł</p>

@@ -143,6 +143,10 @@
       position: relative;
       flex: 1 1 25%;
 
+      @include respond-to(900px) {
+        border-top: none !important;
+      }
+
       &:nth-of-type(4) {
         border: none;
         max-width: 170px;
@@ -161,6 +165,11 @@
         font-size: $f18;
         line-height: 26px;
         padding-left: 5px;
+
+        @include respond-to(900px) {
+          margin-left: 20px;
+          margin-top: 20px;
+        }
       }
 
 
@@ -175,6 +184,7 @@
           content: '';
           background-color: #fff;
           border: 2px solid #0028c8;
+
         }
 
         &:after {
@@ -216,6 +226,9 @@
         min-height: 30px;
         border-radius: 30px;
         transition: all .25s ease-in-out;
+        @include respond-to(900px) {
+          margin-left: 23px;
+        }
       }
 
       &:after {
@@ -228,6 +241,9 @@
         position: absolute;
         background-color: white;
         border-radius: 14px;
+        @include respond-to(900px) {
+          margin-left: 23px;
+        }
       }
     }
   }
@@ -284,6 +300,10 @@
 
     .step__content {
       width: calc(100% - 60px) !important;
+
+      &.contributions {
+        width: calc(100% - 50px) !important;
+      }
     }
   }
 
@@ -350,6 +370,13 @@
   align-items: center;
   justify-content: center;
 
+  @include respond-to(900px) {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    margin-right: 11px;
+  }
+
   * {
     transition: all .25s ease-in-out;
   }
@@ -408,7 +435,7 @@
     grid-template-columns: 67px clamp(275px, 30vw, 335px) repeat(2, clamp(215px, 30vw, 318px));
 
     @include respond-to(900px) {
-      grid-template-columns: 35% 65%;
+      grid-template-columns: 12% 88%;
       width: 100%;
 
       p {
@@ -455,7 +482,13 @@
       }
 
       span {
-        display: block !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .gray {
+        color: rgba(#343434, 0.5);
       }
 
       input[type="radio"] {
@@ -473,6 +506,11 @@
 
     .checkbox-wrapper {
       @include flex(center, center, row);
+
+      @include respond-to(900px) {
+        padding-top: 26px;
+        align-items: flex-start;
+      }
     }
 
     &:hover {
@@ -490,6 +528,9 @@
       color: $black;
       padding-left: 40px;
       line-height: 72px;
+      @include respond-to(900px) {
+        padding-left: 0;
+      }
 
       span {
         display: none;
