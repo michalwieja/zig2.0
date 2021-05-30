@@ -117,6 +117,7 @@
 
       .wpcp-post-title {
         top: 70px;
+        @include line-clamp(3);
 
         a {
           color: #343434 !important;

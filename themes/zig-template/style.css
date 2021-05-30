@@ -726,6 +726,11 @@ a {
 }
 .carousel .slick-slide .wpcp-all-captions .wpcp-post-title {
   top: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .carousel .slick-slide .wpcp-all-captions .wpcp-post-title a {
   color: #343434 !important;
