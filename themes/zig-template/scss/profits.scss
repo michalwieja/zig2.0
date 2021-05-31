@@ -1,0 +1,82 @@
+.profits {
+  background-color: $grey;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+
+  &__title {
+    color: $blue;
+    text-decoration: none;
+    text-align: right;
+  }
+
+  .cards {
+    padding-top: 2.5vw;
+    @include flex(flex-start, space-between);
+    gap: 2.5vw;
+  }
+
+  .card {
+    background-color: $white;
+    border: 8px solid $grenade;
+    position: relative;
+    padding: clamp(25px, 2.5vw, 50px);
+    width: clamp(330px, 20vw, 385px);
+    min-height: 420px;
+    @include flex();
+    flex-direction: column;
+
+    .arrow {
+      margin-top: auto;
+    }
+
+
+    &:after {
+      content: url("/wp-content/themes/zig-template/assets/border-ornamnet.jpg");
+      position: absolute;
+      top: -8px;
+      right: -8px;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      color: $blue;
+      position: relative;
+      z-index: 2;
+    }
+
+    .text {
+      padding-top: 1vw;
+      font-size: 18px;
+      color: $blue;
+      padding-bottom: 1vw;
+
+    }
+  }
+}
+
+@include respond-to($xl) {
+  .profits {
+    .card {
+      width: 25vw;
+
+      .title {
+        font-size: clamp(24px, 2vw, 32px);
+      }
+    }
+  }
+}
+
+@include respond-to($medium) {
+  .profits {
+    .cards {
+      flex-direction: column;
+    }
+
+    .card {
+      width: 100%;
+      min-height: unset;
+    }
+  }
+
+}

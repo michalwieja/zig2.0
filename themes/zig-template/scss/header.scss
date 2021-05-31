@@ -6,6 +6,15 @@
 
   &__logo {
     z-index: 5;
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+    a {
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
   }
 
   @include flex(center, space-between);
@@ -13,10 +22,13 @@
   height: 80px;
 
   &__nav {
-    @include flex(center);
+    @include flex(center, space-between);
     list-style: none;
-    gap: 40px;
+    width: 50%;
     z-index: 5;
+    @include respond-to($xxl) {
+      width: 60%;
+    }
   }
 
   .current-menu-item {
@@ -24,7 +36,7 @@
       color: $blue;
       text-decoration: underline;
       text-decoration-color: $blue;
-      text-underline-offset: 25px;
+      text-underline-offset: 26px;
       text-decoration-thickness: 5px;
 
       @include respond-to($xl) {
@@ -58,7 +70,7 @@
     background-color: $blue;
     color: $white;
     padding: 10px 20px;
-    }
+  }
 
   li.join.current-menu-item a {
     text-decoration: none;

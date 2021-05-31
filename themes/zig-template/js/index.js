@@ -55,9 +55,15 @@ const injectReadMoreButton = (carousel_post) => {
   });
 };
 
+const checkCarousels = () => {
+  // TODO - check id's in production
+  const homeCarouselCheck = document.getElementById('wpcpro-wrapper-395');
+  const aboutCarouselCheck = document.getElementById('wpcpro-wrapper-514');
+  return !!homeCarouselCheck || !!aboutCarouselCheck;
+};
+
 const homeCarouselFunctions = () => {
-  console.warn(window.location.pathname);
-  if (!['/', '/zig/', '/zig'].includes(window.location.pathname)) {
+  if (!checkCarousels()) {
     clearInterval(interval);
     return;
   }
@@ -67,12 +73,6 @@ const homeCarouselFunctions = () => {
   setOpacityOnLastPost();
 };
 
-// Change header colour
-// if (['/dolacz/', '/dolacz', 'dolacz'].includes(window.location.pathname) || window.location.search === '?page_id=29') {
-//   header.classList.add('inverted');
-// } else {
-//   header.classList.remove('inverted');
-// }
 
 const handleHamburgerClick = () => {
   hamburger.classList.toggle('active');

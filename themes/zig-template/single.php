@@ -1,39 +1,52 @@
 <?php
-get_header(); ?>
+get_header();
 
-<div class="img-banner"></div>
+$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+?>
+
+
 <div class="padding-x">
   <div class="single-wrapper">
-
-    <div class="category">
-		<?php
-		$categories = get_the_category();
-		foreach ( $categories as $cat ) {
-			$category_link = get_category_link( $cat->cat_ID );
-			$category_name = get_cat_name( $cat->cat_ID );
-			?>
-          <a href="<?php echo $category_link ?>"><?php echo $category_name ?></a>
-			<?php
-		}
-		?>
-
-    </div>
-<!--    <h1>--><?php //the_title() ?><!--</h1>-->
-
+	  <?php
+	  echo do_shortcode( '[flexy_breadcrumb]' );
+	  ?>
 
     <div class="date">
 		<?php
-		echo get_the_date( 'd F, Y' );
 
+		if ( strpos( $url, 'czlonkowie' ) === false ) {
 
-		?>
+			echo get_the_date( 'd F, Y' );
+		} ?>
     </div>
+    <h1 class="title">
+		<?php the_title() ?>
+    </h1>
+	  <?php the_content(); ?>
+    <div class="back">
+		<?php
 
-	  <?php
-	  the_content();
-	  ?>
+		if ( strpos( $url, 'czlonkowie' ) !== false ) { ?>
+          <a href="/spolecznosc">
+            <div class="back__button">< WRÓĆ DO SPOŁECZNOŚCI</div>
+          </a>
+			<?php
+		} ?>
+    </div>
   </div>
 </div>
+<div class="society">
+  <div class="padding-l">
+    <div class="subpage-header">
+      Jest nas więcej
+    </div>
+    <div class="carousel about">
+		<?php echo do_shortcode( '[sp_wpcarousel id="514"]' ); ?>
+
+    </div>
+  </div>
+</div>
+
 <?php
 get_footer();
 ?>

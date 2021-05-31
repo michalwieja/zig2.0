@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<div class="perspectives">
+<div class="perspectives wrapper">
   <div class="subpage-banner padding-x">
     <div class="column subpage-title">
       Perspektywy
@@ -78,7 +78,7 @@ get_header(); ?>
   <div class="question padding-x">
     <p>Chcesz podzielić się swoją wiedzą?</p>
     <p>Masz pomysł lub pytanie? </p>
-    <button class="button">napisz do nas</button>
+    <a href="/kontakt"><button class="button">napisz do nas</button></a>
   </div>
 </div>
 

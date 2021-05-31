@@ -40,14 +40,12 @@
 
     .logo {
       background-color: #fff;
-      height: 15vw;
+      height: 18vw;
       display: grid;
       place-items: center;
 
       img {
-        max-height: 110px;
-        height: 100%;
-        width: auto;
+        height: auto;
         max-width: 360px;
       }
     }
@@ -97,11 +95,10 @@
 
 @include respond-to($small) {
   .society {
-
-
-    #s{
+    #s {
       max-width: 150px;
     }
+
     .cards {
       grid-template-columns: 1fr;
     }

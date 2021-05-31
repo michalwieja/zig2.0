@@ -8,8 +8,12 @@
     gap: 2.5vw;
   }
 
-  form{
-    p{
+  .subpage-text {
+    text-align: left;
+  }
+
+  form {
+    p {
       text-align: left;
     }
   }
@@ -26,6 +30,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     padding-left: 3vw;
+    margin-left: 3vw;
+    @include respond-to($medium) {
+      margin-left: 0;
+    }
 
     .row {
       @include flex(center);
@@ -55,7 +63,7 @@
   }
 
   input {
-    width: 20vw;
+    width: 25vw;
   }
 
   .your-name {
@@ -64,7 +72,7 @@
 
   textarea {
     margin: 2vw 0;
-    width: 42vw;
+    width: 52vw;
   }
 
   input[type="submit"] {
@@ -89,13 +97,34 @@
 @include respond-to($medium) {
   .contact {
     display: block;
-    padding: 10vw;
+    padding: 0 0 10vw 0;
+    display: flex;
+    flex-direction: column-reverse;
+
+    input {
+      width: 35vw;
+    }
+
+    .your-name {
+      margin-right: 2vw;
+    }
+
+    textarea {
+      margin: 2vw 0;
+      width: 72vw;
+    }
 
 
     .column {
       text-align: center;
       display: grid;
       place-items: center;
+      width: 100%;
+      padding-left: 0;
+
+      &.padding-l {
+        padding: 0 30px;
+      }
 
       .banner__text {
         width: 100%;
@@ -103,16 +132,40 @@
     }
 
     .data {
-      width: 580px;
+      width: 100%;
+      height: 150px;
+      flex-direction: row;
+      padding-left: 0;
+      align-items: center;
+      padding: 0 5vw;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 0;
+
+      .row {
+        flex: 1 1 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:nth-child(2) {
+          border-top: 0;
+          border-bottom: 0;
+        }
+
+        .text {
+          width: unset;
+        }
+      }
     }
+
+
   }
 }
 
 @include respond-to($small) {
   .contact {
-    padding: 30px;
     width: 100%;
-
 
     .column {
       width: 100%;
@@ -134,7 +187,7 @@
         .text {
           font-size: 14px;
         }
-      ;
+
       }
     }
   }
