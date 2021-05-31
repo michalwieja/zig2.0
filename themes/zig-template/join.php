@@ -25,6 +25,7 @@
       <div class="progress-bar__element">
         <p>04<br>Pobierz deklarację</p>
       </div>
+
       <!--      <div class="progress-bar__element">-->
       <!--        <p>05<br>APLIKUJ</p>-->
       <!--      </div>-->
