@@ -28,6 +28,7 @@ a {
   text-decoration: none;
 }
 
+/* update comment */
 .button-wrapper {
   display: flex;
   gap: clamp(10px, 1vw, 25px);
@@ -792,6 +793,7 @@ a {
   display: none !important;
 }
 
+/* update comment */
 .announcements {
   background-color: #eeeeee;
   padding-top: 100px;
@@ -2623,6 +2625,7 @@ html.modal-open .join-us-modal {
   overflow: hidden;
 }
 
+/* update comment */
 .fbc {
   padding-top: clamp(50px, 5vw, 100px);
 }
