@@ -20,6 +20,7 @@ const body_factory = {
   monthly_fee: null,
   username: null,
   user_password: null,
+  name: null,
   company_name: null,
   address: null,
   industry: null,
@@ -60,6 +61,7 @@ register_fields.forEach(input => {
 });
 
 const validateStepRegulations = () => {
+  console.warn(556, !(user.contribution_proposal && user.entry_fee && user.monthly_fee), user);
   if (!(user.contribution_proposal && user.entry_fee && user.monthly_fee)) {
     error.selected_contribution = 'Proszę wybrać wysokość składki';
     contributions_row.forEach(el => el.classList.add('error'));
@@ -96,6 +98,8 @@ const validateStepDeclaration = (field = null, value = 'not_specified', custom_e
     // error.name = !validateNonExistent(user.name) ? 'Pole nie może być puste' : null;
     // error.user_password = !validateNonExistent(user.user_password) ? 'Pole nie może być puste' : null;
   }
+  console.warn(error);
+
   Object.entries(error).forEach(([k, v]) => {
     const element = document.getElementById(`${k}-input`);
     const element_error = document.getElementById(`${k}-error`);
@@ -144,6 +148,7 @@ const handleContributionClick = () => {
       user.entry_fee = el.value.split('|')[1];
       user.monthly_fee = el.value.split('|')[2];
       sibling.classList.add('active');
+      console.warn(123, user);
     } else {
       sibling.classList.remove('active');
     }
@@ -162,9 +167,8 @@ const handleFormButtonClick = (action) => {
   if (step === 1) {
     has_errors = validateStepRegulations();
   } else if (step === 2) {
-    const checkbox = document.getElementById('join-consent');
     validateStepDeclaration();
-    has_errors = !Object.values(error).every(el => !el) && !checkbox.checked;
+    has_errors = !Object.values(error).every(el => !el);
   }
   if (has_errors) {
     next.classList.add('disabled');
@@ -205,7 +209,7 @@ const generateError = (msg) => {
 };
 
 const fillJoinForm = () => {
-  // const name = document.getElementById(`name-${form_id}`);
+  const name = document.getElementById(`name-${form_id}`);
   const username = document.getElementById(`username-${form_id}`);
   const user_password = document.getElementById(`user_password-${form_id}`);
   const contribution_proposal = document.getElementById(`contribution_proposal-${form_id}`);
@@ -225,7 +229,7 @@ const fillJoinForm = () => {
   const contact_person_phone = document.getElementById(`contact_person_phone-${form_id}`);
   const contact_person_email = document.getElementById(`contact_person_email-${form_id}`);
 
-  // name.value = user.name;
+  name.value = user.name;
   username.value = user.username;
   user_password.value = user.user_password;
   contribution_proposal.value = user.contribution_proposal;
@@ -270,10 +274,6 @@ const getDataFromForm = () => {
   fillInput(username.value, username_input);
 };
 
-const goToStep4 = () => {
-  step = 4;
-};
-
 const checkForErrors = () => {
   if (error_list && error_list.length) {
     form_error.innerText = 'Wystąpił błąd - uzupełnij formularz ponownie';
@@ -289,8 +289,7 @@ const checkForErrors = () => {
     });
     return;
   } else if (post_message) {
-    // document.querySelector('html').classList.add('modal-open');
-    goToStep4();
+    document.querySelector('html').classList.add('modal-open');
   } else {
     request_errors = [];
   }

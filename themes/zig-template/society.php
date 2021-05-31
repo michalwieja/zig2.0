@@ -1,3 +1,12 @@
+<?php $sort = $_GET['sort'];
+if ( $sort == "ASC" ) {
+	$order = "ASC";
+}
+if ( $sort == "DESC" ) {
+	$order = "DESC";
+}
+?>
+
 <section class="society">
   <div class="padding-x">
     <div class="subpage-banner">
@@ -11,7 +20,22 @@
     <div class="filters">
 
       <hr>
-      <button class="button">SORTUJ</button>
+      <div class="sort">
+        <a href="?sort=asc" <?php if ( $sort == "ASC" ) {
+			echo 'style="color:gray"';
+		} ?>>
+          <img src="/wp-content/themes/zig-template/assets/sort-alpha-down-solid.svg"
+               alt="sort">
+        </a>
+        <a href="?sort=desc" <?php if ( $sort == "DESC" ) {
+			echo 'style="color:gray"';
+		} ?>>
+          <img src="/wp-content/themes/zig-template/assets/sort-alpha-down-alt-solid.svg"
+               alt="sort">
+        </a>
+      </div>
+
+
     </div>
     <div class="cards">
 		<?php
@@ -19,35 +43,42 @@
 		$limit = get_option( 'posts_per_page' );
 		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		query_posts( array(
+			'post_type'      => 'czlonkowie',
 			'posts_per_page' => $limit,
 			'paged'          => $paged,
-			'category_name'  => 'czlonkowie'
+			'orderby'        => 'title',
+			'order'          => $sort
+
 
 		) );
 		?>
 
 		<?php while ( have_posts() ): the_post(); ?>
-          <div class="card">
-            <div class="logo"><?php the_post_thumbnail(); ?></div>
 
-            <div class="title"><?php the_title(); ?></div>
-            <div class="data">
-              <div class="phone"><a
-                  href="tel:<?php echo get_post_meta( $post->ID, 'phone', true ); ?>"><?php echo get_post_meta( $post->ID, 'phone', true ); ?></a>
-              </div>
-              <div class="email"><a
-                  href="mailto:<?php echo get_post_meta( $post->ID, 'email', true ); ?>"><?php echo get_post_meta( $post->ID, 'email', true ); ?></a>
-              </div>
-              <div class="web"><a target="_blank"
-                                  href="<?php echo get_post_meta( $post->ID, 'web', true ); ?>"><?php echo get_post_meta( $post->ID, 'web', true ); ?></a>
-              </div>
-
-            </div>
-            <button class="read-more"><a
+            <div class="card">
+              <a
                 href="<?php the_permalink(); ?>" rel="bookmark"
                 title="Permanent Link to <?php the_title_attribute(); ?>"
-              >Czytaj więcej</a></button>
-          </div>
+              >
+              <div class="logo"><?php the_post_thumbnail(); ?></div>
+              </a>
+
+              <div class="title"><?php the_title(); ?></div>
+              <div class="data">
+                <div class="phone"><a
+                    href="tel:<?php echo get_post_meta( $post->ID, 'phone', true ); ?>"><?php echo get_post_meta( $post->ID, 'phone', true ); ?></a>
+                </div>
+                <div class="email"><a
+                    href="mailto:<?php echo get_post_meta( $post->ID, 'email', true ); ?>"><?php echo get_post_meta( $post->ID, 'email', true ); ?></a>
+                </div>
+                <div class="web"><a target="_blank"
+                                    href="<?php echo get_post_meta( $post->ID, 'web', true ); ?>"><?php echo get_post_meta( $post->ID, 'web', true ); ?></a>
+                </div>
+
+              </div>
+              <button class="read-more">Czytaj więcej</button>
+            </div>
+
 
 		<?php endwhile; ?>
 

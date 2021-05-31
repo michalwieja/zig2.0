@@ -28,7 +28,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 		if ( strpos( $url, 'czlonkowie' ) !== false ) { ?>
           <a href="/spolecznosc">
-            <div class="back__button">WRÓĆ DO SPOŁECZNOŚCI</div>
+            <div class="back__button">< WRÓĆ DO SPOŁECZNOŚCI</div>
           </a>
 			<?php
 		} ?>

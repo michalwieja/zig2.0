@@ -141,7 +141,7 @@
         firmy, miasto, region i&nbsp;ich
         mieszkańców.
       </div>
-      <a href="/zig">
+      <a href="/spolecznosc">
         <button class="button desktop-only">Poznaj nas</button>
       </a>
     </div>
