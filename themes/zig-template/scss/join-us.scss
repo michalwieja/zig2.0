@@ -2,6 +2,15 @@
   background-color: $grey;
 }
 
+.company-form {
+  max-width: 840px;
+
+  @include respond-to(900) {
+    padding-left: 33px;
+    padding-right: 43px;
+  }
+}
+
 .join-us {
   width: 100%;
   margin-top: 100px;
@@ -10,13 +19,45 @@
   justify-content: center;
   flex-flow: column;
 
+
+  .join-consent-wrapper {
+    display: grid;
+    grid-template-columns: 18px auto;
+
+    .input-wrapper {
+      width: 18px;
+      height: 18px;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #c4c4c4;
+      cursor: pointer;
+
+      * {
+        cursor: pointer;
+      }
+
+      input[type="checkbox"] {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .join-consent {
+    margin-left: 10px;
+  }
+
   &__subtitle {
     color: #0028c8;
-    max-width: 320px;
+    width: 100%;
     font-weight: 600;
     font-size: clamp(16px, 1.73vw, 18px);
     line-height: 26px;
-    text-align: center;
+    text-align: left;
   }
 
   &__title {
@@ -51,15 +92,16 @@
   }
 
   .progress-bar {
-    max-width: 1280px;
+    max-width: 1410px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row;
     transition: all .25s ease-in-out;
     margin-bottom: 78px;
+    width: 100%;
 
-    @include respond-to(1280px) {
+    @include respond-to(1410px) {
       width: 100vw;
 
       &__element {
@@ -76,7 +118,12 @@
 
           @include respond-to(765px) {
             min-width: unset !important;
-            width: calc(100vw - 60px) !important;
+            width: 100vw !important;
+            flex: none;
+
+            p {
+              padding-left: 20px;
+            }
           }
         }
 
@@ -92,20 +139,37 @@
 
     &__element {
       height: 167px;
-      //width: 256px;
-      width: calc(1280px/3);
       border-top: 2px solid #c4c4c4;
       position: relative;
+      flex: 1 1 25%;
+
+      @include respond-to(900px) {
+        border-top: none !important;
+      }
+
+      &:nth-of-type(4) {
+        border: none;
+        max-width: 170px;
+
+        @include respond-to(1410px) {
+          border-top: 2px solid #c4c4c4;
+          max-width: 100vh;
+        }
+      }
 
       p {
         color: #c4c4c4;
         margin-top: 61px;
         height: 93px;
-        max-width: 164px;
         font-weight: 600;
         font-size: $f18;
         line-height: 26px;
-        padding-left: 15px;
+        padding-left: 5px;
+
+        @include respond-to(900px) {
+          margin-left: 20px;
+          margin-top: 20px;
+        }
       }
 
 
@@ -120,6 +184,7 @@
           content: '';
           background-color: #fff;
           border: 2px solid #0028c8;
+
         }
 
         &:after {
@@ -161,6 +226,9 @@
         min-height: 30px;
         border-radius: 30px;
         transition: all .25s ease-in-out;
+        @include respond-to(900px) {
+          margin-left: 23px;
+        }
       }
 
       &:after {
@@ -173,6 +241,9 @@
         position: absolute;
         background-color: white;
         border-radius: 14px;
+        @include respond-to(900px) {
+          margin-left: 23px;
+        }
       }
     }
   }
@@ -187,6 +258,10 @@
     text-transform: uppercase;
     margin: 78px 0;
 
+    #prev-button {
+      border: none;
+    }
+
     @include respond-to($xl) {
       padding: 0 130px;
       .button {
@@ -199,7 +274,7 @@
     }
 
     @include respond-to($xs) {
-      flex-flow: column;
+      flex-flow: column-reverse;
 
       .button {
         width: 100%;
@@ -225,6 +300,10 @@
 
     .step__content {
       width: calc(100% - 60px) !important;
+
+      &.contributions {
+        width: calc(100% - 50px) !important;
+      }
     }
   }
 
@@ -291,6 +370,13 @@
   align-items: center;
   justify-content: center;
 
+  @include respond-to(900px) {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    margin-right: 11px;
+  }
+
   * {
     transition: all .25s ease-in-out;
   }
@@ -346,10 +432,10 @@
 
   &__header, &__row {
     display: grid;
-    grid-template-columns: 67px clamp(275px, 30vw, 318px) repeat(2, clamp(215px, 30vw, 318px));
+    grid-template-columns: 67px clamp(275px, 30vw, 335px) repeat(2, clamp(215px, 30vw, 318px));
 
     @include respond-to(900px) {
-      grid-template-columns: 35% 65%;
+      grid-template-columns: 12% 88%;
       width: 100%;
 
       p {
@@ -396,7 +482,13 @@
       }
 
       span {
-        display: block !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .gray {
+        color: rgba(#343434, 0.5);
       }
 
       input[type="radio"] {
@@ -414,6 +506,11 @@
 
     .checkbox-wrapper {
       @include flex(center, center, row);
+
+      @include respond-to(900px) {
+        padding-top: 26px;
+        align-items: flex-start;
+      }
     }
 
     &:hover {
@@ -431,6 +528,9 @@
       color: $black;
       padding-left: 40px;
       line-height: 72px;
+      @include respond-to(900px) {
+        padding-left: 0;
+      }
 
       span {
         display: none;
@@ -453,10 +553,36 @@
 }
 
 .text-input {
+  &__row {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
+    width: 100%;
+    gap: 36px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+
+    @include respond-to(840px) {
+      flex-flow: column;
+      gap: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      .text-input__wrapper {
+        flex: 1 1 100% !important;
+        padding-bottom: 1px;
+      }
+    }
+
+    .text-input__wrapper {
+      flex: 1 1 50%;
+    }
+  }
+
   &__wrapper {
     margin-top: 20px;
     height: 60px;
-    width: 405px;
+    width: 100%;
     border: 1px solid #c4c4c4;
     position: relative;
     margin-bottom: 35px;
@@ -535,7 +661,7 @@
   &__content {
     background-color: $white;
     width: 100%;
-    max-width: 900px;
+    max-width: 610px;
     height: 100%;
     max-height: 500px;
     display: flex;
@@ -548,12 +674,12 @@
   }
 
   &__title {
-    font-size: $f24;
+    font-size: $f36;
     margin-bottom: 36px;
   }
 
   &__text {
-    font-size: $f16;
+    font-size: $f24;
     margin-bottom: 54px;
   }
 }

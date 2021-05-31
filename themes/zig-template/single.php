@@ -46,7 +46,6 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     </div>
   </div>
 </div>
-
 <?php
 get_footer();
 ?>
