@@ -6,8 +6,10 @@ get_header();
 
   <?php
 
-if ( is_page( 'dolacz' ) ) {
+if ( is_page( 'dolacz' )) {
 	include 'join.php';
+} else if ( is_page( 'dolacz-deklaracja' )) {
+	include 'join-declaration.php';
 } else if ( is_page( 'spolecznosc' ) ) {
 	include 'society.php';
 } else {

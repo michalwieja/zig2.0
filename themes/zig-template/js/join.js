@@ -182,13 +182,13 @@ const generateButtons = (s) => {
       return;
     }
     case 2: {
-      next.innerText = 'Wyślij deklarację';
+      next.innerText = 'Wyślij ankietę';
       return;
     }
     default: {
       prev.style.opacity = 1;
       next.style.opacity = 1;
-      next.innerText = 'Akceptuję i przechodzę dalej';
+      next.innerHTML = 'Akceptuję i przechodzę dalej  <img src="/wp-content/themes/zig-template/assets/chevron-right.svg"/>';
       return;
     }
   }
@@ -252,8 +252,10 @@ const fillJoinForm = () => {
 const fillInput = (val, el) => {
   if (val) {
     el.value = val;
-    el.parentElement.classList.add('has-value');
-  } else {
+    if (el.parentElement) {
+      el.parentElement.classList.add('has-value');
+    }
+  } else if (el.parentElement) {
     el.parentElement.classList.remove('has-value');
   }
 };
@@ -268,10 +270,6 @@ const getDataFromForm = () => {
   fillInput(name.value, name_input);
   user.username = username.value;
   fillInput(username.value, username_input);
-};
-
-const goToStep4 = () => {
-  step = 4;
 };
 
 const checkForErrors = () => {
@@ -290,7 +288,6 @@ const checkForErrors = () => {
     return;
   } else if (post_message) {
     // document.querySelector('html').classList.add('modal-open');
-    goToStep4();
   } else {
     request_errors = [];
   }
@@ -338,3 +335,10 @@ const setActiveStep = (action) => {
 };
 
 checkForErrors();
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.location.search === '?step=4') {
+    setActiveStep(4);
+  }
+});
+

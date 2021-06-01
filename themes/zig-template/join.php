@@ -31,7 +31,7 @@
     <form autocomplete="off" id="join-form">
       <div class="step regulations" id="regulations" style="max-height: unset">
         <div class="regulations__content-wrapper">
-          <div class="step__content">
+          <div class="step__content regulations">
             <h2>STATUT ZAGŁĘBIOWSKIEJ IZBY GOSPODARCZEJ
               (tekst ujednolicony 2020)</h2>
 
@@ -820,56 +820,60 @@
                 </div>
                 <p>
                   Przedsiębiorstwa 5 - 10 pracowników
-                  <span>510 zł</span>
-                  <span>85 zł</span>
+                  <span><span class="gray">propozycja składek</span><span>510 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>85 zł</span></span>
                 </p>
                 <p>510 zł</p>
                 <p>85 zł</p>
               </div>
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="10-50|1140zł|380zł"/>
+                  <input type="radio" name="contribution_size" value="10-50|660zł|110zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  Przedsiębiorstwa 10-50 pracowników <span>660 zł</span>
-                  <span>110 zł</span>
+                  Przedsiębiorstwa 10-50 pracowników
+                  <span><span class="gray">propozycja składek</span><span>660 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>110 zł</span></span>
                 </p>
                 <p>660 zł</p>
                 <p>110 zł</p>
               </div>
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="50-100|1320zł|440zł"/>
+                  <input type="radio" name="contribution_size" value="50-100|780zł|130zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  50-100 pracowników <span>780 zł</span>
-                  <span>130 zł</span>
+                  50-100 pracowników
+                  <span><span class="gray">propozycja składek</span><span>780 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>130 zł</span></span>
                 </p>
                 <p>780 zł</p>
                 <p>130 zł</p>
               </div>
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="100-300|1800zł|600zł"/>
+                  <input type="radio" name="contribution_size" value="100-300|1020zł|170zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  100-300 pracowników <span>1020 zł</span>
-                  <span>170 zł</span>
+                  100-300 pracowników
+                  <span><span class="gray">propozycja składek</span><span>1020 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>170 zł</span></span>
                 </p>
                 <p>1020 zł</p>
                 <p>170 zł</p>
               </div>
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value=">300|1800zł|600zł"/>
+                  <input type="radio" name="contribution_size" value=">300|1680zł|280zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
-                  powyżej 300 pracowników <span>1680 zł</span>
-                  <span>280 zł</span>
+                  powyżej 300 pracowników
+                  <span><span class="gray">propozycja składek</span><span>1680 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>280 zł</span></span>
                 </p>
                 <p>1680 zł</p>
                 <p>280 zł</p>
@@ -877,13 +881,13 @@
 
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="gminy<50|1200zł|400zł"/>
+                  <input type="radio" name="contribution_size" value="gminy<50tys.|450zł|75zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
                   gminy do 50 tys. mieszkańców
-                  <span>450 zł</span>
-                  <span>75 zł</span>
+                  <span><span class="gray">propozycja składek</span><span>450 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>75 zł</span></span>
                 </p>
                 <p>450 zł</p>
                 <p>75 zł</p>
@@ -892,26 +896,26 @@
 
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="gminy50-100|1200zł|400zł"/>
+                  <input type="radio" name="contribution_size" value="gminy50-100tys.|900zł|150zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
                   gminy 50-100 tys. mieszkańców
-                  <span>900 zł</span>
-                  <span>150 zł</span>
+                  <span><span class="gray">propozycja składek</span><span>900 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>150 zł</span></span>
                 </p>
                 <p>900 zł</p>
                 <p>150 zł</p>
               </div>
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="gminy>100|1200zł|400zł"/>
+                  <input type="radio" name="contribution_size" value="gminy>100tys.|1350zł|225zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
                   gminy powyżej 100 tys. mieszk.
-                  <span>1350 zł</span>
-                  <span>225 zł</span>
+                  <span><span class="gray">propozycja składek</span><span>1350 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>225 zł</span></span>
                 </p>
                 <p>1350 zł</p>
                 <p>225 zł</p>
@@ -920,13 +924,13 @@
 
               <div class="contributions__row">
                 <div class="checkbox-wrapper">
-                  <input type="radio" name="contribution_size" value="banki|1500zł|500zł"/>
+                  <input type="radio" name="contribution_size" value="banki|1800zł|300zł"/>
                   <div class="radio-button"></div>
                 </div>
                 <p>
                   banki
-                  <span>1800 zł</span>
-                  <span>300 zł</span>
+                  <span><span class="gray">propozycja składek</span><span>1800 zł</span></span>
+                  <span><span class="gray">wpisowe</span><span>300 zł</span></span>
                 </p>
                 <p>1800 zł</p>
                 <p>300 zł</p>
@@ -1091,11 +1095,13 @@
           <p class="join-us-modal__text">
             Aby dokończyć proces aplikacji pobierz deklarację, podpisz i wyślij skan na adres biuro@zig.org.pl
           </p>
-          <a href="/wp-content/themes/zig-template/assets/deklaracja.pdf">
-            <button class="button" id="declaration-button">
-              Pobierz deklarację
-            </button>
-          </a>
+          <button class="button" id="declaration-button">
+            <a href="../wp-content/themes/zig-template/assets/deklaracja.pdf" class="declaration-button-wrapper">
+              <img src="/wp-content/themes/zig-template/assets/declaration.svg" class="declaration-icon"/>
+              <p>Pobierz deklarację</p>
+              <img src="/wp-content/themes/zig-template/assets/arrow-left.svg" class="join-arrow-down"/>
+            </a>
+          </button>
           <!--          <button class="button" id="close-modal-button">-->
           <!--            Kolejny krok-->
           <!--          </button>-->
@@ -1107,7 +1113,7 @@
         Poprzedni krok
       </button>
       <button class="button" id="next-button">
-        Akceptuję i przechodzę dalej
+        Akceptuję i przechodzę dalej <img src="/wp-content/themes/zig-template/assets/chevron-right.svg"/>
       </button>
     </div>
       <?php echo do_shortcode("[ultimatemember form_id=\"263\"]"); ?>
