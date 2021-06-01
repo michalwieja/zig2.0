@@ -80,8 +80,6 @@
 
 @include respond-to($large) {
   .hero {
-
-
     &__description {
       top: -25%;
 
@@ -115,7 +113,6 @@
 
     &__image {
       width: 100%;
-
     }
   }
 }
