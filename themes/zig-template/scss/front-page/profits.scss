@@ -30,7 +30,6 @@
       margin-top: auto;
     }
 
-
     &:after {
       content: url("/wp-content/themes/zig-template/assets/border-ornamnet.jpg");
       position: absolute;
@@ -39,7 +38,7 @@
     }
 
     .title {
-      font-size: $f30;
+      font-size: clamp(20px, 2.2vw, 30px);
       font-weight: bold;
       color: $blue;
       position: relative;
@@ -61,10 +60,6 @@
     .card {
       width: 25vw;
       min-height: 385px;
-
-      .title {
-        font-size: $f36;
-      }
     }
   }
 }

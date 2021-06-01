@@ -964,7 +964,7 @@ a {
   right: -8px;
 }
 .profits .card .title {
-  font-size: clamp(20px, 2.4vw, 30px);
+  font-size: clamp(20px, 2.2vw, 30px);
   font-weight: bold;
   color: #0028c8;
   position: relative;
@@ -981,9 +981,6 @@ a {
   .profits .card {
     width: 25vw;
     min-height: 385px;
-  }
-  .profits .card .title {
-    font-size: clamp(20px, 2.5vw, 36px);
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -1616,6 +1613,16 @@ a {
   position: relative;
   height: 22vw;
 }
+@media only screen and (max-width: 1680px) {
+  .opportunities .cards .card .column {
+    height: 25vw;
+  }
+}
+@media only screen and (max-width: 1152px) {
+  .opportunities .cards .card .column {
+    height: 30vw;
+  }
+}
 .opportunities .cards .card .column:nth-child(1) {
   top: -20px;
 }
@@ -1757,6 +1764,11 @@ a {
 }
 .perspectives .card button {
   padding: 30px 30px 0 30px;
+}
+@media only screen and (max-width: 765px) {
+  .perspectives .card button {
+    padding: 15px 15px 0 15px;
+  }
 }
 .perspectives .card:nth-child(even) {
   position: relative;
@@ -2702,6 +2714,15 @@ html.modal-open .join-us-modal {
   gap: 30px;
   padding-bottom: clamp(50px, 5vw, 100px);
 }
+.society .sort {
+  height: 30px;
+}
+.society .sort > a {
+  height: 100%;
+}
+.society .sort > a > img {
+  height: 100%;
+}
 .society form {
   align-self: flex-end;
 }
@@ -2732,9 +2753,19 @@ html.modal-open .join-us-modal {
   display: grid;
   place-items: center;
 }
+@media only screen and (max-width: 1152px) {
+  .society .card .logo {
+    height: 25vw;
+  }
+}
 .society .card .logo img {
   height: auto;
   max-width: 360px;
+}
+@media only screen and (max-width: 1024px) {
+  .society .card .logo img {
+    width: 290px;
+  }
 }
 .society .card > .title {
   font-size: clamp(18px, 2.1vw, 22px);
@@ -2790,10 +2821,7 @@ html.modal-open .join-us-modal {
     height: auto;
   }
   .society .card .logo img {
-    padding: 25px;
-    max-height: 110px;
-    width: auto;
-    max-width: 200px;
+    width: 250px;
   }
   .society .card .data {
     font-size: 14px;

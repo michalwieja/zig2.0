@@ -27,6 +27,14 @@
         position: relative;
         height: 22vw;
 
+        @include respond-to($xxl){
+          height: 25vw;
+        }
+        @include respond-to($large){
+          height: 30vw;
+        }
+
+
         &:nth-child(1) {
           top: -20px;
         }

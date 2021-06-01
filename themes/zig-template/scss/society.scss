@@ -9,6 +9,18 @@
     padding-bottom: clamp(50px, 5vw, 100px);
   }
 
+  .sort {
+    height: 30px;
+
+    & > a {
+      height: 100%;
+
+      & > img {
+        height: 100%;
+      }
+    }
+  }
+
   form {
     align-self: flex-end;
   }
@@ -44,9 +56,18 @@
       display: grid;
       place-items: center;
 
+      @include respond-to($large) {
+        height: 25vw;
+      }
+
+
       img {
         height: auto;
         max-width: 360px;
+
+        @include respond-to($medium) {
+          width: 290px;
+        }
       }
     }
 
@@ -114,10 +135,8 @@
         height: auto;
 
         img {
-          padding: 25px;
-          max-height: 110px;
-          width: auto;
-          max-width: 200px;
+
+          width: 250px;
         }
       }
 
