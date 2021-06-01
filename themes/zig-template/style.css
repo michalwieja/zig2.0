@@ -1468,8 +1468,16 @@ a {
 .about .subpage-banner {
   padding-bottom: 0;
 }
+@media only screen and (max-width: 765px) {
+  .about .subpage-banner {
+    grid-gap: 0;
+  }
+}
 .about .subpage-title {
-  padding-bottom: 2.5vw;
+  padding-bottom: clamp(50px, 5vw, 100px);
+}
+.about .subpage-text {
+  padding-bottom: clamp(40px, 5vw, 90px);
 }
 .about .important {
   padding-bottom: clamp(50px, 5vw, 100px);
@@ -2714,14 +2722,17 @@ html.modal-open .join-us-modal {
   gap: 30px;
   padding-bottom: clamp(50px, 5vw, 100px);
 }
-.society .sort {
-  height: 30px;
+.society .sort > span {
+  font-size: clamp(14px, 1.66vw, 16px);
+  color: #aaaaaa;
+  margin-right: 20px;
 }
-.society .sort > a {
-  height: 100%;
+.society .sort a {
+  color: #aaaaaa;
 }
-.society .sort > a > img {
-  height: 100%;
+.society .sort a.active {
+  color: #0028c8;
+  text-decoration: underline;
 }
 .society form {
   align-self: flex-end;
@@ -2817,14 +2828,16 @@ html.modal-open .join-us-modal {
   .society .card:nth-child(even) {
     top: unset;
   }
-  .society .card .logo {
-    height: auto;
-  }
   .society .card .logo img {
     width: 250px;
   }
   .society .card .data {
     font-size: 14px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .society .card .logo {
+    height: auto;
   }
 }
 .wp-paginate.wpp-modern-grey .current.page {

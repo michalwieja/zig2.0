@@ -94,7 +94,19 @@ const handleActiveCategory = () => {
   })
 };
 
+const handleActiveSortBtn = () => {
+  const urls = ['spolecznosc', 'spolecznosc/?sort=asc', 'spolecznosc/?sort=desc']
+
+  urls.forEach(url => {
+    if (window.location.href.indexOf(url) > -1) {
+      const link = document.querySelector(`a[href = "/${url}"]`);
+      link.classList.add('active')
+    }
+  })
+};
+
 handleActiveCategory();
+handleActiveSortBtn();
 
 document.addEventListener("DOMContentLoaded", homeCarouselFunctions);
 

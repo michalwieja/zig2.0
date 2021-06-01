@@ -10,13 +10,16 @@
   }
 
   .sort {
-    height: 30px;
-
-    & > a {
-      height: 100%;
-
-      & > img {
-        height: 100%;
+    &>span{
+      font-size: $f16;
+      color: #aaaaaa;
+      margin-right: 20px;
+    }
+    a{
+      color: #aaaaaa;
+      &.active{
+        color: $blue;
+        text-decoration: underline;
       }
     }
   }
@@ -59,7 +62,6 @@
       @include respond-to($large) {
         height: 25vw;
       }
-
 
       img {
         height: auto;
@@ -113,7 +115,6 @@
   }
 }
 
-
 @include respond-to($small) {
   .society {
     #s {
@@ -132,16 +133,23 @@
       }
 
       .logo {
-        height: auto;
-
         img {
-
           width: 250px;
         }
       }
 
       .data {
         font-size: 14px;
+      }
+    }
+  }
+}
+
+@include respond-to($xs) {
+  .society {
+    .card {
+      .logo {
+        height: auto;
       }
     }
   }

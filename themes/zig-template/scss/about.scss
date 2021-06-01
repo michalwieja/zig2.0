@@ -1,9 +1,17 @@
 .about {
-  .subpage-banner{
+  .subpage-banner {
     padding-bottom: 0;
+    @include respond-to($small) {
+      grid-gap: 0;
+    }
   }
+
   .subpage-title {
-    padding-bottom: 2.5vw;
+    padding-bottom: clamp(50px, 5vw, 100px);
+  }
+
+  .subpage-text {
+    padding-bottom: clamp(40px, 5vw, 90px);
   }
 
   .important {

@@ -21,21 +21,11 @@ if ( $sort == "DESC" ) {
 
       <hr>
       <div class="sort">
-        <a href="?sort=asc" <?php if ( $sort == "ASC" ) {
-			echo 'style="color:gray"';
-		} ?>>
-          <img src="/wp-content/themes/zig-template/assets/sort-alpha-down-solid.svg"
-               alt="sort">
-        </a>
-        <a href="?sort=desc" <?php if ( $sort == "DESC" ) {
-			echo 'style="color:gray"';
-		} ?>>
-          <img src="/wp-content/themes/zig-template/assets/sort-alpha-down-alt-solid.svg"
-               alt="sort">
-        </a>
+        <span>SORTUJ: </span>
+        <span><a href="/spolecznosc">od najnowszych </a></span>
+        <span><a href="?sort=asc">A - Z </a></span>
+        <span><a href="?sort=desc">Z - A</a></span>
       </div>
-
-
     </div>
     <div class="cards">
 		<?php
@@ -55,29 +45,29 @@ if ( $sort == "DESC" ) {
 
 		<?php while ( have_posts() ): the_post(); ?>
 
-            <div class="card">
-              <a
-                href="<?php the_permalink(); ?>" rel="bookmark"
-                title="Permanent Link to <?php the_title_attribute(); ?>"
-              >
+          <div class="card">
+            <a
+              href="<?php the_permalink(); ?>" rel="bookmark"
+              title="Permanent Link to <?php the_title_attribute(); ?>"
+            >
               <div class="logo"><?php the_post_thumbnail(); ?></div>
-              </a>
+            </a>
 
-              <div class="title"><?php the_title(); ?></div>
-              <div class="data">
-                <div class="phone"><a
-                    href="tel:<?php echo get_post_meta( $post->ID, 'phone', true ); ?>"><?php echo get_post_meta( $post->ID, 'phone', true ); ?></a>
-                </div>
-                <div class="email"><a
-                    href="mailto:<?php echo get_post_meta( $post->ID, 'email', true ); ?>"><?php echo get_post_meta( $post->ID, 'email', true ); ?></a>
-                </div>
-                <div class="web"><a target="_blank"
-                                    href="<?php echo get_post_meta( $post->ID, 'web', true ); ?>"><?php echo get_post_meta( $post->ID, 'web', true ); ?></a>
-                </div>
-
+            <div class="title"><?php the_title(); ?></div>
+            <div class="data">
+              <div class="phone"><a
+                  href="tel:<?php echo get_post_meta( $post->ID, 'phone', true ); ?>"><?php echo get_post_meta( $post->ID, 'phone', true ); ?></a>
               </div>
-              <button class="read-more">Czytaj więcej</button>
+              <div class="email"><a
+                  href="mailto:<?php echo get_post_meta( $post->ID, 'email', true ); ?>"><?php echo get_post_meta( $post->ID, 'email', true ); ?></a>
+              </div>
+              <div class="web"><a target="_blank"
+                                  href="<?php echo get_post_meta( $post->ID, 'web', true ); ?>"><?php echo get_post_meta( $post->ID, 'web', true ); ?></a>
+              </div>
+
             </div>
+            <button class="read-more">Czytaj więcej</button>
+          </div>
 
 
 		<?php endwhile; ?>
