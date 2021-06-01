@@ -22,9 +22,9 @@ if ( $sort == "DESC" ) {
       <hr>
       <div class="sort">
         <span>SORTUJ: </span>
-        <span><a href="/spolecznosc">od najnowszych </a></span>
-        <span><a href="?sort=asc">A - Z </a></span>
-        <span><a href="?sort=desc">Z - A</a></span>
+        <span><a href="/spolecznosc/">od najnowszych</a></span>
+        <span><a href="/spolecznosc/?sort=asc">A - Z</a></span>
+        <span><a href="/spolecznosc/?sort=desc">Z - A</a></span>
       </div>
     </div>
     <div class="cards">
