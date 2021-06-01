@@ -1,8 +1,9 @@
 //breadcrumbs
 
-.fbc{
+.fbc {
   padding-top: clamp(50px, 5vw, 100px);
 }
+
 .fbc-page .fbc-wrap .fbc-items {
   font-family: $font-family;
   font-weight: 600;
@@ -17,8 +18,8 @@
   padding: 0;
 }
 
-@include respond-to(768px){
-  .fbc-page .fbc-wrap .fbc-items{
+@include respond-to(768px) {
+  .fbc-page .fbc-wrap .fbc-items {
     padding: 0 !important;
   }
 
@@ -33,6 +34,17 @@
   @include respond-to($small) {
     padding: 0;
     margin-top: 25px;
+  }
+
+  .back {
+    padding-bottom: $f48;
+    padding-top: clamp(50px, 5vw, 100px);
+    font-size: $f16;
+    font-weight: 600;
+
+    a {
+      color: #aaaaaa;
+    }
   }
 
   .date {

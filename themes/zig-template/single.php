@@ -8,31 +8,24 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 <div class="padding-x">
   <div class="single-wrapper">
 	  <?php
-	  echo do_shortcode( '[flexy_breadcrumb]' );
-	  ?>
+	  if ( strpos( $url, 'czlonkowie' ) === false ) {
+		  echo do_shortcode( '[flexy_breadcrumb]' );
+		  ?>
+        <div class="date"><?php
+		  echo get_the_date( 'd F, Y' ); ?></div><?php
+	  } else { ?>
+        <div class="back">
+          <a href="/spolecznosc">
+            <div class="back__button">< WRÓĆ DO SPOŁECZNOŚCI</div>
+          </a>
+        </div>
+		  <?php
+	  } ?>
 
-    <div class="date">
-		<?php
-
-		if ( strpos( $url, 'czlonkowie' ) === false ) {
-
-			echo get_the_date( 'd F, Y' );
-		} ?>
-    </div>
     <h1 class="title">
 		<?php the_title() ?>
     </h1>
 	  <?php the_content(); ?>
-    <div class="back">
-		<?php
-
-		if ( strpos( $url, 'czlonkowie' ) !== false ) { ?>
-          <a href="/spolecznosc">
-            <div class="back__button">< WRÓĆ DO SPOŁECZNOŚCI</div>
-          </a>
-			<?php
-		} ?>
-    </div>
   </div>
 </div>
 <div class="society">

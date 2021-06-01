@@ -95,13 +95,14 @@ const handleActiveCategory = () => {
 };
 
 const handleActiveSortBtn = () => {
-  const urls = ['spolecznosc', 'spolecznosc/?sort=asc', 'spolecznosc/?sort=desc']
+  const urls = ['/spolecznosc/', '/spolecznosc/?sort=asc', '/spolecznosc/?sort=desc']
 
   const pathname = `${window.location.pathname}${window.location.search}`;
 
   const current_url = urls.find(url => url === pathname);
+  console.warn(current_url, pathname);
   if (current_url) {
-    const link = document.querySelector(`a[href = "/${current_url}"]`);
+    const link = document.querySelector(`a[href = "${current_url}"]`);
     link.classList.add('active')
   }
 };
