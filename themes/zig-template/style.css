@@ -2678,6 +2678,15 @@ html.modal-open .join-us-modal {
     margin-top: 25px;
   }
 }
+.single-wrapper .back {
+  padding-bottom: clamp(30px, 3.7vw, 48px);
+  padding-top: clamp(50px, 5vw, 100px);
+  font-size: clamp(14px, 1.66vw, 16px);
+  font-weight: 600;
+}
+.single-wrapper .back a {
+  color: #aaaaaa;
+}
 .single-wrapper .date {
   font-weight: 600;
   font-size: 14px;
