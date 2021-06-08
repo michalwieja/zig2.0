@@ -19,7 +19,7 @@ const body_factory = {
   entry_fee: null,
   monthly_fee: null,
   username: null,
-  user_password: null,
+  // user_password: null,
   company_name: null,
   address: null,
   industry: null,
@@ -138,6 +138,7 @@ const handleInputInput = (el) => {
 const handleContributionClick = () => {
   const radios = document.querySelectorAll('input[name=contribution_size]');
   radios.forEach(el => {
+    // TODO - check value not setting properly
     const sibling = el.nextElementSibling;
     if (el.checked) {
       user.contribution_proposal = el.value.split('|')[0];
@@ -227,7 +228,8 @@ const fillJoinForm = () => {
 
   // name.value = user.name;
   username.value = user.username;
-  user_password.value = user.user_password;
+  // user_password.value = user.user_password;
+  user_password.value = 'TestUser123!';
   contribution_proposal.value = user.contribution_proposal;
   entry_fee.value = user.entry_fee;
   monthly_fee.value = user.monthly_fee;

@@ -982,15 +982,15 @@ W kilku krokach możesz dołączyć do społeczności ZIG.
             >
             <p class="text-input__error" id="username-error"></p>
           </div>
-          <div class="text-input__wrapper" id="user_password-input">
-            <p class="text-input__label">Hasło</p>
-            <input
-                type="password" class="text-input__input" autocomplete="new-password"
-                name="user_password"
-                id="input-user_password-input"
-            >
-            <p class="text-input__error" id="user_password-error"></p>
-          </div>
+<!--          <div class="text-input__wrapper" id="user_password-input">-->
+<!--            <p class="text-input__label">Hasło</p>-->
+<!--            <input-->
+<!--                type="password" class="text-input__input" autocomplete="new-password"-->
+<!--                name="user_password"-->
+<!--                id="input-user_password-input"-->
+<!--            >-->
+<!--            <p class="text-input__error" id="user_password-error"></p>-->
+<!--          </div>-->
           <div class="text-input__wrapper" id="url-input">
             <p class="text-input__label">Adres strony internetowej</p>
             <input
@@ -1111,7 +1111,7 @@ W kilku krokach możesz dołączyć do społeczności ZIG.
     </form>
     <div class="button-wrapper">
       <button class="button" id="prev-button" style="opacity: 0">
-        Poprzedni krok
+        <img src="/wp-content/themes/zig-template/assets/chevron-right.svg" class="chevron-left"/> Poprzedni krok
       </button>
       <button class="button" id="next-button">
         Akceptuję i przechodzę dalej <img src="/wp-content/themes/zig-template/assets/chevron-right.svg"/>

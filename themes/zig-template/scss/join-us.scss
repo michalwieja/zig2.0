@@ -786,3 +786,7 @@ html.modal-open {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+
+.chevron-left {
+  transform: scaleX(-1);
+}

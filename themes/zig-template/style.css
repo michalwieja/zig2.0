@@ -2715,6 +2715,10 @@ html.modal-open .join-us-modal {
   margin-right: 0 !important;
 }
 
+.chevron-left {
+  transform: scaleX(-1);
+}
+
 .fbc {
   padding-top: clamp(50px, 5vw, 100px);
 }
