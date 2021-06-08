@@ -336,6 +336,13 @@
       }
     }
   }
+  @include respond-to(900px) {
+    .step__content {
+      &.contributions {
+        width: calc(100% - 50px) !important;
+      }
+    }
+  }
 
 
   .step {
@@ -601,6 +608,12 @@
       .text-input__wrapper {
         flex: 1 1 100% !important;
         padding-bottom: 1px;
+        min-height: 59px;
+        margin-top: 0;
+      }
+
+      #established-input {
+        margin-bottom: 15px;
       }
     }
 

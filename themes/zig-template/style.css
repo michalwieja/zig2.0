@@ -2302,6 +2302,11 @@ a {
     width: calc(100% - 50px) !important;
   }
 }
+@media only screen and (max-width: 900px) {
+  #join-form .step__content.contributions {
+    width: calc(100% - 50px) !important;
+  }
+}
 #join-form .step {
   min-width: 100vw;
   height: 100%;
@@ -2544,6 +2549,11 @@ a {
   .text-input__row .text-input__wrapper {
     flex: 1 1 100% !important;
     padding-bottom: 1px;
+    min-height: 59px;
+    margin-top: 0;
+  }
+  .text-input__row #established-input {
+    margin-bottom: 15px;
   }
 }
 .text-input__row .text-input__wrapper {
