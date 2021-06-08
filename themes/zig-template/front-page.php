@@ -48,11 +48,11 @@
             <div class="text">
 				<?php the_excerpt() ?>
             </div>
-            <button class="read-more light-blue"><a
+           <a
                 href="<?php the_permalink(); ?>" rel="bookmark"
                 title="Permanent Link to <?php the_title_attribute(); ?>"
-              >Czytaj
-                więcej</a></button>
+              > <button class="read-more light-blue">Czytaj
+                więcej</button></a>
           </div>
 
 		<?php endwhile; ?>

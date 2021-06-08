@@ -60,9 +60,9 @@ get_header(); ?>
 			  <?php //the_author_posts_link() ?><!--</small>-->
 
 			  <?php the_excerpt(); ?>
-            <button class="read-more"><a href="<?php the_permalink(); ?>" rel="bookmark"
-                                         title="Permanent Link to <?php the_title_attribute(); ?>">Czytaj
-                więcej</a></button>
+           <a href="<?php the_permalink(); ?>" rel="bookmark"
+                                         title="<?php the_title_attribute(); ?>"> <button class="read-more">Czytaj
+                więcej</button></a>
 
 
           </div>
