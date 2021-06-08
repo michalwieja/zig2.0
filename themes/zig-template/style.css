@@ -793,6 +793,10 @@ a {
   display: none !important;
 }
 
+#wpcpro-wrapper-395 #sp-wp-carousel-pro-id-395.sp-wpcp-395 .wpcp-all-captions h2.wpcp-post-title a {
+  text-transform: none;
+}
+
 .announcements {
   background-color: #eeeeee;
   padding-top: 100px;

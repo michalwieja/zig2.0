@@ -73,7 +73,7 @@ get_header(); ?>
           <p>Brak postów spełniających kryteria</p>
 
 		<?php endif; ?>
-    </div>
+
   </div>
   <div class="question padding-x">
     <p>Chcesz podzielić się swoją wiedzą?</p>

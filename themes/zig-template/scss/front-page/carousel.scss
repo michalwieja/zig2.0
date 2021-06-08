@@ -176,3 +176,8 @@
 .slick-prev {
   display: none !important;
 }
+
+//remove capitalize
+#wpcpro-wrapper-395 #sp-wp-carousel-pro-id-395.sp-wpcp-395 .wpcp-all-captions h2.wpcp-post-title a{
+  text-transform: none;
+}

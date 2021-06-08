@@ -5,7 +5,8 @@
         Dołącz do nas
       </div>
       <div class="column subpage-text">
-        W kilku krokach możesz dołączyć do społeczności ZIG.
+W kilku krokach możesz dołączyć do społeczności ZIG.
+        Wypełnij formularz. Zajmie Ci to tylko chwilę
       </div>
     </div>
   </div>

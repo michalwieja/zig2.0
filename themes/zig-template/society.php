@@ -66,7 +66,10 @@ if ( $sort == "DESC" ) {
               </div>
 
             </div>
-            <button class="read-more">Czytaj więcej</button>
+            <a
+              href="<?php the_permalink(); ?>" rel="bookmark"
+              title="Permanent Link to <?php the_title_attribute(); ?>"
+            > <button class="read-more">Czytaj więcej</button></a>
           </div>
 
 
