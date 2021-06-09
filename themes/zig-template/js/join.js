@@ -333,7 +333,7 @@ const setActiveStep = (action) => {
     left: 0,
     behavior: 'smooth',
   });
-  first_form.style.marginLeft = `${-(step * 100)}vw`;
+  first_form.style.marginLeft = `${-(step * 100)}%`;
 };
 
 checkForErrors();

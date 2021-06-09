@@ -5,10 +5,6 @@
 .company-form {
   max-width: 840px;
 
-  @include respond-to(1070px) {
-    padding-left: 33px;
-    padding-right: 43px;
-  }
 }
 
 .join-us {
@@ -128,7 +124,7 @@
     width: 100%;
 
     @include respond-to(960px) {
-      width: 100vw;
+      width: 100%;
       margin-bottom: 0;
       align-items: flex-start;
 
@@ -141,9 +137,9 @@
 
         &.active {
           opacity: 1;
-          min-width: 100vw;
-          width: 100vw;
-          max-width: 100vw;
+          min-width: 100%;
+          width: 100%;
+          max-width: 100%;
 
           @include respond-to(765px) {
             min-width: unset !important;
@@ -292,6 +288,7 @@
 
     @include respond-to($xs) {
       flex-flow: column-reverse;
+      padding: 0;
 
       .button {
         width: 100%;
@@ -302,8 +299,7 @@
 }
 
 #join-form {
-  width: 100vw;
-  //max-height: 600px;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
@@ -312,8 +308,7 @@
   flex-flow: row;
 
   @include respond-to(765px) {
-    width: calc(100vw + 60px);
-    padding: 30px;
+
 
     .step__content {
       width: calc(100% - 60px) !important;
@@ -338,7 +333,7 @@
 
 
   .step {
-    min-width: 100vw;
+    min-width: 100%;
     height: 100%;
     overflow: hidden;
     display: flex;
@@ -442,7 +437,6 @@
 
 .regulations {
   text-align: center;
-  padding: 0 130px;
   max-height: 600px !important;
   @include respond-to($medium) {
     padding: 0 10%;
