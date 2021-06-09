@@ -302,6 +302,11 @@ const setActiveStep = (action) => {
   step += action;
   if (step < 0 || step > 4) return;
   next.classList.remove('disabled');
+  if (step === 2) {
+    window.setTimeout(() => {
+      document.getElementById('input-company_name-input').focus();
+    }, 50);
+  }
   if (step === 3) {
     fillJoinForm();
     next.classList.add('disabled');
