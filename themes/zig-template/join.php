@@ -12,7 +12,7 @@ W kilku krokach możesz dołączyć do społeczności ZIG.
   </div>
 
 
-  <div class="join-us">
+  <div class="join-us padding-x">
     <div class="progress-bar">
       <div class="progress-bar__element active">
         <p>01<br>Przeczytaj statut ZIG</p>

@@ -5,7 +5,7 @@
 .company-form {
   max-width: 840px;
 
-  @include respond-to(900px) {
+  @include respond-to(1070px) {
     padding-left: 33px;
     padding-right: 43px;
   }
@@ -168,7 +168,7 @@
       position: relative;
       flex: 1 1 25%;
 
-      @include respond-to(900px) {
+      @include respond-to(1070px) {
         border-top: none !important;
       }
 
@@ -191,8 +191,7 @@
         line-height: 26px;
         padding-left: 5px;
 
-        @include respond-to(900px) {
-          margin-left: 20px;
+        @include respond-to(1070px) {
           margin-top: 20px;
         }
       }
@@ -209,7 +208,6 @@
           content: '';
           background-color: #fff;
           border: 2px solid #0028c8;
-
         }
 
         &:after {
@@ -251,9 +249,6 @@
         min-height: 30px;
         border-radius: 30px;
         transition: all .25s ease-in-out;
-        @include respond-to(900px) {
-          margin-left: 23px;
-        }
       }
 
       &:after {
@@ -266,9 +261,6 @@
         position: absolute;
         background-color: white;
         border-radius: 14px;
-        @include respond-to(900px) {
-          margin-left: 23px;
-        }
       }
     }
   }
@@ -336,7 +328,7 @@
       }
     }
   }
-  @include respond-to(900px) {
+  @include respond-to(1070px) {
     .step__content {
       &.contributions {
         width: calc(100% - 50px) !important;
@@ -407,7 +399,7 @@
   align-items: center;
   justify-content: center;
 
-  @include respond-to(900px) {
+  @include respond-to(1070px) {
     width: 20px;
     height: 20px;
     border-radius: 20px;
@@ -471,7 +463,7 @@
     display: grid;
     grid-template-columns: 67px clamp(275px, 30vw, 335px) repeat(2, clamp(215px, 30vw, 318px));
 
-    @include respond-to(900px) {
+    @include respond-to(1070px) {
       grid-template-columns: 12% 88%;
       width: 100%;
 
@@ -482,7 +474,7 @@
   }
 
   &__header {
-    @include respond-to(900px) {
+    @include respond-to(1070px) {
       display: none;
     }
 
@@ -504,7 +496,7 @@
       border-left: 1px solid #eee;
     }
 
-    @include respond-to(900px) {
+    @include respond-to(1070px) {
       height: unset;
 
       p {
@@ -544,7 +536,7 @@
     .checkbox-wrapper {
       @include flex(center, center, row);
 
-      @include respond-to(900px) {
+      @include respond-to(1070px) {
         padding-top: 26px;
         align-items: flex-start;
       }
@@ -565,7 +557,7 @@
       color: $black;
       padding-left: 40px;
       line-height: 72px;
-      @include respond-to(900px) {
+      @include respond-to(1070px) {
         padding-left: 0;
       }
 
