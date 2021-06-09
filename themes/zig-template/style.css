@@ -2305,7 +2305,6 @@ a {
 }
 @media only screen and (max-width: 1070px) {
   .join-us .progress-bar__element p {
-    margin-left: 20px;
     margin-top: 20px;
   }
 }
@@ -2354,11 +2353,6 @@ a {
   border-radius: 30px;
   transition: all 0.25s ease-in-out;
 }
-@media only screen and (max-width: 1070px) {
-  .join-us .progress-bar__element:before {
-    margin-left: 23px;
-  }
-}
 .join-us .progress-bar__element:after {
   content: "";
   transition: all 0.25s ease-in-out;
@@ -2369,11 +2363,6 @@ a {
   position: absolute;
   background-color: white;
   border-radius: 14px;
-}
-@media only screen and (max-width: 1070px) {
-  .join-us .progress-bar__element:after {
-    margin-left: 23px;
-  }
 }
 .join-us .button-wrapper {
   display: flex;
