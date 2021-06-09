@@ -94,6 +94,7 @@
   }
 }
 
+
 @include respond-to($medium) {
   .contact {
     display: block;
@@ -192,3 +193,5 @@
     }
   }
 }
+
+

@@ -1991,6 +1991,136 @@ a {
     font-size: 14px;
   }
 }
+.paulina {
+  height: 600px;
+  position: relative;
+  display: flex;
+}
+.paulina .img {
+  position: absolute;
+  height: 90%;
+  bottom: 0;
+  left: 20%;
+  z-index: 2;
+}
+.paulina .img img {
+  height: 100%;
+  display: block;
+}
+.paulina .left {
+  background-color: #0028c8;
+  width: 38%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.paulina .left:before {
+  content: url("/wp-content/themes/zig-template/assets/paulina-ornament.svg");
+  position: absolute;
+  top: 90px;
+  left: 130px;
+}
+.paulina .right {
+  background-color: #eeeeee;
+  width: 62%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 250px;
+}
+.paulina .right .title {
+  font-size: clamp(20px, 2.5vw, 36px);
+  font-weight: 500;
+  padding-bottom: clamp(25px, 5vw, 50px);
+}
+.paulina .right .name {
+  font-size: clamp(18px, 2.2vw, 24px);
+}
+.paulina .right .position {
+  font-size: clamp(16px, 1.73vw, 18px);
+  padding-bottom: clamp(10px, 2vw, 25px);
+}
+.paulina .right .phone a {
+  color: #343434;
+}
+.paulina .right .phone a:before {
+  content: url("/wp-content/themes/zig-template/assets/phone-blue.svg");
+  vertical-align: middle;
+  padding-right: 5px;
+}
+.paulina .right .mail a {
+  color: #343434;
+}
+.paulina .right .mail a:before {
+  content: url("/wp-content/themes/zig-template/assets/mail-blue.svg");
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+@media only screen and (max-width: 1680px) {
+  .paulina .img {
+    left: 15%;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  .paulina {
+    height: 430px;
+  }
+  .paulina .left {
+    width: 28%;
+  }
+  .paulina .left:before {
+    display: none;
+  }
+  .paulina .right {
+    width: 72%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .paulina .img {
+    left: 5%;
+  }
+}
+@media only screen and (max-width: 765px) {
+  .paulina {
+    height: 350px;
+  }
+  .paulina .img {
+    left: 0;
+    height: 80%;
+  }
+  .paulina .left {
+    width: 18%;
+  }
+  .paulina .right {
+    width: 82%;
+    padding-left: 150px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .paulina {
+    height: 300px;
+  }
+  .paulina .img {
+    height: 50%;
+    left: -10%;
+  }
+  .paulina .left {
+    width: 12%;
+  }
+  .paulina .right {
+    width: 88%;
+    padding-left: 50px;
+  }
+  .paulina .right .title, .paulina .right .name, .paulina .right .position, .paulina .right .phone, .paulina .right .mail {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .paulina .right .phone, .paulina .right .mail {
+    font-size: 12px;
+  }
+}
 .join {
   background-color: #eeeeee;
 }

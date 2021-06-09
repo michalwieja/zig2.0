@@ -1,0 +1,164 @@
+.paulina {
+  height: 600px;
+  position: relative;
+  display: flex;
+
+  .img {
+    position: absolute;
+    height: 90%;
+    bottom: 0;
+    left: 20%;
+    z-index: 2;
+
+    img {
+      height: 100%;
+      display: block;
+    }
+
+  }
+
+  .left {
+    background-color: $blue;
+    width: 38%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+      content: url("/wp-content/themes/zig-template/assets/paulina-ornament.svg");
+      position: absolute;
+      top: 90px;
+      left: 130px;
+    }
+  }
+
+  .right {
+    background-color: $grey;
+    width: 62%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 250px;
+
+    .title {
+      font-size: $f36;
+      font-weight: 500;
+      padding-bottom: clamp(25px, 5vw, 50px);
+    }
+
+    .name {
+      font-size: $f24;
+    }
+
+    .position {
+      font-size: $f18;
+      padding-bottom: clamp(10px, 2vw, 25px);
+    }
+
+    .phone {
+      a {
+        color: $black;
+
+        &:before {
+          content: url("/wp-content/themes/zig-template/assets/phone-blue.svg");
+          vertical-align: middle;
+          padding-right: 5px;
+        }
+      }
+    }
+
+    .mail {
+      a {
+        color: $black;
+
+        &:before {
+          content: url("/wp-content/themes/zig-template/assets/mail-blue.svg");
+          vertical-align: middle;
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+
+}
+
+
+@include respond-to($xxl) {
+  .paulina {
+    .img {
+      left: 15%;
+    }
+  }
+}
+
+@include respond-to($xl) {
+  .paulina {
+    height: 430px;
+
+    .left {
+      width: 28%;
+      &:before {
+        display: none;
+      }
+    }
+    .right{
+      width: 72%;
+    }
+  }
+}
+
+@include respond-to($medium){
+  .paulina{
+    .img{
+      left: 5%;
+    }
+  }
+}
+
+@include respond-to($small){
+  .paulina{
+    height: 350px;
+    .img{
+      left: 0;
+      height: 80%;
+    }
+    .left{
+      width: 18%;
+    }
+    .right{
+      width: 82%;
+      padding-left: 150px;
+    }
+  }
+}
+
+@include respond-to(600px){
+  .paulina{
+    height: 300px;
+    .img{
+      height: 50%;
+      left: -10%;
+    }
+    .left{
+      width: 12%;
+    }
+    .right{
+      width: 88%;
+      padding-left: 50px;
+      .title,.name,.position,.phone,.mail{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@include respond-to($xxs){
+  .paulina{
+    .right{
+      .phone,.mail{
+        font-size: 12px;
+      }
+    }
+  }
+}
+
