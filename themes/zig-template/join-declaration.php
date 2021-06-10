@@ -28,7 +28,7 @@
     </div>
     <div id="form-error">
     </div>
-    <form autocomplete="off" id="join-form">
+    <form autocomplete="off" id="join-form" action="javascript:void(0);">
       <div class="step">
         <div class="join-us-modal__content">
           <p class="join-us-modal__title">
@@ -37,8 +37,8 @@
           <p class="join-us-modal__text">
             Aby dokończyć proces aplikacji pobierz deklarację, podpisz i wyślij skan na adres biuro@zig.org.pl
           </p>
-          <button class="button" id="declaration-button">
-            <a href="../wp-content/themes/zig-template/assets/deklaracja.pdf" class="declaration-button-wrapper">
+          <button class="button" id="declaration-button" disabled>
+            <a href="../wp-content/themes/zig-template/assets/deklaracja.pdf" class="declaration-button-wrapper" target="_blank">
               <img src="/wp-content/themes/zig-template/assets/declaration.svg" class="declaration-icon"/>
               <p>Pobierz deklarację</p>
               <img src="/wp-content/themes/zig-template/assets/arrow-left.svg" class="join-arrow-down"/>
