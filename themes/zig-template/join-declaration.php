@@ -9,8 +9,6 @@
       </div>
     </div>
   </div>
-
-
   <div class="join-us">
     <div class="progress-bar">
       <div class="progress-bar__element past">
@@ -35,13 +33,17 @@
             Dziękujemy!
           </p>
           <p class="join-us-modal__text">
-            Aby dokończyć proces aplikacji pobierz deklarację, podpisz i wyślij skan na adres biuro@zig.org.pl
+            Aby dokończyć proces aplikacji pobierz deklarację, podpisz i wyślij skan na adres
+            biuro@zig.org.pl
           </p>
-          <button class="button" id="declaration-button">
-            <a href="../wp-content/themes/zig-template/assets/deklaracja.pdf" class="declaration-button-wrapper">
-              <img src="/wp-content/themes/zig-template/assets/declaration.svg" class="declaration-icon"/>
+          <button disabled class="button" id="declaration-button">
+            <a href="/wp-content/themes/zig-template/assets/deklaracja.pdf" target="_blank"
+               class="declaration-button-wrapper">
+              <img src="/wp-content/themes/zig-template/assets/declaration.svg"
+                   class="declaration-icon"/>
               <p>Pobierz deklarację</p>
-              <img src="/wp-content/themes/zig-template/assets/arrow-left.svg" class="join-arrow-down"/>
+              <img src="/wp-content/themes/zig-template/assets/arrow-left.svg"
+                   class="join-arrow-down"/>
             </a>
           </button>
           <!--          <button class="button" id="close-modal-button">-->
