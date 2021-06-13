@@ -4,7 +4,6 @@ get_header();
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 ?>
 
-
 <div class="padding-x">
   <div class="single-wrapper">
 	  <?php
@@ -21,7 +20,6 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
         </div>
 		  <?php
 	  } ?>
-
     <h1 class="title">
 		<?php the_title() ?>
     </h1>
@@ -29,7 +27,7 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
   </div>
 </div>
 
-<?php if ( strpos( $url, 'czlonkowie' ) === false ) {?>
+<?php if ( strpos( $url, 'czlonkowie' ) === false ) { ?>
 
   <section class="carousel padding-l">
     <div class="carousel-title">
@@ -42,20 +40,18 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     </a>
   </section>
 
-
 <?php } else { ?>
 
-
-<div class="society">
-  <div class="padding-l">
-    <div class="subpage-header">
-      Jest nas więcej
-    </div>
-    <div class="carousel about">
-		<?php echo do_shortcode( '[sp_wpcarousel id="514"]' ); ?>
+  <div class="society">
+    <div class="padding-l">
+      <div class="subpage-header">
+        Jest nas więcej
+      </div>
+      <div class="carousel about">
+		  <?php echo do_shortcode( '[sp_wpcarousel id="514"]' ); ?>
+      </div>
     </div>
   </div>
-</div>
 
 <?php } ?>
 

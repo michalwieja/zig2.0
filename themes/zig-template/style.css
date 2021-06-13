@@ -1286,6 +1286,14 @@ a {
     margin-top: 25px;
   }
 }
+.cn-text-container, .cn-buttons-container {
+  font-family: "Saira", sans-serif !important;
+}
+
+.cn-button.bootstrap {
+  background-color: #0028c8 !important;
+}
+
 .socials-wrapper {
   display: flex;
   display: -webkit-flex;
