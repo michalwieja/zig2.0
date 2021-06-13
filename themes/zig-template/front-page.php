@@ -50,7 +50,7 @@
             </div>
            <a
                 href="<?php the_permalink(); ?>" rel="bookmark"
-                title="Permanent Link to <?php the_title_attribute(); ?>"
+                title="Link to <?php the_title_attribute(); ?>"
               > <button class="read-more light-blue">Czytaj
                 więcej</button></a>
           </div>

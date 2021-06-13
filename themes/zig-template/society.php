@@ -48,7 +48,7 @@ if ( $sort == "DESC" ) {
           <div class="card">
             <a
               href="<?php the_permalink(); ?>" rel="bookmark"
-              title="Permanent Link to <?php the_title_attribute(); ?>"
+              title="Link to <?php the_title_attribute(); ?>"
             >
               <div class="logo"><?php the_post_thumbnail(); ?></div>
             </a>
@@ -68,7 +68,7 @@ if ( $sort == "DESC" ) {
             </div>
             <a
               href="<?php the_permalink(); ?>" rel="bookmark"
-              title="Permanent Link to <?php the_title_attribute(); ?>"
+              title="Link to <?php the_title_attribute(); ?>"
             > <button class="read-more">Czytaj więcej</button></a>
           </div>
 

@@ -31,11 +31,21 @@ $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 <div class="society">
   <div class="padding-l">
     <div class="subpage-header">
-      Jest nas więcej
+		<?php
+		if ( strpos( $url, 'czlonkowie' ) === false ) {
+			?>
+          Bądź zawsze na bieżąco
+		<?php } else { ?>
+          Jest nas więcej
+		<?php } ?>
     </div>
     <div class="carousel about">
-		<?php echo do_shortcode( '[sp_wpcarousel id="514"]' ); ?>
-
+		<?php
+		if ( strpos( $url, 'czlonkowie' ) === false ) {
+			echo do_shortcode( '[sp_wpcarousel id="395"]' );
+		} else {
+			echo do_shortcode( '[sp_wpcarousel id="514"]' );
+		} ?>
     </div>
   </div>
 </div>
