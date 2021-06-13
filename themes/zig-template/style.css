@@ -736,6 +736,7 @@ a {
 .carousel .slick-slide .wpcp-all-captions .wpcp-post-title a {
   color: #343434 !important;
   font-size: clamp(16px, 1.73vw, 18px) !important;
+  line-height: 150% !important;
   font-weight: 500;
   text-align: left;
 }
