@@ -115,7 +115,7 @@
   }
 }
 
-@include respond-to($small){
+@include respond-to(800px){
   .paulina{
     height: 350px;
     .img{
