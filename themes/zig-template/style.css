@@ -1910,6 +1910,7 @@ a {
 .contact textarea {
   margin: 2vw 0;
   width: 52vw;
+  padding-top: 28px;
 }
 .contact input[type=submit] {
   background: transparent;
