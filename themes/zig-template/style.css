@@ -413,6 +413,11 @@ a {
 }
 
 @media only screen and (max-width: 1366px) {
+  .header__nav {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 1152px) {
   .header {
     padding: 0 50px;
   }
@@ -1889,7 +1894,7 @@ a {
   width: 100%;
 }
 .contact input, .contact textarea {
-  padding: 1.25vw;
+  padding-left: 28px;
   border: 1px solid #c4c4c4;
   border-radius: 0;
   font-size: clamp(14px, 1.66vw, 16px);
@@ -1897,6 +1902,7 @@ a {
 }
 .contact input {
   width: 25vw;
+  height: 60px;
 }
 .contact .your-name {
   margin-right: 2vw;
@@ -2160,6 +2166,12 @@ a {
   margin-top: 18px;
   margin-bottom: 18px;
 }
+@media only screen and (max-width: 650px) {
+  .join-us .button img {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+}
 .join-us .button a {
   height: 42px;
   color: #0028c8 !important;
@@ -2240,7 +2252,6 @@ a {
   justify-content: center;
   flex-flow: row;
   transition: all 0.25s ease-in-out;
-  margin-bottom: 78px;
   width: 100%;
 }
 @media only screen and (max-width: 960px) {
@@ -2417,20 +2428,9 @@ a {
   flex-flow: row;
 }
 @media only screen and (max-width: 765px) {
-  #join-form .step__content {
-    width: calc(100% - 60px) !important;
-  }
   #join-form .step__content.regulations {
     width: 100% !important;
     padding: 5%;
-  }
-  #join-form .step__content.contributions {
-    width: calc(100% - 50px) !important;
-  }
-}
-@media only screen and (max-width: 1070px) {
-  #join-form .step__content.contributions {
-    width: calc(100% - 50px) !important;
   }
 }
 #join-form .step {
@@ -2539,6 +2539,11 @@ a {
     padding: 0 10%;
   }
 }
+@media only screen and (max-width: 765px) {
+  .regulations {
+    padding: 0;
+  }
+}
 .regulations__content-wrapper {
   height: 100%;
   overflow: auto;
@@ -2628,6 +2633,11 @@ a {
 .contributions__row:hover p {
   background-color: #eee;
 }
+@media only screen and (max-width: 765px) {
+  .contributions__row:hover p {
+    background-color: transparent;
+  }
+}
 .contributions__row:hover .radio-button {
   border-width: 3px !important;
 }
@@ -2646,7 +2656,7 @@ a {
   }
 }
 .contributions__row p span {
-  margin-top: 25px;
+  margin-top: 10px;
   display: none;
 }
 .contributions__row.error .radio-button {

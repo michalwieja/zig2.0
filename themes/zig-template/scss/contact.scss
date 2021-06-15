@@ -55,7 +55,7 @@
   }
 
   input, textarea {
-    padding: 1.25vw;
+    padding-left: 28px;
     border: 1px solid #c4c4c4;
     border-radius: 0;
     font-size: $f16;
@@ -64,6 +64,7 @@
 
   input {
     width: 25vw;
+    height: 60px;
   }
 
   .your-name {

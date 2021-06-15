@@ -123,7 +123,15 @@
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
-@include respond-to($xl) {
+@include respond-to($xl){
+  .header{
+    &__nav{
+      width: 70%;
+    }
+  }
+}
+
+@include respond-to($large) {
   .header {
     padding: $site-padding-tablet;
 
