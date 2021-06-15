@@ -2266,7 +2266,6 @@ a {
 @media only screen and (max-width: 960px) and (max-width: 765px) {
   .join-us .progress-bar__element.active {
     min-width: unset !important;
-    width: 100vw !important;
     flex: none;
   }
 }
@@ -2291,7 +2290,6 @@ a {
 }
 .join-us .progress-bar__element:nth-of-type(4) {
   border: none !important;
-  max-width: 170px;
 }
 @media only screen and (max-width: 1410px) {
   .join-us .progress-bar__element:nth-of-type(4) {
@@ -2771,6 +2769,11 @@ a {
   text-align: center;
   padding: 170px 55px;
   color: black;
+}
+@media only screen and (max-width: 765px) {
+  .join-us-modal__content {
+    padding: 0;
+  }
 }
 .join-us-modal__title {
   font-size: clamp(20px, 2.5vw, 36px);

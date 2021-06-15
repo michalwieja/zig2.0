@@ -1,4 +1,4 @@
-<div>
+
   <div class="padding-x join">
     <div class="subpage-banner">
       <div class="column subpage-title">
@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <div class="join-us">
+  <div class="join-us padding-x">
     <div class="progress-bar">
       <div class="progress-bar__element past">
         <p>01<br>Przeczytaj statut ZIG</p>
@@ -33,7 +33,7 @@
             Dziękujemy!
           </p>
           <p class="join-us-modal__text">
-            Aby dokończyć proces aplikacji pobierz deklarację, podpisz i wyślij skan na adres
+            Aby dokończyć proces aplikacji pobierz deklarację, podpisz i&nbsp;wyślij skan na adres
             biuro@zig.org.pl
           </p>
           <button disabled class="button" id="declaration-button">
@@ -75,4 +75,4 @@
       </div>
     </div>
   </div>
-</div>
+

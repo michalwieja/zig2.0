@@ -19,3 +19,6 @@
 10-05-2021 20:58:02 - ERROR - v: 7.1.4 - m: 12,6 MB, u: 1 - 
 10-05-2021 21:02:01 - ERROR - v: 7.1.4 - m: 12,5 MB, u: 1 - 
 10-05-2021 21:02:55 - ERROR - v: 7.1.4 - m: 12,5 MB, u: 1 - 
+17-05-2021 01:01:23 - ERROR - v: 7.1.4 - m: 13,6 MB, u: 0 - cURL error 28: Connection timed out after 5001 milliseconds (http_request_failed) - 
+17-05-2021 01:01:23 - ERROR - v: 7.1.4 - m: 13,3 MB, u: 0 - cURL error 28: Connection timed out after 5000 milliseconds (http_request_failed) - 
+17-05-2021 01:01:28 - ERROR - v: 7.1.4 - m: 13,3 MB, u: 0 - cURL error 28: Connection timed out after 5000 milliseconds (http_request_failed) - 
